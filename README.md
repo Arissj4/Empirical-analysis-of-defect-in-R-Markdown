@@ -108,7 +108,8 @@ pip install pandas requests matplotlib
 ---
 
 ## GitHub authentication
-Set a GitHub Personal Access Token (to avoid rate limits).
+To avoid GitHub API rate limits, set a GitHub Personal Access Token (classic) before running  
+`fetch_bug_commits_all.py`.
 
 - **Windows (cmd):**
 
@@ -122,7 +123,8 @@ Set a GitHub Personal Access Token (to avoid rate limits).
 
     export GITHUB_TOKEN=ghp_your_token_here
 
-> The token is only used by `fetch_bug_commits_all.py` to call the GitHub API.
+> The token is used only for GitHub API requests during the fetch step.
+> None of the other scripts requires authentication.
 
 ---
 
