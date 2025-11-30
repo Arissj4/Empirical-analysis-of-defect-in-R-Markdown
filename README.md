@@ -149,7 +149,7 @@ Run without any “require touch” flags to include **all bug-keyword commits**
 - `filenames` (semicolon-joined), `touches_r`, `touches_rmd`, `touches_r_or_rmd`, `is_merge`
 - `added, deleted, changed` and the unified **`diff`** (multi-line) for classification & audit
 
-> Tip: For sharing/browsing, you can generate a *lean* version without the `diff` column.
+> Tip: for sharing/browsing, you can also derive a lean version without the diff column while keeping the full version for analysis.
 
 ---
 
