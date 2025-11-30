@@ -60,6 +60,7 @@ This repository contains **all scripts and full results** used in the thesis, in
 
 ```bash
 pip install pandas requests matplotlib
+```
 
 
 ---
