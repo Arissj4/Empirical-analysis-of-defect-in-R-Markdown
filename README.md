@@ -69,8 +69,6 @@ Each bug-keyword commit is classified into one of the following ten categories u
 
 ## Repository layout
 
-## Repository layout
-
 - `/scripts`
   - `fetch_bug_commits_all.py` — fetch full-history bug-keyword commits from GitHub
   - `batch_rmd_defect_analysis.py` — classify commits (diff-aware, path-aware, R-aware)
