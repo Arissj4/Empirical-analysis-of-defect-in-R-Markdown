@@ -3,12 +3,15 @@ This repository contains the data, scripts, and reproducible pipeline for a thes
 
 We mine GitHub repositories, filter commits by **bug-fix keywords**, classify each commit into a **10-category defect taxonomy** using **diff-aware, R-specific rules**, and report per-repo and cross-repo defect distributions. For each commit we also record whether it touches **R source** (`.R`) and/or **R Markdown artifacts** (`.Rmd/.qmd/_site.yml/_output.yml/bookdown.yml`).
 
+This repository contains **all scripts and full results** used in the thesis, including the QC summary and the final dataset of QC-passing repositories.
+
 ---
 
 ## Goals
 - Build a high-quality dataset of **bug-keyword commits** from R/Rmd projects.
-- Classify defect types with rules that prioritize **diff & file-path evidence** over generic message text.
-- Provide **quality control (QC)** thresholds and **sensitivity analyses** to keep results robust and reproducible.
+- Classify defect types using rules that prioritize **diff & file-path evidence** instead of generic commit messages.
+- Provide **strict QC thresholds** to ensure reliability and reproducibility of defect distributions.
+- Record R/Rmd touch information to study the role of reproducible-research artifacts.
 
 ---
 
@@ -28,10 +31,10 @@ We mine GitHub repositories, filter commits by **bug-fix keywords**, classify ea
 
 ## Pipeline overview
 1. **Repository selection** (external step): CSV list of GitHub repos that meet activity criteria and contain R/Rmd artifacts.  
-2. **Fetch** bug-keyword commits across full history (per repo).  
+2. **Fetch** bug-keyword commits across full history per repository.  
 3. **Classify** each commit into the 10-category taxonomy (diff-aware + R-aware).  
-4. **Validate** with audit/QC thresholds (PASS/WARN/FAIL).  
-5. **Summarize** per-repo and **aggregate** cross-repo tables/plots.  
+4. **QC evaluation** using strict thresholds (PASS / FAIL).  
+5. **Summarize** per-repo results and **aggregate** cross-repo statistics.  
 6. **Sensitivity** analyses (baseline vs. excluding/reassigning suspects).
 
 ---
@@ -40,21 +43,24 @@ We mine GitHub repositories, filter commits by **bug-fix keywords**, classify ea
 
 - `/scripts`
   - `fetch_bug_commits_all.py` — fetch bug-keyword commits (full history)
-  - `batch_rmd_defect_analysis.py` — classify + generate per-repo outputs
-  - `pass_fail_thresholds.py` — PASS/WARN/FAIL QC gate (single or batch)
-  - `audit_one_repo.py` — flag message-based suspect relabels
-  - `summarize_repo.py` — per-repo summaries (percentages, touch rates)
-- `/data_bug` — output of fetch (one CSV per repo)
-- `/analysis` — charts, examples, cross-repo summaries
-- `repos_rmd_2022_candidates_passes.csv` — example repo list (owner/repo)
+  - `batch_rmd_defect_analysis.py` — classify + generate per-repo outputs (R-aware, diff-aware)
+  - `pass_fail_thresholds.py` — QC threshold evaluation (single or batch)
+  - `audit_one_repo.py` — optional message-based suspect relabels
+  - `summarize_repo.py` — category percentages + touch rates
+  - `batch_qc_all.py` — final QC table across all repositories
+- `/data_bug` — one directory or CSV per repo (raw + classified)
+- `/analysis` — QC summary, cross-repo tables, charts
+- `repos_rmd_2022_candidates_passes.csv` — example repo list
 
 ---
 
 ## Setup
 - **Python**: 3.10+ recommended  
-- **Install dependencies** (create a venv if you like):
+- **Install dependencies**:
 
-    pip install pandas requests matplotlib
+```bash
+pip install pandas requests matplotlib
+
 
 ---
 
