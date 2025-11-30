@@ -1,56 +1,100 @@
 # Empirical-analysis-of-defect-in-R-Markdown
+
 This repository contains the data, scripts, and reproducible pipeline for a thesis project studying bug-fix commits in the R / R Markdown ecosystem.
 
 We mine GitHub repositories, filter commits by **bug-fix keywords**, classify each commit into a **10-category defect taxonomy** using **diff-aware, R-specific rules**, and report per-repo and cross-repo defect distributions. For each commit we also record whether it touches **R source** (`.R`) and/or **R Markdown artifacts** (`.Rmd/.qmd/_site.yml/_output.yml/bookdown.yml`).
 
-This repository contains **all scripts and full results** used in the thesis, including the QC summary and the final dataset of QC-passing repositories.
+The repository includes the complete results of the final batch run: **57 repositories analyzed**, with QC status per repository (currently **53 PASS**, **4 FAIL**) stored in `analysis/qc_summary.csv`. All thesis analyses are based on the **QC-passing subset**.
 
 ---
 
 ## Goals
-- Build a high-quality dataset of **bug-keyword commits** from R/Rmd projects.
-- Classify defect types using rules that prioritize **diff & file-path evidence** instead of generic commit messages.
-- Provide **strict QC thresholds** to ensure reliability and reproducibility of defect distributions.
-- Record R/Rmd touch information to study the role of reproducible-research artifacts.
+- Build a high-quality dataset of **bug-keyword commits** from R/Rmd projects by mining full GitHub histories.
+- Classify defect types using a **diff-aware, path-aware, and R-aware** rule-based system rather than message-only heuristics.
+- Apply strict **quality control (QC) thresholds** (coverage, low-confidence, unknown, suspects) to ensure reliable and reproducible results.
+- Provide per-repo and cross-repo **defect distributions**, including `.R` / `.Rmd` touch rates for studying reproducible-research workflows.
+- Enable fully reproducible results through a transparent, script-driven pipeline and published intermediate artifacts.
 
 ---
 
 ## Defect taxonomy (10 categories)
+
+Each bug-keyword commit is classified into one of the following ten categories using a diff-aware, file-path-aware, R-specific scoring system:
+
 1. **Rendering / Conversion**  
+   Issues related to knitting, rendering, HTML/PDF output, `rmarkdown::render()`, or format conversion.
 2. **Dependency / Package**  
+   Missing/updated packages, version conflicts, namespace errors, or dependency breakages.
 3. **Environment / Configuration**  
+   Problems with project configuration, working directory, environment variables, options, YAML configs, or build settings.
 4. **Implementation / Logic**  
+   Incorrect computations, wrong function behavior, algorithmic bugs, or logic errors in `.R` or code chunks.
 5. **Data / Input Handling**  
+   Issues in loading, cleaning, parsing, or validating input data.
 6. **Visualization / Plotting**  
+   Bugs in plotting libraries (e.g., ggplot2), layout issues, plotting errors, or graphical output.
 7. **Reproducibility / Versioning**  
+   Breakages due to version mismatches, reproducibility failures, or non-deterministic behavior.
 8. **File I/O and Export**  
+   Reading/writing files, export failures, missing output files, or path resolution issues.
 9. **Documentation / Formatting**  
-10. **Miscellaneous / Unknown**
+   Errors in Markdown text, formatting, vignettes, README files, or inline documentation.
+10. **Miscellaneous / Unknown**  
+   Commits where evidence is insufficient or unclear, or that do not fit any other category.
 
 ---
 
 ## Pipeline overview
-1. **Repository selection** (external step): CSV list of GitHub repos that meet activity criteria and contain R/Rmd artifacts.  
-2. **Fetch** bug-keyword commits across full history per repository.  
-3. **Classify** each commit into the 10-category taxonomy (diff-aware + R-aware).  
-4. **QC evaluation** using strict thresholds (PASS / FAIL).  
-5. **Summarize** per-repo results and **aggregate** cross-repo statistics.  
-6. **Sensitivity** analyses (baseline vs. excluding/reassigning suspects).
+
+1. **Repository selection** (external step)  
+   Start from a CSV containing GitHub repositories that satisfy activity criteria and include R/Rmd artifacts.
+
+2. **Fetch** bug-keyword commits (full history)  
+   `fetch_bug_commits_all.py` mines each repository, filters by bug-fix keywords, records diff, filenames, and R/Rmd touch flags.
+
+3. **Classify** commits into the 10-category defect taxonomy  
+   `batch_rmd_defect_analysis.py` runs the diff-aware, path-aware, R-aware classifier and generates all per-repo classification files.
+
+4. **QC evaluation** (PASS / FAIL per repository)  
+   `batch_qc_all.py` applies strict thresholds (coverage, low-confidence, unknown, suspects) and produces a global `qc_summary.csv`.
+
+5. **Summarize** per-repo results and compute cross-repo aggregates  
+   `summarize_repo.py` creates category percentages + `.R` / `.Rmd` touch summaries; cross-repo tables and plots live in `/analysis`.
+
+6. **Sensitivity analysis**  
+   Compare baseline labels vs. “exclude suspects” vs. “reassign suspects.”  
+   (In the final dataset, suspects = 0%, so the sensitivity results are stable.)
 
 ---
 
 ## Repository layout
 
+## Repository layout
+
 - `/scripts`
-  - `fetch_bug_commits_all.py` — fetch bug-keyword commits (full history)
-  - `batch_rmd_defect_analysis.py` — classify + generate per-repo outputs (R-aware, diff-aware)
-  - `pass_fail_thresholds.py` — QC threshold evaluation (single or batch)
-  - `audit_one_repo.py` — optional message-based suspect relabels
-  - `summarize_repo.py` — category percentages + touch rates
-  - `batch_qc_all.py` — final QC table across all repositories
-- `/data_bug` — one directory or CSV per repo (raw + classified)
-- `/analysis` — QC summary, cross-repo tables, charts
-- `repos_rmd_2022_candidates_passes.csv` — example repo list
+  - `fetch_bug_commits_all.py` — fetch full-history bug-keyword commits from GitHub
+  - `batch_rmd_defect_analysis.py` — classify commits (diff-aware, path-aware, R-aware)
+  - `batch_qc_all.py` — compute QC metrics for all repositories and produce `qc_summary.csv`
+  - `pass_fail_thresholds.py` — QC evaluation for a single repo or directory
+  - `audit_one_repo.py` — optional suspect-relabelling audit (message-based)
+  - `summarize_repo.py` — per-repo summaries (category percentages, R/Rmd touch rates)
+
+- `/data_bug`  
+  Contains all raw and classified bug-commit datasets.  
+  Each repository has:
+  - `<repo>_bug_commits.csv`
+  - `<repo>_bug_commits_classified.csv`
+  - `<repo>_classified_category_percentages.csv`
+  - Additional per-repo QC and summary files
+
+- `/analysis`  
+  Contains cross-repo outputs:
+  - `qc_summary.csv` (final QC table — 53 PASS, 4 FAIL)
+  - cross-repo category counts and percentages
+  - aggregate charts and visualizations
+
+- `repos_rmd_2022_candidates_passes.csv`  
+  Example input list of repositories (owner/repo pairs).
 
 ---
 
