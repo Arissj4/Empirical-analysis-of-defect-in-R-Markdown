@@ -130,7 +130,7 @@ To avoid GitHub API rate limits, set a GitHub Personal Access Token (classic) be
 
 ## 1) Fetch bug-keyword commits (full history)
 
-Run without any “require touch” flags to include **all bug-keyword commits**, while still recording whether they touch R or Rmd.
+Run without any “require touch” flags to include **all bug-keyword commits**, while still recording whether they touch R or Rmd artifacts.
 
     python scripts/fetch_bug_commits_all.py \
       --repos-csv repos_rmd_2022_candidates_passes.csv \
