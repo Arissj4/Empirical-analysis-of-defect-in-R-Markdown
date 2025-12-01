@@ -1,0 +1,112 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+ajrgodfrey_BrailleR_bug_commits,Documentation / Formatting,b3d8480eae,2023-07-09T06:34:00Z,James,Remove AddXMLInternal to fix pkgdown build,7,"---FILE: man/AddXMLInternal.Rd---
+@@ -1,7 +0,0 @@
+- ame{AddXMLInternal}
+-\alias{.AddXMLAddTitle}
+-\title{Internal functions for adding the necessary XML content for accessible graphs in SVG format}
+-\description{Mostly i..."
+ajrgodfrey_BrailleR_bug_commits,Documentation / Formatting,e3feae3c92,2023-09-04T10:45:18Z,ajrgodfrey,spelling fixes,7,"---FILE: NEWS.md---
+@@ -16,7 +16,7 @@
+ - removed explicit CITATION file. This then required explicit date specification in DESCRIPTION.
+ 
+ # BrailleR 0.99.0
+-- did some cleaning up to de-clutter, check examples, add docu..."
+ajrgodfrey_BrailleR_bug_commits,Documentation / Formatting,3a47cbc93d,2017-10-02T04:24:21Z,dewarren,"Debra's project work on VI.ggplot and MakeAccessibleSVG.ggplot (#13)
+
+* Move all querying of the ggplot structure into f...",7,"---FILE: .Rbuildignore---
+@@ -0,0 +1 @@
++^\.travis\.yml$
+\ No newline at end of file
+
+---FILE: .travis.yml---
+@@ -0,0 +1,2 @@
++language: r
++cache: packages
+\ No newline at end of file
+
+---FILE: DESCRIPTION---
+@@ -47,6 +4..."
+ajrgodfrey_BrailleR_bug_commits,Dependency / Package,9ec694c32e,2023-07-09T09:05:47Z,ajrgodfrey,v1.0.2 fixes for CRAN submission,7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: BrailleR
+ Title: Improved Access for Blind Users
+-Version: 1.0.1
++Version: 1.0.2
+ Date: 2023-07-07
+ Authors@R: c(
+     person(""A. Jonathan R."", ""Godfrey"", , ""a.j.godfrey@..."
+ajrgodfrey_BrailleR_bug_commits,Dependency / Package,e8edf5ed32,2023-07-08T21:43:30Z,ajrgodfrey,v1.0.0 late fixes before CRAN submission,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: BrailleR
+ Title: Improved Access for Blind Users
+ Version: 1.0.0
+-Date: 2023-07-01
++Date: 2023-07-07
+ Authors@R: c(
+     person(""A. Jonathan R."", ""Godfrey"", , ""a.j.godfre..."
+ajrgodfrey_BrailleR_bug_commits,Dependency / Package,64ea2a73c7,2023-07-08T22:20:44Z,ajrgodfrey,v1.0.1 late fixes before CRAN submission,7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: BrailleR
+ Title: Improved Access for Blind Users
+-Version: 1.0.0
++Version: 1.0.1
+ Date: 2023-07-07
+ Authors@R: c(
+     person(""A. Jonathan R."", ""Godfrey"", , ""a.j.godfrey@..."
+ajrgodfrey_BrailleR_bug_commits,Implementation / Logic,6a5d41bd4b,2023-09-04T09:52:33Z,ajrgodfrey,fix,6,"---FILE: R/UseTemplate.R---
+@@ -54,9 +54,6 @@ message(paste(""The"", file, ""uses the following terms that must be replaced:"", Su
+         .InteractiveOnly()
+ file=NULL
+       }
+-      } else {
+-        .InteractiveOnly()
+-..."
+ajrgodfrey_BrailleR_bug_commits,Implementation / Logic,d308276f96,2023-07-09T09:05:21Z,ajrgodfrey,v1.0.2 fixes for CRAN submission,6,"---FILE: R/AddXMLInternal.R---
+@@ -624,7 +624,7 @@
+   stop(""This type is not supported: "", class(graphObject))
+ }
+ 
+-.AddXMLGGplotGeomItem.smooth <- function(root, graphObject, position = 1, id = NULL, speech, speech2 = ..."
+ajrgodfrey_BrailleR_bug_commits,Implementation / Logic,d9be5385fb,2023-02-17T07:00:40Z,ajrgodfrey,v0.99.0 late fixes before major release,6,"---FILE: R/FindReplace.R---
+@@ -1,7 +1,7 @@
+ FindReplace =
+     function(file, find, replace) {
+       if (file.exists(file)) {
+-        cat("" "", file = file, append = TRUE)  # otherwise warnings returned on
++        cat..."
+ajrgodfrey_BrailleR_bug_commits,Rendering / Conversion,3813af2aa7,2023-01-15T21:57:25Z,James,"Fix build errors and cleanup files from examples
+
+There were additional help pages and the old GettingStarted vignettes ...",6,"---FILE: R/ViewSVG.R---
+@@ -20,7 +20,7 @@ ViewSVG = function(file = ""index""){
+   
+   
+   if(interactive()){
+-    browseURL(""index.html"") 
++    browseURL(fileName) 
+   }
+   
+   return(invisible(NULL))
+
+---FILE: man/AddXML..."
+ajrgodfrey_BrailleR_bug_commits,Rendering / Conversion,f1936abae3,2021-09-25T15:49:08Z,Henrik Bengtsson,"Fix URLs that redirects to other URLS, e.g. HTTP -> HTTPS",6,"---FILE: .Rhistory---
+@@ -1,4 +1,3 @@
+-q()
+ library(BrailleR)
+ update.packages(ask=F)
+ q()
+@@ -510,3 +509,4 @@ q()
+ library(usethis)
+ use_github_action(""pkgdown"")
+ q()
++remotes::install_github(""ajrgodfrey/BrailleR"", depe..."
+ajrgodfrey_BrailleR_bug_commits,Rendering / Conversion,18cf64a0f7,2023-02-16T06:23:28Z,ajrgodfrey,v0.99.0 late fixes before major release,3,"---FILE: R/PandocAll.R---
+@@ -6,11 +6,8 @@ for(i in FileList){
+ Outfile = sub(paste0(""."", intype), paste0(""."", outtype),  i)
+ if(file.mtime(i) > file.mtime(Outfile)| !file.exists(Outfile)) {
+ shell(paste0('pandoc -s ""', ..."
+ajrgodfrey_BrailleR_bug_commits,Environment / Configuration,3000f5a918,2023-02-16T04:49:17Z,ajrgodfrey,v0.99.0 late fixes before major release,3,"---FILE: R/Options.R---
+@@ -293,7 +293,7 @@ SetPValDigits =
+       digits = as.integer(digits)
+       if (digits > 1) {
+         options(BrailleR.PValDigits = digits)
+-        .UpdatedSettingMSG(What=""BrailleR.PValDigits..."

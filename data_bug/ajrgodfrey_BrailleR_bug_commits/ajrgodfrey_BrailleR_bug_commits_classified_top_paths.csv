@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,17
+NEWS.md,17
+NAMESPACE,15
+R/VIInternals.R,9
+R/Messages.R,9
+README.md,8
+R/Options.R,8
+R/AddXMLInternal.R,7
+R/ScatterPlot.R,7
+R/Warnings.R,6
+R/AddXMLMethod.R,6
+R/VIMethod3_TH.R,6
+R/SVGThis.R,5
+man/TSPlot.Rd,5
+man/BrailleR-package.Rd,4
