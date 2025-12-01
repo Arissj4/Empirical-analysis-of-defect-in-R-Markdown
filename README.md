@@ -70,12 +70,15 @@ Each bug-keyword commit is classified into one of the following ten categories u
 ## Repository layout
 
 - `/scripts`
-  - `fetch_bug_commits_all.py` — fetch full-history bug-keyword commits from GitHub
-  - `batch_rmd_defect_analysis.py` — classify commits (diff-aware, path-aware, R-aware)
-  - `batch_qc_all.py` — compute QC metrics for all repositories and produce `qc_summary.csv`
-  - `pass_fail_thresholds.py` — QC evaluation for a single repo or directory
-  - `audit_one_repo.py` — optional suspect-relabelling audit (message-based)
-  - `summarize_repo.py` — per-repo summaries (category percentages, R/Rmd touch rates)
+  - `find_rmd_repos_2022.py` — helper to discover/select candidate GitHub repositories containing R / R Markdown artifacts
+  - `fetch_bug_commits_all.py` — fetch full-history bug-keyword commits from GitHub for a given repo list
+  - `batch_rmd_defect_analysis.py` — classify commits (diff-aware, path-aware, R-aware) into the 10-category taxonomy
+  - `batch_qc_all.py` — compute QC metrics for all repositories and produce `analysis/qc_summary.csv`
+  - `pass_fail_thresholds.py` — QC evaluation for a single repo or directory (coverage, low-confidence, unknown, suspects)
+  - `audit_one_repo.py` — optional suspect-relabelling audit based on message/category mismatches
+  - `summarize_repo.py` — per-repo summaries (category percentages, R/Rmd touch rates, top paths)
+  - `batch_summarize_repos.py` — run per-repo summarization for all repositories in `data_bug/` and log failures
+
 
 - `/data_bug`  
   Contains all raw and classified bug-commit datasets.  
