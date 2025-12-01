@@ -236,50 +236,107 @@ Generate additional summaries for each repository to support both per-project an
   Most frequently modified paths associated with defect types (if filenames available).
 
 **These summaries are used to create:**
-
-**Optional:** a four-way split across all commits (`R only`, `Rmd only`, `Both`, `Neither`) can be computed from the flags `touches_r`/`touches_rmd` for figures.
+- per-repo visualizations,
+- cross-repo aggregated tables (stored in `/analysis`)
+- and inputs for the thesis plots and interpretation.
+  
+**Optional:** a four-way split across all commits (`R only`, `Rmd only`, `Both`, `Neither`) can be computed from the flags `touches_r` / `touches_rmd` and used for additional figures.
 
 ---
 
 ## Sensitivity analysis (robustness)
-We provide three views to demonstrate robustness of category shares:
-1. **Baseline** (original labels)
-2. **Excluding suspects** (drop message-mismatch rows)
-3. **Reassigned suspects** (map each suspect to its hinted category)
 
-If the category ranking and major percentages are stable across these views, the conclusions are robust.
+To evaluate the stability of the defect distributions, we consider three alternative views of the dataset:
+1. **Baseline**
+   Original classifier output for all commits.
+2. **Excluding suspects**
+   Drops any commits flagged as message/category mismatches.  
+   (In this dataset, suspects = 0%, so the baseline and this view are identical.)
+3. **Reassigned suspects**
+   Reassigns each suspect commit to the category hinted by message-level evidence.  
+   (Again, suspects = 0%, so this view also matches the baseline.)
+
+Because suspects = 0% across all repositories, the defect-category percentages are **highly stable**, and sensitivity analysis confirms that no categories are sensitive to suspect relabeling.
 
 ---
 
 ## Reproducibility & data hygiene
-- Keep a **full** CSV (with `diff`) for classification/review and optionally a **lean** CSV (no `diff`) for readability.
-- Multi-line `diff` cells may look like extra lines in raw viewers; use a CSV-aware tool (Excel import / pandas) to see them properly.
-- Avoid committing secrets: **do not** commit your GitHub token.
+
+- Keep a **full** version of each `<repo>_bug_commits.csv` containing the `diff` column, since diff content is required for classification and audit reproducibility.
+- Optionally generate a **lean** version without the `diff` column for easier browsing or sharing.
+- Multi-line `diff` entries may appear as extra rows in raw text viewers; use a CSV-aware tool (pandas, spreadsheet import) to view them correctly.
+- Do **not** commit secrets such as your GitHub token.
+- All scripts in `/scripts` produce deterministic outputs when run with the same repository list and environment, ensuring full reproducibility.
+
 
 ---
 
 ## Known limitations / threats to validity
-- **Keyword filter** may miss some non-keyword bug fixes (trade-off for precision/scale).
-- **Rule-based labeling** can misclassify edge cases; we mitigate with diff/path weighting, suspect-relabel audits, and sensitivity analysis.
-- **Project diversity** (size, domain) can influence category distribution; we report cross-repo variation and include QC gates.
+
+- **Keyword filtering bias:**  
+  The initial bug-keyword filter may miss bug-fix commits that do not contain common keywords (precision over recall trade-off).
+
+- **Rule-based classifier limitations:**  
+  A rule-based system may misclassify edge cases, especially commits with large refactors, minimal diffs, or highly generic messages.  
+  Mitigations include diff/path prioritization, R-aware cues, and strict QC thresholds.
+
+- **Repository heterogeneity:**  
+  Repositories vary in size, domain, coding style, and documentation practices.  
+  This naturally affects defect distributions; we address this by reporting both per-repo and cross-repo variation.
+
+- **Failing repositories:**  
+  The 4 QC-failing repositories contain many low-confidence commits or insufficient evidence.  
+  They are kept in the dataset for transparency and are analyzed **qualitatively** through manual inspection, but they are excluded from the quantitative aggregate analysis.
+
+- **Commit message ambiguity:**  
+  Messages alone are unreliable; this is controlled by weighting message evidence lightly and suppressing message-only classification for Implementation/Logic.
+
 
 ---
 
-## Results (fill as you go)
-- QC summary: `analysis/qc_summary.csv`
-- Cross-repo percentages: `analysis/cross_repo_category_counts.csv`
-- Charts: `analysis/cross_repo_category_totals.png`
+## Results
 
-> Add a sentence or two here once you’ve run the full batch (e.g., “Implementation/Logic and Dependency/Package dominate across N repos; Rendering/Conversion and Documentation/Formatting show the highest `.Rmd` touch rates,” etc.).
+The full quality-control outcome for all repositories is available in:
+
+- `analysis/qc_summary.csv` — PASS/FAIL status with coverage, low-confidence, unknown, and suspect percentages.
+
+### Summary of the final dataset
+- **Total repositories analyzed:** 57  
+- **QC-passing repositories:** 53  
+- **QC-failing repositories:** 4  
+- **Unknown commits:** 0% across all repositories  
+- **Suspects:** 0% across all repositories  
+
+All **quantitative** analyses in the thesis (category distributions, cross-repo comparisons, R/Rmd touch patterns) are based on the **53 QC-passing repositories**, ensuring consistency with the predefined QC thresholds.
+
+The **4 failing repositories** are retained for transparency and undergo **manual qualitative analysis** to understand:
+- why coverage was low,
+- why many commits were low-confidence,
+- and what types of ambiguous patterns caused classification difficulty.
+
+### Cross-repo outputs
+- `analysis/cross_repo_category_counts.csv`  
+  Aggregated defect counts across all QC-passing repositories.
+- `analysis/cross_repo_category_totals.png`  
+  Visualization of overall defect distribution.
+- Other summary tables (per-category percentages, R/Rmd touch rates) are generated in `/analysis` depending on configured scripts.
+
+These results form the basis for the empirical findings reported in the thesis.
 
 ---
 
 ## License & citation
-- Add your preferred OSS license (`LICENSE` file).
-- Cite the base empirical study you build on in your thesis/README and include these scripts and CSVs in your replication package.
+
+This repository is part of a university thesis project.  
+Choose any open-source license if you wish to make the scripts and datasets reusable (e.g., MIT, Apache 2.0, GPL).  
+To enable others to reference or reproduce the study, include the chosen license as a `LICENSE` file in the root of the repository.
+
+If you use or adapt this pipeline, please cite the associated thesis or this repository directly.
 
 ---
 
 ## Contact
-For questions or issues, open a GitHub issue or contact the author of the thesis project.
+
+For questions, issues, or replication details, feel free to open a GitHub issue or contact the author of this thesis project.
+
 
