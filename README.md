@@ -236,6 +236,7 @@ Generate additional summaries for each repository to support both per-project an
   Most frequently modified paths associated with defect types (if filenames available).
 
 **Batch summarization (recommended):**
+
 To summarize all repositories inside data_bug/ automatically:
 
    `python scripts/batch_summarize_repos.py --dir data_bug`
