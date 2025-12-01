@@ -207,7 +207,7 @@ A repository is marked PASS only if it satisfies all of the following:
 **Final QC results (full dataset)**
 After running the full pipeline:
 - **Repositories analyzed: 57**
-- *Pass: 53*
+- **Pass: 53**
 - **Fail: 4**
 - **Unknown commits: 0% across all repositories**
 - **Suspects: 0% across all repositories**
@@ -234,6 +234,8 @@ Generate additional summaries for each repository to support both per-project an
   R source touch rates by defect category.
 - `<repo>_top_paths.csv`
   Most frequently modified paths associated with defect types (if filenames available).
+
+**These summaries are used to create:**
 
 **Optional:** a four-way split across all commits (`R only`, `Rmd only`, `Both`, `Neither`) can be computed from the flags `touches_r`/`touches_rmd` for figures.
 
