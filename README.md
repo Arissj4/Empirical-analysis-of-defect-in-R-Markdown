@@ -235,6 +235,13 @@ Generate additional summaries for each repository to support both per-project an
 - `<repo>_top_paths.csv`
   Most frequently modified paths associated with defect types (if filenames available).
 
+**Batch summarization (recommended):**
+To summarize all repositories inside data_bug/ automatically:
+   `python scripts/batch_summarize_repos.py --dir data_bug`
+
+If a repository is missing a classified file or cannot be summarized, it will be skipped and recorded in:
+   `data_bug/summarize_failed_repos.csv`
+
 **These summaries are used to create:**
 - per-repo visualizations,
 - cross-repo aggregated tables (stored in `/analysis`)
