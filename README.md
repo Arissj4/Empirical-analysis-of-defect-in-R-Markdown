@@ -155,17 +155,21 @@ Run without any “require touch” flags to include **all bug-keyword commits**
 
 ## 2) Classify defect types
 
+Run the R/Rmd-aware classifier on all fetched bug-keyword commits:
+
     python scripts/batch_rmd_defect_analysis.py --dir data_bug
+
+This script reads each \<owner>_\<repo>_bug_commits.csv, applies a diff-aware, path-aware, R-aware scoring system, and assigns each commit to one of the 10 defect categories.
 
 **Summary of rules & scoring**
 - Weights: **diff = 3, path = 3, message = 1** (message-only for *Implementation/Logic* is suppressed).
 - Tie-break: prefer categories with **diff/path** evidence (e.g., `rmarkdown::render`, `ggplot(`, `README.Rmd`, `vignettes/`).
-- Paths: ensure **both** `.R` and `.Rmd` are recognized as “code paths” for *Implementation/Logic*; rendering/docs use Rmd-centric cues.
+- Paths: ensure **both** `.R` and `.Rmd` are recognized as “code paths” for *Implementation/Logic*; rendering/docs use Rmd-centric cues and R Markdown–specific files.
 
 **Outputs (per repo):**
 - `<repo>_bug_commits_classified.csv` (commit → category + score + touches_r/md flags)  
 - `<repo>_bug_commits_category_counts.png` (bar chart)  
-- `<repo>_bug_commits_examples.csv` and `_examples_appendix.pdf` (illustrative commits)
+- `<repo>_bug_commits_examples.csv` and `<repo>_bug_commits_examples_appendix.pdf` (illustrative commits)
 
 **Cross-repo outputs (in `/analysis`):**
 - `cross_repo_category_counts.csv`
@@ -177,35 +181,59 @@ Run without any “require touch” flags to include **all bug-keyword commits**
 
 ## 3) QC gate: PASS / WARN / FAIL
 
+Evaluate the quality of each repository’s classification results using consistency and coverage thresholds.
+
 **Single repo:**
 
     python scripts/pass_fail_thresholds.py --base data_bug/<REPO>/<REPO>_bug_commits --quiet
 
-**Batch → CSV:**
+**Batch mode → produce full QC summary:**
 
-    python scripts/pass_fail_thresholds.py --dir data_bug --out analysis/qc_summary.csv
+    python scripts/batch_qc_all.py --dir data_bug --out analysis/qc_summary.csv
 
-**Thresholds**
-- **Coverage ≥ 85%** (share with `category_score > 0`)
-- **Low-confidence ≤ 15%** (share with `category_score ≤ 2`)
+**QC thresholds**
+A repository is marked PASS only if it satisfies all of the following:
+- **Coverage ≥ 85%**
+  `Share of bug-keyword commits with a non-zero category score.`
+- **Low-confidence ≤ 15%**
+  `Share of commits classified with score ≤ 2.`
 - **Unknown ≤ 10%**
-- **Suspects ≤ 10%** — **WARN** if > **2%**
+  `Commits receiving total score = 0.`
+- **Suspects ≤ 10%**
+  `(With a WARN flag if suspects > 2%)`
 
 > `pass_fail_thresholds.py` can recompute suspects (message-only heuristic) if a saved `*_suspect_relabels.csv` isn’t present.
+
+**Final QC results (full dataset)**
+After running the full pipeline:
+- **Repositories analyzed: 57**
+- *Pass: 53*
+- **Fail: 4**
+- **Unknown commits: 0% across all repositories**
+- **Suspects: 0% across all repositories**
+
+The main quantitative analysis in the thesis is based on the 53 QC-passing repositories.  
+The 4 failing repositories are retained for transparency and are analyzed separately through manual inspection and qualitative discussion.
+
+`analysis/qc_summary.csv` contains the full PASS/FAIL table with per-repo metrics.
 
 ---
 
 ## 4) Per-repo summaries
 
-Create percentages & touch rates next to the input CSV:
+Generate additional summaries for each repository to support both per-project analysis and cross-repo aggregation:
 
     py scripts/summarize_repo.py "data_bug/<REPO>/<REPO>_bug_commits.csv"
 
-**Artifacts created:**
-- `_category_percentages.csv`
-- `_rmd_touch_by_category.csv`
-- `_r_touch_by_category.csv`
-- `_top_paths.csv` (if filenames available)
+**Artifacts created (per repo):**
+- `<repo>_classified_category_percentages.csv`
+  Percentage of commits in each defect category.
+- `<repo>_rmd_touch_by_category.csv`
+  R Markdown touch rates by defect category.
+- `<repo>_r_touch_by_category.csv`
+  R source touch rates by defect category.
+- `<repo>_top_paths.csv`
+  Most frequently modified paths associated with defect types (if filenames available).
 
 **Optional:** a four-way split across all commits (`R only`, `Rmd only`, `Both`, `Neither`) can be computed from the flags `touches_r`/`touches_rmd` for figures.
 
