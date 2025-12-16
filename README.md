@@ -6,6 +6,9 @@ We mine GitHub repositories, filter commits by **bug-fix keywords**, classify ea
 
 The repository includes the complete results of the final batch run: **57 repositories analyzed**, with QC status per repository (currently **53 PASS**, **4 FAIL**) stored in `analysis/qc_summary.csv`. All thesis analyses are based on the **QC-passing subset**.
 
+In addition to per-repository summaries, the project includes cross-repository quantitative statistics computed over QC-passing repositories only.
+Repositories failing QC are retained for transparency and analyzed qualitatively to explain failure modes, but are excluded from quantitative aggregation.
+
 ---
 
 ## Goals
