@@ -1,0 +1,194 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+rstudio_bslib_bug_commits,Documentation / Formatting,ba1be9aebb,2025-10-14T23:45:07Z,Carson Sievert,"feat: Add `input_submit_textarea()` input element (#1204)
+
+* feat(input_submit_button, input_submit_textarea): Add new i...",7,"---FILE: DESCRIPTION---
+@@ -52,7 +52,7 @@ Suggests:
+     magrittr,
+     rappdirs,
+     rmarkdown (>= 2.7),
+-    shiny (> 1.8.1),
++    shiny (>= 1.11.1),
+     testthat,
+     thematic,
+     tools,
+@@ -99,6 +99,7 @@ Collate..."
+rstudio_bslib_bug_commits,Documentation / Formatting,5fb1f24ab8,2025-10-24T15:52:18Z,Garrick Aden-Buie,"chore: Add AGENTS.md (#1245)
+
+* chore: Add AGENTS.md
+
+* chore: build ignore AGENTS.md
+
+* `air format` (GitHub Actions)
+
+...",7,"---FILE: .Rbuildignore---
+@@ -32,3 +32,4 @@ inst/lib/bsw3/.npmignore
+ ^cran-comments\.md$
+ ^inst/examples-shiny/brand.yml/Monda\.ttf$
+ ^inst/examples-shiny/brand.yml/Monda-OFL\.txt$
++^AGENTS\.md$
+
+---FILE: AGENTS.md---
+@..."
+rstudio_bslib_bug_commits,Documentation / Formatting,68844e2b50,2025-04-09T12:56:43Z,Garrick Aden-Buie,"fix(bs_brand_bundle): Don't re-resolve `brand` (#1196)
+
+* fix(bs_brand_bundle): Don't re-resolve `brand`
+
+* docs: Add ne...",7,"---FILE: NEWS.md---
+@@ -6,7 +6,9 @@
+ 
+ * Fixed an issue where the `<main>` areas of `page_sidebar()` and `page_navbar()` (with a `sidebar`) were made to be a fillable containers even when `fillable = FALSE`. (#1188)
+ 
+-*..."
+rstudio_bslib_bug_commits,Implementation / Logic,4af29c02b5,2025-04-17T17:05:20Z,Garrick Aden-Buie,"fix(brand_pluck): If not subsettable, return FALSE",6,"---FILE: R/bs-theme-preset-brand.R---
+@@ -785,7 +785,8 @@ brand_has <- function(brand, ...) {
+   x <- brand
+ 
+   for (f in c(...)) {
+-    if (is.null(x[[f]])) return(FALSE)
++    val <- tryCatch(x[[f]], error = function(e..."
+rstudio_bslib_bug_commits,Implementation / Logic,f2fc47529b,2025-04-17T16:35:20Z,Garrick Aden-Buie,fix(example): Correctly use download or save button,6,"---FILE: inst/examples-shiny/brand.yml/app.R---
+@@ -16,17 +16,6 @@ options(
+   # shiny.autoreload.pattern = ""_brand[.]yml|app[.]R|[.]s?css"" ## TODO: Enable after fixing autoreload
+ )
+ 
+-if (!file.exists(""Monda.ttf"")) {
+-..."
+rstudio_bslib_bug_commits,Implementation / Logic,2e6c8d4bbe,2025-01-09T17:55:00Z,Garrick Aden-Buie,"fix(brand): Ignore brand when checking or creating pre-compiled CSS themes (#1161)
+
+* fix(brand): Ignore brand when chec...",6,"---FILE: R/precompiled.R---
+@@ -10,7 +10,7 @@ precompiled_css <- local({
+       themes <<- lapply(versions, function(version) {
+         list(
+           version = version,
+-          theme = bs_theme(version)
++         ..."
+rstudio_bslib_bug_commits,Dependency / Package,220fa5d18f,2025-09-22T15:19:53Z,Garrick Aden-Buie,"fix: Suggest lattice so that it's available for tests (#1231)
+
+* fix: Suggest lattice so that it's available for tests
+
+...",7,"---FILE: DESCRIPTION---
+@@ -48,6 +48,7 @@ Suggests:
+     future,
+     ggplot2,
+     knitr,
++    lattice,
+     magrittr,
+     rappdirs,
+     rmarkdown (>= 2.7),"
+rstudio_bslib_bug_commits,Dependency / Package,112efd0e8f,2024-07-29T20:30:01Z,Carson Sievert,"v0.8.0 release candidate (#1094)
+
+* Start v0.8.0 release candidate
+
+* `yarn build` (GitHub Actions)
+
+* ran revdepche...",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: bslib
+ Title: Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
+-Version: 0.7.0.9000
++Version: 0.8.0
+ Authors@R: c(
+     person(""Carson"", ""Sievert"", , ""carson@..."
+rstudio_bslib_bug_commits,Dependency / Package,cf7a5c4e8f,2020-08-27T20:49:34Z,Carson,R CMD check fixes,7,"---FILE: DESCRIPTION---
+@@ -32,7 +32,7 @@ Suggests:
+     testthat,
+     digest,
+     thematic
+-License: MIT | file LICENSE
++License: MIT + file LICENSE
+ Encoding: UTF-8
+ LazyData: true
+ RoxygenNote: 7.1.1
+
+---FILE: R/bs_..."
+rstudio_bslib_bug_commits,Data / Input Handling,7fc84b6ffc,2025-01-21T18:57:32Z,Garrick Aden-Buie,"examples(brand): Show download button if app is packaged too (#1168)
+
+* examples(brand): Show download button if app is ...",6,"---FILE: inst/examples-shiny/brand.yml/app.R---
+@@ -12,19 +12,19 @@ library(future)
+ plan(multisession)
+ 
+ options(
+-	bslib.color_contrast_warnings = FALSE
+-	# shiny.autoreload.pattern = ""_brand[.]yml|app[.]R|[.]s?css"" #..."
+rstudio_bslib_bug_commits,Data / Input Handling,0589c64fee,2021-01-04T18:56:59Z,Carson Sievert,"Follow up to #199: set bg transparent in pre code blocks to mimic BS3's model (#202)
+
+* Follow up to #199: set bg transp...",4,"---FILE: inst/lib/bs/scss/_code.scss---
+@@ -42,6 +42,7 @@ pre {
+ 
+   // Account for some code outputs that place code tags in pre tags
+   code {
++    background-color: transparent;
+     @include font-size(inherit);
+     ..."
+rstudio_bslib_bug_commits,Data / Input Handling,4f2b8f8c95,2025-01-07T21:31:20Z,Garrick Aden-Buie,"fix(examples): Fix deployment of brand.yml example (#1157)
+
+* fix: use `brand.yml` for deployed example app name too
+* f...",3,"---FILE: inst/examples-shiny/brand.yml/deploy.R---
+@@ -1,9 +1,9 @@
+ withr::local_temp_libpaths()
+-install.packages(c(""shiny"", ""ggplot2"", ""yaml"", ""thematic""))
++install.packages(c(""shiny"", ""ggplot2"", ""yaml"", ""thematic"", ""m..."
+rstudio_bslib_bug_commits,Environment / Configuration,141f69fad2,2021-01-27T15:38:50Z,Carson Sievert,"Patch bootstrap-accessibility plugin to always hide rather than toggle on dropdown's focusout (#241)
+
+* Patch bootstrap-...",6,"---FILE: .gitignore---
+@@ -7,3 +7,6 @@ inst/themer-demo/deploy/rsconnect
+ 
+ # GHA remotes installation
+ .github/r-depends.rds
++
++# yarn
++inst/yarn.lock
+
+---FILE: inst/lib/bs-a11y-p/plugins/js/bootstrap-accessibility.js--..."
+rstudio_bslib_bug_commits,Environment / Configuration,b9d6af456f,2025-01-07T19:07:39Z,Garrick Aden-Buie,fix: path to deploy brand.yml example app (#1156),4,"---FILE: inst/examples-shiny/brand.yml/deploy.R---
+@@ -2,7 +2,7 @@ withr::local_temp_libpaths()
+ install.packages(c(""shiny"", ""ggplot2"", ""yaml"", ""thematic""))
+ 
+ rsconnect::deployApp(
+-  rprojroot::find_package_root_file(""..."
+rstudio_bslib_bug_commits,Environment / Configuration,3112b26177,2019-11-09T00:17:09Z,Joe Cheng,Don't include test-apps dir in r package; fix pills example,3,"---FILE: .Rbuildignore---
+@@ -2,3 +2,4 @@
+ ^\.Rproj\.user$
+ inst/node_modules/.yarn-integrity
+ inst/node_modules/bootswatch/.github
++^test-apps$
+
+---FILE: test-apps/bs3-navs/navbar-bs4pills.html---
+@@ -8,7 +8,7 @@
+   <li..."
+rstudio_bslib_bug_commits,Rendering / Conversion,af4342e8f5,2021-04-08T16:55:36Z,Carson,Fix some pkgdown hyperlinks,6,"---FILE: NEWS.md---
+@@ -16,7 +16,7 @@
+ 
+ * Closed #236, #230, #242, #187, #215, #250: Addressed various cosmetic issues with CSS (#249). 
+ * Closed #289: collapsed navbar toggle now correctly floats to the right (#290).
+..."
+rstudio_bslib_bug_commits,Rendering / Conversion,086bd5df69,2020-01-21T23:55:40Z,Carson,Decrease base font-size and fix pandoc table alignment,4,"---FILE: R/layers.R---
+@@ -5,8 +5,7 @@
+ bootstrap_layer <- function(version) {
+   if (version %in% c(""4"", ""4-3"")) {
+     # Should match https://github.com/twbs/bootstrap/blob/master/scss/bootstrap.scss
+-
+-    return(sass..."
+rstudio_bslib_bug_commits,Rendering / Conversion,c925ae5705,2024-11-21T21:37:16Z,Garrick Aden-Buie,"fix(shiny-preset): Improve Sass variable support (#1134)
+
+For page_navbar(), don't set CSS vars holding the default back...",0,"---FILE: inst/builtin/bs5/shiny/_rules.scss---
+@@ -175,8 +175,12 @@ $bslib-checkbox-radio-margin-right: 0.35em !default;
+ 
+   .bslib-page-navbar, .bslib-page-dashboard {
+     > .navbar {
+-      --bslib-navbar-default-bg:..."
+rstudio_bslib_bug_commits,Visualization / Plotting,07717dd872,2023-11-16T03:37:17Z,Garrick Aden-Buie,fix(shiny-preset): Add `bslib-page-dashboard` for grey background (#906),6,"---FILE: NEWS.md---
+@@ -31,9 +31,9 @@
+ 
+ * Added `input_dark_mode()`, a new input control that provides a toggle button that can be used to switch between the dark and light modes when using Bootstrap 5.3. By default, da..."
+rstudio_bslib_bug_commits,Visualization / Plotting,ef71e10894,2019-11-20T22:16:02Z,Carson,fix typo in bs4_themes_join() that was causing it to ignore html deps in the 2nd theme,4,"---FILE: R/themes.R---
+@@ -41,7 +41,7 @@ bs4_themes_join <- function(theme1 = bs4_theme(), theme2 = bs4_theme()) {
+   bs4_theme(
+     pre = as_sass(paste0(theme1$pre, theme2$pre)),
+     post = as_sass(paste0(theme2$post,..."
+rstudio_bslib_bug_commits,Visualization / Plotting,c2ca029565,2021-01-08T20:27:14Z,Winston Chang,Fix dodging for GeomErrorBar example (#218),3,"---FILE: inst/themer-demo/global.R---
+@@ -54,8 +54,8 @@ ggplot2_examples <- list(
+     upper = c(1.1, 5.3, 3.3, 4.2),
+     lower = c(0.8, 4.6, 2.4, 3.6)
+   ), aes(trt, resp, fill = group)) +
+-    geom_col(position = ""dod..."

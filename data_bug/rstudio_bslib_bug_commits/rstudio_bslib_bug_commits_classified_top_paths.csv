@@ -1,0 +1,16 @@
+path,count
+NEWS.md,54
+R/sysdata.rda,42
+DESCRIPTION,35
+inst/css-precompiled/5/bootstrap.min.css,24
+R/bs-theme.R,22
+inst/components/dist/components.css,21
+inst/css-precompiled/4/bootstrap.min.css,18
+_pkgdown.yml,17
+R/navs-legacy.R,15
+inst/builtin/bs5/shiny/_rules.scss,15
+README.Rmd,15
+inst/components/dist/components.js,14
+inst/components/dist/components.min.js,14
+R/bs-theme-preview.R,14
+R/page.R,14
