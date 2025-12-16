@@ -1,0 +1,140 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Implementation / Logic,7e3017f0cb,2024-07-18T15:08:13Z,Si Shi,Fix scenario comparison tool,6,"---FILE: src/utils/ScenarioComparison.rsc---
+@@ -169,7 +169,7 @@ Macro ""Compare Summary Tables"" (MacroOpts)
+         {""/output/_summaries/resident_nhb/nhb_trip_stats_by_modeperiod.csv"", {""trip_type"", ""period"", ""mode""}, {..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Implementation / Logic,404ed486b7,2024-07-16T17:54:38Z,Si Shi,"Reporting tools fix
+
+- Revise mode share summary
+- Fix bug in the transit comparison tool when switch to table class
+- U...",6,"---FILE: src/19 - Summaries.rsc---
+@@ -2722,14 +2722,14 @@ Macro ""Performance Measures Reports"" (Args)
+     // Build an equivalency array that maps modes to summary mode levels
+     equiv = {
+       sov: ""sov"",
+-      au..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Implementation / Logic,2f212aae14,2024-07-10T20:24:26Z,Kyle Ward,"Set threads to 1 or PM and NT pnr skim
+
+This prevents differences introduced by hyperthreading with a fixed pnr usage ta...",6,"---FILE: src/02 - Network Calculations.rsc---
+@@ -1251,6 +1251,9 @@ Macro ""Set Route Network"" (Args, opts)
+             if GetFileInfo(Args.(""ReturnParkingLotUsed""+transit_mode)) <> null then do
+                 opts.Par..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Rendering / Conversion,bda5b21cf9,2021-02-10T19:16:24Z,Kyle Ward,"Complete first draft of the non-work, NHB regression models",6,"---FILE: docs/data/output/nhb/N_NH_K12_All_hov.csv---
+@@ -0,0 +1,5 @@
++trip_type,estimated_as,estimate,std.error,statistic,p.value
++N_HB_K12_All_hov,N_HB_K12_All_hov,0.07793669653454269,0.0032294077493293773,24.133433305..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Rendering / Conversion,9943f22490,2021-05-18T18:53:51Z,David Ory,"correct airport TAZ error, enplane from soc-ec",6,"---FILE: docs/R/airport.R---
+@@ -33,9 +33,8 @@ output_production_filename <- paste0(output_dir, ""airport/airport-productions.cs
+ 
+ # Parameters -------------------------------------------------------------------
+ SL_AIRP..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Rendering / Conversion,effadde222,2021-08-10T17:42:53Z,David Ory,Corrections for #88,6,"---FILE: .gitignore---
+@@ -8,3 +8,4 @@
+ .DS_Store
+ docs/data/_PRIVATE/*
+ docs/site_libs/*
++docs/data/input/ieei/AMSOVDistanceSkim.csv
+
+---FILE: docs/R/airport.R---
+@@ -1,20 +1,3 @@
+-# Packages ---------------------------..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Data / Input Handling,1efe3459b6,2021-04-15T16:40:13Z,David Ory,fix closest bug,6,"---FILE: src/r_scripts/airport-model.Rmd---
+@@ -37,7 +37,7 @@ output_production_filename <- paste0(data_dir, ""airport/airport-productions.csv""
+ 
+ # Parameters
+ ```{r parameters}
+-AIRPORT_ZONE <- 1261
++SL_AIRPORT_ZONE <- ..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Data / Input Handling,b73ed17b09,2024-02-20T22:14:13Z,Si Shi,Fix formatting issue with MOVES input,4,"---FILE: other/_reportingtool/MOVES/SourceType_param.csv---
+@@ -1,105 +1,105 @@
+-sourcetypeID,year,styFactor,,
+-11,2020,0.029854971,,styFactor based on DAQ number of vehicles for Wake County distributed by MOVES default ..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Data / Input Handling,8f763b4909,2024-01-26T15:15:17Z,Si Shi,v2 project lists revision to correct issues in v1.3,3,"---FILE: scenarios/2030/RoadwayProjectList_CAMPO.csv---
+@@ -14,7 +14,6 @@ A16
+ A160a
+ A160d
+ A160e
+-A163a1
+ A163a2
+ A163a3
+ A164a2
+
+---FILE: scenarios/2030/RoadwayProjectList_DCHC.csv---
+@@ -1,27 +1,28 @@
+ ProjID
++910
+ 1..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,File I/O and Export,4a90d44dd7,2021-09-14T03:38:51Z,Kyle Ward,Make minor updates and corrections,6,"---FILE: master/resident/dc/dc_size_terms.csv---
+@@ -15,6 +15,6 @@ Office,0,0,1.210459452,0,0.000710174,0,1.394171037,14.0553,0,
+ Industry,0,0,0,0,0,0,0,3.687689094,0,
+ Retail,0,0,12.42859666,0,1,0.203111539,1.133148453,..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,File I/O and Export,0eda0fe10f,2023-04-14T17:35:03Z,Si Shi,Fix bug in VMT tool,3,"---FILE: src/utils/ZonalVMTCalculation_new.rsc---
+@@ -347,7 +347,7 @@ Macro ""Create HBW PA Vehicle Trip Matrices"" (Args)
+     factor_file = Args.HBHOV3OccFactors
+     periods = Args.periods
+     trip_dir = Args.[Scenario..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,File I/O and Export,c57ae6a7b0,2022-02-08T16:09:10Z,Kyle Ward,"Remove Args.fixed_od
+
+With the change to the fixed od code, we no longer need
+this special flag.",3,"---FILE: src/02 - Network Calculations.rsc---
+@@ -913,11 +913,6 @@ endmacro
+ 
+ Macro ""Create Route Networks"" (Args)
+ 
+-    // Initial processing is called by the main model, but also by the Fixed
+-    // OD assignment to..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Documentation / Formatting,f8bec504e4,2022-05-12T15:31:41Z,Kyle Ward,Make a few minor univ doc corrections,6,"---FILE: docs/site_libs/navigation-1.1/codefolding.js---
+@@ -34,9 +34,7 @@ window.initializeCodeFolding = function(show) {
+     showCodeButton.append(showCodeText);
+     showCodeButton
+         .attr('data-toggle', 'coll..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Documentation / Formatting,4ce7a54c52,2021-12-17T16:36:50Z,Kyle Ward,Typo correction,4,"---FILE: docs/resident_production.Rmd---
+@@ -1136,7 +1136,7 @@ R-squared: `r r_sq`
+ 
+ Calibrating the production rates is done to ensure that the final model is
+ producing the same number of trips per person on average a..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Documentation / Formatting,2f0223f315,2022-09-26T14:55:14Z,Kyle Ward,Correct bug with subarea layer,3,"---FILE: src/utils/ScenarioComparison.rsc---
+@@ -39,7 +39,10 @@ dBox ""scen_comp_tool"" center, center, 40, 10 Title: ""Scenario Comparison Tool"" t
+     Text 15, after, 15 Framed Prompt: ""Subarea Polygon:"" Variable: sub_pol..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Dependency / Package,602c0e66c4,2021-01-14T19:08:18Z,Kyle Ward,"Update website
+
+The navigation bar now includes links to the interim draft documents.
+Also updated the renv snapshot aft...",7,"---FILE: docs/_site.yml---
+@@ -3,15 +3,22 @@ output_dir: "".""
+ navbar:
+   title: ""TRMG2""
+   left:
+-    - text: Ch. 1
++    - text: Databases
+       menu:
+-        - text: ""Databases""
+-        - text: ""Sample Placeholder""
+-..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Dependency / Package,bb949a3ced,2020-12-09T21:45:49Z,Kyle Ward,"Re-create the renv library
+
+Used renv::hydrate() to create an exact copy of my library.
+This resolved some issues surrou...",7,"---FILE: docs/TAZs.Rmd---
+@@ -13,6 +13,9 @@ knitr::opts_chunk$set(echo = TRUE)
+ library(tidyverse)
+ library(sf)
+ library(leaflet)
++
++library(RDCOMClient)
++library(caliperR)
+ ```
+ 
+ ```{r}
+@@ -86,7 +89,7 @@ calc_percents ..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Dependency / Package,2d9c51250f,2021-07-14T17:03:54Z,CALIPER\srini,Update mode choice model specification after fixing minor errors,4,"---FILE: master/resident/mode/n_hb_k12_all.csv---
+@@ -1,20 +1,20 @@
+ Alternative,Expression,Segment,Coefficient,Description
+ sov,Constant,,-0.6283,Constant
+ sov,sov_skim.CongTime,,-0.0138,Travel time
++sov,Constant,v0,-99..."
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits,Visualization / Plotting,fdc40edf92,2021-09-17T02:49:28Z,Kyle Ward,"Update TOD based on previous commit changes
+
+Factor changes are relatively minor. I did find and fix several issues with...",6,"---FILE: docs/data/output/tod/directionality_factors.csv---
+@@ -2,32 +2,32 @@ trip_type,tod,pa_fac
+ N_HB_K12_All,AM,0.8679429726517056
+ N_HB_K12_All,MD,0.2560963734052302
+ N_HB_K12_All,PM,0.19006895911145505
+-N_HB_K12_Al..."

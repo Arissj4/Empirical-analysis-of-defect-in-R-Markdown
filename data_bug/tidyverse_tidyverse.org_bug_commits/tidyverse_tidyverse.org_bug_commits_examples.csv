@@ -1,0 +1,203 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+tidyverse_tidyverse.org_bug_commits,Documentation / Formatting,eb689071ac,2023-11-27T13:47:45Z,Maëlle Salmon,fix typo in title (#667),7,"---FILE: content/blog/2022/playing-on-the-same-team-as-your-dependecy/index.md---
+@@ -1,7 +1,7 @@
+ ---
+ output: hugodown::hugo_document
+ slug: playing-on-the-same-team-as-your-dependecy
+-title: Playing on the same team a..."
+tidyverse_tidyverse.org_bug_commits,Documentation / Formatting,21dbcd99fa,2023-08-07T14:57:28Z,Mine Cetinkaya-Rundel,"New post: Teaching the tidyverse in 2023 (#646)
+
+* Begin teach tidyverse in 2023 post, write first sec
+
+* Write join_b...",7,"---FILE: content/blog/teach-tidyverse-23/index.Rmd---
+@@ -0,0 +1,603 @@
++---
++output: hugodown::hugo_document
++slug: teach-tidyverse-23
++title: Teaching the tidyverse in 2023
++date: 2023-08-07
++author: Mine Çetinkaya-Run..."
+tidyverse_tidyverse.org_bug_commits,Documentation / Formatting,6fa9f72c51,2025-02-27T18:20:19Z,Max Kuhn,"tidymodels updates 2025 Q1 (#726)
+
+* initial version
+
+* Acknowledgements
+
+* minor updates
+
+* quantile regression example...",7,"---FILE: content/blog/tidymodels-2025-q1/index.Rmd---
+@@ -0,0 +1,239 @@
++---
++output: hugodown::hugo_document
++
++slug: tidymodels-2025-q1
++title: Q1 2025 tidymodels digest
++date: 2025-02-27
++author: Max Kuhn
++description..."
+tidyverse_tidyverse.org_bug_commits,Implementation / Logic,a6da4402ac,2025-07-15T20:31:23Z,Maëlle Salmon,"typo fixes (#749)
+
+* typo fix
+
+* Update index.Rmd
+
+* Re-render
+
+---------
+
+Co-authored-by: Hadley Wickham <h.wickham@gma...",6,"---FILE: content/blog/httr2-1-2-0/index.Rmd---
+@@ -42,7 +42,7 @@ You can install it from CRAN with:
+ install.packages(""httr2"")
+ ```
+ 
+-This blog post will walk you through the most important changes in 1.2.0: lifecycle u..."
+tidyverse_tidyverse.org_bug_commits,Implementation / Logic,d60f133739,2025-04-25T08:48:29Z,Thomas Lin Pedersen,Fix broken link in scales (#731),6,"---FILE: content/blog/scales-1-4-0/index.Rmd---
+@@ -31,7 +31,7 @@ TODO:
+ * [x] `usethis::use_tidy_thanks()`
+ -->
+ 
+-We're stoked to announce the release of [scales]({https://scales.r-lib.org/}) 1.4.0. 
++We're stoked to a..."
+tidyverse_tidyverse.org_bug_commits,Implementation / Logic,4fd2ecf5c0,2025-02-21T16:07:11Z,Davis Vaughan,Make the call for issues more prominent,6,"---FILE: content/blog/air/index.Rmd---
+@@ -91,7 +91,8 @@ To open your `settings.json` file, run one of the following from the Command Pal
+     If you work on a project with collaborators, we recommend that you check in t..."
+tidyverse_tidyverse.org_bug_commits,Rendering / Conversion,9b312f9595,2024-06-19T18:25:38Z,Gábor Csárdi,"Post: nanoparquet 0 3 0 (#698)
+
+* nanoparquet 0.6.0 sketch
+
+* Fix title
+
+* nanoparquet 0.3.0 blog post
+
+* Fix file...",6,"---FILE: content/blog/nanoparquet-0-3-0/index.Rmd---
+@@ -0,0 +1,354 @@
++---
++output: hugodown::hugo_document
++
++slug: nanoparquet-0-3-0
++title: nanoparquet 0.3.0
++date: 2024-06-20
++author: Gábor Csárdi
++description: >
++ ..."
+tidyverse_tidyverse.org_bug_commits,Rendering / Conversion,e0ba2b10d4,2023-08-18T07:50:36Z,George Stagg,Fix typo in webR 0.2.0 post,6,"---FILE: content/blog/webr-0-2-0/index.Rmd---
+@@ -50,7 +50,7 @@ knitr::knit_engines$set(webr = function(options) {
+ })
+ ```
+ 
+-We're absolutely thrilled to announce the release of [webR](https://docs.r-wasm.org/webr/v0.2..."
+tidyverse_tidyverse.org_bug_commits,Rendering / Conversion,300c041e9c,2018-03-02T12:53:44Z,Kirill Müller,"Blog post for pillar 1.2.1 (#121)
+
+* draft, coloring doesn't work yet
+
+* add color
+
+* up date
+
+* fix negative high...",6,"---FILE: content/articles/2018-03-pillar-1-2-1.Rmd---
+@@ -0,0 +1,106 @@
++---
++title: pillar 1.2.1
++slug: pillar-1-2-1
++description: >
++    pillar 1.2.1 is on CRAN now, a minor update that tweaks the output of
++    tibble..."
+tidyverse_tidyverse.org_bug_commits,Dependency / Package,7da6cc7da0,2019-11-18T12:15:24Z,Alison Presmanes Hill,update the base hugo theme to fix blog and non-blog post sharing images (#366),4,"---FILE: themes/hugo-tourmaline/layouts/partials/meta.html---
+@@ -9,27 +9,30 @@
+ {{- end -}}
+ {{ hugo.Generator }}
+ 
+-{{- if .IsHome -}}
+-<title>{{ .Site.Title }}</title>
+-<meta property=""og:title"" content=""{{ .Site.Titl..."
+tidyverse_tidyverse.org_bug_commits,Dependency / Package,7b73694e02,2021-05-17T17:30:42Z,Mara Averick,Fix individual page titles (#511),3,"---FILE: themes/hugo-graphite/layouts/partials/meta.html---
+@@ -3,7 +3,7 @@
+ <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+ <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+ {{ hugo.Generato..."
+tidyverse_tidyverse.org_bug_commits,Dependency / Package,43e6970172,2018-12-04T13:05:31Z,Romain François,"Fix 246/dplyr 0 8 0 (#248)
+
+* 😬
+
+s/two/three/
+s/grouops/groups/
+
+* options(tibble.print_max = 10)",3,"---FILE: content/articles/2018-12-dplyr-0-8-0-release-candidate.Rmarkdown---
+@@ -17,7 +17,7 @@ photo:
+ 
+ ```{r setup, include = FALSE}
+ knitr::opts_chunk$set(collapse = T, comment = ""#>"")
+-options(tibble.print_min = 4L, ..."
+tidyverse_tidyverse.org_bug_commits,Environment / Configuration,58c7c9091c,2020-04-15T18:00:16Z,Mara Averick,"Add Hugo GDPR privacy enhancements (#412)
+
+* Add Hugo privacy config for GDPR compliance (see https://gohugo.io/about/hu...",1,"---FILE: config.toml---
+@@ -36,3 +36,12 @@ preserveTaxonomyNames = true
+     unsafe = true
+   [markup.highlight]
+     style = ""pygments""
++
++[privacy]
++  [privacy.googleAnalytics]
++    anonymizeIP = true
++    respectDoNot..."
+tidyverse_tidyverse.org_bug_commits,Data / Input Handling,cf28b3b972,2019-11-12T15:53:33Z,Mara Averick,"Add nightly build workflow (#362)
+
+* Fixes #361",3,"---FILE: .github/workflows/scheduled_build.yml---
+@@ -0,0 +1,14 @@
++name: Scheduled build
++
++on:
++  schedule:
++  - cron: '0 3 * * *'
++
++jobs:
++  build:
++    runs-on: ubuntu-latest
++    steps:
++    - name: Trigger build h..."
+tidyverse_tidyverse.org_bug_commits,Reproducibility / Versioning,8c9f995327,2019-10-16T16:10:59Z,topepo,fixed for current version of of tune,4,"---FILE: content/articles/2019-10-discrim-0-01.Rmarkdown---
+@@ -1,6 +1,6 @@
+ ---
+ title: discrim 0.0.1
+-date: 2019-11-01
++date: 2019-10-16
+ slug: discrim-0-0-1
+ author: Max Kuhn
+ categories: [package]
+@@ -38,8 +38,8 @@ T..."
+tidyverse_tidyverse.org_bug_commits,Visualization / Plotting,f09dc25d03,2019-07-15T12:20:01Z,Thomas Lin Pedersen,"Add ragg post (#318)
+
+* Add ragg post
+
+* Apply suggestions from code review
+
+Co-Authored-By: Hadley Wickham <h.wickh...",6,"---FILE: content/articles/2019-06-26-ragg-0-1-0.Rmarkdown---
+@@ -0,0 +1,88 @@
++---
++title: ragg 0.1.0
++author: Thomas Lin Pedersen
++date: '2019-07-15'
++slug: ragg-0-1-0
++description: >
++    A set of new graphic devices j..."
+tidyverse_tidyverse.org_bug_commits,Visualization / Plotting,606409e8ee,2018-08-10T15:07:44Z,Dana Paige Seidel,"Draft scales 1.0.0 release post (#196)
+
+* Draft scales 1.0.0 release blog
+
+* Update draft given Mara's feedback
+
+* D...",6,"---FILE: content/articles/2018-08-scales-1-0-0.Rmarkdown---
+@@ -0,0 +1,129 @@
++---
++title: ""scales 1.0.0""
++author: Dana Seidel
++date: '2018-08-09'
++slug: scales-1-0-0
++description: >
++  scales 1.0.0 is now on CRAN.
++cate..."
+tidyverse_tidyverse.org_bug_commits,Visualization / Plotting,2625427c19,2018-10-29T21:20:43Z,Mara Averick,Fix dangling at-signs (#227),3,"---FILE: content/articles/2018-10-ggplot2-3-1-0.Rmarkdown---
+@@ -131,4 +131,4 @@ ggplot(diamonds, aes(x, depth)) +
+ ## Acknowledgements
+ 
+ Thank you to the **126** people who who contributed issues, code and comments to ..."

@@ -1,0 +1,16 @@
+path,count
+README.md,9
+content/packages.md,9
+config.toml,6
+content/learn.md,6
+content/blog/teach-tidyverse-23/index.Rmd,5
+content/blog/teach-tidyverse-23/index.md,5
+content/packages/index.md,5
+content/help.md,4
+themes/hugo-graphite/static/css/main-site.css,3
+content/blog/teach-tidyverse-2021/index.Rmd,3
+content/blog/teach-tidyverse-2021/index.md,3
+content/blog/readr-2-0-0/index.Rmd,3
+content/blog/readr-2-0-0/index.md,3
+content/articles/2019-04-testthat-2-1-0.markdown,3
+content/articles/2018-11-parsnip-internals.Rmarkdown,3

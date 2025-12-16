@@ -1,0 +1,16 @@
+path,count
+master/networks/master_links.BIN,26
+master/networks/master_links.dln,12
+master/networks/master_routes.rts,12
+src/01 - CreateScenario.rsc,11
+master/networks/master_links.BX,9
+master/networks/master_links.kln,9
+master/networks/master_links.pts,9
+src/utils/FixedODAssignment.rsc,9
+src/19 - Summaries.rsc,8
+master/networks/master_routesS.r0,8
+src/utils/RoadwayProjectManagement.rsc,8
+src/utils/ScenarioComparison.rsc,7
+master/networks/master_links_.BIN,7
+master/networks/master_routes.rtg,7
+master/networks/master_routesS.lok,7

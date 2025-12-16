@@ -1,0 +1,51 @@
+path,count
+master/networks/master_links.BIN,26
+master/networks/master_links.dln,12
+master/networks/master_routes.rts,12
+src/01 - CreateScenario.rsc,11
+master/networks/master_links.pts,9
+src/utils/FixedODAssignment.rsc,9
+master/networks/master_links.kln,9
+master/networks/master_links.BX,9
+master/networks/master_routesS.r0,8
+src/19 - Summaries.rsc,8
+src/utils/RoadwayProjectManagement.rsc,8
+master/networks/master_routesS.lok,7
+master/networks/master_links.DCB,7
+master/networks/master_routes.rtg,7
+master/networks/master_links_.BIN,7
+src/utils/ScenarioComparison.rsc,7
+master/networks/master_routesL.BX,6
+master/networks/master_routesL.bin,6
+src/02 - Network Calculations.rsc,6
+master/networks/master_links_.BX,6
+src/02 - InitialProcessing.rsc,6
+src/utils/TransitProjectManagement.rsc,6
+master/networks/master_transit.rts,6
+master/networks/master_routesR.BX,5
+master/networks/master_routesS.bin,5
+src/10 - Skimming.rsc,5
+master/networks/master_transit.rtg,5
+master/networks/master_routesS.grp,4
+master/networks/master_routesS.BX,4
+src/External Models.rsc,4
+master/sedata/se_2020.bin,4
+master/networks/master_routesS.pnk,4
+src/Roadway Assignment.rsc,4
+master/networks/master_network.dln,4
+src/utils/utils.rsc,4
+master/networks/master_routesR.bin,4
+master/networks/master_network.BIN,4
+src/flow_chart/trmg2_menu.rsc,3
+master/networks/master_links_.sty,3
+master/networks/master_links_.DCB,3
+master/networks/master_network.BX,3
+master/networks/master_network.kln,3
+docs/time_of_day.html,3
+master/networks/transit_mode_table.csv,3
+master/networks/master_links.sty,3
+master/networks/master_links.upx,3
+master/resident/mode/n_hb_omed_all.csv,3
+master/networks/master_network_.BX,3
+master/networks/master_network.upx,3
+master/networks/master_transitL.BX,3

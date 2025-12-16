@@ -1,0 +1,155 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+tsahota_NMproject_bug_commits,Documentation / Formatting,84afa469e0,2022-01-10T15:13:48Z,tarjinde,Readme typo fix,7,"---FILE: README.Rmd---
+@@ -130,18 +130,17 @@ m2s %>% nm_render(""Scripts/basic_ppc.Rmd"")
+ ```
+ 
+ Advanced functionality enables groups of runs to be handled with the same
+-concise syntax (no loops):
++concise syntax (no lo..."
+tsahota_NMproject_bug_commits,Documentation / Formatting,c13fd1db1e,2021-08-06T20:45:38Z,tarj sahota,bootstrap spelling fix,7,"---FILE: R/boot.R---
+@@ -3,7 +3,7 @@
+ #' Used by [make_boot_datasets()], run once per bootstrap sample
+ #'
+ #' @param d Dataset to merge.
+-#' @param rsplit An object from `sample::bootstraps()`.
++#' @param rsplit An obje..."
+tsahota_NMproject_bug_commits,Documentation / Formatting,77d46a28f5,2021-06-05T19:11:52Z,kjh,"separated rmd_to_vignette, added test and fixed bug in new directories (no vignette dir existing)",7,"---FILE: DESCRIPTION---
+@@ -95,6 +95,7 @@ Collate:
+     'prompt_overwrite.R'
+     'psn_style_scm.R'
+     'read_ext.R'
++    'rmd_to_vignette.R'
+     'run_nm.R'
+     'run_record.R'
+     'shiny_apps.R'
+
+---FILE: R/nm.R---
+@..."
+tsahota_NMproject_bug_commits,Implementation / Logic,edd666a36a,2022-08-29T15:27:22Z,tarjinde,Prevented `summary()` from treating parameters as different if FIX status is different,6,"---FILE: R/post-run-summaries.R---
+@@ -631,18 +631,6 @@ summary.nm_list <- function(object, ref_model = NA, parameters = c(""none"", ""new""
+     ds <- split(d, seq_len(nrow(d)))
+ 
+     ds <- lapply(ds, function(d) {
+-      ..."
+tsahota_NMproject_bug_commits,Implementation / Logic,4eb2a1c9c2,2022-08-17T13:32:15Z,tarjinde,trans = FALSE coef fix,6,"---FILE: R/post-run-summaries.R---
+@@ -390,7 +390,7 @@ coef.nm_generic <- function(object, trans = TRUE, ...) {
+   
+   if (!trans) {
+     ## add FIX column and return
+-    d <- merge(d, d1[, c(""parameter"", ""FIX"")] , sort..."
+tsahota_NMproject_bug_commits,Implementation / Logic,678d9e6245,2022-07-22T15:51:14Z,tarjinde,but fix where FIX column wasn't appearing if trans = FALSE,6,"---FILE: R/post-run-summaries.R---
+@@ -382,15 +382,19 @@ coef.nm_generic <- function(object, trans = TRUE, ...) {
+   d$run_name <- gsub(""execute\\."", ""\\1"", unique_id(object))
+   if (!unique(d$is_final)) d$run_name <- pa..."
+tsahota_NMproject_bug_commits,File I/O and Export,5cb28031b1,2022-05-24T13:06:09Z,tarjinde,bug fix `nm_list_render()` trying to save multiple files,4,"---FILE: R/nm_render.R---
+@@ -188,8 +188,7 @@ nm_list_render <- function(m,
+         ...
+       )
+     }, hash = list(tools::md5sum(input), output_file, output_dir, args),
+-    dir = file.path("".cache"", ""rmarkdown"", """"),..."
+tsahota_NMproject_bug_commits,File I/O and Export,369f147822,2022-03-02T11:35:34Z,tarjinde,bug fix - caching wasn't using the contents of input file (script template),3,"---FILE: R/nm_render.R---
+@@ -110,7 +110,7 @@ nm_render.nm_generic <- function(m,
+         quiet = TRUE,
+         ...
+       )
+-    }, hash = list(input, output_file, output_dir, args),
++    }, hash = list(tools::md5sum(..."
+tsahota_NMproject_bug_commits,File I/O and Export,ef432fe4bd,2018-10-25T16:32:33Z,klgk669,bug fix,3,"---FILE: R/NMproject.R---
+@@ -263,7 +263,8 @@ nm_tran.default <- function(x){
+   data_path <- file.path(dirname(x),data_name(x))
+   file.copy(data_path,tempdir0) ## copy dataset
+   dataset.name <- basename(data_path)
+-  ..."
+tsahota_NMproject_bug_commits,Rendering / Conversion,99c2683786,2021-11-15T16:02:06Z,tarjinde,example update and template vpc namespace fix,6,"---FILE: inst/extdata/examples/theopp/Scripts/basic_boot.Rmd---
+@@ -26,14 +26,16 @@ params:
+ <!--   4. use nm_render() to run on other model objects -->
+ 
+ 
+-```{r setup2, include=F}
++```{r setup, include=F}
+ ## DO NOT M..."
+tsahota_NMproject_bug_commits,Rendering / Conversion,476f2ba81c,2021-03-03T16:24:37Z,tarj,"covariance_result -> covariance_plot, bug fix wait_finish, run_all_scripts + copy demo funs",6,"---FILE: DESCRIPTION---
+@@ -47,6 +47,7 @@ Collate:
+     'NMprojectExtra.R'
+     'NMprojectExtraDB.R'
+     'NMprojectExtraTest.R'
++    'developer_funs.R'
+     'dollar_input.R'
+     'insert_addin.R'
+     'load_sse.R'
+
+---F..."
+tsahota_NMproject_bug_commits,Rendering / Conversion,e0a2865db2,2021-02-28T22:32:07Z,tarj,bug fix nm_list_render + improved bootstrap template,6,"---FILE: R/NMprojectExtra.R---
+@@ -4413,7 +4413,7 @@ nm_render.nm_generic <- function(m,
+   } else {
+     rmarkdown::render(input = input,
+                       output_file = output_file,
+-                      output_d..."
+tsahota_NMproject_bug_commits,Dependency / Package,8f35a59379,2021-08-20T11:47:15Z,tarjinde,fixed bug in cran note handle and macOS error,7,"---FILE: .covrignore---
+@@ -14,4 +14,4 @@ R/prompt_overwrite.R
+ R/nmsave.R
+ R/system-hooks.R
+ R/zzz.R
+-R/NMproject-package.R
++R/cran_note_handle.R
+
+---FILE: DESCRIPTION---
+@@ -79,6 +79,7 @@ Collate:
+     'nm_object.R'
+  ..."
+tsahota_NMproject_bug_commits,Dependency / Package,897dcd4df9,2021-04-28T19:13:44Z,tarj sahota,cran fixes,7,"---FILE: DESCRIPTION---
+@@ -10,7 +10,7 @@ Authors@R: c(
+ Maintainer: Tarj Sahota <t.sahota0@gmail.com>
+ Description: Industrialisation of 'NONMEM'
+   <https://www.iconplc.com/innovation/nonmem/> model development 
+-  via..."
+tsahota_NMproject_bug_commits,Dependency / Package,5dea5fb0fe,2017-05-12T13:20:59Z,Tarjinder Sahota,removed error shiny  messages & passed cran checks,7,"---FILE: NAMESPACE---
+@@ -5,7 +5,9 @@ S3method(data_name,default)
+ S3method(nm_tran,default)
+ S3method(nm_tran,nm)
+ S3method(print,nm)
++S3method(status,nm)
+ S3method(status,nmexecute)
++S3method(status,nmscm)
+ export(chec..."
+tsahota_NMproject_bug_commits,Reproducibility / Versioning,dd6d574688,2021-06-10T16:50:35Z,kjh,"fix, back to development version",7,"---FILE: DESCRIPTION---
+@@ -3,7 +3,7 @@ Type: Package
+ Title: Script Based 'NONMEM' Model Development
+ URL: https://tsahota.github.io/NMproject/, https://github.com/tsahota/NMproject
+ BugReports: https://github.com/tsaho..."
+tsahota_NMproject_bug_commits,Environment / Configuration,560d59859e,2018-10-18T16:42:45Z,klgk669,bug fix in tests,3,"---FILE: tests/testthat/test-plot_iter.R---
+@@ -54,7 +54,7 @@ test_that(""db & plot_iter works"",{
+   data_name <- get_data_name(m1)
+   expect_true(file.exists(from_models(data_name)))
+ 
+-  build_run({
++  build_ctl({
+     ..."
+tsahota_NMproject_bug_commits,Environment / Configuration,1470a3458c,2018-09-02T23:46:33Z,klgk669,bug fix in tests,3,"---FILE: tests/testthat/test-basic.R---
+@@ -57,10 +57,12 @@ test_that(""Project has basic functionality"",{
+   expect_true(file.exists(""DerivedData/THEOPP.csv""))
+   expect_true(file.exists(file.path(getOption(""scripts.dir""..."
+tsahota_NMproject_bug_commits,Data / Input Handling,22e36030c9,2018-07-30T15:38:26Z,Tarjinder Sahota,bug fix - shouldn't take commented rows,3,"---FILE: R/nm.R---
+@@ -1103,6 +1103,7 @@ nm_output <- function(r,read_fun=utils::read.csv,dorig,...){
+   ctl_content <- readLines(r$ctl,warn = FALSE)
+   dol_data <- ctl_nm2r(ctl_content)$DATA
+   dol_data <- dol_data[!dol..."
+tsahota_NMproject_bug_commits,Data / Input Handling,2ecbd87efd,2018-07-05T18:21:28Z,Tarjinder Sahota,bug fix nm_output,3,"---FILE: R/nm.R---
+@@ -1115,6 +1115,7 @@ nm_output <- function(r,read_fun=utils::read.csv,dorig,...){
+ 
+   if(!no_filter){
+     filter_statements <- paste0("".*"",type,""\\s*=\\s*\\(*(\\S[^\\)]+)\\)*.*"")
++    dol_data <- do..."
+tsahota_NMproject_bug_commits,Data / Input Handling,b8a55428ec,2018-03-18T22:33:38Z,Tarjinder Sahota,bug fix nm_output prioritised output over original data - change,3,"---FILE: R/nm.R---
+@@ -1110,7 +1110,8 @@ nm_output <- function(r,read_fun=utils::read.csv,dorig,...){
+ 
+   d$INNONMEM <- TRUE
+ 
+-  dorig <- dorig[,c(setdiff(names(dorig),names(d)),""PRKEY"")]
++  d <- d[,c(setdiff(names(d),..."
+tsahota_NMproject_bug_commits,Visualization / Plotting,102a74000e,2017-05-11T18:47:40Z,Tarjinder Sahota,fixed plot_iter order and added trans to shiny,3,"---FILE: R/plot_iter.R---
+@@ -46,6 +46,7 @@ plot_iter <- function(r,trans=TRUE,skip=0,yvar=""OBJ""){
+ 
+   d <- tidyr::gather_(data = d,key = ""variable"",value = ""value"",
+                       gather_cols = par.names)
++  d$..."

@@ -1,0 +1,16 @@
+path,count
+R/nm.R,52
+R/NMprojectExtra.R,44
+NAMESPACE,31
+R/NMproject.R,29
+R/ctl_handling.R,22
+DESCRIPTION,16
+R/manual_edit.R,14
+R/make_project.R,13
+R/post-run-summaries.R,11
+R/nm_object.R,11
+tests/testthat/test-basic.R,9
+tests/testthat/test-theopp.R,9
+R/run_record.R,9
+R/nm_render.R,7
+README.md,7
