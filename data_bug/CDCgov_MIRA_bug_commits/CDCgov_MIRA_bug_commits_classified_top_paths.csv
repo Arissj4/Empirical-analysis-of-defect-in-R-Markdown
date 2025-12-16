@@ -1,0 +1,16 @@
+path,count
+app.py,11
+docker-compose-git.yml,3
+.gitignore,2
+_pkgdown.yml,2
+vignettes/running-mira-cli-illumina.Rmd,2
+Dockerfile,2
+dashboard-kickoff,2
+vignettes/running-mira.Rmd,2
+vignettes/troubleshooting.Rmd,2
+scripts/config_create.py,2
+scripts/dais2dash.py,2
+vignettes/images/mira_single_container_docker_rolldown.png,1
+pkgdown/extra.scss,1
+pkgdown/index.md,1
+vignettes/images/mira-dd-mount-to-unbuntu.png,1

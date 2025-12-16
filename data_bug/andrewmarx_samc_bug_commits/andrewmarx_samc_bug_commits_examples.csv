@@ -1,0 +1,90 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+andrewmarx_samc_bug_commits,Implementation / Logic,cc2f81242f,2024-10-06T15:24:31Z,Andrew Marx,Fix check() node count,6,"---FILE: R/check.R---
+@@ -209,7 +209,9 @@ setMethod(
+ 
+     if (any(!is.finite(b)) || any(b < 0) || any(is.na(b))) stop(""Input must only contain positive numeric values"", call. = FALSE)
+ 
+-    if (length(b) != nrow(a@dat..."
+andrewmarx_samc_bug_commits,Implementation / Logic,bd632793b9,2024-07-28T17:22:15Z,Andrew Marx,"cleanup C++ code
+
+Various changes for clarity, correctness, and safety. Fixed multiple
+interrupt checks to use correct l...",6,"---FILE: R/RcppExports.R---
+@@ -41,16 +41,16 @@
+     .Call('_samc_diagf_par_iter', PACKAGE = 'samc', M, threads)
+ }
+ 
+-.qpow_row <- function(M, vec, steps) {
+-    .Call('_samc_qpow_row', PACKAGE = 'samc', M, vec, steps)
+..."
+andrewmarx_samc_bug_commits,Implementation / Logic,604e375561,2024-07-04T21:56:56Z,Andrew Marx,Fix check() error message,6,"---FILE: R/check.R---
+@@ -119,7 +119,7 @@ setMethod(
+       data = terra::values(a, row = r, nrows = 1)
+ 
+       if (any(is.infinite(data))) stop(""Data contains Inf or -Inf"", call. = FALSE)
+-      if (any(is.nan(data))) ..."
+andrewmarx_samc_bug_commits,Documentation / Formatting,fea272effa,2021-08-30T00:02:25Z,Andrew Marx,"Add Disconnected Data vignette
+
+Create initial vignette for discussing Disconnected Data based on an
+email consversation...",7,"---FILE: _pkgdown.yml---
+@@ -12,6 +12,10 @@ navbar:
+         href: articles/troubleshooting.html
+       - text: ""Code Snippets""
+         href: articles/code-snippets.html
++    - text: ""Data""
++      menu:
++      - text: ""..."
+andrewmarx_samc_bug_commits,Documentation / Formatting,16ed3ba24b,2020-10-14T02:29:32Z,Andrew Marx,Fix doc typo,7,"---FILE: NEWS.md---
+@@ -3,7 +3,7 @@
+ New Features:
+ - Added the ability to create samc-class objects from a custom P matrix using p_mat parameter in samc(). See the samc() documentation for details
+ - Added the cond_pass..."
+andrewmarx_samc_bug_commits,Documentation / Formatting,b1616c49d5,2021-04-01T19:22:17Z,Andrew Marx,spelling fixes,7,"---FILE: NEWS.md---
+@@ -11,7 +11,7 @@
+ 
+ # samc 1.2.1
+ 
+-- Fixed a regression in v1.2.0 where the samc() function would not work corectly unless matrix/raster layers contained at least one NA cell
++- Fixed a regression i..."
+andrewmarx_samc_bug_commits,Rendering / Conversion,78d5f25c9e,2021-10-23T16:21:36Z,Andrew Marx,"Update example-maze-part1.html
+
+Fix intro",1,"---FILE: docs/articles/example-maze-part1.html---
+@@ -154,7 +154,7 @@ <h4 class=""date"">2021-10-22</h4>
+ <div id=""introduction"" class=""section level2"">
+ <h2 class=""hasAnchor"">
+ <a href=""#introduction"" class=""anchor""></a>I..."
+andrewmarx_samc_bug_commits,Rendering / Conversion,1deb57e156,2023-03-30T18:33:26Z,Andrew Marx,Fix small conv long-term bug,0,"---FILE: src/convolution.cpp---
+@@ -201,7 +201,6 @@ Rcpp::List convolution_short(
+   std::vector<double> vis(ca->nrow*(ca->ncol+ca->left_extra_cols+ca->right_extra_cols), 0.0);
+ 
+   std::memcpy(&pop_a[ca->nrow*ca->left_e..."
+andrewmarx_samc_bug_commits,Rendering / Conversion,bb031a0cdd,2023-04-07T11:41:41Z,Andrew Marx,cpp warning fix for CHECK,0,"---FILE: src/convolution.cpp---
+@@ -286,7 +286,7 @@ Rcpp::List convolution_long(
+       pop = Rcpp::sum(pops);
+     }
+     Rcpp::checkUserInterrupt();
+-  } while(pop > EPSILON & count < count_limit);
++  } while((pop > EP..."
+andrewmarx_samc_bug_commits,Dependency / Package,66d476f299,2023-01-31T17:15:06Z,Andrew Marx,"Fixes for CRAN
+
+Update CITATION file and bump C++ version",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: samc
+ Type: Package
+ Title: Spatial Absorbing Markov Chains
+-Version: 3.0.0
++Version: 3.0.1
+ Authors@R: c(
+     person(""Andrew"", ""Marx"", , ""ajm.rpackages@gmail.com"", role..."
+andrewmarx_samc_bug_commits,Dependency / Package,18cfb7179c,2023-04-06T22:29:58Z,Andrew Marx,Fixes for CHECK,6,"---FILE: NAMESPACE---
+@@ -6,4 +6,5 @@ importClassesFrom(""terra"", ""SpatRaster"")
+ importFrom(""methods"", ""as"")
+ importFrom(""methods"", ""new"")
+ importFrom(""methods"", ""is"")
++importFrom(""stats"", ""aggregate"")
+ exportPattern(""^[[..."
+andrewmarx_samc_bug_commits,Dependency / Package,4b757fb94a,2023-01-26T05:04:38Z,Andrew Marx,Various fixes for CHECK,6,"---FILE: NAMESPACE---
+@@ -4,4 +4,5 @@ importClassesFrom(""Matrix"", ""dgCMatrix"")
+ importClassesFrom(""raster"", ""RasterLayer"")
+ importClassesFrom(""terra"", ""SpatRaster"")
+ importFrom(""methods"", ""as"")
++importFrom(""methods"", ""ne..."

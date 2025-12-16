@@ -1,0 +1,62 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+andreamazzella_IntRo_bug_commits,Rendering / Conversion,527af02e88,2024-10-04T10:15:12Z,Andrea Mazzella,"minor - spelling mistake, gitignore",6,"---FILE: .gitignore---
+@@ -1,4 +1,5 @@
+-.Rproj.user
+-.Rhistory
+-.RData
+-.Ruserdata
++.Rproj.user
++.Rhistory
++.RData
++.Ruserdata
++*.lnk
+\ No newline at end of file
+
+---FILE: IntRo.Rproj---
+@@ -1,13 +1,13 @@
+-Version: 1..."
+andreamazzella_IntRo_bug_commits,Rendering / Conversion,8d6b7722d7,2022-09-14T22:11:11Z,Andrea Mazzella,small fix,3,"---FILE: intRo5 transform.Rmd---
+@@ -135,7 +135,7 @@ Dealing with dates in all programming languages is tricky. We'll come back to th
+ ```{r}
+ # Create a calculated age variable
+ dm <- dm |> mutate(
+-  age = ((dmy(""5 Sep..."
+andreamazzella_IntRo_bug_commits,Rendering / Conversion,e6a79c62a8,2020-05-04T14:05:29Z,Andrea Mazzella,workaround for summarytools issues on Mac,3,"---FILE: intRo3.Rmd---
+@@ -30,6 +30,8 @@ library(""tidyverse"")             # %>% pipe and much more
+ options(digits = 2, scipen = 10) # reduce signif digits and scientific notation
+ ```
+ 
++NB: there seems to be an issue w..."
+andreamazzella_IntRo_bug_commits,Documentation / Formatting,5a803ea3cc,2022-09-26T17:26:33Z,Andrea Mazzella,"post-session fixes
+
+Minor changes after a session, incl. correction of typos, clarification of code, formatting.",6,"---FILE: intRo1 basics.Rmd---
+@@ -164,7 +164,7 @@ sqrt(64)
+ 
+ # Datasets
+ 
+-R is mostly built around dataframes: data in table format.
++R is mostly built around ""dataframes"": data in table format.
+ 
+ Some dataframes are ..."
+andreamazzella_IntRo_bug_commits,Documentation / Formatting,5f3d1f9eea,2022-09-21T19:09:43Z,Andrea Mazzella,"post-session fixes
+
+Small updates to incorporate the feedback from recent sessions.",6,"---FILE: intRo2 visualise.Rmd---
+@@ -164,43 +164,14 @@ ggplot(msleep, aes(x = vore, fill = conservation)) +
+   geom_bar()
+ ```
+ 
+-### Changing value labels
++*Want to know more?* To change the *value* labels in a categori..."
+andreamazzella_IntRo_bug_commits,Documentation / Formatting,27191495ea,2022-09-13T09:22:09Z,Andrea Mazzella,small fixes,6,"---FILE: intRo3 summarise.Rmd---
+@@ -84,7 +84,7 @@ summary(trial)
+ 
+ *Want to know more?*
+ 
+-This only works well if the variables are coded in the correct data classes, so it will not work well with datasets that have n..."
+andreamazzella_IntRo_bug_commits,Implementation / Logic,2b65953bfb,2022-09-15T14:26:56Z,Andrea Mazzella,minor fixes post-session,6,"---FILE: intRo5 transform.Rmd---
+@@ -180,7 +180,7 @@ dm |>
+ 
+ By default `cut()`:
+ 
+--   creates a left-open and right-closed interval, i.e., (25,30] excludes 25 and include 30.
++-   creates a left-open and right-closed ..."

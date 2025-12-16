@@ -1,0 +1,16 @@
+path,count
+R/plot.R,55
+R/mapApp.R,45
+R/AllClass.R,44
+R/subset.R,42
+R/get.R,34
+inst/shiny/mapApp/app.R,32
+man/subset-argoFloats-method.Rd,32
+DESCRIPTION,22
+tests/testthat/test_download.R,20
+tests/testthat/test_subset.R,19
+NAMESPACE,17
+R/read.R,16
+man/plot-argoFloats-method.Rd,14
+R/misc.R,12
+man/readProfiles.Rd,11

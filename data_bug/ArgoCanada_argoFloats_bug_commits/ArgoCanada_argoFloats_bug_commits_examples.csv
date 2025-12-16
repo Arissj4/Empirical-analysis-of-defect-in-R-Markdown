@@ -1,0 +1,160 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+ArgoCanada_argoFloats_bug_commits,Implementation / Logic,381a2b913c,2025-10-28T14:40:53Z,dankelley,Skip downloadWithRetries() tests (re. issue #605),6,"---FILE: tests/testthat/test_download.R---
+@@ -1,6 +1,8 @@
+ ## vim:textwidth=128:expandtab:shiftwidth=4:softtabstop=4
+ data(""index"")
+ 
++test_downloadWithRetries <- FALSE # see discussion on issue #605
++
+ context(""bgc dow..."
+ArgoCanada_argoFloats_bug_commits,Implementation / Logic,507b223431,2025-10-28T13:47:18Z,dankelley,reindent test_merge.R to show changes for issue #605,6,"---FILE: tests/testthat/test_merge.R---
+@@ -6,28 +6,21 @@ context(""merge data"")
+ data(index)
+ data(indexBgc)
+ 
+-test_that(""test merging core data"",
+-          {
+-              C <- expect_message(subset(index, circle=lis..."
+ArgoCanada_argoFloats_bug_commits,Implementation / Logic,cc61158a05,2025-10-28T13:45:31Z,dankelley,test_subset update for issue #605,6,"---FILE: tests/testthat/test_subset.R---
+@@ -94,26 +94,30 @@ test_that(""subset by cycle"", {
+ 
+ test_that(""subset by profile"", {
+     skip_if_not(hasArgoTestCache())
+-    i <- getIndex(quiet = TRUE)
+-    N <- sum(i[[""ID""]..."
+ArgoCanada_argoFloats_bug_commits,Rendering / Conversion,6edd60287a,2021-09-13T11:26:48Z,dankelley,"maybe this fixes pandoc for R-CMD-check
+
+https://github.com/r-lib/actions/issues/378",7,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -18,11 +18,11 @@ jobs:
+     steps:
+       - uses: actions/checkout@v2
+       - uses: r-lib/actions/setup-r@v1
+-          
++      - uses: r-lib/actions/setup-pandoc@v1
+   ..."
+ArgoCanada_argoFloats_bug_commits,Rendering / Conversion,35659c2a13,2020-06-17T14:41:44Z,Jaimie Harbin,fix video 04 + add tweet thread,6,"---FILE: sandbox/jlh/18_tweets/tweetThread.Rmd---
+@@ -0,0 +1,69 @@
++---
++title: ""Tweet Thread""
++output: html_document
++---
++
++# Tweet One
++
++Hi Argo community! I want to introduce you to a newly developed package R packa..."
+ArgoCanada_argoFloats_bug_commits,Rendering / Conversion,2338fdffb3,2020-07-23T11:52:22Z,Jaimie Harbin,issue 172,6,"---FILE: docs/404.html---
+@@ -89,6 +89,18 @@
+ <li>
+   <a href=""reference/index.html"">Reference</a>
+ </li>
++<li class=""dropdown"">
++  <a href=""#"" class=""dropdown-toggle"" data-toggle=""dropdown"" role=""button"" aria-expanded=""..."
+ArgoCanada_argoFloats_bug_commits,Documentation / Formatting,80b2752e68,2023-10-08T09:38:57Z,dankelley,fix spelling and URL errors,7,"---FILE: DESCRIPTION---
+@@ -8,7 +8,7 @@ Authors@R: c(
+     person(given=""Jaimie"", family=""Harbin"", email=""jm810136@dal.ca"", role=c(""aut""),
+         comment=c(ORCID=""https://orcid.org/0000-0003-3774-3732"")),
+     person(g..."
+ArgoCanada_argoFloats_bug_commits,Documentation / Formatting,a38387b2e2,2023-03-08T16:59:29Z,dankelley,"correct a spelling error in a help page
+
+Also, I ran the full check_package.R suite.  I don't yet have the
+results from ...",7,"---FILE: R/get.R---
+@@ -312,7 +312,7 @@ getProfileFromUrl <- function(url=NULL, destdir=argoDefaultDestdir(), destfile=N
+ #' R archive file (ending in `.rda`) that is stored locally. The `.gz` file
+ #' is discarded by de..."
+ArgoCanada_argoFloats_bug_commits,Documentation / Formatting,1616646783,2023-03-02T17:54:29Z,dankelley,"Address issues 584, 585 and 587, + related things
+
+This is an aggregating commit for changes done in an attempt to addre...",7,"---FILE: NAMESPACE---
+@@ -6,10 +6,13 @@ export(argoDefaultDestdir)
+ export(argoDefaultIndexAge)
+ export(argoDefaultProfileAge)
+ export(argoDefaultServer)
++export(argoFloatsClearCache)
+ export(argoFloatsDebug)
+ export(arg..."
+ArgoCanada_argoFloats_bug_commits,Dependency / Package,fdd9046b16,2021-09-03T11:52:24Z,dankelley,"Update DESCRIPTION
+
+Fix missing-) problem.",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: argoFloats
+ Type: Package
+ Title: Analysis of Oceanographic Argo Floats
+-Version: 1.0.0
++Version: 1.0.1
+ Authors@R: c(
+     person(given=""Dan"", family=""Kelley"", email=""da..."
+ArgoCanada_argoFloats_bug_commits,Dependency / Package,f6907352d9,2020-03-14T20:55:14Z,dankelley,"subset example uses non-projected map
+
+For some reason, I get an error with check() in RStudio, when this is
+there. The ...",7,"---FILE: .gitignore---
+@@ -8,3 +8,4 @@ Rplot.*png
+ .Rapp.history
+ .DS_Store
+ *.out
++Rplot*.png
+
+---FILE: DESCRIPTION---
+@@ -10,8 +10,8 @@ Authors@R: c(
+ URL: https://dankelley.github.io/argoFloats/index.html
+ Maintainer:..."
+ArgoCanada_argoFloats_bug_commits,Dependency / Package,e49c5a8da9,2020-09-18T22:56:31Z,dankelley,"oce::preferAdjusted() workaround for old oce
+
+This might address a failure to travisCI build, because of course that
+sys...",7,"---FILE: NAMESPACE---
+@@ -42,6 +42,7 @@ importFrom(utils,capture.output)
+ importFrom(utils,data)
+ importFrom(utils,flush.console)
+ importFrom(utils,head)
++importFrom(utils,packageVersion)
+ importFrom(utils,read.csv)
+ imp..."
+ArgoCanada_argoFloats_bug_commits,Data / Input Handling,7a84f82768,2020-09-21T09:34:33Z,dankelley,"why does travisCI not find 'shiny'?
+
+It is right there in the log.  It install shiny, and then, some lines
+layer, says t...",4,"---FILE: .travis.yml---
+@@ -14,13 +14,12 @@ addons:
+             - netcdf-bin
+ 
+ r_packages:
++    - shiny
++    - shinycssloaders
+     - marmap
+     - ncdf4
+     - oce
+     - ocedata
+     - rgdal
+     - sf
+     - covr
+-  ..."
+ArgoCanada_argoFloats_bug_commits,Data / Input Handling,c273fdf460,2021-09-27T10:43:16Z,dankelley,update to 'open issues' in a comment,3,"---FILE: .github/workflows/auto-assign-to-project.yml---
+@@ -13,7 +13,7 @@ jobs:
+     runs-on: ubuntu-latest
+     name: Assign to One Project
+     steps:
+-    - name: Assign NEW issues to repo project 1 (Issues)
++    - n..."
+ArgoCanada_argoFloats_bug_commits,Data / Input Handling,2e85ac6bc3,2022-01-12T10:37:08Z,dankelley,Q: does this fix stalebot problem?,3,"---FILE: .github/workflows/stale.yml---
+@@ -1,16 +1,13 @@
+ name: Mark stale issues and pull requests
+-
+ on:
+   schedule:
+   - cron: ""30 1 * * *""
+ 
+ jobs:
+   stale:
+-
+     runs-on: ubuntu-latest
+-
+     steps:
+-    - uses:..."
+ArgoCanada_argoFloats_bug_commits,Environment / Configuration,6b75296062,2020-12-18T13:52:46Z,Jaimie Harbin,"Revert ""need to fix docs; get without profiles to work; fix display""
+
+This reverts commit c8c911a48d3c8106f55bfd655fb6ed...",3,"---FILE: R/mapApp.R---
+@@ -49,15 +49,15 @@ uiMapApp <- shiny::fluidPage(
+                                                                                                       shiny::tags$span(""Deep"", style=""color:#CD0BB..."
+ArgoCanada_argoFloats_bug_commits,Environment / Configuration,c8c911a48d,2020-12-18T13:26:34Z,Jaimie Harbin,need to fix docs; get without profiles to work; fix display,3,"---FILE: R/mapApp.R---
+@@ -49,15 +49,15 @@ uiMapApp <- shiny::fluidPage(
+                                                                                                       shiny::tags$span(""Deep"", style=""color:#CD0BB..."
+ArgoCanada_argoFloats_bug_commits,Environment / Configuration,a87c12e9da,2020-12-18T12:42:50Z,Jaimie Harbin,need to fix docs; fix profiles,3,"---FILE: R/mapApp.R---
+@@ -50,29 +50,46 @@ uiMapApp <- shiny::fluidPage(
+                                                                                                       shiny::tags$span(""BGC"", style=""color:#61D04F..."

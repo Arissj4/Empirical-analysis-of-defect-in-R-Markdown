@@ -1,0 +1,5 @@
+bug_category,count,percent,median_score
+Documentation / Formatting,16,51.6,5.0
+Dependency / Package,7,22.6,7.0
+Implementation / Logic,4,12.9,6.0
+Rendering / Conversion,4,12.9,4.5

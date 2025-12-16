@@ -1,0 +1,1316 @@
+repo_owner,repo_name,commit_hash,author_name,author_email,author_date,committer_name,committer_email,committer_date,message,filenames,touches_rmd,touches_r,touches_r_or_rmd,is_merge,added,deleted,changed,diff
+CDCgov,MIRA,ed4533f14968f984b990d491b8dc6d3c1c01c3e3,Amanda Sullivan,yxpa3@cdc.gov,2024-10-30T14:21:06Z,Amanda Sullivan,yxpa3@cdc.gov,2024-10-30T14:21:06Z,fixing second image,vignettes/images/mira_single_container_docker_rolldown.png,False,False,False,False,0,0,0,
+CDCgov,MIRA,6de4863a99fe0b576e5b140a0e9ad1a3f3b04a7d,rchau88,snu3@cdc.gov,2024-09-24T15:47:09Z,rchau88,snu3@cdc.gov,2024-09-24T15:47:09Z,fix hypenation in docs,.gitignore;_pkgdown.yml;pkgdown/extra.scss;pkgdown/index.md,False,False,False,False,11,5,16,"---FILE: .gitignore---
+@@ -22,3 +22,4 @@ scripts/__pycache__/muscle.cpython-37.pyc
+ # ignore specific files
+ change_log.txt
+ docker-compose-dev.yml
++.Rproj.user
+
+---FILE: _pkgdown.yml---
+@@ -3,7 +3,9 @@ url: https://cdcgov.github.io/MIRA/
+ template:
+   bootstrap: 5
+   light-switch: true
+-
++  includes:
++    in_header: <link rel=""stylesheet"" type=""text/css"" href=""https://..."" />
++    
+ authors:
+   Ben Rambo-Martin:
+     href: https://github.com/nbx0
+@@ -18,7 +20,7 @@ news:
+   one_page: false
+    
+ home:
+-  title: MIRA Documentation
++  title: Documentation
+   sidebar:
+     structure: [license, citation, authors, resources]
+     components:
+
+---FILE: pkgdown/extra.scss---
+@@ -0,0 +1,5 @@
++
++
++body, p {
++  hyphens: none;
++}
+
+---FILE: pkgdown/index.md---
+@@ -116,8 +116,6 @@ Key features:
+     1. `tiny_test_run_flu`
+     2. `tiny_test_run_sc2`
+ - move these folders into `MIRA_NGS`
+-  - if you cannot find the MIRA_NGS folder in your Linux section of file explorer, look in Linux-->home-->your username
++  - if you cannot find the MIRA_NGS folder in your Linux section of file explorer, look in <br> Linux --> home --> your username
+ 
+ 
+-<hr>
+-"
+CDCgov,MIRA,023ebd80de01ca54689b53c45e92347c1090c900,Amanda Sullivan,yxpa3@cdc.gov,2024-09-23T18:13:16Z,Amanda Sullivan,yxpa3@cdc.gov,2024-09-23T18:13:16Z,hot fix the docs,vignettes/images/mira-dd-mount-to-unbuntu.png;vignettes/mira-dd-getting-started.Rmd,True,False,True,False,42,3,45,"---FILE: vignettes/mira-dd-getting-started.Rmd---
+@@ -26,18 +26,57 @@ When setting up the configuration for a Windows computer, we recommend using the
+ 
+ <hr>
+ 
+-## MIRA Installation within Docker Desktop
++## Pull MIRA Image within Docker Desktop
+ 
+-In the search bar at the top of the Docker Desktop App type in cdcgov/mira. Once the image has come up, check that the tag is set to latest +
++* In the search bar at the top of the Docker Desktop App type in cdcgov/mira. Once the image has come up, check that the tag is set to latest
+ and click the 'pull' button.
+ 
+ ![](./images/pulled-mira-single-img.png)
+ 
+-MIRA's single image is about 3 GB and will take a couple of minutes to pull to youe images area. Once docker has finished downloading the image, you should see under your images tab. 
++* MIRA's single image is about 2 GB and will take a couple of minutes to pull to the images area. Once docker has finished downloading the image, you should see it under your images tab. 
+ 
+ ![](./images/run-mira-single-container-image.png)
+ <hr>
+ 
++
++## Install MIRA Container
++
++* On your computer, create a folder named ""MIRA_NGS"". This is where you will put the data that you would like to analyze with MIRA. We will be mounting the container to this folder.
++
++![](images/mira_dd_run_directory_structure.png)
++
++* In Docker Desktop, navigate to the images tab and press the run button. 
++
++![](./images/run-mira-single-container-image.png)
++
++### Provide the Settings for the Container
++
++* Open the 'Optional settings' section. The container settings should be filled out as seen in the screenshot below.
++
++  ![](./images/mira-dd-container-settings.png)
++
++ * You will need to provide a name for the container. ""MIRA"" is the obvious choice!
++ * Set the ""Host Port"" to 8020
++ * Under Volumes click the ""Host Path"" box and find and select your ""MIRA_NGS"" folder.
++  ![](./images/select_folders_with_runs.png)
++ 
++ **If you would like your ""Host Path"" to be a folder within your linux environment, use the drop down in your file browser to find it. See the screenshot below for an example.** 
++ 
++ ![](./images/mira-dd-mount-to-unbuntu.png)
++ 
++ * Under Volumes you will make the ""Container Path"" type in '/data'.
++
++## Test your MIRA Setup
++    
++- [Click here to download tiny test data from ONT Influenza genome and SARS-CoV-2-spike - 40Mb](https://centersfordiseasecontrol.sharefile.com/d-s839d7319e9b04e2baba07b4d328f02c2)
++- [Click here for the above data set + full genomes of Influenza and SARS-CoV-2 from Illumina MiSeqs - 1Gb](https://centersfordiseasecontrol.sharefile.com/d-s3c52c0b25c2243078f506d60bd787c62)
++- unzip the file and find two folders:
++    1. `tiny_test_run_flu`
++    2. `tiny_test_run_sc2`
++- move these folders into `MIRA_NGS`
++  - if you cannot find the MIRA_NGS folder in your Linux section of file explorer, look in Linux-->home-->your username
++
++
+ ## Next Steps
+ 
+ [Run MIRA in Docker Desktop with Illumina Data](running-mira-dd-illumina.html)"
+CDCgov,MIRA,26386221b9c44d27a860b5f697e4f54581f8a552,kristinelacek,qgx6@cdc.gov,2024-09-23T15:45:43Z,kristinelacek,qgx6@cdc.gov,2024-09-23T15:45:43Z,cli instructions typo fixes,vignettes/running-mira-cli-illumina.Rmd;vignettes/running-mira-cli-ont.Rmd,True,False,True,False,21,15,36,"---FILE: vignettes/running-mira-cli-illumina.Rmd---
+@@ -48,7 +48,9 @@ sample_4,Test
+ 
+ ## Run Genome Assembly with MIRA-CLI
+ 
+-### Start the containers
++### Start the MIRA container
++
++* If MIRA is running, you should see it listed when you run `docker ps`
+ 
+ Move to the MIRA_NGS folder
+ 
+@@ -69,7 +71,7 @@ Within the command you will change these flags to match your data:
+  * e - Flu-Illumina, SC2-Whole-Genome-Illumina, RSV-Illumina
+  * p - SC2 options: articv3, articv4, articv4.1, articv5.3.2, qiagen, swift, swift_211206 or RSV options: RSV_CDC_8amplicon_230901, dong_et_al
+  
+-There will be a lot of standard error messages that print out in the command line while MIRA is running. It will look like the picture below:
++There will be a lot of standard error messages that print while MIRA is running. It will look like the picture below:
+ ![](images/mira-cli-run-messages.png)
+  
+ ### MIRA-CLI Ouputs
+@@ -106,7 +108,7 @@ Excel files:
+  
+ There will also be individual coverage HTML files for each sample input.
+ 
+-The IRMA folder contains the [IRMA](https://wonder.cdc.gov/amd/flu/irma/irma.html) assemblies and full output with each sample getting their own folder. There will also be a folder within the IRMA folder label 'dais_results' that contains the inputs and output from [DAIS Ribsome](https://hub.docker.com/r/cdcgov/dais-ribosome). The subsampled (and trimmed if applicable) fastq files will also be stored within this folder. We summarize all the information found in these folder in the reports listed above.
++The IRMA folder contains the [IRMA](https://wonder.cdc.gov/amd/flu/irma/irma.html) assemblies and full output with each sample getting its own folder. There will also be a folder within the IRMA folder label 'dais_results' that contains the inputs and output from [DAIS Ribsome](https://hub.docker.com/r/cdcgov/dais-ribosome). The subsampled (and trimmed if applicable) fastq files will also be stored within this folder. We summarize all the information found in these folder in the reports listed above.
+ 
+ The dash-json folder contains all of the json files from which the GUI builds it's figures. We recommend that you keep these files as they contain the key results from your analysis. See below for more information about the [file archival process](https://cdcgov.github.io/MIRA/running-mira-cli-illumina#archiving-files)
+ 
+
+---FILE: vignettes/running-mira-cli-ont.Rmd---
+@@ -40,17 +40,20 @@ barcode41,s3,Test
+ 
+ * Copy the run's demultiplexed fastqs into the RUN-FOLDER.
+     * Copy the ""fastq_pass"" directory from the sequencer's output into the RUN-FOLDER. On a Mk1C instrument, this is found in /data/RUN_NAME/EXPERIMENT_NAME/NANOPORE-NAME/fastq_pass where RUN_NAME and EXPERIMENT_NAME are defined by you in MinKNOW when you set up the sequencing run on the device and the NANOPORE-NAME is created by the instrument during the run.
++    * For further instruction on data transfer from your MK1C, visit our [data transfer](data-transfer.html) page
+ 
+ ![](./images/mira_cli_run_directory_structure_fastq.png)
+ 
+ <br>
+-**This screenshot shows ""Ubuntu-18.04"" but many users just see ""Ubuntu"". This can vary, particularly if you happen to have multiple Ubuntu versions installed. If you have multiple Ubuntu distributions installed, move the fastq_pass to whichever ""Ubuntu"" contains MIRA_NGS within home>USERNAME>MIRA_NGS**
++**This screenshot shows WSL distro ""Ubuntu-18.04"" but many users just see ""Ubuntu"". This can vary, particularly if you happen to have multiple Ubuntu versions installed. If you have multiple Ubuntu distributions installed, move the fastq_pass to whichever ""Ubuntu"" contains MIRA_NGS within home>USERNAME>MIRA_NGS**
+ 
+ <hr>
+ 
+ ## Run Genome Assembly with MIRA-CLI
+ 
+-### Start the containers
++### Start the container MIRA container
++
++* If MIRA is running, you should see it listed when you run `docker ps`
+ 
+ Move to the MIRA_NGS folder
+ 
+@@ -61,7 +64,7 @@ Move to the MIRA_NGS folder
+ To run MIRA in the command line you will execute this command:
+ 
+    ```bash
+-    docker exec -w /data mira MIRA.sh -s run_folder/samplesheet.csv -r run_folder -e exp_type
++    docker exec -w /data mira MIRA.sh -s run_folder/samplesheet.csv -r run_folder -e experiment_type
+    ```
+ 
+ Within the command you will change these flags to match your data:
+@@ -70,12 +73,12 @@ Within the command you will change these flags to match your data:
+  * r - your_run_folder
+  * e - Flu-ONT, SC2-Whole-Genome-ONT, SC2-Spike-Only-ONT, RSV-ONT
+  
+-There will be many messaging that print out in the command line while MIRA is running. It will look like the picture below:
++There will be a lot of standard error messages that print while MIRA is running. It will look like the picture below:
+ ![](images/mira-cli-run-messages.png)
+ 
+ ### MIRA-CLI Ouputs
+ 
+-After MIRA has successfully completed it's analysis, the following outputs should be within the run folder regardless of the experiment type indicated:
++After MIRA has successfully completed its analysis, the following outputs should be within the run folder regardless of the experiment type indicated:
+ 
+ ![](images/mira-cli-outputs.png)
+  **Note that files are named with the name given to the run folder**
+@@ -84,7 +87,7 @@ After MIRA has successfully completed it's analysis, the following outputs shoul
+  
+  ![](images/mira-summary-html.png)
+  
+- **For all of the download links to work within the MIRA-summary HTML, it must have the other files that were created with it present(i.e. the amended_consensus.fasta, minorvariants.xlsx, etc.).**
++ **For all of the download links to work within the MIRA-summary HTML, it must have the other files that were created with it in the same directory (e.g. the amended_consensus.fasta, minorvariants.xlsx, etc.).**
+  
+ Key differences between the summary html and the summary in the GUI:
+  
+@@ -101,13 +104,13 @@ FASTA files:
+ Excel files:
+ 
+  * aavars.xlsx - The amino acids variant table. If you see special characters or frameshifts [see below](https://cdcgov.github.io/MIRA/articles/running-mira-cli-ont.html#special-translated-characters)
+- * minorvariants.xlsx - The single nucleotide variants table
+- * minorindels.xlsx - The indels table
++ * minorvariants.xlsx - The single nucleotide variants (minor SNVs) table
++ * minorindels.xlsx - The minor insertions and deletions table
+  * summary.xlsx - This summaries the coverage stats from the IRMA assemblies, QC information determined by IRMA and read count information.
+  
+ There will also be individual coverage HTML files for each sample that was give to MIRA for analysis.
+ 
+-The IRMA folder contains the IRAM assemblies divided by sample with each sample getting their own folder. There will also be a folder within the IRMA folder label 'dais_results' that contains the inputs and output forom DAIS Ribsome. The subsampled (and trimmed if applicable) fastq files will also be stored within this folder. We summarize all the information found in these folder in the reports listed above.
++The IRMA folder contains the [IRMA](https://wonder.cdc.gov/amd/flu/irma/irma.html) assemblies and full output with each sample getting its own folder. There will also be a folder within the IRMA folder label 'dais_results' that contains the inputs and output from [DAIS Ribsome](https://hub.docker.com/r/cdcgov/dais-ribosome). The subsampled (and trimmed if applicable) fastq files will also be stored within this folder. We summarize all the information found in these folder in the reports listed above.
+ 
+ The dash-json folder contains all of the json files from which the GUI builds it's figures. We recommend that you keep these files as they contain the key results from your analysis. See below for more information about the [file archival process](https://cdcgov.github.io/MIRA/running-mira-cli-ont#archiving-files)
+ 
+@@ -145,19 +148,19 @@ It will also say ""IRMA is finished"" and you can now click on ""DISPLAY IRMA RESUL
+ 
+     ![](images/mira_barcode_distribution.png)
+ 
+-2. Review the ""Automatic Quality Control Decisions"" heatmap. In addition to IRMA's built in quality control, MIRA requires a minimum median coverage of 50x, a minimum coverage of the reference length of 90%, and less than 10 minor variants >=5%. These are marked in yellow to orange according to the number of these failure types. Samples that failed to generate any assembly are marked in red. In addition, premature stop codons are flagged in yellow. CDC does not submit sequences with premature stop codons, particularly in HA, NA or SARS-CoV-2 Spike. Outside of those genes, premature stop codons near the end of the gene may be ok for submission. Hover your mouse over the figure to see individual results.
++2. Review the ""Automatic Quality Control Decisions"" heatmap. In addition to IRMA's built in quality control, MIRA requires a minimum median coverage of 50x, a minimum coverage of the reference length of 90%, and checks for minor variant counts indicative of contamination. See our [QC standars page](sequence-qc.html) for all thresholds. These are marked in yellow to orange according to the number of these failure types. Samples that failed to generate any assembly are marked in red. In addition, premature stop codons are flagged in yellow. CDC does not submit sequences with premature stop codons, particularly in HA, NA or SARS-CoV-2 Spike. Outside of those genes, premature stop codons near the end of the gene may be ok for submission. Hover your mouse over the figure to see individual results.
+ 
+     | | |
+     |--|--|
+     |![Light yellow](images/mira_auto_qc_heatmap_paleyellow.png)|![Yellow](images/mira_auto_qc_heatmap_yellow.png)|
+     |![Orange](images/mira_auto_qc_heatmap_orange.png)|![Red](images/mira_auto_qc_heatmap_red.png)|
+     |--|--|
+ 
+-3. Review `Irma Summary`. This summarizes the above information, as well as detailed read assignment to specific referencs, in a table. Columns can be sorted and filtered, ie. `>1000`. Click `Export` to save this as an Excel file.
++3. Review `MIRA Summary`. This summarizes the above information, as well as detailed read assignment to specific referencs, in a table. Columns can be sorted and filtered, ie. `>1000`. Click `Export` to save this as an Excel file.
+ 
+     ![](images/mira_irma_summary.png)
+ 
+-4. Review genome coverage depth. The heatmap summarizes the mean coverage per sample per gene. All the images in MIRA can be interacted with. Click the gray buttons on the top right of the images. The camera icon will save the image. Clicking on a sample in the heatmap, or selecting one in the drop down menu will display two plots. On the left is a ""sankey plot"" that shows the number of reads assigned to the barcode, how many of those passed IRMA's QC, and how many are assigned to each gene reference. The plot on the right shows the sample's complete coverage per gene. Try toggling the `log y --- linear y` button. In log space, you likely need to reset the view by clicking the gray button in the top right that looks like an X inside of a box. You can also try panning and zooming the plot.
++4. Review genome coverage depth. The heatmap summarizes the mean coverage per sample per gene. For all MIRA figures, you can be click the gray buttons on the top right of the images. The camera icon will save the image. Clicking on a sample in the heatmap, or selecting one in the drop down menu will display two plots. On the left is a ""sankey plot"" that shows the number of reads assigned to the barcode, how many of those passed IRMA's QC, and how many are assigned to each gene reference. The plot on the right shows the sample's complete coverage per gene. Try toggling the `log y --- linear y` button. In log space, you likely need to reset the view by clicking the gray button in the top right that looks like an X inside of a box. You can also try panning and zooming the plot.
+ 
+     ![](images/mira_coverage_heatmap.png)
+     ![](images/mira_coverage.png)
+@@ -256,6 +259,7 @@ Files that we recommend keeping:
+ <hr>
+ ### Wow! You are doing such great work. Time to share your sequences with the world by uploading to GISAID and/or NCBI and to start analyzing your own data!
+ - GISAID: [https://gisaid.org/](https://gisaid.org/)
++    - Please indicate in your GISAID submission ""MIRA"" for the `assembly method` metadata field
+ - NCBI-Genbank: [https://www.ncbi.nlm.nih.gov/genbank/](https://www.ncbi.nlm.nih.gov/genbank/)
+ - NCBI-BLAST: [https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+ - Nextclade: [https://clades.nextstrain.org/](https://clades.nextstrain.org/)"
+CDCgov,MIRA,e06b3cb6b37c9f0f4dcfb6eff65dd44044e983e1,kristinelacek,qgx6@cdc.gov,2024-09-23T15:32:55Z,kristinelacek,qgx6@cdc.gov,2024-09-23T15:32:55Z,"typo fixes, more details",vignettes/running-mira-cli-illumina.Rmd,True,False,True,False,14,13,27,"---FILE: vignettes/running-mira-cli-illumina.Rmd---
+@@ -36,12 +36,12 @@ sample_4,Test
+ ![](images/mira_cli_run_directory_structure.png)
+ 
+ * Copy the run's demultiplexed fastqs into the RUN-FOLDER.
+-    * Create another folder inside your RUN-FOLDER called ""fastqs"" and copy the folder containing demultiplexed fastqs into this newly created fastqs folder so that the folder structure is MIRA_NGS/RUN-FOLDER/fastqs/demultiplexed-fastqs/sample-reads.fastq. There will be two fastq files per sample.
++    * Create another folder inside your RUN-FOLDER called ""fastqs"" and copy the folder containing demultiplexed, gunzipped fastqs into this newly created fastqs folder so that the folder structure is MIRA_NGS/RUN-FOLDER/fastqs/sample_R[1 and 2].fastq.gz There will be two fastq files per sample.
+ 
+ ![](images/mira_cli_run_directory_structure_fastq_illumina.png)
+ 
+ <br>
+-**This screenshot shows ""Ubuntu-20.04"" but many users just see ""Ubuntu"". This can vary, particularly if you happen to have multiple Ubuntu versions installed. If you have multiple Ubuntu distributions installed, move the fastqs to whichever ""Ubuntu"" contains MIRA_NGS within home>USERNAME>MIRA-NF**
++**This screenshot shows WSL distro ""Ubuntu-20.04"" but many users just see ""Ubuntu"". This can vary, particularly if you happen to have multiple Ubuntu versions installed. If you have multiple Ubuntu distributions installed, move the fastqs to whichever ""Ubuntu"" contains MIRA_NGS within home>USERNAME>MIRA-NF**
+ 
+ 
+ <hr>
+@@ -59,7 +59,7 @@ Move to the MIRA_NGS folder
+ To run MIRA in the command line you will execute this command:
+ 
+    ```bash
+-    docker exec -w /data mira MIRA.sh -s run_folder/samplesheet.csv -r run_folder -e exp_type -p primer (optional)
++    docker exec -w /data mira MIRA.sh -s run_folder/samplesheet.csv -r run_folder -e experiment_type -p primer_schema (optional)
+    ```
+ 
+ Within the command you will change these flags to match your data:
+@@ -69,12 +69,12 @@ Within the command you will change these flags to match your data:
+  * e - Flu-Illumina, SC2-Whole-Genome-Illumina, RSV-Illumina
+  * p - SC2 options: articv3, articv4, articv4.1, articv5.3.2, qiagen, swift, swift_211206 or RSV options: RSV_CDC_8amplicon_230901, dong_et_al
+  
+-There will be many messaging that print out in the command line while MIRA is running. It will look like the picture below:
++There will be a lot of standard error messages that print out in the command line while MIRA is running. It will look like the picture below:
+ ![](images/mira-cli-run-messages.png)
+  
+ ### MIRA-CLI Ouputs
+ 
+-After MIRA has successfully completed it's analysis, the following outputs should be within the run folder regardless of the experiment type indicated:
++After MIRA has successfully completed its analysis, the following outputs should be within the run folder regardless of the experiment type indicated:
+ 
+ ![](images/mira-cli-outputs.png)
+  **Note that files are named with the name given to the run folder**
+@@ -83,7 +83,7 @@ After MIRA has successfully completed it's analysis, the following outputs shoul
+  
+  ![](images/mira-summary-html.png)
+  
+- **For all of the download links to work within the MIRA-summary HTML, it must have the other files that were created with it present(i.e. the amended_consensus.fasta, minorvariants.xlsx, etc.).**
++ **For all of the download links to work within the MIRA-summary HTML, it must have the other files that were created with it present in the same directory (e.g. the amended_consensus.fasta, minorvariants.xlsx, etc.).**
+  
+ Key differences between the summary html and the summary in the GUI:
+  
+@@ -100,13 +100,13 @@ FASTA files:
+ Excel files:
+ 
+  * aavars.xlsx - The amino acids variant table. If you see special characters [see below](https://cdcgov.github.io/MIRA/articles/running-mira-cli-illumina.html#special-translated-characters)
+- * minorvariants.xlsx - The single nucleotide variants table
+- * minorindels.xlsx - The indels table
++ * minorvariants.xlsx - The single nucleotide variants (minor SNVs) table
++ * minorindels.xlsx - The minor insertions and deletions table
+  * summary.xlsx - This summaries the coverage stats from the IRMA assemblies, QC information determined by IRMA and read count information.
+  
+-There will also be individual coverage HTML files for each sample that was give to MIRA for analysis.
++There will also be individual coverage HTML files for each sample input.
+ 
+-The IRMA folder contains the IRAM assemblies divided by sample with each sample getting their own folder. There will also be a folder within the IRMA folder label 'dais_results' that contains the inputs and output forom DAIS Ribsome. The subsampled (and trimmed if applicable) fastq files will also be stored within this folder. We summarize all the information found in these folder in the reports listed above.
++The IRMA folder contains the [IRMA](https://wonder.cdc.gov/amd/flu/irma/irma.html) assemblies and full output with each sample getting their own folder. There will also be a folder within the IRMA folder label 'dais_results' that contains the inputs and output from [DAIS Ribsome](https://hub.docker.com/r/cdcgov/dais-ribosome). The subsampled (and trimmed if applicable) fastq files will also be stored within this folder. We summarize all the information found in these folder in the reports listed above.
+ 
+ The dash-json folder contains all of the json files from which the GUI builds it's figures. We recommend that you keep these files as they contain the key results from your analysis. See below for more information about the [file archival process](https://cdcgov.github.io/MIRA/running-mira-cli-illumina#archiving-files)
+ 
+@@ -149,19 +149,19 @@ It will also say ""IRMA is finished"" and you can now click on ""DISPLAY IRMA RESUL
+ 
+     ![](images/mira_barcode_distribution.png)
+ 
+-2. Review the ""Automatic Quality Control Decisions"" heatmap. In addition to IRMA's built in quality control, MIRA requires a minimum median coverage of 100x, a minimum coverage of the reference length of 90%, and less than 10 minor variants >=5%. These are marked in yellow to orange according to the number of these failure types. Samples that failed to generate any assembly are marked in red. In addition, premature stop codons are flagged in yellow. CDC does not submit sequences with premature stop codons, particularly in HA, NA or SARS-CoV-2 Spike. Outside of those genes, premature stop codons near the end of the gene may be ok for submission. Hover your mouse over the figure to see individual results.
++2. Review the ""Automatic Quality Control Decisions"" heatmap. In addition to IRMA's built in quality control, MIRA requires a minimum median coverage of 100x, a minimum coverage of the reference length of 90%, and checks for minor variant counts indicative of contamination. See our [QC standars page](sequence-qc.html) for all thresholds. These are marked in yellow to orange according to the number of these failure types. Samples that failed to generate any assembly are marked in red. In addition, premature stop codons are flagged in yellow. CDC does not submit sequences with premature stop codons, particularly in HA, NA or SARS-CoV-2 Spike. Outside of those genes, premature stop codons near the end of the gene may be ok for submission. Hover your mouse over the figure to see individual results.
+ 
+     | | |
+     |--|--|
+     |![Light yellow](images/mira_auto_qc_heatmap_paleyellow.png)|![Yellow](images/mira_auto_qc_heatmap_yellow.png)|
+     |![Orange](images/mira_auto_qc_heatmap_orange.png)|![Red](images/mira_auto_qc_heatmap_red.png)|
+     |--|--|
+ 
+-3. Review `Irma Summary`. This summarizes the above information, as well as detailed read assignment to specific referencs, in a table. Columns can be sorted and filtered, ie. `>1000`. Click `Export` to save this as an Excel file.
++3. Review `MIRA Summary`. This summarizes the above information, as well as detailed read assignment to specific referencs, in a table. Columns can be sorted and filtered, ie. `>1000`. Click `Export` to save this as an Excel file.
+ 
+     ![](images/mira_irma_summary.png)
+ 
+-4. Review genome coverage depth. The heatmap summarizes the mean coverage per sample per gene. All the images in MIRA can be interacted with. Click the gray buttons on the top right of the images. The camera icon will save the image. Clicking on a sample in the heatmap, or selecting one in the drop down menu will display two plots. On the left is a ""sankey plot"" that shows the number of reads assigned to the barcode, how many of those passed IRMA's QC, and how many are assigned to each gene reference. The plot on the right shows the sample's complete coverage per gene. Try toggling the `log y --- linear y` button. In log space, you likely need to reset the view by clicking the gray button in the top right that looks like an X inside of a box. You can also try panning and zooming the plot.
++4. Review genome coverage depth. The heatmap summarizes the mean coverage per sample per gene. For all MIRA figures, you can click the gray buttons on the top right of the images. The camera icon will save the image. Clicking on a sample in the heatmap, or selecting one in the drop down menu will display two plots. On the left is a ""sankey plot"" that shows the number of reads assigned to the barcode, how many of those passed IRMA's QC, and how many are assigned to each gene reference. The plot on the right shows the sample's complete coverage per gene. Try toggling the `log y --- linear y` button. In log space, you likely need to reset the view by clicking the gray button in the top right that looks like an X inside of a box. You can also try panning and zooming the plot.
+ 
+     ![](images/mira_coverage_heatmap.png)
+     ![](images/mira_coverage.png)
+@@ -259,6 +259,7 @@ Files that we recommend keeping:
+ <hr>
+ ### Wow! You are doing such great work. Time to share your sequences with the world by uploading to GISAID and/or NCBI and to start analyzing your own data!
+ - GISAID: [https://gisaid.org/](https://gisaid.org/)
++    - Please indicate in your GISAID submission ""MIRA"" for the `assembly method` metadata field
+ - NCBI-Genbank: [https://www.ncbi.nlm.nih.gov/genbank/](https://www.ncbi.nlm.nih.gov/genbank/)
+ - NCBI-BLAST: [https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+ - Nextclade: [https://clades.nextstrain.org/](https://clades.nextstrain.org/)"
+CDCgov,MIRA,a6758f5f92035c0961ff22da6ebca885792b673d,kristinelacek,qgx6@cdc.gov,2024-09-23T14:41:01Z,kristinelacek,qgx6@cdc.gov,2024-09-23T14:41:01Z,"fix mac cli instructions, expand test data structure explanation",vignettes/mira-cli-installation.Rmd;vignettes/mira-cli-mac-getting-started.Rmd,True,False,True,False,14,3,17,"---FILE: vignettes/mira-cli-installation.Rmd---
+@@ -77,7 +77,7 @@ If this command returns an error relating to permissions, try again with `sudo`
+ - unzip the file and find two folders:
+     1. `tiny_test_run_flu`
+     2. `tiny_test_run_sc2`
+-- move these folders into `MIRA_NGS`
++- move these 2b folders into `MIRA_NGS` so that the file structure looks like: `/MIRA_NGS/tiny_test_run_flu/fastq_pass/barcode##s/` and `/MIRA_NGS/tiny_test_run_sc2/fastq_pass/barcode##s/`
+   - if you cannot find the MIRA_NGS folder in your Linux section of file explorer, look in Linux-->home-->your username
+ 
+ ### Upon successful installation, you can proceed to running MIRA with [Oxford Nanopore data](./running-mira-cli.html) or [Illumina data](./running-mira-cli-illumina.html)
+
+---FILE: vignettes/mira-cli-mac-getting-started.Rmd---
+@@ -33,11 +33,11 @@ cd ~/MIRA_NGS
+ ```
+ 
+ ```bash
+-curl https://raw.githubusercontent.com/CDCgov/MIRA/prod/docker-compose-git.yml | sed ""s%/path/to/data%$(pwd)/%g"" > docker-compose.yml
++curl https://raw.githubusercontent.com/CDCgov/MIRA/prod/docker-compose-cdcgov.yml | sed ""s%/path/to/data%$(pwd)/%g"" > docker-compose.yml
+ ```
+ 
+ ```bash
+-docker-compose up -d
++docker compose up -d
+ ```
+ 
+ If the docker compose command fails with a permissions error, please try again with `sudo` added before the command.
+@@ -48,3 +48,14 @@ If these instructions show errors, please refer to our [Troubleshooting](./troub
+ 
+ ## Optional: Install a sequence viewer to open output .fastas
+ - [Jalview](https://www.jalview.org/download/)
++
++## Test your MIRA Setup
++    
++- [Click here to download tiny test data from ONT Influenza genome and SARS-CoV-2-spike - 40Mb](https://centersfordiseasecontrol.sharefile.com/d-s839d7319e9b04e2baba07b4d328f02c2)
++- [Click here for the above data set + full genomes of Influenza and SARS-CoV-2 from Illumina MiSeqs - 1Gb](https://centersfordiseasecontrol.sharefile.com/d-s3c52c0b25c2243078f506d60bd787c62)
++- unzip the file and find two folders:
++    1. `tiny_test_run_flu`
++    2. `tiny_test_run_sc2`
++- move these 2b folders into `MIRA_NGS` so that the file structure looks like: `/MIRA_NGS/tiny_test_run_flu/fastq_pass/barcode##s/` and `/MIRA_NGS/tiny_test_run_sc2/fastq_pass/barcode##s/`
++
++### Upon successful installation, you can proceed to running MIRA with [Oxford Nanopore data](./running-mira-cli.html) or [Illumina data](./running-mira-cli-illumina.html)"
+CDCgov,MIRA,98541d4bb5491d65a49eba969894b6fc099a8b77,rchau88,snu3@cdc.gov,2024-09-10T20:29:11Z,rchau88,snu3@cdc.gov,2024-09-10T20:29:11Z,fix docker compose and path to start MIRA-CLI,.gitignore;Dockerfile;app.py;dashboard-kickoff;docker-compose-cdcgov.yml;docker-compose-git.yml;docker-compose.yml;requirements.txt,False,False,False,False,36,22,58,"---FILE: .gitignore---
+@@ -21,3 +21,4 @@ scripts/__pycache__/muscle.cpython-37.pyc
+ 
+ # ignore specific files
+ change_log.txt
++docker-compose-dev.yml
+
+---FILE: Dockerfile---
+@@ -1,10 +1,15 @@
+-
+ # Create an argument to pull a particular version of dias image
+ ARG spyne_image
+ ARG spyne_image=${spyne_image:-cdcgov/spyne:latest}
+ 
+ ############# spyne image as base ##################
+ FROM ${spyne_image} as spyne
++RUN echo ""Getting spyne image""
++
++# local apt mirror support
++# start every stage with updated apt sources
++ARG APT_MIRROR_NAME=
++RUN if [ -n ""$APT_MIRROR_NAME"" ]; then sed -i.bak -E '/security/! s^https?://.+?/(debian|ubuntu)^http://'""$APT_MIRROR_NAME""'/\1^' /etc/apt/sources.list && grep '^deb' /etc/apt/sources.list; fi
+ 
+ # Install and update system libraries of general use
+ RUN apt-get update --allow-releaseinfo-change --fix-missing \
+@@ -26,35 +31,35 @@ VOLUME ${WORKDIR}
+ WORKDIR ${WORKDIR}
+ 
+ # Create a program variable
+-ENV PROGRAM_DIR=/MIRA
++ENV MIRA_PROGRAM_DIR=/MIRA
+ 
+ # Set up volume directory 
+-VOLUME ${PROGRAM_DIR}
++VOLUME ${MIRA_PROGRAM_DIR}
+ 
+ # Copy all scripts to docker images
+-COPY . ${PROGRAM_DIR}
++COPY . ${MIRA_PROGRAM_DIR}
+ 
+ ############# Install python packages ##################
+ 
+ # Copy python requirements file to docker images
+-COPY requirements.txt ${PROGRAM_DIR}/requirements.txt
++COPY requirements.txt ${MIRA_PROGRAM_DIR}/requirements.txt
+ 
+ # Install python requirements
+-RUN pip3 install --no-cache-dir -r ${PROGRAM_DIR}/requirements.txt
++RUN pip3 install --no-cache-dir -r ${MIRA_PROGRAM_DIR}/requirements.txt
+ 
+ ############# Launch MIRA dashboard ##################
+ 
+ # Copy all files to docker images
+-COPY dashboard-kickoff ${PROGRAM_DIR}/dashboard-kickoff
++COPY dashboard-kickoff ${MIRA_PROGRAM_DIR}/dashboard-kickoff
+ 
+ # Convert bash script from Windows style line endings to Unix-like control characters
+-RUN dos2unix ${PROGRAM_DIR}/dashboard-kickoff
++RUN dos2unix ${MIRA_PROGRAM_DIR}/dashboard-kickoff
+ 
+ # Allow permission to excute the bash scripts
+-RUN chmod a+x ${PROGRAM_DIR}/dashboard-kickoff
++RUN chmod a+x ${MIRA_PROGRAM_DIR}/dashboard-kickoff
+ 
+ # Allow permission to read and write files to MIRA directory
+-RUN chmod -R a+rwx ${PROGRAM_DIR}
++RUN chmod -R a+rwx ${MIRA_PROGRAM_DIR}
+ 
+ # Make the app available at port 8050
+ EXPOSE 8050
+@@ -74,4 +79,4 @@ ENV PATH ""$PATH:/flu-amd""
+ ENV PATH ""$PATH:/spyne""
+ 
+ # Execute the pipeline 
+-ENTRYPOINT [""/bin/bash"", ""-c"", ""${PROGRAM_DIR}/dashboard-kickoff""]
++ENTRYPOINT [""/bin/bash"", ""-c"", ""/MIRA/dashboard-kickoff""]
+
+---FILE: app.py---
+@@ -450,11 +450,12 @@ def run_snake_script_onClick(
+     if dash.ctx.triggered_id == ""select_run"":
+         return True
+     if dash.ctx.triggered_id == ""assembly-button"":
+-        docker_cmd = ""bash snake-kickoff ""
+-        docker_cmd += f""{run}/samplesheet.csv ""
+-        docker_cmd += f""{run} ""
+-        docker_cmd += f""{experiment_type} ""
++        docker_cmd = ""bash /spyne/MIRA.sh ""
++        docker_cmd += f""-s {run}/samplesheet.csv ""
++        docker_cmd += f""-r {run} ""
++        docker_cmd += f""-e {experiment_type} ""
+         docker_cmd += ""-a ""
++        print(docker_cmd)
+         if ""sc2-whole-genome-illumina"" in experiment_type.lower():
+             docker_cmd += f""-p {Amplicon_Library_SC2} ""
+         elif  ""rsv-illumina"" in experiment_type.lower():
+
+---FILE: dashboard-kickoff---
+@@ -4,7 +4,7 @@
+ 
+ # Run whatever Bash commands here
+ 
+-PROJECT_DIR=${PROJECT_DIR:-/MIRA}
++MIRA_PROGRAM_DIR=${MIRA_PROGRAM_DIR:-/MIRA}
+ WORKDIR=${WORKDIR:-/data}
+ 
+ # Archive previous .appout and .apperr
+@@ -15,4 +15,4 @@ elif [ -f ${WORKDIR}/.applogs/.apperr ]; then
+ 	tar --remove-files -czf ${WORKDIR}/.applogs/.$(date -d @$(stat -c %Y ${WORKDIR}/.applogs/.apperr) ""+%Y%b%d-%H%M%S"").applog.tar.gz ${WORKDIR}/.applogs/.appout ${WORKDIR}/.applogs/.apperr
+ fi
+ 
+-python3 $PROJECT_DIR/app.py ${PROJECT_DIR}/config/container-prod.yaml >> ${WORKDIR}/.appout 2>> >( grep -v POST >> ${WORKDIR}/.apperr)
+\ No newline at end of file
++python3 ${MIRA_PROGRAM_DIR}/app.py ${MIRA_PROGRAM_DIR}/config/container-prod.yaml >> ${WORKDIR}/.appout 2>> >( grep -v POST >> ${WORKDIR}/.apperr)
+\ No newline at end of file
+
+---FILE: docker-compose-cdcgov.yml---
+@@ -16,6 +16,6 @@ services:
+     image: *mira-image
+     restart: always
+     ports:
+-      - 8050:8050
++      - 8020:8050
+     volumes:
+       - *data-volume
+
+---FILE: docker-compose-git.yml---
+@@ -25,6 +25,6 @@ services:
+         << : [*spyne-image]
+     restart: always
+     ports:
+-      - 8050:8050
++      - 8020:8050
+     volumes:
+       - *data-volume
+
+---FILE: docker-compose.yml---
+@@ -4,10 +4,16 @@ x-spyne-image:
+   &spyne-image
+   spyne_image: cdcgov/spyne-dev:v2.0.0
+ 
++x-mira-volume:
++  &mira-volume
++  type: bind
++  source: /home/snu3/Github/MIRA
++  target: /MIRA
++
+ x-data-volume:
+   &data-volume
+   type: bind
+-  source: /home/snu3/Github/FLU_SC2_SEQUENCING
++  source: /home/snu3/irma-testings/rsv-support/FLU_SC2_SEQUENCING
+   target: /data
+ 
+ services:
+@@ -21,6 +27,7 @@ services:
+         << : [*spyne-image]
+     restart: always
+     ports:
+-      - 8050:8050
++      - 8020:8050
+     volumes:
+       - *data-volume
++      - *mira-volume
+
+---FILE: requirements.txt---
+@@ -9,7 +9,7 @@ dash-table==5.0.0
+ flask==2.1.3
+ flask-caching==1.10.1
+ flask-compress==1.5.0
+-numpy==1.19.0
++numpy==1.19.6
+ openpyxl==3.0.10
+ pandas==1.1.0
+ plotly==5.11.0"
+CDCgov,MIRA,6edc2c47662189552051caf457ed3169bef094bb,KristineLacek,qgx6@cdc.gov,2024-03-28T16:44:35Z,KristineLacek,qgx6@cdc.gov,2024-03-28T16:44:35Z,version patch bump and changelog,DESCRIPTION;NEWS.md,False,False,False,False,7,3,10,"---FILE: DESCRIPTION---
+@@ -1,8 +1,8 @@
+ Package: MIRA
+ Type: Package
+ Title: Dashboard for Influenza and SARS-COV-2 Spike-Gene Genome Assembly and Curation
+-Version: 1.1.3
+-Date: 2023-08-08
++Version: 1.1.3.1
++Date: 2024-03-28
+ Authors@R: 
+   c(person(given=""Ben"", family=""Rambo-Martin"", role=c(""aut"",""cre""), 
+            email=""nbx0@cdc.gov"", comment=c(ORCID=""0000-0002-8591-3954"")), 
+
+---FILE: NEWS.md---
+@@ -1,8 +1,12 @@
+ 
+-# MIRA 1.1.3
++# MIRA 1.1.3.1
+ * Github Repo: https://github.com/CDCgov/MIRA
+ * Documentation: https://cdcgov.github.io/MIRA
+ 
++### v1.1.3.1
++- Empty Illumina fastq error-handling
++- Illumina fastq reads less than 70 bases error-handling
++
+ ### v1.1.3
+ - MIRA version displayed in app and in IRMA summary table (along with config)
+ - IRMA version bump 1.1.4"
+CDCgov,MIRA,ae44efd3fa9fa2369d3509ed418362c54edd4796,KristineLacek,qgx6@cdc.gov,2024-02-22T18:20:32Z,KristineLacek,qgx6@cdc.gov,2024-02-22T18:20:32Z,fix na row samplesheet for illumina,app.py,False,False,False,False,5,1,6,"---FILE: app.py---
+@@ -210,7 +210,11 @@ def parse_contents(contents, filename, date, run):
+         elif ""xls"" in filename:
+             # Assume that the user uploaded an excel file
+             ss_df = pd.read_excel(io.BytesIO(decoded), engine=""openpyxl"")
+-            ss_df = ss_df.iloc[:, 0:3]
++            if ""Barcode #"" in ss_df.columns:
++                ss_df = ss_df.iloc[:, 0:3]
++            else:
++                ss_df = ss_df.iloc[:, 0:2]
++                ss_df = ss_df.dropna()
+     except Exception as e:
+         print(f""ERROR PARSING SS\n{e}\n--------END OF ERROR--------"")
+         return html.Div([""There was an error processing this file.""])"
+CDCgov,MIRA,940dd594ff0f8acebcf68d5710cabe2261edb01e,Ben Rambo-Martin,nbx0@cdc.gov,2024-02-06T14:02:45Z,Ben Rambo-Martin,nbx0@cdc.gov,2024-02-06T14:02:45Z,fixed coverage plot display,app.py,False,False,False,False,10,11,21,"---FILE: app.py---
+@@ -86,17 +86,6 @@ def select_primers(exp_type):
+         Input(""assembly-button"", ""n_clicks""),
+     ],
+ )
+-
+-def current_version():
+-    descript_dict = {}
+-    with open(""/MIRA/DESCRIPTION"", 'r') as infi:
+-        for line in infi:
+-            try:
+-                descript_dict[line.split(':')[0]]=line.split("":"")[1]
+-            except:
+-                continue
+-    return descript_dict['Version'].strip()
+-
+ def select_sample(plotClick, run, n_clicks, a_n_clicks):
+     if dash.ctx.triggered_id == ""assembly-button"":
+         return [], """"
+@@ -909,6 +898,16 @@ def download_failed_fastas(run, n_clicks):
+         return nt_fastas, aa_fastas
+ 
+ 
++def current_version():
++    descript_dict = {}
++    with open(""/MIRA/DESCRIPTION"", 'r') as infi:
++        for line in infi:
++            try:
++                descript_dict[line.split(':')[0]]=line.split("":"")[1]
++            except:
++                continue
++    return descript_dict['Version'].strip()
++
+ ########################################################
+ ###################### LAYOUT ##########################
+ ########################################################"
+CDCgov,MIRA,f2c8d370048f920cde9971baa94413b6620c5331,Ben Rambo-Martin,nbx0@cdc.gov,2024-02-06T12:46:30Z,Ben Rambo-Martin,nbx0@cdc.gov,2024-02-06T12:46:30Z,fixed new version modal,app.py,False,False,False,False,3,3,6,"---FILE: app.py---
+@@ -49,9 +49,9 @@
+ DEPLOY = CONFIG[""DEPLOY""]
+ AVAILABLE_VERSION = CONFIG[""VERSION_URL""]
+ if DEPLOY:
+-    check_version_interval = 3000
+-else:
+     check_version_interval = 1000 * 60 * 60 * 24  # milliseconds in 1 day
++else:
++    check_version_interval = 3000
+ 
+ app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
+ app.title = ""MIRA""
+@@ -473,7 +473,7 @@ def new_version_modal(n_interval):
+             current = """".join(d.readlines())
+     available = requests.get(AVAILABLE_VERSION)
+     current = re.findall(r""Version.+(?=\n)"", current)[0]
+-    available = re.findall(r""Version.+(?=\r)"", available.text)[0]
++    available = re.findall(r""Version.+(?=\n)"", available.text)[0]
+     if current >= available:
+         return html.Div()
+     else:"
+CDCgov,MIRA,485c5fa6fb2e09bfd2f973caf3239a79eee7bb46,KristineLacek,qgx6@cdc.gov,2024-01-08T17:39:01Z,KristineLacek,qgx6@cdc.gov,2024-01-08T17:39:01Z,frameshift correction instructions,vignettes/images/edit_sequence_jalview.PNG;vignettes/images/gaps.PNG;vignettes/images/nextclade_NA_1.PNG;vignettes/images/nextclade_NA_2.PNG;vignettes/images/nextclade_NA_3.PNG;vignettes/images/nextclade_NA_4.PNG;vignettes/images/pos_140.PNG;vignettes/images/search_frameshifts_MIRA.PNG;vignettes/nanopore-frameshift-correction.Rmd;vignettes/running-mira.Rmd,True,False,True,False,78,0,78,"---FILE: vignettes/nanopore-frameshift-correction.Rmd---
+@@ -0,0 +1,76 @@
++# Correcting Frameshifts in Nanopore MIRA data
++Oxford Nanopore data is known to have an increased error rate when calling bases in a homopolymer region.
++
++Ex: if the sequences is AAAAAA, Nanopore might erroneously basecall AAAAA (deleting one A) which can lead to frameshifts in your final assembly data.
++
++The MIRA development team is working on adding features that would auto-correct these homopolymer indels automatically, but in the meantime, here are instructions and examples for manually fixing frameshifts in your data.
++
++We will be using JalView to edit our sequences: https://www.jalview.org/download/ 
++
++## H3N2 NA frameshift correction
++
++At nucleotide position starting 138, H3N2 NA gene has seven Cs in a row. Nanopore is prone to erroneously deleting one of the seven Cs (CC-CCCC).
++
++This corresponds to Amino Acid position 44.
++
++The following is an example of frameshift correction for H3N2 samples with a frameshift at amino acid 44.
++
++#### How to know if my data has a frameshift?
++There are a couple of ways to know if your data contains a frameshift.
++
++**1. In MIRA output**
++
++In the reference variants table for your MIRA output, frameshifts are represented by a ""~"" character. You can specifically filter for instances of ""~"" by searching in the final column. Here, I searched for ""NA"" in my protein column and ""~"" in my AA Variants column to see 4 samples in my run with the frameshift at NA amino acid position 44.
++
++![](images/search_frameshifts_MIRA.PNG)
++
++</br>
++
++**2. In Nextclade output**
++
++If you loaded all of your NA samples to Nextclade, any sequences with a frameshift will be flagged in the output. 
++Here is what Nextclade shows for these 4 NA samples (which I called aa, bb, hh, and mm):
++
++- Go to https://clades.nextstrain.org/
++- Make sure you select H3N2 NA as your pathogen
++
++![](images/nextclade_NA_1.PNG) 
++
++</br>
++
++- After you select or input your N2 sequences, if the results show an orange ""F"" in th QC column, 1 or more in the Gaps column, and a big red bar in the gene section at the far right, then you have a frameshift
++
++![](images/nextclade_NA_2.PNG)
++
++**3. Fixing the frameshift with JalView**
++
++- Select the download button in the top right corner of Nextclade's output, and choose the **nextclade.aligned.fasta**
++
++![](images/nextclade_NA_3.PNG)
++
++- Open the downloaded .fasta and scroll to the position with the frameshift (if you hover over Gaps in Nextclade, it tells us for these samples, the gap is at nucleotide position 140)
++
++![](images/gaps.PNG)
++
++- Since we downloaded the aligned .fasta, we should see a ""-"" character at position 140 in JalView. Notice all the Cs there? That is our homopolymer:
++
++![](images/pos_140.PNG)
++
++- TIP: Is your JalView nucleotide size too small and difficult to read? Click Format --> Font --> Size to make it bigger
++
++- Next, we need to ""fill"" this gap so that it is no longer a frameshift. But since we are missing data, we cannot say for certain that there should be a C here. We just know that there should be a nucleotide. Therefore, we will fill this gap with an N character.
++
++- Select the gap by clicking on the ""-"", you should see a red box around it. Right click then choose Selection, Edit, then Edit Sequence
++
++![](images/edit_sequence_jalview.PNG)
++
++- A text box will appear. Replace the ""-"" with an uppercase ""N"" and then click OK
++
++- You have successfully filled a frameshift gap! 
++
++- Replace the original sequences in your MIRA multifasta! First, open the original .fasta in Jalview and select the frameshift samples, then type the delete key on your keyboard. Then, you can copy and paste the ""fixed"" sequence from your nextclade.aligned.fasta JalView window into your MIRA multifasta Jalview window and save.
++
++- Now, when you run Nextclade on the ""fixed"" sequences, you will see 0 gaps and 0 frameshifts:
++
++![](images/nextclade_NA_4.PNG)
++
+
+---FILE: vignettes/running-mira.Rmd---
+@@ -153,6 +153,8 @@ th, td {
+ 
+ <br>
+ 
++If you have frameshifts in your data, [click here](./nanopore-frameshift-correction.Rmd) for instructions on how to fix them
++
+ 6. Inspect minor variation at single nucleotides, insertions and deletions _relative to the sample's generated consensus sequence._ These tables are for your own usage and not necessary to review in detail. They can be sorted and filtered and exported to excel sheets for further analyses.
+ 
+     ![](images/mira_minor_vars.png)"
+CDCgov,MIRA,49db1a8600f0c8c93ae8ca829127946d36dc2920,KristineLacek,qgx6@cdc.gov,2023-10-12T16:58:04Z,KristineLacek,qgx6@cdc.gov,2023-10-12T16:58:04Z,upgrade docs hotfix,vignettes/upgrading-mira.Rmd,True,False,True,False,10,3,13,"---FILE: vignettes/upgrading-mira.Rmd---
+@@ -5,21 +5,28 @@
+    ```bash
+     cd ~/FLU_SC2_SEQUENCING
+    ```
+-2. Remove older MIRA versions (or iSpy or IRMA-spy if that's what you had installed)
++
++2. Remove current running MIRA containers:
++
++   ```bash
++    docker rm -f mira spyne irma dais
++   ```
++
++3. Remove older MIRA image versions (or iSpy or IRMA-spy if that's what you had installed)
+ 
+    ```bash
+     sudo docker rmi -f $(docker images | grep -e irma -e dais -e mira -e spyne | tr -s "" "" | cut -f3 -d"" "")
+    ```
+ 
+-3. Download the installation script from the internet:
++4. Download the installation script from the internet:
+    
+    ```bash
+     curl https://raw.githubusercontent.com/CDCgov/MIRA/prod/docker-compose-git.yml | sed ""s%/path/to/data%$(pwd)/%g"" > docker-compose.yml
+    ```
+ 
+    _if you get a permissions error here, first run `sudo rm docker-compose.yml` then try again_
+ 
+-4. After you ensure that your Docker Desktop application is open, run the install script with `sudo` and `docker compose`:
++5. After you ensure that your Docker Desktop application is open, run the install script with `sudo` and `docker compose`:
+    
+    ```bash
+     sudo docker compose up -d"
+CDCgov,MIRA,db5ed2e3cfd99bdbce77471723b5791bd34b0983,KristineLacek,qgx6@cdc.gov,2023-09-28T16:39:21Z,KristineLacek,qgx6@cdc.gov,2023-09-28T16:39:21Z,fix irma container,docker-compose-git.yml,False,False,False,False,1,3,4,"---FILE: docker-compose-git.yml---
+@@ -41,9 +41,7 @@ services:
+ 
+   irma: 
+     container_name: irma
+-    image: irma:latest
+-    build:
+-      context: *irma-version
++    image: *irma-version
+     restart: always
+     networks:
+       - backend"
+CDCgov,MIRA,f79de81f6f1c7af2f59cb8d728449437b4f11c55,KristineLacek,qgx6@cdc.gov,2023-09-15T13:34:36Z,KristineLacek,qgx6@cdc.gov,2023-09-15T13:34:36Z,"version, fix 1 table, credit MKeller MWilson",vignettes/s-gene-rt-pcr.Rmd,True,False,True,False,34,0,34,"---FILE: vignettes/s-gene-rt-pcr.Rmd---
+@@ -0,0 +1,34 @@
++#### Table 3: RT-PCR master mix for each SARS-CoV-2 amplicon
++
++<table class=""center"">
++<tr>
++<th>Reagent</th>
++<th>Volume (µL) Per Reaction</th>
++<th>µL Per Master Mix</th>
++</tr>
++<tr>
++<td>Nuclease-free Water</td>
++<td>4.25</td>
++<td></td>
++</tr>
++<tr>
++<td>SSIV 2X Reaction Mix</td>
++<td>12.5</td>
++<td></td>
++</tr>
++<tr>
++<td>SuperScript IV RT Mix</td>
++<td>0.25</td>
++<td></td>
++</tr>
++<tr>
++<td>S1 or S2 Primer Pool</td>
++<td>5</td>
++<td></td>
++</tr>
++<tr>
++<td>**Subtotal**</td>
++<td>**22**</td>
++<td></td>
++</tr>
++</table>
+\ No newline at end of file"
+CDCgov,MIRA,28d89946d6c4b4216d8c8eac5901964014656aba,KristineLacek,qgx6@cdc.gov,2023-09-12T14:19:09Z,KristineLacek,qgx6@cdc.gov,2023-09-12T14:19:09Z,"timezone error, multiple Ubuntu ditro docker desktop error",vignettes/running-mira-illumina.Rmd;vignettes/troubleshooting.Rmd,True,False,True,False,18,0,18,"---FILE: vignettes/running-mira-illumina.Rmd---
+@@ -18,6 +18,10 @@ _This documentation assumes you have the four required Docker containers (**IRMA
+ 
+ ![](images/mira_run_directory_structure_fastq_illumina.PNG)
+ 
++<br>
++**This screenshot shows ""Ubuntu-18.04"" but many users just see ""Ubuntu"". This can vary, particularly if you happen to have multiple Ubuntu versions installed. If you have multiple Ubunut distributions installed, move the fastqs to whichever ""Ubuntu"" contains FLU_SC2_SEQUENCING within home>USERNAME>FLU_SC2_SEQUENCING**
++
++
+ <hr>
+ 
+ ## Run genome assembly with MIRA
+
+---FILE: vignettes/troubleshooting.Rmd---
+@@ -21,6 +21,17 @@ MIRA installation with docker compose expects an Ubuntu 18+ operating system or
+ 
+ <hr>
+ 
++## My containers are running in Ubuntu, but I don't see them in Docker Desktop
++Following successful installation, you should see your containers running in Ubuntu and in Docker Desktop.
++However, if you have multiple Ubuntu distributions installed, you may need to enable the right one in Docker Desktop.
++
++
++Click the ""Settings"" icon in the top right corner of Docker Desktop, then Resources, then WSL Integration. Here, you can enable the right distribution if you see multiple Ubuntu versions listed:
++
++![](./images/WSL_docker.png)
++
++<br>
++Then click Apply and Restart
+ 
+ ## WSL install error
+ From the Windows search bar, open `Turn Windows Features on or off` and make sure the following 4 features are enabled:
+@@ -30,6 +41,9 @@ From the Windows search bar, open `Turn Windows Features on or off` and make sur
+ * Windows Hypervisor Platform
+ * Windows Subsystem for Linux
+ 
++## apt-get update error
++If your `apt-get update` fails with a message related to certificates not valid for another 3 hours (for example), this means your computer time zone does not match Ubuntu time zone.
++Change your Windows time to auto-update and match the current timezone, then try again.
+ 
+ ## Map network drive
+ "
+CDCgov,MIRA,61dde76b7a8e5a0cbeb8ba8652d4c69ebd8c8c1d,KristineLacek,qgx6@cdc.gov,2023-09-12T14:07:10Z,KristineLacek,qgx6@cdc.gov,2023-09-12T14:07:10Z,hotfix docs to clarify path to dump fastqs,vignettes/running-mira.Rmd,True,False,True,False,3,0,3,"---FILE: vignettes/running-mira.Rmd---
+@@ -18,6 +18,9 @@ _This documentation assumes you have the four required Docker containers (**IRMA
+ 
+ ![](./images/mira_run_directory_structure_fastq.png)
+ 
++<br>
++**This screenshot shows ""Ubuntu-18.04"" but many users just see ""Ubuntu"". This can vary, particularly if you happen to have multiple Ubuntu versions installed. If you have multiple Ubunut distributions installed, move the fastqs to whichever ""Ubuntu"" contains FLU_SC2_SEQUENCING within home>USERNAME>FLU_SC2_SEQUENCING**
++
+ <hr>
+ 
+ ## Run genome assembly with MIRA"
+CDCgov,MIRA,ec5b3d5b92693a206c29b40a0f0a64b69b61ecc6,KristineLacek,qgx6@cdc.gov,2023-08-15T08:01:27Z,KristineLacek,qgx6@cdc.gov,2023-08-15T08:01:27Z,hotfix images path,vignettes/mac-getting-started.Rmd,True,False,True,False,1,1,2,"---FILE: vignettes/mac-getting-started.Rmd---
+@@ -19,7 +19,7 @@ Open Settings -> Features in development -> Experimental Features:
+ 
+ - Ensure ""Access Experimental Features"" and ""Enable backround SBOM Indexing"" are both checked on
+ 
+-![](images/docker_features_in_development.png)
++![](./images/docker_features_in_development.png)
+ 
+ 
+ - Then, in __Beta Features__, enable ""Use Rosetta for x86/amd66 emulation on Apple Silicon"""
+CDCgov,MIRA,9d7d61edb70ab22e9c2d638756160798711d68b6,KristineLacek,qgx6@cdc.gov,2023-07-21T15:13:41Z,KristineLacek,qgx6@cdc.gov,2023-07-21T15:13:41Z,"reword virtualization errors, bullet points for turn windows features on",vignettes/troubleshooting.Rmd,True,False,True,False,6,5,11,"---FILE: vignettes/troubleshooting.Rmd---
+@@ -61,11 +61,12 @@ MIRA-install.sh expects an Ubuntu 18+ operating system or WSL2 distribution. If
+         ```
+ 
+ ## WSL install error
+-From the Windows search bar, open `Turn Windows Features on or off` and make sure the following 4 features are checked off:
+-- Hyper-V
+-- Virtual Machine Platform
+-- Windows Hypervisor Platform
+-- Windows Subsystem for Linux
++From the Windows search bar, open `Turn Windows Features on or off` and make sure the following 4 features are enabled:
++
++* Hyper-V
++* Virtual Machine Platform
++* Windows Hypervisor Platform
++* Windows Subsystem for Linux
+ 
+ 
+ ## Map network drive"
+CDCgov,MIRA,92d6e4e98d5173164ff54358af7bd4400701bae5,KristineLacek,qgx6@cdc.gov,2023-07-18T13:30:27Z,KristineLacek,qgx6@cdc.gov,2023-07-18T13:30:27Z,hotfix restart dais always,docker-compose-git.yml,False,False,False,False,1,0,1,"---FILE: docker-compose-git.yml---
+@@ -32,6 +32,7 @@ services:
+   dais: 
+     container_name: dais
+     image: *dais-version
++    restart: always
+     networks:
+       - backend
+     volumes: "
+CDCgov,MIRA,b13f1970e74676a3dad07ff98befe35469ab4bc4,Ben Rambo-Martin,nbx0@cdc.gov,2023-06-20T15:09:20Z,Ben Rambo-Martin,nbx0@cdc.gov,2023-06-20T15:09:20Z,patch,dashboard-kickoff,False,False,False,False,1,1,2,"---FILE: dashboard-kickoff---
+@@ -5,7 +5,7 @@
+ # Run whatever Bash commands here
+ 
+ # Archive previous .appout and .apperr
+-if [ -f /data/spyne_logs.tar.gz ]; then
++if [ -f /data/.apperr ]; then
+ 	tar --remove-files -czf $(date -d @$(stat -c %Y /data/.apperr) ""+%Y%b%d-%H%M%S"").applog.tar.gz /data/.appout /data/.apperr
+ fi
+ "
+CDCgov,MIRA,cafbc5ea4ddb41d2114ea8fb793807730824982e,KristineLacek,qgx6@cdc.gov,2023-05-16T20:22:48Z,KristineLacek,qgx6@cdc.gov,2023-05-16T20:22:48Z,samplesheet save fixed and wgs sc2 unlocked,app.py,False,False,False,False,18,11,29,"---FILE: app.py---
+@@ -178,6 +178,8 @@ def parse_contents(contents, filename, date):
+         elif 'xls' in filename:
+             # Assume that the user uploaded an excel file
+             ss_df = pd.read_excel(io.BytesIO(decoded))
++        global imported_file
++        imported_file = True
+     except Exception as e:
+         print(e)
+         return html.Div([
+@@ -196,11 +198,11 @@ def parse_contents(contents, filename, date):
+         html.Hr(),  # horizontal line
+ 
+         # For debugging, display the raw contents provided by the web browser
+-        html.Div('Raw Content'),
+-        html.Pre(contents[0:200] + '...', style={
+-            'whiteSpace': 'pre-wrap',
+-            'wordBreak': 'break-all'
+-        })
++        #html.Div('Raw Content'),
++        #html.Pre(contents[0:200] + '...', style={
++        #    'whiteSpace': 'pre-wrap',
++        #    'wordBreak': 'break-all'
++        #})
+     ])
+ 
+ @app.callback(Output('output-data-upload', 'children'),
+@@ -224,10 +226,13 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
+     ],
+ )
+ def save_samplesheet(run, ss_data, n_clicks):
+-    if not ss_data or n_clicks == 0 or not n_clicks:
+-        return dash.no_update
+-    #df = pd.DataFrame.from_dict(ss_data[""props""][""data""], orient=""columns"")
+-    df = ss_df
++    if imported_file:
++        df = ss_df
++    else:
++        if not ss_data and not ss_df or n_clicks == 0 or not n_clicks:
++            return dash.no_update
++        else:
++            df = pd.DataFrame.from_dict(ss_data[""props""][""data""], orient=""columns"")
+     try:
+         df = df[[""Barcode #"", ""Sample ID"", ""Sample Type""]]
+     except:
+@@ -323,6 +328,8 @@ def run_snake_script_onClick(assembly_n_clicks, run, experiment_type): # samples
+         docker_cmd += f""{run}/samplesheet.csv ""
+         docker_cmd += f""{run} ""
+         docker_cmd += f""{experiment_type} ""
++        if amplicon:
++            docker_cmd += f""{primer_schema}""
+         docker_cmd += f""CLEANUP-FOOTPRINT""
+         print(f'launching docker_cmd == ""{docker_cmd}""\n\n')
+         subprocess.Popen(docker_cmd.split(), close_fds=True)
+@@ -765,8 +772,8 @@ def blank_fig():
+             dcc.Dropdown(
+                 [{""label"":""Flu-ONT"", ""value"":""Flu-ONT""}, 
+                     {""label"":""SC2-ONT"", ""value"":""SC2-ONT""}, 
+-                    {""label"":""Flu-Illumina"", ""value"":""Flu-Illumina"",""disabled"":False},
+-                    {""label"":""SC2-Whole-Genome-Illumina"", ""value"":""SC2-Whole-Genome-Illumina"",""disabled"":True}],
++                    {""label"":""Flu-Illumina"", ""value"":""Flu-Illumina""},
++                    {""label"":""SC2-Whole-Genome-Illumina"", ""value"":""SC2-Whole-Genome-Illumina""}],
+                 id=""experiment_type"",
+                 placeholder=""What kind of data is this?""  # ,
+                 # persistence=True,"
+CDCgov,MIRA,6637b3a6168bfc7297ffa16e3872b841d36edec5,Ben Rambo-Martin,nbx0@cdc.gov,2023-03-24T18:28:13Z,Ben Rambo-Martin,nbx0@cdc.gov,2023-03-24T18:28:13Z,bug smash,_pkgdown.yml,False,False,False,False,2,2,4,"---FILE: _pkgdown.yml---
+@@ -29,9 +29,9 @@ navbar:
+           href: articles/running-mira.html
+     - text: Help
+       menu:
+-        text: FAQs
++      - text: FAQs
+         href: articles/FAQs.html
+-        text: Troubleshooting
++      - text: Troubleshooting
+         href: articles/troubleshooting.html
+   right:
+     - text: ""Change Log"""
+CDCgov,MIRA,1db0cc737bce84e2b78caf462bd84065021f8ea2,Ben Rambo-Martin,nbx0@cdc.gov,2023-03-07T00:32:01Z,Ben Rambo-Martin,nbx0@cdc.gov,2023-03-07T00:32:01Z,samplesheet error message moved,app.py,False,False,False,False,1,1,2,"---FILE: app.py---
+@@ -737,8 +737,8 @@ def blank_fig():
+         )
+     ]
+     + [html.Br()]
+-    +[html.Div(id=""samplesheet_errors"")]
+     + [html.Div(id=""samplesheet"")]
++    + [html.Div(id=""samplesheet_errors"")]
+     + [
+         html.Div(
+             dbc.Row("
+CDCgov,MIRA,c9b4251f1caafd98a53d925212a95e155e8ad3c3,Ben Rambo-Martin,nbx0@cdc.gov,2023-03-06T22:07:35Z,Ben Rambo-Martin,nbx0@cdc.gov,2023-03-06T22:07:35Z,assembly finish notification fixed,app.py,False,False,False,False,9,1,10,"---FILE: app.py---
+@@ -274,7 +274,13 @@ def generate_samplesheet(sample_number, run):
+     #background=True,
+ )
+ def run_snake_script_onClick(assembly_n_clicks, run, experiment_type): # samplesheet_n_clicks ,
+-    print(f""run_snake_script_onClick vars\n\tassembly_n_click == {assembly_n_clicks}\n\trun == {run}\n\texperiment_type == {experiment_type}\n\ttriggered_id == {dash.ctx.triggered_id}"")
++    ss_glob = [
++        i
++        for i in glob(f""{data_root}/{run}/samplesheet.csv*"")
++        if ""samplesheet"" in i.lower() or ""data"" in i.lower()
++    ]
++    if len(ss_glob) != 1:
++        return True
+     if assembly_n_clicks == None:
+         return True
+     if dash.ctx.triggered_id == 'experiment_type':
+@@ -303,6 +309,8 @@ def run_snake_script_onClick(assembly_n_clicks, run, experiment_type): # samples
+ def display_irma_progress(run, toggle, n_intervals):
+     if not toggle:
+         return html.Div()
++    if len(glob(f""{data_root}/{run}/spyne_logs.tar.gz"")) == 1:
++        return html.Div(""IRMA is finished! Click \""DISPLAY IRMA RESULTS\"""")
+     logs = glob(f""{data_root}/{run}/logs/*irma*out.log"")
+     if len(logs) == 0:
+         return html.Div(""No IRMA data is available"")"
+CDCgov,MIRA,87eaf7f9b9f0fa795a529d91ebae3a9c52150190,U-CDC\SNU3-SU,SNU3-SU@L359620.cdc.gov,2023-03-02T22:06:48Z,U-CDC\SNU3-SU,SNU3-SU@L359620.cdc.gov,2023-03-02T22:06:48Z,add error,data/.apperr,False,False,False,False,39,0,39,"---FILE: data/.apperr---
+@@ -2109,3 +2109,42 @@
+ 172.19.0.1 - - [02/Mar/2023 22:05:05] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
+ 172.19.0.1 - - [02/Mar/2023 22:05:07] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
+ 172.19.0.1 - - [02/Mar/2023 22:05:09] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:11] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:13] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:15] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:17] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:19] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:21] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:23] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:25] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:27] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:29] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:31] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:33] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:35] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:37] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:39] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:41] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:43] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:44] ""POST /_dash-update-component HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:44] ""POST /_dash-update-component HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:45] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:47] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:49] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:51] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:53] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:55] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:57] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:05:59] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:01] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:03] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:05] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:07] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:09] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:11] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:13] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:15] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:17] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:19] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:21] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -
++172.19.0.1 - - [02/Mar/2023 22:06:23] ""POST /_dash-update-component?cacheKey=89019e66511c8dbc1aef7c3153063864969ab05c&job=144 HTTP/1.1"" 200 -"
+CDCgov,MIRA,fe40b45b78681683c2329122d4ebee5b653feb70,Ben Rambo-Martin,nbx0@cdc.gov,2023-01-23T11:15:52Z,Ben Rambo-Martin,nbx0@cdc.gov,2023-01-23T11:15:52Z,irma summary header fix,app.py,False,False,False,False,3,4,7,"---FILE: app.py---
+@@ -848,6 +848,9 @@ def blank_fig():
+             ]
+         )
+     ]
++    + [html.Br()]
++    + [html.P(""IRMA Summary"", id=""irma_head"", className=""display-6"")]
++    + [html.Br()]
+     + [
+         html.P(
+             ""Automatic Quality Control Decisions"",
+@@ -879,10 +882,6 @@ def blank_fig():
+     ]
+     + [dbc.Row([html.Div(id=""irma_neg_statment""), html.Div(id=""irma_summary"")])]
+     + [html.Br()]
+-
+-    + [html.Br()]
+-    + [html.P(""IRMA Summary"", id=""irma_head"", className=""display-6"")]
+-    + [html.Br()]
+     + [html.P(""Reference Coverage"", id=""coverage_head"", className=""display-6"")]
+     + [html.Br()]
+     + ["
+CDCgov,MIRA,8a3203ac459fc99decd1f59d83969e7e79d807b2,Ben Rambo-Martin,nbx0@cdc.gov,2023-01-22T12:02:34Z,Ben Rambo-Martin,nbx0@cdc.gov,2023-01-22T12:02:34Z,fixed samplesheet save function,app.py;config/local-dev.yaml,False,False,False,False,9,5,14,"---FILE: app.py---
+@@ -28,7 +28,7 @@
+ 
+ 
+ import subprocess
+-from flask_caching import Cache
++#from flask_caching import Cache
+ 
+ import diskcache  # type: ignore
+ 
+@@ -143,6 +143,9 @@ def save_samplesheet(run, ss_data, n_clicks):
+         return dash.no_update
+     df = pd.DataFrame.from_dict(ss_data[""props""][""data""], orient=""columns"")
+     df = df[[""Barcode #"", ""Sample ID"", ""Sample Type"", ""Barcode Expansion Pack""]]
++    for c in df.columns:
++        df[c] = df[c].apply(lambda x: x.strip('^M').strip())
++    print(f""df = {df}"")
+     if True in list(df.duplicated(""Sample ID"")):
+         df['duplicated'] = df.duplicated('Sample ID')
+         stmnt = f""No duplicate sample IDs allowed. Please edit. Duplicates = {list(df.loc[df['duplicated']==True]['Sample ID'])}""
+@@ -152,7 +155,7 @@ def save_samplesheet(run, ss_data, n_clicks):
+         stmnt = f""No spaces allowed in Sample IDs. Please edit. Offenders = {list(df.loc[df['spaces']==True]['Sample ID'])}""
+         print(stmnt)
+     else:
+-        df = df.apply(lambda x: x.strip('^M').strip())
++        print(f""saving df"")
+         df.to_csv(f""{data_root}/{run}/samplesheet.csv"", index=False)
+         stmnt = ''
+     return (0,stmnt)
+@@ -852,8 +855,6 @@ def blank_fig():
+             className=""display-6"",
+         )
+     ]
+-    + [dbc.Row([html.Div(id=""irma_neg_statment""), html.Div(id=""irma_summary"")])]
+-    + [html.Br()]
+     + [
+         html.Div(
+             [
+@@ -876,6 +877,9 @@ def blank_fig():
+             ]
+         )
+     ]
++    + [dbc.Row([html.Div(id=""irma_neg_statment""), html.Div(id=""irma_summary"")])]
++    + [html.Br()]
++
+     + [html.Br()]
+     + [html.P(""IRMA Summary"", id=""irma_head"", className=""display-6"")]
+     + [html.Br()]
+
+---FILE: config/local-dev.yaml---
+@@ -1,2 +1,2 @@
+-DATA_ROOT: /home/nbx0/projects/irma-spy-testdata #/mnt/y/collab/International/Thailand #/home/midas01/FLU_SC2_SEQUENCING
++DATA_ROOT: /home/midas01/FLU_SC2_SEQUENCING #/home/nbx0/projects/irma-spy-testdata #/mnt/y/collab/International/Thailand #/home/midas01/FLU_SC2_SEQUENCING
+ DEBUG: True
+\ No newline at end of file"
+CDCgov,MIRA,896b3ff524df79975a599eab451d8ee359473d2f,Ben Rambo-Martin,nbx0@cdc.gov,2022-11-09T08:00:33Z,Ben Rambo-Martin,nbx0@cdc.gov,2022-11-09T08:00:33Z,exec sc2-spike-seq name fix,app.py,False,False,False,False,3,3,6,"---FILE: app.py---
+@@ -265,7 +265,7 @@ def run_snake_script_onClick(n_clicks, run, experiment_type):
+         raise dash.exceptions.PreventUpdate
+     if not experiment_type:
+         raise dash.exceptions.PreventUpdate
+-    docker_cmd = ""docker exec -w /data sc2-spike-seq-dev-1.0.0 bash snake-kickoff ""
++    docker_cmd = ""docker exec -w /data sc2-spike-seq bash snake-kickoff ""
+     docker_cmd += f""/data/{run}/samplesheet.csv ""
+     docker_cmd += f""/data/{run} ""
+     docker_cmd += experiment_type
+@@ -769,7 +769,7 @@ def returnSegData(df):
+     return segments, segset, segcolor
+ 
+ 
+-@cache.memoize(timeout=cache_timeout)
++#@cache.memoize(timeout=cache_timeout)
+ def pivot4heatmap(df):
+     if ""Coverage_Depth"" in df.columns:
+         cov_header = ""Coverage_Depth""
+@@ -787,7 +787,7 @@ def pivot4heatmap(df):
+     return df4
+ 
+ 
+-@cache.memoize(timeout=cache_timeout)
++#@cache.memoize(timeout=cache_timeout)
+ def createheatmap(df4, sliderMax=None):
+     if ""Coverage_Depth"" in df4.columns:
+         cov_header = ""Coverage_Depth"""
+CDCgov,MIRA,ac443d2a533da90e414df5c326d351d0dba427b8,U-CDC\SNU3-SU,SNU3-SU@L359620.cdc.gov,2022-11-08T16:41:51Z,U-CDC\SNU3-SU,SNU3-SU@L359620.cdc.gov,2022-11-08T16:41:51Z,fix dockerfile,Dockerfile,False,False,False,False,0,6,6,"---FILE: Dockerfile---
+@@ -5,12 +5,6 @@ ARG BUILD_STAGE=${BUILD_STAGE:-prod}
+ 
+ ############# Build Stage: Dependencies ##################
+ 
+-# Start from a base image
+-FROM python:3.7.6 as base
+-
+-# Define a system argument
+-ARG DEBIAN_FRONTEND=noninteractive
+-
+ # Start from a base image
+ FROM --platform=linux/amd64 ubuntu:focal as base
+ "
+CDCgov,MIRA,8982796f93448e751af38353ec2a3e134d6be105,Ben Rambo-Martin,nbx0@cdc.gov,2022-10-28T18:36:55Z,Ben Rambo-Martin,nbx0@cdc.gov,2022-10-28T18:36:55Z,"working, but need to deal with initial error cascade when irma files are not yet present....",scripts/config_create.py,False,False,False,False,1,1,2,"---FILE: scripts/config_create.py---
+@@ -77,7 +77,7 @@ def reverse_complement(seq):
+     elif ""sc2"" in experiment_type.lower():
+         snakefile_path += ""sc2_spike_snakefile""
+     snake_cmd = (
+-        ""snakemake -s "" + snakefile_path + "" --configfile config.yaml --cores 4 ""
++        ""snakemake -s "" + snakefile_path + "" --configfile config.yaml --cores 4 --printshellcmds""
+     )
+     os.chdir(runpath.replace(""fastq_pass"", """"))
+     subprocess.call(snake_cmd, shell=True)"
+CDCgov,MIRA,7a81da13082d83be37a8d0016bec4ae1cbd22fc8,Ben Rambo-Martin,nbx0@cdc.gov,2022-10-28T00:44:47Z,Ben Rambo-Martin,nbx0@cdc.gov,2022-10-28T00:44:47Z,call relative paths to sc2-spike-seq; dev yaml fixes; dais ingress to handle \N,app.py;config/irma-spy-conda-dev-env.yaml;scripts/config_create.py;scripts/dais2dash.py,False,False,False,False,11,10,21,"---FILE: app.py---
+@@ -109,7 +109,7 @@ def single_sample_fig(irma_path, sample, cov_linear_y):
+ def generate_df(irma_path):
+     if not irma_path:
+         raise dash.exceptions.PreventUpdate
+-    irma_path = os.path.join(irma_path)
++    irma_path = os.path.join(irma_path, 'IRMA')
+     df = irma2dash.dash_irma_coverage_df(irma_path)  # argv[2]) #loadData('./test.csv')
+     read_df = irma2dash.dash_irma_reads_df(irma_path)
+     alleles_df = irma2dash.dash_irma_alleles_df(irma_path)
+@@ -148,12 +148,12 @@ def generate_df(irma_path):
+     )
+ 
+ 
+-@app.callback(Output(""samplesheet"", ""children""), Input(""sample_number"", ""value""))
+-def generate_samplesheet(sample_number):
++@app.callback(Output(""samplesheet"", ""children""), [Input(""sample_number"", ""value""), Input(""irma_path"", ""value"")])
++def generate_samplesheet(sample_number, irma_path):
+     if not sample_number:
+         raise dash.exceptions.PreventUpdate
+-    if isfile(""samplesheet.csv""):
+-        data = pd.read_csv(""samplesheet.csv"").to_dict(""records"")
++    if isfile(f""{irma_path}/samplesheet.csv""):
++        data = pd.read_csv(f""{irma_path}/samplesheet.csv"").to_dict(""records"")
+     else:
+         str_num_list = """".join(sample_number).split("","")
+         bc_numbers = []
+@@ -882,7 +882,7 @@ def alignment_fig(irma_path, gene):
+ )
+ def download_fastas(irma_path, n_clicks):
+     return dict(
+-        content=open(f""{irma_path}/dais_results/amended_consensus.fasta"").read(),
++        content=open(f""{irma_path}/IRMA/dais_results/DAIS_ribosome_input.fasta"").read(),
+         filename=f""{irma_path.split('/')[-1]}_amended_consensus.fasta"",
+     )
+ 
+
+---FILE: config/irma-spy-conda-dev-env.yaml---
+@@ -26,7 +26,7 @@ dependencies:
+   - dash-daq=0.5.0
+   - dataclasses=0.8
+   - fastparquet=0.4.1
+-  - flask=1.1.2
++  - flask=2.1.0
+   - flask-caching=1.10.1
+   - html5lib=1.1
+   - icu=58.2
+@@ -146,7 +146,7 @@ dependencies:
+     - toposort==1.7
+     - traitlets==5.5.0
+     - urllib3==1.26.12
+-    - werkzeug==1.0.1
++    - werkzeug==2.0.3
+     - wrapt==1.14.1
+     - xopen==1.6.0
+     - yte==1.5.1
+
+---FILE: scripts/config_create.py---
+@@ -54,7 +54,7 @@ def reverse_complement(seq):
+ 
+     
+ if 'ont' in experiment_type.lower():
+-    snakefile_path = '/home/$(whoami)/SC2-spike-seq/workflow/'
++    snakefile_path = f'{root}/../SC2-spike-seq/workflow/'
+     if 'flu' in experiment_type.lower():
+         snakefile_path += 'influenza_snakefile'
+     elif 'sc2' in experiment_type.lower():
+@@ -65,6 +65,6 @@ def reverse_complement(seq):
+ else:
+     illumina = True
+     os.chdir(runpath)
+-    bash_cmd = 'bash /home/$(whoami)/SC2-spike-seq/workflow/illumina_influenza.sh -s' + argv[1] + ' -d ' + runpath
++    bash_cmd = f'bash {root}/../SC2-spike-seq/workflow/illumina_influenza.sh -s' + argv[1] + ' -d ' + runpath
+     subprocess.call(bash_cmd, shell=True)
+     
+\ No newline at end of file
+
+---FILE: scripts/dais2dash.py---
+@@ -113,6 +113,7 @@ def dais2df(results_path, colnames, col_renames, dais_suffix, full=False):
+         df = df[select_cols]
+         df = df.rename(columns=col_renames)
+     df = df[df['Protein'] != '\\N']
++    df = df[df['Sample NT Positions'] != '\\N']
+     return df
+ 
+ "
+CDCgov,MIRA,1952d45ee5dbca57ecf9a9e13ee8b14497e84e6a,Ben Rambo-Martin,nbx0@cdc.gov,2022-10-27T17:45:37Z,Ben Rambo-Martin,nbx0@cdc.gov,2022-10-27T17:45:37Z,hotfix dais2df exclude \N results,scripts/dais2dash.py,False,False,False,False,1,1,2,"---FILE: scripts/dais2dash.py---
+@@ -112,7 +112,7 @@ def dais2df(results_path, colnames, col_renames, dais_suffix, full=False):
+         select_cols = [i for i in col_renames.keys()]
+         df = df[select_cols]
+         df = df.rename(columns=col_renames)
+-    df[df['Protein'] != '\\N']
++    df = df[df['Protein'] != '\\N']
+     return df
+ 
+ "

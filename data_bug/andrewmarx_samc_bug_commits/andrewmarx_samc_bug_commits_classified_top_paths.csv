@@ -1,0 +1,16 @@
+path,count
+R/internal-functions.R,30
+R/samc.R,22
+R/cond_passage.R,13
+R/check.R,11
+R/visitation.R,8
+R/locate.R,8
+R/dispersal.R,6
+R/mortality.R,5
+tests/testthat/test-mortality.R,5
+R/distribution.R,4
+R/survival.R,4
+R/map.R,4
+src/convolution.cpp,4
+R/samc-class.R,4
+vignettes/example-maze-part1.Rmd,4

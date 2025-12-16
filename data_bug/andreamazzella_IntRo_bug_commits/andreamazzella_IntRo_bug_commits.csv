@@ -1,0 +1,913 @@
+repo_owner,repo_name,commit_hash,author_name,author_email,author_date,committer_name,committer_email,committer_date,message,filenames,touches_rmd,touches_r,touches_r_or_rmd,is_merge,added,deleted,changed,diff
+andreamazzella,IntRo,527af02e885e1bda7fe6b3efb95a2fb21da37b5e,Andrea Mazzella,andrea.mazzella@ukhsa.gov.uk,2024-10-04T10:15:12Z,Andrea Mazzella,andrea.mazzella@ukhsa.gov.uk,2024-10-04T10:15:12Z,"minor - spelling mistake, gitignore",.gitignore;IntRo.Rproj;intRo7 reshape.qmd,True,False,True,False,19,18,37,"---FILE: .gitignore---
+@@ -1,4 +1,5 @@
+-.Rproj.user
+-.Rhistory
+-.RData
+-.Ruserdata
++.Rproj.user
++.Rhistory
++.RData
++.Ruserdata
++*.lnk
+\ No newline at end of file
+
+---FILE: IntRo.Rproj---
+@@ -1,13 +1,13 @@
+-Version: 1.0
+-
+-RestoreWorkspace: Default
+-SaveWorkspace: Default
+-AlwaysSaveHistory: Default
+-
+-EnableCodeIndexing: Yes
+-UseSpacesForTab: Yes
+-NumSpacesForTab: 4
+-Encoding: UTF-8
+-
+-RnwWeave: Sweave
+-LaTeX: pdfLaTeX
++Version: 1.0
++
++RestoreWorkspace: Default
++SaveWorkspace: Default
++AlwaysSaveHistory: Default
++
++EnableCodeIndexing: Yes
++UseSpacesForTab: Yes
++NumSpacesForTab: 4
++Encoding: UTF-8
++
++RnwWeave: Sweave
++LaTeX: pdfLaTeX
+
+---FILE: intRo7 reshape.qmd---
+@@ -275,7 +275,7 @@ To learn more about complex joins, please see the Resources section further belo
+ 
+ ## Pivot wider
+ 
+-Sometimes it might be helpful to go the other way - turn a long dataset wider, i.e., turning rows into columns. For example, to facilitate calculating new columns, or to increase readibility.
++Sometimes it might be helpful to go the other way - turn a long dataset wider, i.e., turning rows into columns. For example, to facilitate calculating new columns, or to increase readability.
+ 
+ Let's look at the `meds` dataframe, which contains information on days of each antifungal in long format.
+ "
+andreamazzella,IntRo,5a803ea3ccc4ba7e96e0088a7eebef89d3b22b25,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-26T17:26:33Z,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-26T17:26:33Z,"post-session fixes
+
+Minor changes after a session, incl. correction of typos, clarification of code, formatting.",intRo1 basics.Rmd;intRo4 subset.Rmd;intRo5 transform.Rmd;intRo6 clean.Rmd;intRo7 reshape.Rmd,True,False,True,False,88,51,139,"---FILE: intRo1 basics.Rmd---
+@@ -164,7 +164,7 @@ sqrt(64)
+ 
+ # Datasets
+ 
+-R is mostly built around dataframes: data in table format.
++R is mostly built around ""dataframes"": data in table format.
+ 
+ Some dataframes are included in R so we can use them to practise.
+ 
+
+---FILE: intRo4 subset.Rmd---
+@@ -84,13 +84,14 @@ You can use filtered data in a plot: you simply replace the dataset name with th
+ 
+ ```{r}
+ # Plotting all mammals
+-ggplot(msleep,
+-       aes(sleep_rem, awake, colour = vore)) +
++msleep |>
++  ggplot(aes(sleep_rem, awake, colour = vore)) +
+   geom_point()
+ 
+ # Plotting only herbivores
+-ggplot(filter(msleep, vore == ""herbi""),
+-       aes(sleep_rem, awake, colour = vore)) +
++msleep |> 
++  filter(vore == ""herbi"") |>
++  ggplot(aes(sleep_rem, awake, colour = vore)) +
+   geom_point() +
+   # The line below will make the two graphs more comparable
+   scale_colour_manual(values = ""#7CAE00"") + coord_cartesian(xlim = c(0, 6.5), ylim = c(4, 22)) 
+
+---FILE: intRo5 transform.Rmd---
+@@ -21,7 +21,7 @@ author: Andrea Mazzella [(GitHub)](https://github.com/andreamazzella)
+ 
+ # Recap from topic 4
+ 
+-From default dataset `Theoph`, identify at which time point did participant 11 have a plasma theophylline concentration higher than 7.5 mg/L (without scrolling through the dataset manually).
++From default dataset `Theoph`, identify at which time point participant 11 had a plasma theophylline concentration higher than 7.5 mg/L (without scrolling through the dataset manually).
+ 
+ ------------------------------------------------------------------------
+ 
+@@ -82,7 +82,7 @@ In `dplyr`, function `mutate()` is used to add new variables (or change existing
+ 
+ As an example, let's convert height from its current unit (cm) into meters.
+ 
+-The following code reads: take dataset ""dm"", change it by adding a new column called ""height_m"", and populate its values with the corresponding ""heigh"" value on the same row, divided by 100.
++The following code reads: take dataset ""dm"", change it by adding a new column called ""height_m"", and populate its values with the corresponding ""height"" value on the same row, divided by 100.
+ 
+ ```{r}
+ # dplyr
+@@ -218,7 +218,7 @@ For example, the `continent` variable contains both South and North America; ima
+ To do this, we can use `mutate()` to create the new variable and `fct_collapse()` to combine the levels of the old one. This function, from package `forcats`, takes these arguments:
+ 
+ -   the old variable
+--   the first manually defined value, folowed by `=`, followed by a vector of the old values.
++-   the first manually defined value, followed by `=`, followed by a vector of the old values.
+ -   (any other new manually defined names)
+ 
+ ```{r}
+@@ -260,7 +260,7 @@ For example, the ""disability"" variable has three levels: ""able-bodied"", ""mild"" a
+ 
+ ```{r}
+ # Data exploration
+-dm |> count(disability, diabetes)
++dm |> count(disability)
+ 
+ # Regroup
+ dm <- dm |> mutate(disabled = disability == ""mild"" | disability == ""severe"")
+
+---FILE: intRo6 clean.Rmd---
+@@ -26,7 +26,7 @@ Using dataset `trial`, create a new categorical variable that indicates if that
+ ```{r ex0}
+ trial <- gtsummary::trial
+ 
+-# Your code in the line below
++# Your code here 👇
+ 
+ ```
+ 
+@@ -45,13 +45,13 @@ library(forcats)
+ 
+ # Dirty data
+ 
+-Your colleague Ian, an eager medical doctor, found out that you can use R and asked you to do a 'quick analysis' of his data.
++Your colleague Ian, an eager medical doctor, heard that you can use R and asked you to do a 'quick analysis' of his data.
+ 
+-He conducted a retrospective study, *S-Fall*, among older patients admitted a mental health hospital, looking at the impact of sedation on the incidence of falls and injuries, as well as subsequent analgesia prescriptions.
++He conducted a retrospective study, *S-Fall*, among older patients admitted to a mental health hospital, to look at the impact of sedation on the incidence of falls and injuries, as well as subsequent analgesia prescriptions.
+ 
+ Ian thought it was a good idea for the data collection to be done in Excel, and unfortunately, there's no data dictionary to be found.
+ 
+-Now let's import this dataset, `S-Fall for analysis new final FINAL.xlsx`.
++Let's import this dataset, aptly named `S-Fall for analysis new final FINAL.xlsx`.
+ 
+ ```{r}
+ falls <- rio::import(""data/S-Fall for analysis new final FINAL.xlsx"")
+@@ -63,7 +63,8 @@ falls
+ 
+ 1.  Can you spot at least 5 issues with this dataset?
+ 2.  Open the spreadsheet in Excel. What do you notice?
+-3.  Use `summary()` to summarise this dataset. What happens?
++3.  Try to calculate the mean age using `mean()`.
++4.  Use `summary()` to summarise this dataset. What happens?
+ 
+ 
+ 
+@@ -171,6 +172,22 @@ falls_condensed <- falls_trimmed |> filter(!is.na(id))
+ 
+ ------------------------------------------------------------------------
+ 
++## Sorting rows by a column
++
++Function `arrange()` from `dplyr` lets you sort the dataframe by the order of values in a column.
++
++```{r}
++falls_condensed |> arrange(age)
++```
++
++`arrange(desc())` lets you arrange in descending order.
++
++```{r}
++falls_condensed |> arrange(desc(age))
++```
++
++------------------------------------------------------------------------
++
+ ## Data classes
+ 
+ One of the main reasons for so many problems with the new dataset is that its *data classes* are not specified.
+@@ -197,7 +214,13 @@ class(falls_condensed$age)
+ class(falls_condensed$date_admit)
+ ```
+ 
+-So, after we import a raw dataset, we need to ""parse"" variable types, i.e., tell R which classes the variables actually are -- and we can decide to give labels to factors, to make our lives easier when we're running the analyses.
++You can check the classes of all variables in a dataset with `glimpse()`, from `dplyr`:
++```{r}
++glimpse(falls_condensed)
++```
++
++
++So, after we import a raw dataset, we need to tell R which classes the variables actually are (""parsing"" columns).
+ 
+ To do this, we using parsing functions, such as `as.character()`, `as.numeric()`, `as.Date`, `as.factor()`.
+ 
+@@ -465,7 +488,7 @@ trial_new |> group_by(marker_group) |>
+ # Exercise 1, question 2
+ # Merged cells, colour-coded rows, among other issues.
+ 
+-# Exercise 1, question 3
++# Exercise 1, question 4
+ # The output is useless.
+ ```
+ 
+
+---FILE: intRo7 reshape.Rmd---
+@@ -21,18 +21,24 @@ author: Andrea Mazzella [(GitHub)](https://github.com/andreamazzella)
+ 
+ 1. Run this chunk to create a dirty dataframe containing information on patients with myocardial infarctions seen by different ambulance teams.
+ 2. Clean the column names.
+-3. Clean the third column so that you calculate mean and standard deviation.
++3. Clean the third column so that you can calculate mean and standard deviation.
+ 4. Replace ""NW"" with ""North West"" in column 2.
+ 
+ ```{r}
+-ambulances <- data.frame(
++(
++  ambulances <- data.frame(
+   County = c(""Derby"", ""Bedford"", ""Norfolk"", ""Merseyside"", ""Cheshire"", ""Hampshire"", ""Kent"", ""Plymouth"", ""Swindon"", ""Wiltshire""),
+   Region = c(""East Midlands"", ""East of England"", ""East of England"", ""NW"", ""North West"", ""South East"", ""South East"", ""South West"", ""South West"", ""South West""),
+-  Patients.with.a.pre.hospital.diagnosis.of.suspected.STEMI.confirmed.on.ECG = c(""104"", ""105"", ""266"", ""140"", ""188"", ""No data"", ""236"", ""78"", ""190"", ""70""))
++  `How many patients with a pre hospital diagnosis of suspected STEMI confirmed on ECG?` = c(""104"", ""105"", ""266"", ""140"", ""188"", ""No data"", ""236"", ""78"", ""190"", ""70""))
++  )
++```
++
++```{r}
++# Your code here 👇
+ 
+-ambulances
+ ```
+ 
++
+ ------------------------------------------------------------------------
+ 
+ ```{r}
+@@ -54,12 +60,14 @@ Throughout this topic we'll use data from a study of candidaemia. All data are i
+ 
+ Please open the file in Excel first (you can find it and open it directly via the RStudio user interface: bottom right, Files.)
+ 
+-```{r}
+-sheets <- c(""site5"", ""site7"", ""site8"", ""cfupcr"", ""demographics"", ""meds"", ""outcomes"")
+-
+-for (sheet in sheets) {
+-  assign(sheet, import(""data/candidaemias.xlsx"", sheet = sheet))
+-}
++```{r import_data}
++site5 <- import(""data/candidaemias.xlsx"", sheet = ""site5"")
++site7 <- import(""data/candidaemias.xlsx"", sheet = ""site7"")
++site8 <- import(""data/candidaemias.xlsx"", sheet = ""site8"")
++cfupcr <- import(""data/candidaemias.xlsx"", sheet = ""cfupcr"")
++demographics <- import(""data/candidaemias.xlsx"", sheet = ""demographics"")
++meds <- import(""data/candidaemias.xlsx"", sheet = ""meds"")
++outcomes <- import(""data/candidaemias.xlsx"", sheet = ""outcomes"")
+ ```
+ 
+ ------------------------------------------------------------------------
+@@ -144,27 +152,6 @@ left_join(lab, meds, by = ""id"")
+ 
+ ------------------------------------------------------------------------
+ 
+-## Complex joins
+-
+-Some datasets are more complex. For example, there can be many variables that are repeated in multiple columns, like in this case, timing, CFU count and PCR result in samples A-C.
+-
+-```{r}
+-cfupcr
+-```
+-
+-Reshaping this to a long format is more complex; we need to use other arguments of `pivot_wider()`, for example `names_sep =` or `names_pattern =`
+-
+-```{r}
+-cfupcr |> 
+-  pivot_longer(!id,
+-               names_to = c("".value"", ""sample""),
+-               names_sep = ""_"")
+-```
+-
+-To learn more about complex joins, please see the Resources section further below.
+-
+-------------------------------------------------------------------------
+-
+ # Reshaping data
+ 
+ Let's look again at the `lab` dataframe. Imagine we wanted to make a line graph, to show the BDG through time.
+@@ -267,6 +254,27 @@ ggplot(tb_amer, aes( # complete here
+ 
+ ------------------------------------------------------------------------
+ 
++### Complex `pivot_longer`
++
++Some datasets are more complex. For example, there can be many variables that are repeated in multiple columns, like in this case, timing, CFU count and PCR result in samples A-C.
++
++```{r}
++cfupcr
++```
++
++Reshaping this to a long format is more complex; we need to use other arguments of `pivot_wider()`, for example `names_sep =` or `names_pattern =`
++
++```{r}
++cfupcr |> 
++  pivot_longer(!id,
++               names_to = c("".value"", ""sample""),
++               names_sep = ""_"")
++```
++
++To learn more about complex joins, please see the Resources section further below.
++
++------------------------------------------------------------------------
++
+ ## Pivot wider
+ 
+ Sometimes it might be helpful to go the other way - turn a long dataset wider, i.e., turning rows into columns. For example, to facilitate calculating new columns, or to increase readibility.
+@@ -279,14 +287,18 @@ meds
+ 
+ The function `pivot_wider()` from `dplyr` can do this.
+ 
+-We must specify at least two arguments:
++We need to specify the following arguments:
+ 
+-1.  Which column contains the labels that will be turned into column names;
+-2.  Which column contains the values that will be sorted in each new column.
++1.  The column(s) that uniquely identifies each observation, *if there is one*
++2.  Which column contains the labels that will be turned into column names
++3.  Which column contains the values that will be sorted in each new column
+ 
+ ```{r}
+ meds |>
+-  pivot_wider(names_from = ""antifungal"", values_from = ""days"")
++  pivot_wider(id_cols = !key,
++              names_from = ""antifungal"",
++              values_from = ""days"")
++
+ ```
+ 
+ Now let's look at another subset of the WHO tuberculosis data. This time we're comparing new pulmonary TB cases among 35-44yo men in three European countries from 1995 to 2010.
+@@ -304,6 +316,7 @@ tb_eur
+ 1.  Reshape this dataset so that there is one column per year, containing the new number of cases in that country in that year.
+ 2.  Change the name of the columns so that the numbers they contain are clear.
+ 
++
+ ------------------------------------------------------------------------
+ 
+ ## More resources"
+andreamazzella,IntRo,5f3d1f9eea722388d27718a76f566a566ad9ac9b,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-21T19:09:43Z,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-21T19:09:43Z,"post-session fixes
+
+Small updates to incorporate the feedback from recent sessions.",intRo2 visualise.Rmd;intRo3 summarise.Rmd;intRo4 subset.Rmd;intRo6 clean.Rmd,True,False,True,False,86,121,207,"---FILE: intRo2 visualise.Rmd---
+@@ -164,43 +164,14 @@ ggplot(msleep, aes(x = vore, fill = conservation)) +
+   geom_bar()
+ ```
+ 
+-### Changing value labels
++*Want to know more?* To change the *value* labels in a categorical variable, you either use `+ scale_<aes>_discrete(labels = c(""value1"" = ""label1"", ""value2"" = ""label2""))`, or you recode the values before plotting. I recommend you ignore this for now.
+ 
+-We can further customise the graph by adding more *layers*: you add a `+` at the end of a line and then add more functions.
+-
+-For example, let's change the value labels for the categorical variables so that they are more easily understandable.
+-
+--   In the axes, by using `scale_x_discrete()`;
+--   In the `fill` legend, by using `scale_fill_discrete()`.
+-
+-```{r}
+-ggplot(msleep, aes(x = vore, fill = conservation)) +
+-  geom_bar() +
+-  scale_x_discrete(labels = c(""carni"" = ""Carnivore"",
+-                              ""herbi"" = ""Herbivore"",
+-                              ""insecti"" = ""Insectivore"",
+-                              ""omni"" = ""Omnivore"")) +
+-  scale_fill_discrete(labels = c(""cd"" = ""conservation-dependent"",
+-                                 ""en"" = ""endangered"",
+-                                 ""lc"" = ""least concern"",
+-                                 ""nt"" = ""near threatened"",
+-                                 ""vu"" = ""vulnerable""
+-                                 ))
+-```
+-Note that in both functions, the `label = ` argument needs to contain a *vector of named characters*, where the name (on the left) is the value in the dataset, and the character on the right is the new label you want to display in its place.
+-
+-Remember from topic 1 that a *vector* is an ordered list of objects of the same type, and you create it with function `c()`.
+-
+-(In practice, you might often need to search online how to do certain things - there are way too many ggplot2 functions to remember!)
+-
+-*Exercise 4.* Now create the opposite bar chart: get count numbers for conservation, stratified by diet type.
++*Exercise 4.* Now create a bar chart that shows count of different conservation groups, stratified by diet type.
+ 
+ ```{r}
+ 
+ ```
+ 
+-[Friends don't let friends make pie charts](https://scc.ms.unimelb.edu.au/resources/data-visualisation-and-exploration/no_pie-charts).
+-
+ ------------------------------------------------------------------------
+ 
+ ## Box plots
+
+---FILE: intRo3 summarise.Rmd---
+@@ -11,9 +11,7 @@ author: Andrea Mazzella [(GitHub)](https://github.com/andreamazzella)
+ -   Data summarisation
+     -   Categorical variables
+     -   Continuous variables
+-    -   Grouped summaries with `dplyr`
+--   Data visualisation
+-    -   Histograms
++    -   Grouped summaries
+ -   Table 1 with `gtsummary`
+ 
+ ------------------------------------------------------------------------
+@@ -43,16 +41,16 @@ Create a concentration-time graph with `ggplot2`:
+ Load packages
+ 
+ ```{r}
+-library(dplyr)
++library(dplyr)        # count, group_by, summarise
+ library(ggplot2)
+-library(janitor)
+-library(gtsummary)
+-library(summarytools)
++library(gt)           # gtsave
++library(gtsummary)    # tbl_summary, as_gt
++library(summarytools) # freq, ctable
+ ```
+ 
+ NB:If you use Mac or Linux, you need to install some additional software to use `summarytools`. See [here](https://github.com/dcomtois/summarytools).
+ 
+-*""The following objects are masked from package [...]"" - what does it mean?*
++*`The following objects are masked from 'package [...]` - what does it mean?*
+ 
+ Two packages can contain a function with the same name - for example, `filter()` is present in both the base R module `stats` and in `dplyr`. If you load `dplyr`, R will warn you that from now on, every time you call `filter()`, it will use its `dplyr` form. In the rare cases in which you want to force R to use the function from a specific package, you can preface the function with `packagename::`. For example, `stats::filter(...)` will tell R to specifically use the `filter()` function from `stats` (and not the one from `dplyr`).
+ 
+@@ -86,13 +84,14 @@ summary(trial)
+ 
+ This only works well if the variables are coded in the correct data classes, so it will not work well with datasets that have not been cleaned first. See `intRo6 clean.Rmd` for how to do this.
+ 
++------------------------------------------------------------------------
++
+ ## Frequency tables
+ 
+ To tabulate categorical data, we have many options, among which:
+ 
+ -   `table()` from base R,
+ -   `count()` from `dplyr`,
+--   `tabyl()` from `janitor`,
+ -   `freq()` from package `summarytools`.
+ 
+ *Exercise 2.*
+@@ -111,12 +110,12 @@ table(trial$response)
+ count(trial, response)
+ 
+ # With percentages
+-tabyl(trial, response)
++freq(trial$response)
+ ```
+ 
+ *Exercise 3.*
+ 
+-1.  Write a line of code that will calculate the percentage of patients with each cancer `stage`.
++1.  Write a line of code that will calculate the percentage of patients with each cancer stage.
+ 2.  Show the same with an appropriate graph.
+ 
+ ```{r}
+@@ -127,6 +126,8 @@ tabyl(trial, response)
+ 
+ ```
+ 
++------------------------------------------------------------------------
++
+ ## Cross-tabulation
+ 
+ We're often interested in showing the distribution of *two* categorical variables against each other, i.e., cross-tabulation (two-way tables). This way we can check counts and percentages of each possible combination of factors.
+@@ -135,18 +136,12 @@ To make two-way tables you can use:
+ 
+ -   `table()` from base R, but it doesn't calculate percentages.
+ -   `count()` from `dplyr`, but it returns an output in long format and without percentages.
+--   `tabyl()` from `janitor`
+ -   `ctable()` from `summarytools`; it's a very customisable function.
+ 
+ ```{r}
+ table(trial$trt, trial$response, useNA = ""ifany"")
+ 
+-trial |> count(trt, response)
+-
+-trial |> tabyl(trt, response) |>
+-  adorn_percentages() |>
+-  adorn_pct_formatting() |> 
+-  adorn_ns(position = ""front"")
++count(trial, trt, response)
+ 
+ # With row percentages
+ # NB: summarytools 1.0.1 has an issue with R 4.1 - the following two lines do not work
+@@ -164,38 +159,7 @@ Write some code to calculate the percentage of people with `grade` `I` cancer wh
+ 
+ ```
+ 
+-## What is `|>`?
+-
+-`|>` is called a *pipe*; it's a programming tool that helps improve code readability. It was introduced in R version 4.1.
+-
+-These two lines are equivalent:
+-
+-```{r}
+-trial |> count(response)
+-
+-count(trial, response)
+-```
+-
+-You can see that the pipe is taking what's before it and it's shifting it as the first argument of the function that follows.
+-
+-You can also have more than one pipe. These are equivalent:
+-
+-```{r}
+-# Option 1: two pipes
+-trial |> tabyl(grade) |> adorn_totals()
+-
+-# Option 2: one pipe
+-tabyl(trial, grade) |> adorn_totals()
+-
+-# Option 3: nested functions
+-adorn_totals(tabyl(trial, grade))
+-
+-# Option 4: assignment
+-table1 <- tabyl(trial, grade)
+-adorn_totals(table1)
+-```
+-
+-We'll cover pipes in more detail in the next topic.
++------------------------------------------------------------------------
+ 
+ ## Summarising continuous variables
+ 
+@@ -205,6 +169,7 @@ As we've seen previously, to summarise continuous variables, you can use functio
+ mean(trial$ttdeath)
+ median(trial$ttdeath)
+ sd(trial$ttdeath)
++descr(trial$ttdeath)
+ ```
+ 
+ *Exercise 5.*
+@@ -223,31 +188,9 @@ You can also get many summary measures in one go by passing a variable to `summa
+ summary(trial$marker)
+ ```
+ 
+-## Histograms
+-
+-Histograms are helpful when we want to check the distribution of a continuous variable - with more detail than a Box plot.
+-
+-A histogram is similar to a bar chart, but it first needs to cut the continuous variable into ""bins"". By default, `geom_histogram()` uses 30 bins, but you can customise it by adding a `bins =` value. Or you can say how wide each bin should be, with `binwidth =`.
+-
+-```{r}
+-ggplot(trial, aes(marker)) +
+-  geom_histogram(bins = 10)
+-```
+-
+-The `marker` variable is not normally distributed, so it would make sense to summarise it with median and IQR.
+-
+-Compare it with the below:
+-
+-```{r}
+-ggplot(data.frame(marker2 = rnorm(1000, 2)), aes(marker2)) +
+-  geom_histogram(bins = 10)
+-```
+-
+-This looks normally distributed, so mean and standard deviation would be good summary measures.
+-
+ ------------------------------------------------------------------------
+ 
+-# Grouped summaries with `dplyr`
++## Grouped summaries with `dplyr`
+ 
+ What if we wanted to calculate the mean age in specific groups of patients, such as by treatment group?
+ 
+@@ -261,7 +204,12 @@ trial |>
+ 
+ (NB: `summarise()` is different from the function we used above, `summary()`!)
+ 
+-You can summarise with any of these functions: - `mean()`, `median()`, - `sd()`, `IQR()`, - `min()`, `max()`, - `n()`, `n_distinct()`
++You can summarise with any of these functions:
++
++-   `mean()`, `median()`,
++-   `sd()`, `IQR()`,
++-   `min()`, `max()`,
++-   `n()`, `n_distinct()`
+ 
+ We can use as many of these as you want in a single `summarise()` call, and you can also summarise more than one variable at the same time. `n()` will count the observations in that group.
+ 
+@@ -274,10 +222,13 @@ trial |>
+             sd_follow_up = sd(ttdeath))
+ ```
+ 
++(Please ignore the `|>` symbol for now; we'll come back to it soon).
++
+ Remember that we can visualise the distribution of a continuous variable across a categorical variable with Box plots:
+ 
+ ```{r}
+-trial |> ggplot(aes(age, trt)) +
++trial |>
++  ggplot(aes(age, trt)) +
+   geom_boxplot()
+ ```
+ 
+@@ -299,12 +250,44 @@ Calculate the median age and the age interquartile range in the two response gro
+ 
+ ------------------------------------------------------------------------
+ 
++## What is `|>`?
++
++`|>` is called a *pipe*; it's a programming tool that helps improve code readability. It was introduced in R version 4.1.
++
++These two lines are equivalent:
++
++```{r}
++trial |> count(response)
++
++count(trial, response)
++```
++
++You can see that the pipe is taking what's before it and it's shifting it as the first argument of the function that follows.
++
++You can also have more than one pipe, as you've seen above. It still works the same, but it makes code much easier to write and read.
++
++```{r}
++# This code...
++trial |>
++  group_by(trt) |> 
++  summarise(mean(ttdeath))
++
++# ...is equivalent to:
++summarise(group_by(trial, trt), mean(ttdeath))
++
++# Which one would you much rather write?
++```
++
++------------------------------------------------------------------------
++
+ # Summary tables
+ 
+ Summary data is often presented in a ""Table 1"": this contains a summary of the baseline characteristics, with frequencies and percentages for categorical variables, and means or medians with a measure of variability for continuous variables. Usually these are painful to prepare because you need to do a lot of calculations and then painstakingly copy them into a table. Also, if the data changes (new data, or new variables) you need to redo it from scratch.
+ 
+ Package `gtsummary()` allows us to programmatically create publication-ready summary tables that can be automatically exported into .html or .doc formats.
+ 
++------------------------------------------------------------------------
++
+ ## Basic `gtsummary` table
+ 
+ This package is somewhat similar to `ggplot2`. The main function is `tbl_summary()`, which we can then build upon.
+@@ -319,6 +302,8 @@ trial |>
+ 
+ Note that the variables have been renamed, e.g., ""Tumor Response"" rather than `response`. This is because this dataset is in a special ""labelled"" format. This won't happen automatically with your data, unless you pre-process it with package `labelled` - by default, the variable names will be displayed in the table.
+ 
++------------------------------------------------------------------------
++
+ ## Stratified `gtsummary` table
+ 
+ Using argument `by =` it's possible to stratify the table according to a categorical variable.
+@@ -331,7 +316,7 @@ trial |>
+   tbl_summary(by = trt)
+ ```
+ 
+-We might still want to also have a column with overall values. We do this by piping the table into `add_overall()`:
++We might still want to also have a column with overall values. We do this by piping the table into `add_overall()`. Because this will be our final table, we also assign it to a name of our choice.
+ 
+ ```{r}
+ final_table <- trial |>
+@@ -350,14 +335,16 @@ Create a table 1 of the `ToothGrowth` dataset, stratifying by supplement type bu
+ 
+ ```
+ 
+-## Save a `gtsummary` table
++## Save a `gtsummary` table to file
++
++We can use `gtsave()` to save a `gt` table to a file, so we first need to convert our `gtsummary` table into a regular `gt` table using `as_gt()`. Valid extensions include `.pdf`, `.html`, `.png`, `.docx`, `rtf`\`.
+ 
+-We can use `gtsave()` to save a table to a file. Valid extensions include PDF, HTML, PNG.
++NB: This system is not perfect - for example, with .docx and .pdf the formatting might be partially lost in translation.
+ 
+ ```{r}
+ final_table |>
+   as_gt() |> 
+-  gt::gtsave(""table1.html"")
++  gtsave(""table1.html"")
+ ```
+ 
+ ------------------------------------------------------------------------
+@@ -367,8 +354,8 @@ final_table |>
+ I recommend these resources:
+ 
+ -   R for Data Science
+-    -   [chapter 7: Exploratory data analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html)
+-    -   [chapter 5.6: Grouped summaries with `summarise`](https://r4ds.had.co.nz/transform.html#grouped-summaries-with-summarise)
++    -   Chapter 7: [Exploratory data analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html)
++    -   Chapter 5.6: [Grouped summaries with `summarise`](https://r4ds.had.co.nz/transform.html#grouped-summaries-with-summarise)
+ -   `gtsummary` documentation, [Tutorial: `tbl_summary`](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html)
+ 
+ ------------------------------------------------------------------------
+
+---FILE: intRo4 subset.Rmd---
+@@ -13,7 +13,7 @@ author: Andrea Mazzella [(GitHub)](https://github.com/andreamazzella)
+     -   Selecting columns
+ -   Conditions
+ -   Pipes
+-    -   `|>`
++    -   More about `|>`
+     -   `%>%`
+     -   `%$%`
+ 
+@@ -170,6 +170,8 @@ msleep |> select(name, starts_with(""sleep""))
+ 
+ # Pipes
+ 
++## More about `|>`
++
+ Let's go back to the pipe, `|>`, that we first saw in the previous topic.
+ 
+ Remember that `|>` does this:
+@@ -211,7 +213,7 @@ msleep |>
+ An explanation of the code above.
+ 
+ 1.  Make a plot of a filtered version of `msleep`. This makes code more difficult to read - you don't immediately understand which dataset is being plotted.
+-2.  Create a new object called `msleep_herbi` and make it a filtered version of `msleep`. Then make a plot of `msleep_herbi`. This is clearer, but you risk ending up with a very busy Environment if you create a lot of new objects.
++2.  Create a new object called `msleep_herbi`, containing a filtered version of `msleep`. Then make a plot of `msleep_herbi`. This is clearer, but you risk ending up with a very busy Environment if you create a lot of new objects.
+ 3.  You take `msleep` *and then* you `filter()` it, *and then* you use that in a `ggplot()`.
+ 
+ *Exercise 5.*
+@@ -321,6 +323,8 @@ You might see code that subsets data without using `dplyr`.
+ 
+ This uses the `[` operator: after writing the dataset name, you follow it with `[]`, containing instructions on how to subset.
+ 
++------------------------------------------------------------------------
++
+ ## Select columns in base R
+ 
+ Columns can be listed by name.
+@@ -343,6 +347,8 @@ msleep[c(""name"", ""sleep_total"")]
+ msleep |> select(name, sleep_total)
+ ```
+ 
++------------------------------------------------------------------------
++
+ ## Filter rows in base R
+ 
+ Two options:
+
+---FILE: intRo6 clean.Rmd---
+@@ -98,6 +98,12 @@ Let's rename them so they're easier to understand, or to type.
+ A helpful function to give a first scrub to all variable names at once is `clean_names()` from package `janitor`.
+ 
+ *Exercise 3.* What differences do you notice?
++```{r}
++falls_renamed <- clean_names(falls_v2)
++
++data.frame(old_vrb_names = names(falls_v2),
++           new_vrb_names = names(falls_renamed))
++```
+ 
+ 
+ 
+@@ -116,7 +122,6 @@ falls_renamed_2 <- falls_renamed |>
+          date_fall = date_of_fall_if_leading_to_injury,
+          fall_type = type,
+          analgesia = analgesia_prescribed_for_that_injury,
+-         analgesia_duration = duration_of_analgesia
+   )
+ 
+ head(falls_renamed_2)
+@@ -142,7 +147,7 @@ falls_renamed_2 |> select(starts_with(""x""))
+ Let's remove these empty variables from the dataset - as we did in topic 4.
+ 
+ ```{r}
+-falls_trimmed <- falls_renamed_2 |> select(-starts_with(""x""))
++falls_trimmed <- falls_renamed_2 |> select(!starts_with(""x""))
+ ```
+ 
+ ------------------------------------------------------------------------
+@@ -469,11 +474,7 @@ summary(falls_v2$`Was this patient admitted to a mental health hospital previous
+ ```
+ 
+ ```{r ex3_solution}
+-falls_renamed <- clean_names(falls_v2)
+-
+-data.frame(old_vrb_names = names(falls_v2), new_vrb_names = names(falls_renamed))
+-
+-# Note that this converted all upper-case letters to lower-case, it changed spaces into underscores, and it replaced triple dots with an `x`. This is a good start.
++# `clean_names()` converted all upper-case letters to lower-case, it changed spaces into underscores, and it replaced triple dots with an `x`. This is a good start.
+ ```
+ 
+ ```{r ex4_solution}"
+andreamazzella,IntRo,2b65953bfb66a69e24ee8f6f79932c43b170c493,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-15T14:26:56Z,GitHub,noreply@github.com,2022-09-15T14:26:56Z,minor fixes post-session,intRo5 transform.Rmd,True,False,True,False,2,2,4,"---FILE: intRo5 transform.Rmd---
+@@ -180,7 +180,7 @@ dm |>
+ 
+ By default `cut()`:
+ 
+--   creates a left-open and right-closed interval, i.e., (25,30] excludes 25 and include 30.
++-   creates a left-open and right-closed interval, i.e., (25,30] excludes 25 and includes 30.
+ -   creates labels in mathematical notation.
+ 
+ We can add custom labels to each group by adding the argument `labels =`. NB: labels should have 1 fewer element than `breaks =`.
+@@ -223,7 +223,7 @@ To do this, we can use `mutate()` to create the new variable and `fct_collapse()
+ 
+ ```{r}
+ # Explore levels
+-dm |> count(exercise)
++dm |> count(continent)
+ 
+ # Regroup
+ dm <- dm |> mutate("
+andreamazzella,IntRo,8d6b7722d79fc190635d10677ec2263ea14c6397,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-14T22:11:11Z,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-14T22:11:11Z,small fix,intRo5 transform.Rmd,True,False,True,False,1,1,2,"---FILE: intRo5 transform.Rmd---
+@@ -135,7 +135,7 @@ Dealing with dates in all programming languages is tricky. We'll come back to th
+ ```{r}
+ # Create a calculated age variable
+ dm <- dm |> mutate(
+-  age = ((dmy(""5 Sep 2022"") - date_birth) / 365.25) |> as.numeric()
++  age = ((dmy(""5 Sep 2022"") - date_birth) / 365.25) |> as.numeric() |> floor()
+   )
+ 
+ # Sanity check"
+andreamazzella,IntRo,27191495eac63212e23893e14f0bfe51d6ef24da,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-13T09:22:09Z,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-13T09:22:09Z,small fixes,intRo3 summarise.Rmd;intRo4 subset.Rmd,True,False,True,False,2,4,6,"---FILE: intRo3 summarise.Rmd---
+@@ -84,7 +84,7 @@ summary(trial)
+ 
+ *Want to know more?*
+ 
+-This only works well if the variables are coded in the correct data classes, so it will not work well with datasets that have not been cleaned first. That's what those earlier `factor()` functions were doing. See `intRo6 clean.Rmd` for how to do this.
++This only works well if the variables are coded in the correct data classes, so it will not work well with datasets that have not been cleaned first. See `intRo6 clean.Rmd` for how to do this.
+ 
+ ## Frequency tables
+ 
+
+---FILE: intRo4 subset.Rmd---
+@@ -23,9 +23,7 @@ author: Andrea Mazzella [(GitHub)](https://github.com/andreamazzella)
+ 
+ Use the `ToothGrowth` dataset to calculate summary statistics on tooth length (minimum, mean, maximum) according to whether the guinea pig received supplementation with orange juice or vitamin C.
+ 
+-```{r}
+ 
+-```
+ 
+ ------------------------------------------------------------------------
+ 
+@@ -220,7 +218,7 @@ An explanation of the code above.
+ 
+ Rewrite this command using a pipe.
+ 
+-NB - You can set a keyboard shortcut for the `|>` pipe. Go to Tools -\> Global options -\> Code -\> tick ""Use native pipe operator, \|\>"". After this, pressing *Ctrl + Shift + M* (on Windows) will insert a `|>` pipe.
++NB - You can set a keyboard shortcut for the `|>` pipe. Go to Tools → Global options → Code → tick ""Use native pipe operator"". After this, pressing *Ctrl + Shift + M* (on Windows) will insert a `|>` pipe.
+ 
+ ```{r}
+ # Code without a pipe"
+andreamazzella,IntRo,bc75bc280ed4e7ea39ba81d986561a57e2aa83db,Andrea Mazzella,58959384+andreamazzella@users.noreply.github.com,2022-09-06T13:51:27Z,GitHub,noreply@github.com,2022-09-06T13:51:27Z,"Update intRo2 visualise.Rmd
+
+fixed link",intRo2 visualise.Rmd,True,False,True,False,1,1,2,"---FILE: intRo2 visualise.Rmd---
+@@ -382,7 +382,7 @@ I recommend these resources for `ggplot2` and data visualisation:
+ -   (Basics) R for Data Science, [chapter 3: Data visualisation](https://r4ds.had.co.nz/data-visualisation.html)
+ -   (Intermediate) The BBC [Visual and Data Journalism cookbook](https://bbc.github.io/rcookbook/) for R graphics 
+ -   (Advanced) [Data Visualisation with R](https://rkabacoff.github.io/datavis/), by Rob Kabacoff 
+--   RStudio [Data Visualisation Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
++-   RStudio [Data Visualisation Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
+ -   [From Data to Viz](https://www.data-to-viz.com/) - how to choose which graph to use according to the type of data you have
+ -   [Color Brewer](https://colorbrewer2.org/) - picking a colour palette according to data type and accessibility requirements
+ "
+andreamazzella,IntRo,e6a79c62a8ab5acc6683e6e43cfb5bf945427d07,Andrea Mazzella,andreamazzella@users.noreply.github.com,2020-05-04T14:05:29Z,Andrea Mazzella,andreamazzella@users.noreply.github.com,2020-05-04T14:05:29Z,workaround for summarytools issues on Mac,intRo3.Rmd,True,False,True,False,9,4,13,"---FILE: intRo3.Rmd---
+@@ -30,6 +30,8 @@ library(""tidyverse"")             # %>% pipe and much more
+ options(digits = 2, scipen = 10) # reduce signif digits and scientific notation
+ ```
+ 
++NB: there seems to be an issue with summarytools on Mac computers. If this happens to you, try this solution: https://community.rstudio.com/t/problem-in-installing-summary-tools-package-in-mac/38387. If you still can't work it out, install and load package ""epiDisplay"" instead, it has similar tabulation functions.
++
+ Let's import othe diab_stata dataset. The `read_dta()` function is part of package ""haven"", that we haven't imported. We can still use this function by prefixing it with the name of the package and `::` (as long as we've installed the package)
+ ```{r}
+ # Import and label
+@@ -147,7 +149,7 @@ summary(dm$exercise_weekly)
+ 
+ ## Summarising categorical variables: frequency tables
+ 
+-To tabulate categorical data, we have many options, among which `table()` from base R and `freq()` from package {summarytools}.
++To tabulate categorical data, we have many options, among which `table()` from base R and `freq()` from package summarytools.
+ 
+ *Exercise*
+ Run this chunk and compare the output from those three functions.
+@@ -158,12 +160,11 @@ Run this chunk and compare the output from those three functions.
+ # Simple frequency table
+ table(dm$gender)
+ freq(dm$gender)
++epiDisplay::tab1(dm$gender, graph = F)
+ 
+ # More complex frequency tables
+ table(dm$sexual_orien, useNA = ""ifany"")
+ freq(dm$sexual_orien, report.nas = TRUE, cumul = TRUE)
+-
+-epiDisplay::tab1(dm$gender, graph = F)
+ ```
+ 
+ *Exercise*
+@@ -182,7 +183,10 @@ You can use `ctable()` from {summarytools}; it's a very customisable function.
+ dm %$% table(diet, diabetes, useNA = ""ifany"")
+ 
+ # Package summarytools
+-dm %$% ctable(diet, diabetes, headings = FALSE, prop = ""c"")
++dm %$% ctable(diet, diabetes, headings = FALSE, prop = ""c"", useNA = ""no"")
++
++# Package epiDisplay
++dm %$% epiDisplay::tabpct(diet, diabetes, graph = F, percent = ""col"")
+ ```
+ 
+ *Exercise*
+@@ -301,6 +305,7 @@ dm %$% ctable(religion, cistrans, total = FALSE, headings = FALSE, prop = ""c"")
+ 
+ ```{r filter solution}
+ dm %>% filter(gender == ""male"", height < 170, disability == ""mild"")
++
+ ```
+ 
+ ```{r scatter solution}"

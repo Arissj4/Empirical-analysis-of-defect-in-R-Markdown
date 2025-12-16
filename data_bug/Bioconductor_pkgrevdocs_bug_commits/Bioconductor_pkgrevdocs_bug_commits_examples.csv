@@ -1,0 +1,148 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+Bioconductor_pkgrevdocs_bug_commits,Documentation / Formatting,a419f369bb,2025-11-13T15:15:28Z,lshep,"Change package size to 10 MB (#158)
+
+* Fix link
+
+* Fixes typo Fix #109
+
+* Update what to expect
+
+* strengthen wording fo...",7,"---FILE: docs/package-review-checklist.md---
+@@ -28,6 +28,7 @@ The functionality should be sufficiently documented in man pages with runnable e
+ - [ ] `R CMD check --no-build-vignettes` within 10 minutes.
+ - [ ] Memory r..."
+Bioconductor_pkgrevdocs_bug_commits,Documentation / Formatting,6f510ab68e,2024-11-20T14:20:21Z,lshep,"Update Sys Deps (#127)
+
+* Fix link
+
+* Fixes typo Fix #109
+
+* Update what to expect
+
+* strengthen wording for basil...",7,"---FILE: description-file.Rmd---
+@@ -157,7 +157,8 @@ If the installation process is non-trivial, a top-level [`INSTALL` file](#sysdep
+ be included to document the process. If a user facing [`README`](#readme) is included..."
+Bioconductor_pkgrevdocs_bug_commits,Documentation / Formatting,3ac54581a2,2021-05-21T08:30:21Z,Kevin Rue-Albrecht,"Update README.md & Reintroduce references chapter. (#11)
+
+* Reintroduce references chapter.
+
+* update README.md
+
+* f...",7,"---FILE: 06-references.Rmd---
+@@ -0,0 +1,3 @@
++`r if (knitr::is_html_output()) '
++# References {-}
++'`
+
+---FILE: README.md---
+@@ -1 +1,44 @@
+-This is a minimal example of a book based on R Markdown and **bookdown** (http..."
+Bioconductor_pkgrevdocs_bug_commits,Dependency / Package,9d81666e47,2025-06-06T11:03:03Z,Marcel Ramos Pérez,"Misc updates (#146)
+
+* remove duplicate TOC
+
+* fix typos
+
+* add authors
+
+* wrap DESCRIPTION mentions in backticks
+
+* wra...",7,"---FILE: _bookdown.yml---
+@@ -44,5 +44,6 @@ rmd_files: [""index.Rmd"",
+            ""c-and-fortran.Rmd"",
+            ""mavericks.Rmd"",
+            ""debug-rd-links.Rmd"",
+-           ""news-for-bookdown.Rmd""]
++           ""news-..."
+Bioconductor_pkgrevdocs_bug_commits,Dependency / Package,d77c91ee77,2023-02-24T17:02:48Z,Marcel Ramos,"update FAQ based on feedback, closes #97 (#98)
+
+* update FAQ based on feedback
+
+* update install dependencies action
+...",7,"---FILE: .github/workflows/build_deploy.yaml---
+@@ -36,9 +36,8 @@ jobs:
+       - name: Install dependencies
+         run: |
+           install.packages(c('remotes', 'BiocManager'))
+-          local_deps <- remotes::local..."
+Bioconductor_pkgrevdocs_bug_commits,Dependency / Package,74347d9aca,2022-05-12T13:28:50Z,lshep,"Fixes #64 (#65)
+
+* Add Workflow package information
+
+* Update to show markdown code
+
+* remove workflow-package secti...",7,"---FILE: DESCRIPTION---
+@@ -11,5 +11,4 @@ Suggests:
+   BiocManager,
+   BiocStyle,
+   r-lib/downlit,
+-  withr,
+-  annotation
++  withr
+\ No newline at end of file
+
+---FILE: git-version-control.Rmd---
+@@ -386,35 +386,12 @@ ..."
+Bioconductor_pkgrevdocs_bug_commits,Rendering / Conversion,8f66d3a988,2021-05-20T11:19:45Z,Kevin Rue-Albrecht,"Book title; author list; prerequisite (#7)
+
+* replace book title; replace prerequisites
+
+* insert Bioconductor sticker...",7,"---FILE: .github/workflows/build_deploy.yaml---
+@@ -50,10 +50,10 @@ jobs:
+           bookdown::render_book('index.Rmd', 'bookdown::gitbook')
+         shell: Rscript {0}
+ 
+-      - name: Render book (pdf)
+-        run: |
+..."
+Bioconductor_pkgrevdocs_bug_commits,Rendering / Conversion,8a0a4e3edb,2025-04-07T13:31:33Z,Hugo Gruson,"Fix typos (#142)
+
+* Fix typos
+
+* Rewrap paragraph to fix r rendering
+
+* Remove extra i",6,"---FILE: description-file.Rmd---
+@@ -142,7 +142,7 @@ guidelines:
+   field of `GenomicAlignments`.
+   It is unusual for more than three packages to be listed as `Depends:`.
+ - `Suggests:` is for packages used in vignettes..."
+Bioconductor_pkgrevdocs_bug_commits,Rendering / Conversion,fc17024db6,2023-01-27T13:59:03Z,lshep,"update reviewer section (#91)
+
+* Add troubleshooting section for
+
+   R 4.3 length = x in coercion to logical error
+
+...",3,"---FILE: review-expectations.Rmd---
+@@ -9,6 +9,7 @@ overviews what is expected of community reviewers.
+ - [Time Commitment](#review-time-commitment)
+ - [Assignments](#review-assignments)
+ - [Expectations and deadlines](#..."
+Bioconductor_pkgrevdocs_bug_commits,Implementation / Logic,16154e8e91,2024-02-29T15:09:27Z,lshep,"strength wording of usage of basilisk  (#118)
+
+* Fix link
+
+* Fixes typo Fix #109
+
+* Update what to expect
+
+* stren...",6,"---FILE: fortran-C-python.Rmd---
+@@ -26,8 +26,9 @@ working examples for many tasks: the [Rcpp Gallery][].
+ 
+ ## Python {#python}
+ 
+-The `r BiocStyle::Biocpkg(""basilisk"")` package is encouraged to integrate python into R ..."
+Bioconductor_pkgrevdocs_bug_commits,Implementation / Logic,30bda0b4c2,2023-09-12T18:50:23Z,lshep,"Update What to Expect Section  (#113)
+
+* Fix link
+
+* Fixes typo Fix #109
+
+* Update what to expect",6,"---FILE: package-submission.Rmd---
+@@ -168,6 +168,12 @@ package maintenance responsibilities. Package authors are expected to:
+   DESCRIPTION file. This field indicates a particular web page for submitting
+   bug reports..."
+Bioconductor_pkgrevdocs_bug_commits,Implementation / Logic,2607160012,2023-01-26T15:52:32Z,lshep,"Add troubleshooting section for (#89)
+
+R 4.3 length = x in coercion to logical error",6,"---FILE: troubleshoot-build-report.Rmd---
+@@ -64,8 +64,41 @@ Often common Error's will arise as R develops and matures or as Bioconductor
+ packages are modified and advance. This document provides some guidance on Error'..."

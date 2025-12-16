@@ -1,0 +1,110 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+biol607_biol607.github.io_bug_commits,Visualization / Plotting,c868377f20,2025-03-06T14:37:17Z,jebyrnes,Fix typos in categorical model lecture,6,"---FILE: lectures/categorical_predictors.Rmd---
+@@ -173,7 +173,7 @@ background-size: cover
+ ```{r lizard_load, warning=FALSE}
+ library(readr)
+ library(dplyr)
+-lizards <- read_csv(""lectures/data/09/12e3HornedLizards.csv"",..."
+biol607_biol607.github.io_bug_commits,Visualization / Plotting,c9a0c56bbc,2025-02-26T20:47:24Z,jebyrnes,update linear regression fitting,6,"---FILE: lectures/linear_regression_details.Rmd---
+@@ -45,14 +45,6 @@ puffer_lm <- lm(predators ~ resemblance, data=puffer)
+ ```
+ 
+ 
+----
+-class: center, middle
+-
+-# Etherpad
+-<br><br>
+-<center><h3>https://etherpad.wikim..."
+biol607_biol607.github.io_bug_commits,Visualization / Plotting,ecd12d8802,2023-10-17T14:39:59Z,jebyrnes,fix small plots,6,"---FILE: lectures/many_types_of_predictors.Rmd---
+@@ -214,7 +214,9 @@ The effect of category depends on another - e.g. this grazing experiment
+ 
+ ```{r}
+ algae <- read.csv(""lectures/data/22/18e3IntertidalAlgae.csv"")
++
+ g..."
+biol607_biol607.github.io_bug_commits,Dependency / Package,a9b29c236e,2025-03-04T18:15:54Z,jebyrnes,Update schedule with a few fixes,4,"---FILE: schedule.Rmd---
+@@ -3,15 +3,14 @@
+ ---  
+ 
+ <!--
+-
++NEXT TIME I TEACH 607 in 2026/7
++- Assumptions in linear regression lecture is a SLOG - make less boring
++  - separate assumptions about DGP and EGP
++  - Show ..."
+biol607_biol607.github.io_bug_commits,Rendering / Conversion,15900943a0,2020-10-10T18:50:17Z,jebyrnes,Regression hw and code,6,"---FILE: homework/06_correlation_regression.Rmd---
+@@ -5,18 +5,26 @@ output: html_document
+ ---
+ 
+ ```{r setup, include=FALSE}
+-knitr::opts_chunk$set(echo = FALSE)
++knitr::opts_chunk$set(echo = FALSE, warning=FALSE, mess..."
+biol607_biol607.github.io_bug_commits,Rendering / Conversion,4a4563b218,2018-10-10T15:53:49Z,Jarrett Byrnes,fixing homework,6,"---FILE: homework_2018/05_t_chisq_power.Rmd---
+@@ -7,10 +7,15 @@ output: html_document
+ ```{r setup, include=FALSE}
+ knitr::opts_chunk$set(echo = FALSE)
+ ```
+-<!-- next year, purge /data/05 from all -->
+-## 1. W&S $\chi^..."
+biol607_biol607.github.io_bug_commits,Rendering / Conversion,5095b84ac2,2016-11-29T15:15:58Z,Jarrett Byrnes,Multiple Regression Lecture,6,"---FILE: lectures/23_general_linear_model.Rmd---
+@@ -0,0 +1,686 @@
++---
++title:
++output:
++  revealjs::revealjs_presentation:
++    reveal_options:
++      slideNumber: true
++      previewLinks: true
++    theme: white
++    ..."
+biol607_biol607.github.io_bug_commits,Documentation / Formatting,1bf377f671,2022-11-03T14:35:08Z,jebyrnes,typo fix,7,"---FILE: lectures/modeling_variance.Rmd---
+@@ -1,5 +1,5 @@
+ ---
+-title: ""Linear Regression and Frequentist Hypothesis Testing""
++title: ""Modeling Variance""
+ output:
+   xaringan::moon_reader:
+     seal: false
+@@ -109,7 +10..."
+biol607_biol607.github.io_bug_commits,Documentation / Formatting,d90f2f5804,2023-11-02T14:27:03Z,jebyrnes,Fix lecture name,6,"---FILE: lectures/mixed_models.Rmd---
+@@ -1,5 +1,5 @@
+ ---
+-title: ""Interaction Effects""
++title: ""Mixed Models""
+ output:
+   xaringan::moon_reader:
+     seal: false
+
+---FILE: lectures/mixed_models.html---
+@@ -1,7 +1,7 @@
+..."
+biol607_biol607.github.io_bug_commits,Documentation / Formatting,bf028d2e6a,2018-11-02T14:44:22Z,Jarrett Byrnes,fixing zoo brms,6,"---FILE: lab/08_bayes.Rmd---
+@@ -667,7 +667,7 @@ deet_plot +
+ Do longer lived species also have larger home ranges? Let's test this!
+ ```{r eval=FALSE}
+ 
+-zoo <- read.csv(""./data/06/17q02ZooMortality Clubb and Mason 2003..."
+biol607_biol607.github.io_bug_commits,Implementation / Logic,fc8d648138,2023-10-19T14:08:30Z,jebyrnes,Fixing interactions,6,"---FILE: lectures/interactions_lm.Rmd---
+@@ -62,7 +62,7 @@ class: center, middle
+ 
+ # Etherpad
+ <br><br>
+-<center><h3>https://etherpad.wikimedia.org/p/607-interactions-nonlinearities-2022</h3></center>
++<center><h3>https..."
+biol607_biol607.github.io_bug_commits,Implementation / Logic,1cae0bc62c,2023-09-06T12:58:53Z,jebyrnes,typo fix,6,"---FILE: index.Rmd---
+@@ -28,7 +28,7 @@ ggplot(data=penguins,
+ 
+ **Weekly Schedule:** Tuesday & Thursday 11 - 12:30, and Lab Friday 9 - 12:00pm in the Healey Blue Computer Lab and on Zoom for those that cannot make it. T..."
+biol607_biol607.github.io_bug_commits,Implementation / Logic,249268cb9a,2023-09-06T12:58:36Z,jebyrnes,typo fix,6,"---FILE: index.html---
+@@ -297,7 +297,7 @@ <h1 class=""title toc-ignore"">Biol 607/617: Biostatistics and
+ Slack. All will be recorded for those who cannot make it, and URLS
+ posted in the weeks’ etherpads.</p>
+ <p><strong..."
+biol607_biol607.github.io_bug_commits,Data / Input Handling,771edc719e,2020-09-17T13:51:01Z,jebyrnes,Fix security vulnerability,3,"---FILE: lectures/01_intro_files/reveal.js-3.3.0/package.json---
+@@ -25,7 +25,8 @@
+     ""express"": ""~4.13.3"",
+     ""grunt-cli"": ""~0.1.13"",
+     ""mustache"": ""~2.2.1"",
+-    ""socket.io"": ""~1.3.7""
++    ""socket.io"": ""~1.3.7"",..."

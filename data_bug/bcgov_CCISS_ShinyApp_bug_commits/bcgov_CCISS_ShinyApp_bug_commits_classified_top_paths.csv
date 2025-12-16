@@ -1,0 +1,16 @@
+path,count
+app/server/generate.R,28
+app/index.Rmd,15
+app/server/feasibility.R,14
+app/server/futures.R,12
+R/eda_overlap.R,11
+data-raw/scripts/create_package_data.R,11
+R/data_etl.R,11
+app/server/points.R,10
+app/ui.R,9
+data-raw/scripts/bigshinygisstudio.R,9
+app/server/map.R,7
+app/server/download.R,7
+app/server/reporthtml.Rmd,7
+R/feasibility.R,7
+app/server.R,6
