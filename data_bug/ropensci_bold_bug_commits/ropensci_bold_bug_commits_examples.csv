@@ -1,0 +1,106 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+ropensci_bold_bug_commits,Implementation / Logic,53ed0bf2dd,2024-03-26T04:48:14Z,Salix,added fix,6,"---FILE: R/utils.R---
+@@ -96,6 +96,15 @@ b_read_xml <- function(x) {
+ }
+ b_read_tsv <- function(x, header = TRUE, sep = ""\t"",
+                        cleanData = FALSE, ...) {
++  # -- fix for issue 104 ------------------..."
+ropensci_bold_bug_commits,Implementation / Logic,d69f6822e8,2023-09-08T19:47:10Z,Salix,fixed anonymous functions syntaxe,6,"---FILE: R/bold_stats.R---
+@@ -80,7 +80,7 @@ b_simplify_stats <- function(x, dataType) {
+     n <- which(vapply(x, inherits, NA, ""integer""))
+     ov <- vapply(x[-n], `[[`, 0L, ""count"")
+     ov <- as.data.frame(c(x[n],ov)..."
+ropensci_bold_bug_commits,Implementation / Logic,f11066e679,2023-03-11T15:19:12Z,Salix,updated the errors messages across function and test files,6,"---FILE: R/bold_identify.R---
+@@ -99,10 +99,10 @@ bold_identify <- function(
+   lapply(sequences, function(seq){
+     if (nchar(seq) < 80) {
+       # API return NA but on website you would get that error
+-      res <- li..."
+ropensci_bold_bug_commits,Documentation / Formatting,acff4da2f8,2023-05-01T20:12:35Z,Salix,fix spelling errors,7,"---FILE: NEWS.md---
+@@ -10,7 +10,7 @@ bold 1.3.0
+ 
+ * Similarly, the now deprecated `bold_identify_parents()` has new argument checks and will throw warnings to not affect existing workflows.
+ 
+-* For `bold_tax_id2()` an..."
+ropensci_bold_bug_commits,Documentation / Formatting,17c83daa4e,2020-01-17T18:36:35Z,Scott Chamberlain,"fix #61 update docs to make it more clear that users need to split up requests
+nothing changed in code, nothing we can d...",7,"---FILE: DESCRIPTION---
+@@ -5,7 +5,7 @@ Description: A programmatic interface to the Web Service methods provided by
+     Functions include methods for searching by sequences by taxonomic names,
+     ids, collectors, and..."
+ropensci_bold_bug_commits,Documentation / Formatting,af7f68ac77,2021-05-10T22:07:40Z,Scott Chamberlain,readme fixes; comment out R devel now for gh actions,7,"---FILE: .github/workflows/R-check.yaml---
+@@ -13,9 +13,9 @@ jobs:
+       matrix:
+         config:
+         - { os: windows-latest, r: 'release'}
+-        - { os: windows-latest, r: 'devel'}
++        # - { os: windows-la..."
+ropensci_bold_bug_commits,Data / Input Handling,5f735826bc,2023-03-13T00:16:43Z,Salix,update checks & fixes to errors in tests,6,"---FILE: R/bold_filter.R---
+@@ -32,17 +32,19 @@
+ #' }
+ #' @export
+ bold_filter <- function(x, by, how = ""max"", returnTibble = TRUE){
++  #-- arg check
+   if (missing(x)) stop(""argument 'x' is missing, with no default"")
+  ..."
+ropensci_bold_bug_commits,Data / Input Handling,4b68352e96,2023-03-06T16:45:42Z,Salix,"fixing test, check & fix fun for issue 84",6,"---FILE: R/bold_tax_name.R---
+@@ -40,7 +40,7 @@ bold_tax_name <- function(name, fuzzy = FALSE, response = FALSE,
+                           tax_division = NULL, tax_rank = NULL, ...) {
+   assert(name, ""character"")
+   # f..."
+ropensci_bold_bug_commits,Data / Input Handling,e2e4ab3c4b,2019-01-29T03:42:31Z,Scott Chamberlain,fix #58 add more tests,6,"---FILE: R/bold_filter.R---
+@@ -1,4 +1,7 @@
+-#' Get BOLD specimen + sequence data.
++#' Filter BOLD specimen + sequence data (output of bold_seqspec)
++#' 
++#' Picks either shortest or longest sequences, for a given groupi..."
+ropensci_bold_bug_commits,Dependency / Package,a9398a135d,2019-06-26T02:54:15Z,Scott Chamberlain,fix #65 - update sangerseqR installation instructions for R version,7,"---FILE: DESCRIPTION---
+@@ -5,7 +5,7 @@ Description: A programmatic interface to the Web Service methods provided by
+     Functions include methods for searching by sequences by taxonomic names,
+     ids, collectors, and..."
+ropensci_bold_bug_commits,Dependency / Package,71a092a004,2017-07-20T20:04:17Z,Scott Chamberlain,"fix #39 namespace calls to stats, utils, repalce is with inherits",7,"---FILE: DESCRIPTION---
+@@ -14,9 +14,6 @@ BugReports: https://github.com/ropensci/bold/issues
+ VignetteBuilder: knitr
+ LazyData: yes
+ Imports:
+-    methods,
+-    utils,
+-    stats,
+     xml2,
+     crul (>= 0.3.8),
+     s..."
+ropensci_bold_bug_commits,Dependency / Package,4582a7db57,2018-11-14T00:10:55Z,Scott Chamberlain,"vcr done (#56)
+
+* starting to add vcr
+
+* require newest vcr and webmockr, update fixtures
+
+* fixes
+
+* update vcr v...",7,"---FILE: DESCRIPTION---
+@@ -26,11 +26,12 @@ Imports:
+     data.table,
+     tibble
+ Suggests:
+-    roxygen2 (>= 6.0.1),
++    roxygen2 (>= 6.1.1),
+     sangerseqR,
+     knitr,
+-    testthat
+-RoxygenNote: 6.1.0
++    testtha..."
+ropensci_bold_bug_commits,Reproducibility / Versioning,9f7000171f,2019-03-08T00:24:26Z,Scott Chamberlain,"fix #62 fix to bold_identify, replace ampersands with escaped html version, bump ver",7,"---FILE: DESCRIPTION---
+@@ -5,7 +5,7 @@ Description: A programmatic interface to the Web Service methods provided by
+     Functions include methods for searching by sequences by taxonomic names,
+     ids, collectors, and..."
+ropensci_bold_bug_commits,Reproducibility / Versioning,d739134d52,2017-07-20T19:57:38Z,Scott Chamberlain,"should fix problem with tsv reported in #46
+changed to use new API base url, bolds new v4 api #30
+bumped patch version
+f...",7,"---FILE: DESCRIPTION---
+@@ -5,7 +5,7 @@ Description: A programmatic interface to the Web Service methods provided by
+     searching by sequences by taxonomic names, ids, collectors, and
+     institutions; as well as a fu..."
+ropensci_bold_bug_commits,Reproducibility / Versioning,0a10c318f9,2017-06-17T20:14:33Z,Scott Chamberlain,"fix #42 - replaced httr with crul, updated all man files for new roxygen2 version
+bump version",7,"---FILE: DESCRIPTION---
+@@ -5,7 +5,7 @@ Description: A programmatic interface to the Web Service methods provided by
+     searching by sequences by taxonomic names, ids, collectors, and
+     institutions; as well as a fu..."

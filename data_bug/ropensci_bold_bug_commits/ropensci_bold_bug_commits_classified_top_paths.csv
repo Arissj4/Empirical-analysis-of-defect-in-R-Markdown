@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,34
+R/zzz.R,22
+R/bold_seqspec.R,20
+R/bold_tax_name.R,20
+R/bold_seq.R,17
+R/bold_tax_id.R,16
+R/bold_trace.R,15
+R/bold_identify.R,15
+NAMESPACE,15
+R/bold_specimens.R,14
+README.md,13
+tests/testthat/test-bold_specimens.R,12
+man/bold_trace.Rd,12
+R/bold_stats.R,11
+R/bold_identify_parents.R,11
