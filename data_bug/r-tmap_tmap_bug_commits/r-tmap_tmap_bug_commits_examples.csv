@@ -1,0 +1,167 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+r-tmap_tmap_bug_commits,Implementation / Logic,d8df955ae5,2013-11-27T15:17:34Z,Martijn Tennekes,"legend positions fixed, (todo: item space in ""none"" mode)",6,"---FILE: pkg/R/geo_layers.R---
+@@ -30,7 +30,7 @@ geo.text <-  function(shp, text=names(shp)[1], cex=1) {
+ geo.choropleth <- function(shp, col, n = 5,
+ 							style = ""pretty"",
+ 							breaks = NULL,
+-							palette = ""Rd..."
+r-tmap_tmap_bug_commits,Implementation / Logic,2b31be2f37,2025-10-23T19:18:27Z,mtennekes,lty legend fixed,6,"---FILE: R/tmapLeafletComp.R---
+@@ -21,7 +21,7 @@ gp_to_lpar = function(gp, mfun, shape = 20, pick_middle = TRUE, size_factor = 20
+ 				 fill_alpha = {if (!all(is.na(gp$fill_alpha))) gp$fill_alpha else 0},
+ 				 col_alph..."
+r-tmap_tmap_bug_commits,Implementation / Logic,f1f6476ffa,2025-10-03T06:23:17Z,mtennekes,fixed 1197,6,"---FILE: R/tmapLeafletDataPlot_symbols.R---
+@@ -46,8 +46,7 @@ tmapLeafletDataPlot.tm_data_symbols = function(a, shpTM, dt, pdt, popup.format,
+ 		popups = view_format_popups(id = idt, titles = names(pdt), values = pdt, fo..."
+r-tmap_tmap_bug_commits,Documentation / Formatting,b39c26fb6b,2025-04-15T19:51:39Z,mtennekes,"options docs done, fixed #1086",7,"---FILE: R/tmapScaleIntervals.R---
+@@ -50,7 +50,7 @@ tmapScaleIntervals = function(x1, scale, legend, chart, o, aes, layer, layer_arg
+ 	if (!is.null(scale$return)) return(scale$return)
+ 
+ 	# data-type dependent processin..."
+r-tmap_tmap_bug_commits,Documentation / Formatting,1eb23d68b4,2025-04-25T19:05:10Z,Pukar Bhandari,"Update `qtm()` documentation
+
+- Updated documentation to fix the failed checks that failed the first time.",7,"---FILE: man/qtm.Rd---
+@@ -6,17 +6,17 @@
+ \usage{
+ qtm(
+   shp = NULL,
+-  fill = tm_const(),
+-  col = tm_const(),
+-  size = tm_const(),
+-  shape = tm_const(),
+-  lwd = tm_const(),
+-  lty = tm_const(),
+-  fill_alpha = tm_..."
+r-tmap_tmap_bug_commits,Documentation / Formatting,b489984288,2025-01-05T13:23:48Z,mtennekes,"fixed facets_grids legend placement bug, added facets and legend vigs, and completed vignette index",7,"---FILE: R/tmapGridComp.R---
+@@ -241,7 +241,7 @@ tmapGridComp = function(comp, o, facet_row = NULL, facet_col = NULL, facet_page,
+ 		panel_rows = if (class == ""in"") {
+ 			NULL
+ 		} else if (o$panel.type == ""xtab"") {
+-			..."
+r-tmap_tmap_bug_commits,Environment / Configuration,d2a103c795,2018-05-21T11:11:29Z,mtennekes,"improved messaging, fixed #126, done #194",6,"---FILE: .gitignore---
+@@ -39,5 +39,8 @@ vignettes/*.md
+ # Output
+ /output/
+ 
++# Test output
++/tests/testthat/output/
++
+ # R Profile
+ .Rprofile
+\ No newline at end of file
+
+---FILE: .travis.yml---
+@@ -1,5 +1,16 @@
+ langu..."
+r-tmap_tmap_bug_commits,Environment / Configuration,ed51513a5b,2025-07-23T06:52:19Z,mtennekes,fixed inset frame box,3,"---FILE: R/print.R---
+@@ -61,7 +61,7 @@ timing_init = function() {
+ 
+ timing_add = function(s1 = """", s2 = """", s3 = """", s4 = """") {
+ 	tsx = data.table(s1 = s1, s2 = s2, s3 = s3, s4 = s4, t = Sys.time())
+-	ts = data.table::..."
+r-tmap_tmap_bug_commits,Environment / Configuration,255d183deb,2023-09-28T15:32:14Z,mtennekes,fixed new bug,3,"---FILE: R/step4_plot.R---
+@@ -274,11 +274,12 @@ step4_plot = function(tm, vp, return.asp, show) {
+ 
+ 	
+ 	## place components top left
+-	cdt$comp = lapply(cdt$comp, function(cc) {
+-		cc$position = l = complete_options(tm..."
+r-tmap_tmap_bug_commits,Rendering / Conversion,a1c0a7b357,2025-07-21T16:15:43Z,mtennekes,"fixed wrap-pages bug, added ggplot2 vig",6,"---FILE: R/process_meta.R---
+@@ -596,11 +596,17 @@ process_meta = function(o, d, cdt, aux) {
+ 			} else {
+ 				panel.type = ""none""
+ 			}
++			if (nby[3] != 1L) {
++				npages = nby[3]
++			} else {
++				npages = ceiling(n /..."
+r-tmap_tmap_bug_commits,Rendering / Conversion,b915555605,2024-12-26T06:59:57Z,mtennekes,"fixed #713, renamed rivers to World_rivers (with catch-warning)",6,"---FILE: R/data.R---
+@@ -97,7 +97,8 @@
+ #' Spatial data of rivers
+ #'
+ #' @source <https://www.naturalearthdata.com>
+-""rivers""
++#' @note In tmap <= 3, this dataset was called `rivers`.
++""World_rivers""
+ 
+ #' Spatial data ..."
+r-tmap_tmap_bug_commits,Rendering / Conversion,dd2ecf667f,2024-12-18T13:36:56Z,olivroy,fix merge conflict,6,"---FILE: vignettes/01_basics_vv.Rmd---
+@@ -15,16 +15,9 @@ editor_options:
+ ```{r, include = FALSE}
+ knitr::opts_chunk$set(
+   collapse = TRUE,
+-<<<<<<< HEAD
+-  warning = FALSE,
+-  message = FALSE,
+-  fig.width=6, 
+-  fig..."
+r-tmap_tmap_bug_commits,Dependency / Package,b2b4f3beac,2025-01-07T17:36:42Z,olivroy,"Fix conditions, improve vignettes, add order, use %||%, rm import utils",7,"---FILE: NAMESPACE---
+@@ -484,7 +484,6 @@ import(leafsync)
+ import(stats)
+ import(tmaptools)
+ import(units)
+-import(utils)
+ importFrom(grDevices,col2rgb)
+ importFrom(grDevices,colorRampPalette)
+ importFrom(grDevices,colo..."
+r-tmap_tmap_bug_commits,Dependency / Package,93c484b294,2023-09-14T20:38:46Z,olivroy,Declare dependency on unreleased cols4all per gh/r-tmap/tmap/issue/772.,7,"---FILE: DESCRIPTION---
+@@ -28,7 +28,7 @@ Imports:
+     stars (>= 0.4-2),
+     units (>= 0.6-1),
+     grid,
+-    cols4all,
++    cols4all (>= 0.6-1),
+     classInt (>= 0.4-3),
+     htmltools,
+     htmlwidgets,
+@@ -60,7 +6..."
+r-tmap_tmap_bug_commits,Dependency / Package,af10ec1928,2023-10-21T17:54:59Z,olivroy,Add tests for recent fixes + fix R CMD CHECK,7,"---FILE: DESCRIPTION---
+@@ -60,7 +60,7 @@ Suggests:
+     rmarkdown,
+     shiny,
+     terra,
+-    testthat (>= 3.0.0),
++    testthat (>= 3.2.0),
+     tidyr
+ VignetteBuilder: 
+     knitr
+
+---FILE: R/global-variables.R---
+@..."
+r-tmap_tmap_bug_commits,Data / Input Handling,62f4ac2a57,2016-02-04T16:04:52Z,mtennekes,"fixed NLD_prov data, removed Antarctica GDP data",6,"---FILE: build/create_NLD.R---
+@@ -3,17 +3,15 @@ library(maptools)
+ library(raster)
+ library(rgeos)
+ library(rgdal)
+-devtools::load_all(""."")
+ 
+ 
+ # http://www.cbs.nl/nl-NL/menu/themas/dossiers/nederland-regionaal/publica..."
+r-tmap_tmap_bug_commits,Data / Input Handling,9b253dd7f4,2015-12-08T10:40:28Z,Martijn Tennekes,travis fix,3,"---FILE: .travis.yml---
+@@ -8,6 +8,8 @@ r_packages:
+ env:
+  global:
+    - CRAN: http://cran.rstudio.com
++   
++before_install: cd pkg
+ 
+ notifications:
+   email:"
+r-tmap_tmap_bug_commits,Visualization / Plotting,4f3c9b18c3,2014-07-11T15:48:03Z,Martijn Tennekes,"small bug bubble legend, animation_geo added, NDW updated",7,"---FILE: pkg/NAMESPACE---
+@@ -2,6 +2,7 @@
+ 
+ S3method(""+"",geo)
+ S3method(print,geo)
++export(animation_geo)
+ export(append_data)
+ export(approx_areas)
+ export(calc_densities)
+
+---FILE: pkg/R/animation_geo.R---
+@@ -0,0 +1,..."
+r-tmap_tmap_bug_commits,File I/O and Export,c258892500,2014-07-08T09:58:17Z,Martijn Tennekes,"demo working, fixed non-dataframe sp objects",6,"---FILE: pkg/R/print_geo.R---
+@@ -19,27 +19,24 @@ print.geo <- function(x, ...) {
+ 	nshps <- length(shape.id)
+ 	if (!nshps) stop(""Required geo_shape layer missing."")
+ 	
+-	shps <- lapply(x[shape.id], function(y)y$shp)
++	s..."

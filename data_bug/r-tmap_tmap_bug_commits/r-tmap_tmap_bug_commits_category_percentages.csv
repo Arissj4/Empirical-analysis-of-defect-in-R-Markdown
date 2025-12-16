@@ -1,0 +1,9 @@
+bug_category,count,percent,median_score
+Implementation / Logic,435,69.6,6.0
+Documentation / Formatting,150,24.0,6.0
+Dependency / Package,25,4.0,6.0
+Rendering / Conversion,7,1.1,6.0
+Environment / Configuration,4,0.6,3.0
+Data / Input Handling,2,0.3,4.5
+File I/O and Export,1,0.2,6.0
+Visualization / Plotting,1,0.2,7.0

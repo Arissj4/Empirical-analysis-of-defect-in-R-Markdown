@@ -1,0 +1,16 @@
+path,count
+R/tmap_options.R,47
+R/step4_plot.R,41
+R/process_meta.R,40
+R/view_tmap.R,34
+R/tm_layers.R,32
+R/tm_layout.R,29
+NAMESPACE,26
+R/print_tmap.R,26
+DESCRIPTION,25
+R/step1_rearrange.R,24
+R/tmapShape.R,24
+R/preprocess_shapes.R,24
+pkg/R/print_tmap.R,24
+man/tm_symbols.Rd,23
+NEWS,23
