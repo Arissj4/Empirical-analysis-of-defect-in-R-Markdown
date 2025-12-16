@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,43
+R/Class-SimParam.R,24
+src/RcppExports.cpp,23
+NEWS,23
+R/RcppExports.R,22
+R/crossing.R,17
+src/meiosis.cpp,16
+R/pullGeno.R,15
+NEWS.md,14
+R/Class-Pop.R,13
+R/hybrids.R,12
+NAMESPACE,11
+R/founderPop.R,11
+R/selection.R,9
+src/simulator.cpp,8
