@@ -1,0 +1,16 @@
+path,count
+NEWS.md,48
+R/class.R,33
+NAMESPACE,31
+R/property.R,29
+R/zzz.R,29
+R/method.R,22
+tests/testthat/_snaps/class.md,20
+R/class-spec.R,20
+tests/testthat/test-class.R,19
+README.Rmd,19
+README.md,19
+R/generic.R,18
+tests/testthat/test-property.R,18
+tests/testthat/test-method.R,16
+tests/testthat/_snaps/property.md,14

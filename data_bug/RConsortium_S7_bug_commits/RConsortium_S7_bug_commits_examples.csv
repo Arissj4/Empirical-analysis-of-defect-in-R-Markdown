@@ -1,0 +1,101 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+RConsortium_S7_bug_commits,Dependency / Package,d67c0a19a7,2025-11-13T23:17:05Z,Tomasz Kalinowski,"Fix new non-API warnings (#577)
+
+* remove usage of `FORMALS()`
+
+* remove usage of `Rf_allocSExp()`
+
+* update Roxygen ver...",7,"---FILE: .Rbuildignore---
+@@ -18,3 +18,4 @@
+ ^compile_commands\.json$
+ ^\.cache$
+ ^\.vscode$
++^revdep$
+
+---FILE: DESCRIPTION---
+@@ -47,4 +47,4 @@ Config/testthat/parallel: TRUE
+ Config/testthat/start-first: external-gene..."
+RConsortium_S7_bug_commits,Dependency / Package,4ced878212,2024-11-04T17:21:03Z,Tomasz Kalinowski,"Don't inline classes in constructor if possible (#481)
+
+* unname `topNamespaceName()` name
+
+* try to use `pkg::cls()` ...",7,"---FILE: R/aaa.R---
+@@ -26,10 +26,10 @@ new_function <- function(args = NULL,
+ topNamespaceName <- function(env = parent.frame()) {
+   env <- topenv(env)
+   if (!isNamespace(env)) {
+-    return()
++    return() # print vi..."
+RConsortium_S7_bug_commits,Dependency / Package,32746c7fa1,2023-04-20T18:28:31Z,Hadley Wickham,"Check on more versions (#301)
+
+* Update actions
+* Check on more versions
+* Backport `deparse1()` and `list2DF()`
+* Re...",7,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -5,7 +5,6 @@
+ # check-standard.yaml is likely a better choice.
+ # usethis::use_github_action(""check-standard"") will install it.
+ on:
+-  workflow_dispatch:
+   push:
+     b..."
+RConsortium_S7_bug_commits,Documentation / Formatting,b5cf389d7c,2024-10-16T20:10:08Z,Tomasz Kalinowski,"Automatically detect package name in `new_class(package=)` (#459)
+
+* add `topNamespaceName()`
+
+* fixes to prevent `S7:...",7,"---FILE: NEWS.md---
+@@ -1,13 +1,16 @@
+ # S7 (development version)
+ 
++* `new_class()` now automatically infers the package name when called from 
++  within an R package (#459).
++
+ * Improved error message when custom vali..."
+RConsortium_S7_bug_commits,Documentation / Formatting,d0112a1d04,2023-11-23T15:44:59Z,Hadley Wickham,"Upkeep (#384)
+
+* Fix vignette titles
+
+* Enable parallel testing
+
+* Simplify matrixOps definition",7,"---FILE: DESCRIPTION---
+@@ -42,6 +42,8 @@ VignetteBuilder:
+     knitr
+ Config/Needs/website: sloop
+ Config/testthat/edition: 3
++Config/testthat/parallel: TRUE
++Config/testthat/start-first: external-generic
+ Encoding: UTF..."
+RConsortium_S7_bug_commits,Documentation / Formatting,2d46e2ff47,2023-09-17T12:05:47Z,Hadley Wickham,"Release S7 0.1.1 (#362)
+
+* Polish news
+* Update all GitHub urls
+* Fix call. typo
+* Update CRAN comments
+* Increment ...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: S7
+ Title: 
+     An Object Oriented System Meant to Become a Successor to S3 and S4
+-Version: 0.1.0.9000
++Version: 0.1.1
+ Authors@R: c(
+     person(""Object-Oriented Progr..."
+RConsortium_S7_bug_commits,Implementation / Logic,3a18a5603a,2024-11-19T21:31:48Z,Ryan Chitwood,Fix typos in vignettes/packages.Rmd (#499),6,"---FILE: vignettes/packages.Rmd---
+@@ -44,8 +44,8 @@ That means you will also need to document it, and since the constructor is a fun
+ If you export a class, you must also set the `package` argument, ensuring that classe..."
+RConsortium_S7_bug_commits,Implementation / Logic,534f5b79d7,2024-11-14T17:40:51Z,Matt Heaphy,Vignette typos fixes (#492),6,"---FILE: vignettes/classes-objects.Rmd---
+@@ -24,7 +24,7 @@ library(S7)
+ ## Validation
+ 
+ S7 classes can have an optional **validator** that checks that the values of the properties are OK.
+-A validator is a function tha..."
+RConsortium_S7_bug_commits,Implementation / Logic,bcedb64df4,2024-11-05T13:40:04Z,Tomasz Kalinowski,"Improve `traceback()` for dispatched methods (#486)
+
+* Improve `traceback()` for dispatched methods
+
+* fix typo, malfo...",6,"---FILE: NEWS.md---
+@@ -1,5 +1,11 @@
+ # S7 (development version)
+ 
++* The call context of a dispatched method (as visible in `sys.calls()` and
++  `traceback()`) no longer includes the inlined method and generic, resultin..."
