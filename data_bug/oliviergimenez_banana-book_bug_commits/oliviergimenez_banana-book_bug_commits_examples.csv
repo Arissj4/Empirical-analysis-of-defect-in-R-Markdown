@@ -1,0 +1,80 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+oliviergimenez_banana-book_bug_commits,Visualization / Plotting,f588cde4d8,2025-11-06T13:06:44Z,oliviergimenez,"add book cover, and fix ggtern issue",6,"---FILE: 5-move.Rmd---
+@@ -537,50 +537,82 @@ The Dirichlet distribution extends the Beta distribution multivariate we have se
+ 
+ (ref:captiondirichlet) The Dirichlet distribution as a prior for $(\psi^{11}, \psi^{12}, \p..."
+oliviergimenez_banana-book_bug_commits,Rendering / Conversion,89e9ba6b74,2023-08-21T16:21:30Z,oliviergimenez,Cleaned up chapters 1-2-3. Fixed issue w/ PDF. Incorporated comments by colleagues (closed corresponding issues on GitHu...,7,"---FILE: DESCRIPTION---
+@@ -16,7 +16,9 @@ Imports:
+     nimbleEcology,
+     bookdown,
+     sessioninfo,
+-    RColorBrewer
++    RColorBrewer,
++    forecast,
++    coda
+ Suggests:
+     bslib,
+     desc,
+
+---FILE: _bookdown...."
+oliviergimenez_banana-book_bug_commits,Rendering / Conversion,0adf0af540,2025-09-10T18:13:35Z,oliviergimenez,fix issues w/ table and kable,6,"---FILE: 6-covariates.Rmd---
+@@ -402,6 +402,7 @@ MCMCsummary(out, round = 2)
+ ```
+ 
+ which we can arrange as in Table \@ref(tab:ageuncertaintycompare) to compare them with the results obtained by @Gervasi2017:
++
+ ```{r a..."
+oliviergimenez_banana-book_bug_commits,Rendering / Conversion,b219c43395,2023-08-14T06:29:45Z,oliviergimenez,"all in again, hopefully bug w/ fig is fixed.",6,"---FILE: _bookdown.yml---
+@@ -18,11 +18,11 @@ rmd_files:
+     ""author.Rmd"",
+     ""introductionpartone.Rmd"",
+     ""bayesmcmc.Rmd"",
+-   # ""nimble.Rmd"",
+-  #  ""hmm.Rmd"",
++    ""nimble.Rmd"",
++    ""hmm.Rmd"",
+     ""introduction..."
+oliviergimenez_banana-book_bug_commits,Documentation / Formatting,81e7f06837,2023-08-14T06:19:47Z,oliviergimenez,Debug issue w/ figures (un-ignore docs/).,7,"---FILE: banana-book.Rmd---
+@@ -1,1410 +0,0 @@
+----
+-title: ""Bayesian Analysis of Capture-Recapture Data with Hidden Markov Models""
+-subtitle: ""Theory and Case Studies in R""
+-author: ""Olivier Gimenez""
+-date: ""`r Sys.Date..."
+oliviergimenez_banana-book_bug_commits,Documentation / Formatting,096f7954d9,2021-09-20T12:13:23Z,oliviergimenez,Bayes & MCMC chapter back in. Some typos fixed.,6,"---FILE: bayesmcmc-draft.Rmd---
+@@ -1,660 +0,0 @@
+-# Bayesian statistics & MCMC {#crashcourse}
+-
+-## Introduction
+-
+-In this first chapter, you will learn what the Bayesian theory is, and how you may use it with a simple..."
+oliviergimenez_banana-book_bug_commits,Implementation / Logic,052adefcc9,2022-03-17T10:42:31Z,oliviergimenez,Fixed typos in HMM chapter.,6,"---FILE: docs/404.html---
+@@ -96,7 +96,7 @@ <h1>Page not found<a class=""anchor"" aria-label=""anchor"" href=""#page-not-found""><
+ <footer class=""bg-primary text-light mt-5""><div class=""container""><div class=""row"">
+ 
+   <div ..."
+oliviergimenez_banana-book_bug_commits,Implementation / Logic,2d5008362c,2022-02-12T10:14:44Z,oliviergimenez,Sort out nimbleEcology issue?,6,"---FILE: _common.R---
+@@ -6,7 +6,7 @@ library(MCMCvis)
+ library(magick)
+ library(pdftools)
+ library(wesanderson)
+-library(nimbleEcology)
++#library(nimbleEcology)
+ #library(basicMCMCplots)
+ 
+ # R options
+
+---FILE: docs/40..."
+oliviergimenez_banana-book_bug_commits,Implementation / Logic,8f4b384402,2022-01-24T23:33:26Z,oliviergimenez,Issue w/ GH actions again.,6,"---FILE: docs/404.html---
+@@ -95,7 +95,7 @@ <h1>Page not found<a class=""anchor"" aria-label=""anchor"" href=""#page-not-found""><
+ <footer class=""bg-primary text-light mt-5""><div class=""container""><div class=""row"">
+ 
+   <div ..."
+oliviergimenez_banana-book_bug_commits,Environment / Configuration,01585b4c64,2021-09-14T19:40:30Z,oliviergimenez,Error in build-book.yaml.,4,"---FILE: .github/workflows/build-book.yaml---
+@@ -30,11 +30,11 @@ jobs:
+       - name: Setup pandoc
+         uses: r-lib/actions/setup-pandoc@master
+ 
+-      - name: Install pak and query dependencies
+-        run: |
+-  ..."
