@@ -1,0 +1,16 @@
+path,count
+ChangeLog,247
+rkward/rkward.cpp,92
+rkward/rbackend/rkrbackend.cpp,88
+rkward/windows/rkcommandeditorwindow.cpp,75
+TODO,63
+rkward/windows/rkhtmlwindow.cpp,62
+rkward/windows/rkworkplace.cpp,52
+packages/rkwarddev/ChangeLog,50
+doc/rkwardplugins/index.docbook,49
+rkward/core/rkvariable.cpp,47
+rkward/rkconsole.cpp,47
+rkward/dialogs/rkloadlibsdialog.cpp,46
+rkward/rbackend/rpackages/rkward/R/internal.R,46
+rkward/rbackend/rinterface.cpp,40
+rkward/main.cpp,38

@@ -1,0 +1,217 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+KDE_rkward_bug_commits,Implementation / Logic,a88fc00811,2015-11-14T18:34:27Z,m.eik michalke,"fixed code layout
+
+  - the new default for ""linebreaks"" in js() had an unwanted effect on recursion",6,"---FILE: packages/rkwarddev/R/rk-internal.R---
+@@ -1531,7 +1531,7 @@ uncurl <- function(cond, level=1, indent.by=rk.get.indent()){
+           sapply(
+             2:length(cond.list),
+             function(this.cond.num)..."
+KDE_rkward_bug_commits,Implementation / Logic,68cb509b48,2015-11-14T17:59:05Z,m.eik michalke,"fixed negation in js()
+
+  - js() now also accepts if conditions that start with ""!""",6,"---FILE: packages/rkwarddev/R/rk-internal.R---
+@@ -1457,6 +1457,10 @@ replaceJSOperators <- function(..., call=""id""){
+         callList <- unlist(thisItem)
+         if(as.character(callList[[1]]) %in% JS.operators){
+    ..."
+KDE_rkward_bug_commits,Implementation / Logic,1b1512a248,2015-01-06T20:36:12Z,m.eik michalke,fix a issue with global JS variables,6,"---FILE: packages/rkwarddev/ChangeLog---
+@@ -62,6 +62,9 @@ changed:
+   - rk.JS.doc() now uses a more robust method to set global variables, namely
+     by defining an additional function setGlobalVars() and calling that
+..."
+KDE_rkward_bug_commits,Dependency / Package,ec7c7593f1,2023-09-11T19:39:50Z,m.eik michalke,"began cleaning the R code to get less warnings from R CMD check:
+
+- fixed missing imports of many functions from grDevic...",7,"---FILE: rkward/rbackend/rpackages/rkward/DESCRIPTION---
+@@ -8,6 +8,7 @@ Description: This package contains functions which are useful in
+ Author: Thomas Friedrichsmeier, RKWard Team
+ Maintainer: RKWard-devel mailing lis..."
+KDE_rkward_bug_commits,Dependency / Package,43dd4d8ec2,2023-09-13T13:31:45Z,m.eik michalke,"more fixes to satisfy R CMD check:
+
+- documented base override functions
+- fixed some missing import defintions
+- added ...",7,"---FILE: rkward/rbackend/rpackages/rkward/DESCRIPTION---
+@@ -8,7 +8,7 @@ Description: This package contains functions which are useful in
+ Author: Thomas Friedrichsmeier, RKWard Team
+ Maintainer: RKWard-devel mailing lis..."
+KDE_rkward_bug_commits,Dependency / Package,52e1073ac5,2015-01-13T15:04:04Z,m.eik michalke,"added check for old <dpendencies> subnode in <about> to rk.plugin.components(), and bumped package version number -- the...",7,"---FILE: packages/rkwarddev/ChangeLog---
+@@ -1,6 +1,6 @@
+ ChangeLog for package rkwarddev
+ 
+-changes in version 0.06-6 (2015-01-06)
++changes in version 0.07-1 (2015-01-13)
+ fixed:
+   - rk.XML.optionset() does now allow t..."
+KDE_rkward_bug_commits,Rendering / Conversion,ba869fd95e,2024-06-21T21:38:57Z,Thomas Friedrichsmeier,Fix check for pandoc,4,"---FILE: rkward/windows/rkcommandeditorwindow.cpp---
+@@ -412,16 +412,18 @@ QString withCheckForPandoc(const QString &command, const QString &error_file) {
+ 		""<a href=\""rkward://settings/rbackend\"">Settings->Configure RK..."
+KDE_rkward_bug_commits,Rendering / Conversion,3ddd4bb4f4,2005-10-20T19:45:54Z,Thomas Friedrichsmeier,"Compile fixes after renaming RKSettingsModuleLogfiles
+
+svn path=/trunk/rkward/; revision=416",4,"---FILE: rkward/dialogs/rkloadlibsdialog.cpp---
+@@ -30,7 +30,7 @@
+ 
+ #include ""../rkglobals.h""
+ #include ""../rbackend/rinterface.h""
+-#include ""../settings/rksettingsmodulelogfiles.h""
++#include ""../settings/rksettingsmodu..."
+KDE_rkward_bug_commits,Rendering / Conversion,300646c927,2022-06-21T14:31:35Z,Stefan Rödiger,"new Generate Rmd source,
+new Write raw LaTeX code
+new Text comment (HTML)
+new Read external scripts into a chunk
+new dyn...",4,"---FILE: rkward/RKWardRMd.xml---
+@@ -69,7 +69,7 @@ function rangeCommand(command, def) {
+  </item>
+  <item>
+   <match>Text comment (HTML)</match>
+-  <fillin>${rangeCommand(""&lt;--!*%%1*--&gt;"", ""Text"")}</fillin>
++  <fill..."
+KDE_rkward_bug_commits,Environment / Configuration,1beb3ed744,2004-07-28T22:03:29Z,Thomas Friedrichsmeier,PHP-backend can handle errors; reworked settings-gui; added settings for the PHP-backend; reworked plugin-structure (now...,7,"---FILE: ChangeLog---
+@@ -1,3 +1,8 @@
++- PHP-backend can handle errors
++- Reworked settings
++
++...
++
+ --- Version 0.1.0 - Nov-19-2002 ---
+ - Initial features:
+ - A simple backend-interface communicating with R via stdin/..."
+KDE_rkward_bug_commits,Environment / Configuration,8336b50770,2004-08-29T17:21:13Z,Thomas Friedrichsmeier,"Added RKSaveAgent for error-handling during saving of workspace. Ask whether to save workspace on application quit
+
+svn ...",7,"---FILE: ChangeLog---
+@@ -1,3 +1,5 @@
++- added error-handling to workspace saving
++- ask whether to save workspace on application quit
+ - added menu-entries to clear output-window and watch-log
+ - don't duplicate menu-en..."
+KDE_rkward_bug_commits,Environment / Configuration,77c5bb4c65,2004-09-02T10:50:26Z,Thomas Friedrichsmeier,Assorted changes (too long without a commit). Added common base for RObjectBrowser and RKVarselector. Update RKVarselect...,7,"---FILE: ChangeLog---
+@@ -1,3 +1,8 @@
++- added option(s) to show/raise watch-window when new commands get displayed
++- formula-widget handles multiple table situation correctly
++- RKVarselector and RKObjectBrowser use a ..."
+KDE_rkward_bug_commits,Reproducibility / Versioning,0e67ce9aea,2022-10-17T18:48:47Z,Thomas Friedrichsmeier,Fix version string,7,"---FILE: VERSION.cmake---
+@@ -1,3 +1,3 @@
+ # DO NOT CHANGE THIS FILE MANUALLY!
+ # It will be overwritten by scripts/set_dist_version.sh
+-SET(RKVERSION_NUMBER 0.7.50z+0.7.6+devel1)
++SET(RKVERSION_NUMBER 0.7.5z+0.7.6+devel..."
+KDE_rkward_bug_commits,Reproducibility / Versioning,739ed77b5e,2007-02-26T00:45:41Z,Thomas Friedrichsmeier,"Bump version, so we can perhaps release a test for the PHP issue
+
+svn path=/trunk/rkward/; revision=1472",7,"---FILE: configure.in.in---
+@@ -1,6 +1,6 @@
+ #MIN_CONFIG(3)
+ 
+-AM_INIT_AUTOMAKE(rkward,0.4.6)
++AM_INIT_AUTOMAKE(rkward,0.4.7test1)
+ 
+ dnl CXXFLAGS=""$NOOPT_CXXFLAGS"" dnl __kdevelop[noopt]__
+ dnl CFLAGS=""$NOOPT_CFLAGS"" dnl..."
+KDE_rkward_bug_commits,Reproducibility / Versioning,1c1602f9fa,2018-04-16T18:35:26Z,Thomas Friedrichsmeier,Bump version for hotfix release,7,"---FILE: ChangeLog---
+@@ -1,3 +1,6 @@
++--- Version 0.7.0a - Apr-16-2018
++- Fix failure to install translations
++
+ --- Version 0.7.0 - Apr-16-2018
+ - Fix crash with R 3.5.x due to use to STRING_PTR
+ - Double click on obje..."
+KDE_rkward_bug_commits,File I/O and Export,d04f06a83d,2022-04-19T19:29:05Z,Thomas Friedrichsmeier,Fix quirks around output -> Save As,4,"---FILE: ChangeLog---
+@@ -1,3 +1,5 @@
++- Fix quirks around ""Save as"" for rkward output documents
++
+ --- Version 0.7.3 - Apr-21-2022
+ - Add option to show standardized coefficients for linear regression
+ - Fixed: Possible..."
+KDE_rkward_bug_commits,File I/O and Export,4c0de2abf1,2022-03-02T16:55:08Z,Thomas Friedrichsmeier,"Allow opening output files from file window.
+
+This needed some fixes around canonicalFilePath().",4,"---FILE: rkward/dialogs/rksavemodifieddialog.cpp---
+@@ -155,7 +155,7 @@ void RKSaveModifiedDialog::saveSelected() {
+ 
+ 	for (auto it = outputdir_checklist.constBegin(); it != outputdir_checklist.constEnd(); ++it) {
+ 		if..."
+KDE_rkward_bug_commits,File I/O and Export,0d311d1e04,2024-09-06T20:16:30Z,Thomas Friedrichsmeier,Fix antialiasing,3,"---FILE: ChangeLog---
+@@ -1,4 +1,5 @@
+ --- Version 0.8.1 - UNRELEASED
++- Fixed: antialising=FALSE was ignored in RK() device
+ - Added: Impoement glyph()-functionality in RK() device
+ - Fixed: Failure to paint symbols in ..."
+KDE_rkward_bug_commits,Data / Input Handling,73cabd039d,2025-04-22T19:54:56Z,Thomas Friedrichsmeier,Fix ci/cd setup,3,"---FILE: .gitlab-ci.yml---
+@@ -28,7 +28,7 @@ craft_windows_qt6_x86_64:
+       # we don't want the manual job to block the pipeline
+       allow_failure: true
+ 
+-craft_appimage_qt6:
++craft_appimage_qt6_x86_64:
+   rules:
+ ..."
+KDE_rkward_bug_commits,Data / Input Handling,93a23f41e8,2025-04-18T13:52:49Z,Thomas Friedrichsmeier,Fix flatpak pipeline,3,"---FILE: .flatpak-manifest.json---
+@@ -4,6 +4,8 @@
+     ""runtime"": ""org.kde.Platform"",
+     ""runtime-version"": ""6.8"",
+     ""sdk"": ""org.kde.Sdk"",
++    ""base"": ""io.qt.qtwebengine.BaseApp"",
++    ""base-version"": ""6.8"",
+     ..."
+KDE_rkward_bug_commits,Data / Input Handling,a22e9de0fa,2025-04-18T12:43:01Z,Thomas Friedrichsmeier,Fix flatplat pipeline,3,"---FILE: .flatpak-manifest.json---
+@@ -2,10 +2,8 @@
+     ""id"": ""org.kde.rkward"",
+     ""branch"": ""master"",
+     ""runtime"": ""org.kde.Platform"",
+-    ""runtime-version"": ""6.7"",
++    ""runtime-version"": ""6.8"",
+     ""sdk"": ""org..."
+KDE_rkward_bug_commits,Documentation / Formatting,4e647d72ce,2023-09-20T10:55:30Z,m.eik michalke,"further code cleaning in the rkward R package
+
+  - replaced the static man/rk.record.plot.Rd with roxygenized content fr...",7,"---FILE: rkward/rbackend/rpackages/rkward/NAMESPACE---
+@@ -37,6 +37,7 @@ export(.rk.try.get.namespace)
+ export(.rk.variables)
+ export(.rk.with.window.hints)
+ export(RK)
++export(RK.Output)
+ export(Sys.setlocale)
+ export(X..."
+KDE_rkward_bug_commits,Documentation / Formatting,4e2e46c4a7,2015-11-24T20:59:48Z,m.eik michalke,"wrong vignette title
+
+  - erm, already discovered another long-standing bug...",7,"---FILE: packages/XiMpLe/inst/NEWS.Rd---
+@@ -1,6 +1,13 @@
+  ame{NEWS}
+ \title{News for Package 'XiMpLe'}
+ \encoding{UTF-8}
++\section{Changes in XiMpLe version 0.03-24 (2015-11-24)}{
++  \subsection{unreleased}{
++    \item..."
+KDE_rkward_bug_commits,Documentation / Formatting,dec238eb50,2018-05-22T16:52:43Z,m.eik michalke,"rebuilt 'rkward' package
+
+  - was necessary to add rk.askYesNo() to the NAMESPACE file
+  - while at it, let roxygen2 do ...",7,"---FILE: rkward/rbackend/rpackages/rkward/DESCRIPTION---
+@@ -1,26 +1,28 @@
+ Package: rkward
+ Type: Package
+ Title: Provides functions related to the RKWard GUI
+-Author: Thomas Friedrichsmeier <thomas.friedrichsmeier@ruhr..."
+KDE_rkward_bug_commits,Visualization / Plotting,72b67c90c1,2010-04-19T07:54:04Z,Thomas Friedrichsmeier,"Fix preview for correlation matrix plot
+
+svn path=/trunk/rkward/; revision=2820",4,"---FILE: rkward/plugins/plots/cor_graph.js---
+@@ -26,6 +26,7 @@ function printout () {
+ }
+ 
+ function preview () {
++	preprocess ();
+ 	doPrintout (false);
+ }
+ "
+KDE_rkward_bug_commits,Visualization / Plotting,402b7766bd,2007-01-21T19:35:21Z,Thomas Friedrichsmeier,"Minor corrections and help pages for correlation matrix plot and scatterplot matrix (Illias Soumpasis)
+
+svn path=/trunk/...",4,"---FILE: rkward/plugins/Makefile.am---
+@@ -22,7 +22,11 @@ dist_pluginsXplots_DATA = \
+ 	plots/stripchart_plot.php \
+ 	plots/density_plot.xml \
+ 	plots/cor_graph.php \
+-	plots/cor_graph.xml 
++	plots/cor_graph.xml \
++	plot..."
+KDE_rkward_bug_commits,Visualization / Plotting,9eb3676163,2009-02-19T23:50:52Z,Stefan Rödiger,"New Feature (status: basically working but needs refinements)
+* added further plot options
+AND
+* added option to show me...",4,"---FILE: rkward/plugins/plots/box_plot.php---
+@@ -17,13 +17,54 @@ function printout () {
+ 
+ function doPrintout ($final) {
+ 	$xvarsstring = join ("", "", split ("" "", getRK_val (""x"")));
++	$names_mode = getRK_val (""names_mod..."
