@@ -1,0 +1,199 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+satijalab_seurat_bug_commits,Documentation / Formatting,4ebd9f6feb,2016-11-28T14:33:35Z,Andrew Butler,fix FindMarkers documentation,7,"---FILE: R/seurat.R---
+@@ -659,7 +659,7 @@ calc.drop.prob=function(x,a,b) {
+ #'
+ #' @param object Seurat object. Must have object@@cluster.tree slot filled. Use BuildClusterTree() if not.
+ #' @param node Node from which ..."
+satijalab_seurat_bug_commits,Documentation / Formatting,dd4e282163,2025-06-30T14:50:05Z,YoukaiFromAccounting,Fixed roxygen argument documentation for BuildNicheAssay,7,"---FILE: R/utilities.R---
+@@ -3026,6 +3026,7 @@ CreateCategoryMatrix <- function(
+ #' @param assay Name for spatial neighborhoods assay
+ #' @param cluster.name Name of output clusters
+ #' @param neighbors.k Number of nei..."
+satijalab_seurat_bug_commits,Documentation / Formatting,0d28aa2cc2,2025-08-01T14:32:07Z,YoukaiFromAccounting,Minor fix to ROxygen tags and DESCRIPTION,7,"---FILE: DESCRIPTION---
+@@ -94,6 +94,7 @@ Imports:
+ Suggests:
+     ape,
+     arrow,
++    base64enc,
+     Biobase,
+     BiocGenerics,
+     BPCells,
+@@ -110,6 +111,7 @@ Suggests:
+     IRanges,
+     limma,
+     MAST,
++    m..."
+satijalab_seurat_bug_commits,Implementation / Logic,34687bd785,2015-03-06T00:00:44Z,Rahul Satija,"added pcHeatmap, fixed mean.var",6,"---FILE: R/seurat.R---
+@@ -1384,6 +1384,28 @@ setMethod(""doHeatMap"",""seurat"",
+           }
+ )
+ 
++
++setGeneric(""pcHeatmap"", function(object,cells.use=NULL,pc.use=1,num.genes=30,use.full=FALSE, disp.min=-2.5,disp.max=2.5,d..."
+satijalab_seurat_bug_commits,Implementation / Logic,df5521fab4,2025-10-22T16:17:29Z,Samuel Marsh,fix axis labeling,6,"---FILE: R/visualization.R---
+@@ -4502,7 +4502,7 @@ SpatialPlot <- function(
+       )
+ 
+       #Check if object contains a sf slot (attached via Load10X_Spatial)
+-      #If so, use sf-geometry based rendering 
++      #If..."
+satijalab_seurat_bug_commits,Implementation / Logic,aa59036ee6,2025-10-06T15:43:21Z,YoukaiFromAccounting,Fix typo in RunMixscape,6,"---FILE: R/mixscape.R---
+@@ -698,7 +698,7 @@ RunMixscape <- function(
+   fine.mode.labels = ""guide_ID"",
+   prtb.type = ""KO""
+ ) {
+-  mmixtools.installed <- requireNamespace('mixtools', quietly = TRUE)
++  mixtools.installe..."
+satijalab_seurat_bug_commits,Visualization / Plotting,efc759cfc5,2017-04-19T20:22:58Z,Paul Hoffman,Set title correction for legend in FeaturePlot,4,"---FILE: R/seurat.R---
+@@ -2807,7 +2807,7 @@ SingleFeaturePlot <- function(data.use, feature, data.plot, pt.size, pch.use, co
+     }
+     else{
+       p <- p + geom_point(aes(color=gene), size=pt.size, shape=pch.use) +
+-..."
+satijalab_seurat_bug_commits,Visualization / Plotting,37a1f8f0ce,2017-07-13T15:32:18Z,Paul Hoffman,Fix issue where DarkTheme was overriding no.legend,4,"---FILE: R/plotting.R---
+@@ -2095,13 +2095,13 @@ DimPlot <- function(
+       geom_point(data = centers, mapping = aes(x = x, y = y), size = 0, alpha = 0) +
+       geom_text(data = centers, mapping = aes(label = ident), s..."
+satijalab_seurat_bug_commits,Visualization / Plotting,e6ddb67580,2025-10-01T17:00:52Z,Samuel Marsh,fix quotation,3,"---FILE: R/visualization.R---
+@@ -4891,8 +4891,8 @@ DotPlot <- function(
+       levels = unique(x = feature.groups)
+     )
+   }
+-  plot <- ggplot(data = data.plot, mapping = aes(x = .data[[features.plot]], y = .data[[id]..."
+satijalab_seurat_bug_commits,Rendering / Conversion,9969cfb8e6,2023-01-31T14:47:54Z,AustinHartman,dont fail on error,6,"---FILE: vignettes/seurat5_atomic_integration.Rmd---
+@@ -24,7 +24,8 @@ knitr::opts_chunk$set(
+   fig.width = 10,
+   message = FALSE,
+   warning = FALSE,
+-  time_it = TRUE
++  time_it = TRUE,
++  error = TRUE
+ )
+ ```
+ 
+
+---..."
+satijalab_seurat_bug_commits,Rendering / Conversion,07754b13b1,2020-12-30T03:25:18Z,Andrew,fixes,6,"---FILE: azure-pipelines.yml---
+@@ -26,7 +26,7 @@ jobs:
+             mkdir output/timings
+             Rscript -e ""pkgdown::init_site()""
+             Rscript -e ""pkgdown::build_article('pbmc3k_tutorial')""
+-            ls..."
+satijalab_seurat_bug_commits,Rendering / Conversion,9896fbedee,2023-03-18T02:37:29Z,AustinHartman,fix sketch formatting,6,"---FILE: vignettes/seurat5_bpcells_interaction_vignette.Rmd---
+@@ -8,7 +8,7 @@ output:
+ date: 'Compiled: `r format(Sys.Date(), ""%B %d, %Y"")`'
+ ---
+ ***
+-```{r setup, include=TRUE}
++```{r setup, include=FALSE}
+ all_times ..."
+satijalab_seurat_bug_commits,Data / Input Handling,cbcce01328,2018-05-24T16:41:29Z,Scott Gigante,appveyor parse error,4,"---FILE: appveyor.yml---
+@@ -9,7 +9,7 @@ init:
+ install:
+   - ""%PYTHON%\\python.exe -m pip install wheel""
+   - ""%PYTHON%\\python.exe -m pip install phate""
+-  ps: Bootstrap
++  - ps: Bootstrap
+ 
+ # Adapt as necessary start..."
+satijalab_seurat_bug_commits,Data / Input Handling,39f345e447,2025-02-05T18:57:53Z,David Collins,Enable blank issues,3,"---FILE: .github/ISSUE_TEMPLATE/config.yml---
+@@ -1,6 +1,6 @@
+-blank_issues_enabled: false
+-
+ contact_links:
+   - name: Analysis question
+     url: https://github.com/satijalab/seurat/discussions
+     about: If you have ..."
+satijalab_seurat_bug_commits,Data / Input Handling,5b8e8682dc,2024-12-10T00:09:44Z,David Collins,"Replace ""continue-on-error"" with ""if: always()""",3,"---FILE: .github/workflows/integration_checks.yaml---
+@@ -36,15 +36,15 @@ jobs:
+       - name: Run Tests
+         run: testthat::test_local()
+         shell: Rscript {0}
+-        continue-on-error: true
+       
+       # ..."
+satijalab_seurat_bug_commits,Dependency / Package,894d7d13ce,2023-10-06T13:56:53Z,Saket Choudhary,Fix CRAN notes,7,"---FILE: DESCRIPTION---
+@@ -29,7 +29,6 @@ URL: https://satijalab.org/seurat, https://github.com/satijalab/seurat
+ BugReports: https://github.com/satijalab/seurat/issues
+ Additional_repositories: https://satijalab.r-unive..."
+satijalab_seurat_bug_commits,Dependency / Package,eff118d646,2019-04-10T00:36:54Z,Paul Hoffman,Seurat v3.0.0.9100 - Address issues with CRAN checks,7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: Seurat
+-Version: 3.0.0.9000
+-Date: 2018-10-31
++Version: 3.0.0.9100
++Date: 2019-04-06
+ Title: Tools for Single Cell Genomics
+ Description: A toolkit for quality control, a..."
+satijalab_seurat_bug_commits,Dependency / Package,063c9d7e29,2019-05-29T19:16:50Z,Henrik Bengtsson,BUG FIX: Seurat:::PlanThreads() assumes the 'future' package is attached - minimal fix [#1602],7,"---FILE: .Rbuildignore---
+@@ -6,3 +6,107 @@
+ appveyor.yml
+ cran-comments.md
+ travis_setup.sh
++.Rprofile.d/
++R/zfRenderSeurat.R
++.Rprofile.d/
++R/zfRenderSeurat.R
++.Rprofile.d/
++R/zfRenderSeurat.R
++.Rprofile.d/
++R/zfRender..."
+satijalab_seurat_bug_commits,Reproducibility / Versioning,e3ae922bc4,2023-03-30T17:13:45Z,AustinHartman,Bump version; fix scale max,7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: Seurat
+-Version: 4.9.9.9040
+-Date: 2023-03-28
++Version: 4.9.9.9041
++Date: 2023-03-30
+ Title: Tools for Single Cell Genomics
+ Description: A toolkit for quality control, a..."
+satijalab_seurat_bug_commits,Reproducibility / Versioning,8429c3b3be,2022-11-15T21:22:00Z,yuhanH,fix version,7,"---FILE: DESCRIPTION---
+@@ -1,5 +1,5 @@
+ Package: Seurat
+-Version: 4.0.4.9012
++Version: 4.1.1.9001
+ Date: 2022-10-25
+ Title: Tools for Single Cell Genomics
+ Description: A toolkit for quality control, analysis, and explo..."
+satijalab_seurat_bug_commits,Reproducibility / Versioning,8493da1dd8,2020-03-09T13:38:43Z,Andrew Butler,"minor style fixes, bump develop version",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: Seurat
+-Version: 3.1.4.9007
+-Date: 2020-03-06
++Version: 3.1.4.9008
++Date: 2020-03-09
+ Title: Tools for Single Cell Genomics
+ Description: A toolkit for quality control, a..."
+satijalab_seurat_bug_commits,Environment / Configuration,c77bb679be,2016-10-13T18:46:16Z,Andrew Butler,"sync with github version, fix NegBinom/Poisson DE tests",6,"---FILE: R/RcppExports.R---
+@@ -0,0 +1,19 @@
++# Generated by using Rcpp::compileAttributes() -> do not edit by hand
++# Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
++
++RunUMISampling <- function(data, sample_val,..."
+satijalab_seurat_bug_commits,Environment / Configuration,e9343df285,2021-01-19T06:23:03Z,Andrew,yaml fix,4,"---FILE: _pkgdown.yaml---
+@@ -22,7 +22,7 @@ navbar:
+           href: articles/spatial_vignette.html
+         - text: -------
+         - text: Data Integration
+-        - text: ""Introduction to scRNA-seq integration""""
++  ..."
+satijalab_seurat_bug_commits,Environment / Configuration,0761434828,2018-05-09T02:13:59Z,Nigel Delaney,"Remove FLIBS from PKG_LIBS
+
+MacOS X versions of R have compilation issues with fortran code.  In particular, the Makecon...",3,"---FILE: src/Makevars---
+@@ -1,3 +1,3 @@
+ PKG_CXXFLAGS = -I../inst/include
+-PKG_LIBS = $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
++PKG_LIBS = $(LAPACK_LIBS) $(BLAS_LIBS) 
+ CXX_STD = CXX11"
+satijalab_seurat_bug_commits,File I/O and Export,76a131f2ec,2018-11-21T15:01:37Z,Nikolay Markov,ExportToCellbrowser fix for cell barcodes with unusual characters,3,"---FILE: R/utilities.R---
+@@ -568,7 +568,7 @@ ExportToCellbrowser <- function(
+   enum.fields <- c()
+   # Export expression matrix
+   df <- as.data.frame(x = as.matrix(x = GetAssayData(object = object)))
+-  df <- data.fr..."
+satijalab_seurat_bug_commits,File I/O and Export,108def6bac,2018-02-13T17:43:13Z,Rahul Satija,Small fix,3,"---FILE: R/plotting.R---
+@@ -2325,7 +2325,7 @@ DimPlot <- function(
+     png_plot <- eval(png_call, sys.frame(sys.parent()))
+     png.file <- SetIfNull(png.file,""temp_png.png"")
+    # browser()
+-    ggsave(filename = png...."

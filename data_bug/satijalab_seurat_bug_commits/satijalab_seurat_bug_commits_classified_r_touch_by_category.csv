@@ -1,0 +1,10 @@
+bug_category,touches_r_%
+File I/O and Export,100.0
+Visualization / Plotting,100.0
+Implementation / Logic,98.7
+Documentation / Formatting,83.3
+Dependency / Package,77.1
+Reproducibility / Versioning,72.7
+Environment / Configuration,33.3
+Data / Input Handling,16.7
+Rendering / Conversion,6.1

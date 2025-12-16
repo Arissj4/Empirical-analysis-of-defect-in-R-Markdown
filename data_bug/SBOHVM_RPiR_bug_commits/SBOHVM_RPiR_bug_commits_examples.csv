@@ -1,0 +1,100 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+SBOHVM_RPiR_bug_commits,Dependency / Package,f8f5260e86,2021-01-10T23:03:25Z,soniamitchell,"Try to fix ""cannot remove prior installation of package 'glue'"" error (Windows)",7,"---FILE: .github/workflows/test-build.yaml---
+@@ -54,7 +54,7 @@ jobs:
+ 
+       - name: Install dependencies
+         run: |
+-          remotes::install_deps(dependencies = TRUE)
++          remotes::install_deps(dependenc..."
+SBOHVM_RPiR_bug_commits,Dependency / Package,5810f0d0b3,2022-12-02T12:54:53Z,richardreeve,Fix file reference,6,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: RPiR
+ Type: Package
+ Title: Reproducible Programming in R
+-Version: 0.76.19
++Version: 0.76.20
+ Authors@R: c(person(""Sonia"", ""Mitchell"", email = ""sonia.mitchell@glasgow.ac..."
+SBOHVM_RPiR_bug_commits,Dependency / Package,2b4ba04f39,2022-12-14T12:50:25Z,richardreeve,Fix broken link to talk,6,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: RPiR
+ Type: Package
+ Title: Reproducible Programming in R
+-Version: 0.76.29
++Version: 0.76.30
+ Authors@R: c(person(""Sonia"", ""Mitchell"", email = ""sonia.mitchell@glasgow.ac..."
+SBOHVM_RPiR_bug_commits,Documentation / Formatting,d8a80a1e5d,2021-11-18T23:53:32Z,Richard Reeve,Fix exports and docs,7,"---FILE: R/export_materials.R---
+@@ -5,14 +5,14 @@
+ #'
+ export_materials <- function(materials, type = ""exercises"") {
+   if (type == ""exercises"") {
+-    c(materials[grepl(""[012].?-"", materials)]#,
+-#      materials[grepl..."
+SBOHVM_RPiR_bug_commits,Documentation / Formatting,ab40d58c4a,2021-11-18T22:39:25Z,Richard Reeve,Fix practical 2 numbering in README,7,"---FILE: README.md---
+@@ -91,11 +91,10 @@ The following core practicals are included in this package:
+ 
+ 2. Practical series 2:
+ 
+-   * `practical2-1`: Creating an RStudio project
+-   * `practical2-2`: SIS model; Adaptin..."
+SBOHVM_RPiR_bug_commits,Documentation / Formatting,a55d285691,2021-11-19T12:42:51Z,Richard Reeve,Fix package docs,7,"---FILE: man/RPiR-package.Rd---
+@@ -18,10 +18,6 @@ then click on the red STOP button in RStudio to end the process.
+ 
+ The following tutorials are included in this package:
+ \itemize{
+-\item 0-1 Introduction to if statem..."
+SBOHVM_RPiR_bug_commits,Rendering / Conversion,69ac3c66e6,2021-01-15T21:17:19Z,soniamitchell,try to fix pandoc build error,7,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -107,17 +107,17 @@ jobs:
+           basename(html_files[i])), overwrite = TRUE)
+         shell: Rscript {0}
+ 
+-      # Move learnr practicals to docs
+-      - name: Move ..."
+SBOHVM_RPiR_bug_commits,Rendering / Conversion,e189102c53,2021-01-22T22:32:35Z,soniamitchell,fix missing images by generating self contained html report,7,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -127,7 +127,7 @@ jobs:
+           for (i in seq_len(length(rmd_files))) {
+           html_file <- basename(gsub(""Rmd"", ""html"", rmd_files[i]))
+           out_file <- rmark..."
+SBOHVM_RPiR_bug_commits,Rendering / Conversion,9662e2c96f,2022-04-01T11:45:52Z,soniamitchell,try to fix CI - trying to use CRAN without setting a mirror,6,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -60,7 +60,7 @@ jobs:
+       - name: Build Docs
+         if: runner.os == 'macOS'
+         run: |
+-          install.packages(""rsconnect"")
++          install.packages(""rsc..."
+SBOHVM_RPiR_bug_commits,Implementation / Logic,cedc3521b8,2021-12-10T14:43:04Z,Richard Reeve,Minor aesthetic fixes,6,"---FILE: R/cleanup.R---
+@@ -50,7 +50,7 @@
+ cleanup_times <- function(populations, are.events, timestep=1,
+                           end.time = max(populations$time),
+                           times = seq(from = min(pop..."
+SBOHVM_RPiR_bug_commits,Implementation / Logic,8fed83aad8,2021-11-22T00:24:41Z,Richard Reeve,Fix supplementary exercises,6,"---FILE: inst/lectures/RPiR2a-R.Rmd---
+@@ -227,6 +227,8 @@ http://phdcomics.com/comics/archive.php?comicid=946
+ 
+ ## Starting with...
+ 
+-> - Practical 0.1 - 0.4 (""practical0-x"") on if statements, functions and loops
+-> -..."
+SBOHVM_RPiR_bug_commits,Implementation / Logic,7a22ec9225,2021-01-22T12:03:59Z,Richard Reeve,Fixes to 0-1.,6,"---FILE: inst/tutorials/practical0-1/practical0-1.Rmd---
+@@ -77,9 +77,10 @@ to allow us to write multiple commands that are all treated as one line by R:
+ ```{r intro1, eval=FALSE}
+ function_name <- function(argument) {
+..."
+SBOHVM_RPiR_bug_commits,Data / Input Handling,b892de8c21,2021-11-19T17:10:48Z,soniamitchell,try fix,6,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -103,10 +103,10 @@ jobs:
+ 
+           for (file in rmd_files) {
+             # Remove <b> tags
+-            rmd_file <- readr::read_lines(file)
+-            rmd_file <- r..."
+SBOHVM_RPiR_bug_commits,Data / Input Handling,39297f220d,2021-10-26T12:40:58Z,soniamitchell,fix test,3,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -127,7 +127,7 @@ jobs:
+           testthat::test_that(""Lectures (slides)"", {
+             test_nav <- navbar$`Lectures (slides)` %>%
+               gsub(""^lectures/"", """",..."
+SBOHVM_RPiR_bug_commits,Data / Input Handling,5229f99959,2021-01-15T22:30:30Z,soniamitchell,try to fix the fact that github doesn't know who I am !!!,3,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -14,6 +14,8 @@ name: R-CMD-check
+ 
+ jobs:
+   R-CMD-check:
++    # If the commit message isn't [skip ci]
++    if: ""!contains(github.event.commits[0].message, '[skip ci]')""
+..."

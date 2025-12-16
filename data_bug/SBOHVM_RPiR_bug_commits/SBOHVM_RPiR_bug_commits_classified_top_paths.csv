@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,27
+.github/workflows/R-CMD-check.yaml,11
+inst/tutorials/practical2-2/practical2-2.Rmd,9
+_pkgdown.yaml,8
+inst/tutorials/practical3-2/practical3-2.Rmd,8
+inst/tutorials/practical3-1/practical3-1.Rmd,8
+inst/tutorials/practical1-6/practical1-6.Rmd,8
+R/RPiR-package.R,8
+inst/tutorials/practical1-2/practical1-2.Rmd,8
+inst/tutorials/practical4-3/practical4-3.Rmd,7
+inst/tutorials/practical2-1/practical2-1.Rmd,7
+inst/tutorials/practical2-4/practical2-4.Rmd,7
+inst/tutorials/practical1-1/practical1-1.Rmd,7
+inst/tutorials/practical1-3/practical1-3.Rmd,7
+inst/tutorials/practical1-4/practical1-4.Rmd,7
