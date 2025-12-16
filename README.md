@@ -17,6 +17,8 @@ Repositories failing QC are retained for transparency and analyzed qualitatively
 - Apply strict **quality control (QC) thresholds** (coverage, low-confidence, unknown, suspects) to ensure reliable and reproducible results.
 - Provide per-repo and cross-repo **defect distributions**, including `.R` / `.Rmd` touch rates for studying reproducible-research workflows.
 - Enable fully reproducible results through a transparent, script-driven pipeline and published intermediate artifacts.
+- Quantitatively characterize defect categories across repositories using cross-repo statistics (mean, median, variability), computed only on QC-passing projects.
+- Complement quantitative results with qualitative analysis of selected QC-failing repositories to document classification limitations and scope boundaries.
 
 ---
 
@@ -44,6 +46,9 @@ Each bug-keyword commit is classified into one of the following ten categories u
    Errors in Markdown text, formatting, vignettes, README files, or inline documentation.
 10. **Miscellaneous / Unknown**  
    Commits where evidence is insufficient or unclear, or that do not fit any other category.
+
+<sub>Classification confidence is tracked via a category score derived from diff, path, and message evidence.</sub>
+<sub>Commits with low scores are flagged and used in quality-control evaluation and qualitative inspection, but the underlying taxonomy remains unchanged.</sub>
 
 ---
 
