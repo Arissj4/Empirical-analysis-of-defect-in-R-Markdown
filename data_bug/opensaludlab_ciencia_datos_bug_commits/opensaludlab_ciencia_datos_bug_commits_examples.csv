@@ -1,0 +1,29 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+opensaludlab_ciencia_datos_bug_commits,Documentation / Formatting,f4927a96fc,2022-12-21T19:06:15Z,Paulo Villarroel,Fixed link to Discord,7,"---FILE: inicio/README.md---
+@@ -83,7 +83,7 @@ Te serán de gran ayuda.
+ 
+ Revisa los talleres:
+ 
+-1.  [Aprende a usar Discord](https://youtu.be/RxvWH7fI9Y8)
++1.  [Aprende a usar Discord](https://youtu.be/JKgiCwY9Xb0)
+ 
+ ..."
+opensaludlab_ciencia_datos_bug_commits,Documentation / Formatting,4922637a01,2022-07-19T21:30:21Z,Paulo Villarroel,Spelling issues are improved,7,"---FILE: README.md---
+@@ -86,13 +86,13 @@ Porque queremos democratizar el acceso al conocimiento avanzado y nos gustaría
+ 
+ ## :unicorn: ¿A quién está dirigido?
+ 
+-El Bootcamp está dirigido a todas las personas interesad..."
+opensaludlab_ciencia_datos_bug_commits,Documentation / Formatting,b04d50d8ed,2022-04-06T00:33:33Z,paulovillarroel,Spelling is fixed,7,"---FILE: modulo2/README.md---
+@@ -110,7 +110,7 @@ Para complementar lo visto en la sesión, te recomiendamos mucho que leas el [Ca
+ 
+ ------------------------------------------------------------------------
+ 
+-:yellow_squ..."
+opensaludlab_ciencia_datos_bug_commits,Dependency / Package,ed1f99457f,2022-03-20T01:15:46Z,paulovillarroel,Fix comments,3,"---FILE: desafios-programacion/00-palindrome.R---
+@@ -1,7 +1,7 @@
+-## palindrome
++## Desafío de programación 00 Palindrome
+ 
+ # Crea un programa que permita identificar si una palabra es un palíndromo.
+-# Un palíndormo e..."

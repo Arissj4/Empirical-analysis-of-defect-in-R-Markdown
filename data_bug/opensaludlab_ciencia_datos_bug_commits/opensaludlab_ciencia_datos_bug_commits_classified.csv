@@ -1,0 +1,458 @@
+repo_owner,repo_name,commit_hash,author,author_email,date,committer_name,committer_email,committer_date,message,filenames,touches_rmd,touches_r,touches_r_or_rmd,is_merge,added,deleted,changed,diff,_touch_r,_touch_rmd,bug_category,category_score
+opensaludlab,ciencia_datos,f4927a96fcc4dc9dca00d04d27a32c29dc8da797,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-12-21T19:06:15Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-12-21T19:06:15Z,Fixed link to Discord,inicio/README.md,False,False,False,False,1,1,2,"---FILE: inicio/README.md---
+@@ -83,7 +83,7 @@ Te serán de gran ayuda.
+ 
+ Revisa los talleres:
+ 
+-1.  [Aprende a usar Discord](https://youtu.be/RxvWH7fI9Y8)
++1.  [Aprende a usar Discord](https://youtu.be/JKgiCwY9Xb0)
+ 
+ 2.  [Aprende a usar GitHub](https://youtu.be/RxvWH7fI9Y8)
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,f808f547e935bef2bbf734ebafdedcaf9ffb9af9,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-09-29T00:13:59Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-09-29T00:13:59Z,Fix images links,inicio/README.md,False,False,False,False,2,2,4,"---FILE: inicio/README.md---
+@@ -79,8 +79,8 @@ Estos mini talleres están pensados para que adquieras competencias básicas sob
+ 
+ Te serán de gran ayuda.
+ 
+-[![](images/aprendendo%20discord.jpg){width=""480""}](https://youtu.be/JKgiCwY9Xb0)
++[![](https://i3.ytimg.com/vi/JKgiCwY9Xb0/maxresdefault.jpg)](https://youtu.be/RxvWH7fI9Y8)
+ 
+ Nota: en las sesiones grabadas del curso se usaba otra plataforma. En la nueva versión, usamos Discord para la comunidad. Así que cuando mencionamos a Twist en los videos, aplica casi lo mismo para Discord.\
+ 
+-[![](images/aprendiendo%20github.jpg){width=""480""}](https://youtu.be/RxvWH7fI9Y8)
++[![](https://i3.ytimg.com/vi/RxvWH7fI9Y8/maxresdefault.jpg)](https://youtu.be/RxvWH7fI9Y8)",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,4922637a013485edf468bda0580bbc75004884c4,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-07-19T21:30:21Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-07-19T21:30:21Z,Spelling issues are improved,README.md,False,False,False,False,2,2,4,"---FILE: README.md---
+@@ -86,13 +86,13 @@ Porque queremos democratizar el acceso al conocimiento avanzado y nos gustaría
+ 
+ ## :unicorn: ¿A quién está dirigido?
+ 
+-El Bootcamp está dirigido a todas las personas interesadas en introducirse en el área de la Ciencia de Datos y que quieren comenzar a aplicarla dentro de instituciones públicas de salud.
++El Bootcamp está dirigido a todas las personas interesadas en introducirse en el área de la Ciencia de Datos y que quieren comenzar a aplicarla dentro de instituciones de salud o de forma particular como freelance.
+ 
+ ## :date: Cronograma
+ 
+ La idea es realizar 1 sesión a la semana, con un tiempo de dedicación de unas 5 a 7 horas aprox. Esto implica ver los videos de clases, realizar los talleres y ver al bibliografía mencionada en cada clase.
+ 
+-`Cada sesión y clase tiene una sección de documentación adicional o complementaria. Esta documentación está curada y seleccionada para que fortalezcas los puntos claves de la clase en cuestión. Pero no te vuelvas loco/a!!! Algunas sesiones tienen bastante documentación complementaria y, a veces, excede lo que necesitas para seguir avanzando. Hay mucha que está ahí para que la tengas como material extra para profundizar más adelante o en algún momento puntual. No te leas todo ni pretendas aprenderte todo. Eso es imposible. Es mejor ir lento y pausado, pero comprendiendo bien lo que haces a que ir a lo bestia. Trata de ir consolidando los aprendizajes de a poco y según ello, seguir construyendo tu ruta de estudio.`
++Cada sesión y clase tiene una sección de documentación adicional o complementaria. Esta documentación está curada y seleccionada para que fortalezcas los puntos claves de la clase en cuestión. Pero no te vuelvas loco/a!!! Algunas sesiones tienen bastante documentación complementaria y, a veces, excede lo que necesitas para seguir avanzando. Hay mucha que está ahí para que la tengas como material extra para profundizar más adelante o en algún momento puntual. No te leas todo ni pretendas aprenderte todo. Eso es imposible. Es mejor ir lento y pausado, pero comprendiendo bien lo que haces a que ir a lo bestia. Trata de ir consolidando los aprendizajes de a poco y según ello, seguir construyendo tu ruta de estudio.
+ 
+ Eso, al menos, pues si quieres desarrollar de mejor forma tus habilidades, es altamente relevante que busques más recursos y practiques mucho. Es posible que necesites más tiempo al principio.
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,dcd22a3f731310a82cde6b5acc45bbaf96e01162,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-07-12T03:21:37Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-07-12T03:21:37Z,Fix name of links to external courses,modulo4/README.md,False,False,False,False,1,1,2,"---FILE: modulo4/README.md---
+@@ -94,7 +94,7 @@ Te recomendamos los siguientes recursos para que puedas profundizar más sobre 
+ 
+ -   [Libro: ""Pensamiento estadístico para el siglo 21"" (Poldrack 2021)](https://statsthinking21.github.io/statsthinking21-core-spanish-site/index.html) [Traducción en español del [original](https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Book%3A_Statistical_Thinking_for_the_21st_Century_(Poldrack))]
+ 
+--   [Repo Curso Pensamiento Estadístico](https://github.com/dccuchile/CC6104) (Universidad de Chile - Facultad de Matemáticas e Ingeniería)
++-   [Repo Curso Pensamiento Estadístico](https://github.com/dccuchile/CC6104) (Universidad de Chile - Departamento de Ciencias de la Computación)
+ 
+ -   [Playlist completa YouTube](https://youtube.com/playlist?list=PLppKo85eGXiXpvRVYM5ZJEHWWofjzuiXw) con las clases del curso U. de Chile (en español)
+ ",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,4e79f73c1247f2f419ee199e6d2741d5b530a33f,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-07-07T20:35:56Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-07-07T20:35:56Z,Fix spacing,README.md,False,False,False,False,7,3,10,"---FILE: README.md---
+@@ -17,13 +17,17 @@ Versión 2
+ :white_check_mark: Formato 100% online  
+ :white_check_mark: Nuevo material casi todas las semanas
+ 
+-Revisa un resumen de lo que verás a lo largo del curso:
++ 
++
++Revisa un resumen (video) de lo que verás a lo largo del curso:
++
++*(Haz clic en la imagen)*
+ 
+ [![](images/primeros%20pasos.png)](https://youtu.be/eP5gVdCtlxc)
+ 
+-###   
++ 
+ 
+-### Índice
++## Índice
+ 
+ 1.  [Bienvenida](https://github.com/opensaludlab/ciencia_datos#bienvenida)
+ 2.  [Objetivos](https://github.com/opensaludlab/ciencia_datos#objetivos)",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,13f325133d4403c0ba95843b4f4cab515ac242b1,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-06-30T14:29:35Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-06-30T14:29:35Z,Fix IBM certificate link,modulo3/README.md,False,False,False,False,1,1,2,"---FILE: modulo3/README.md---
+@@ -76,6 +76,6 @@ También te recomendamos [ver este video](https://youtu.be/jiuDr4aYgkY) de la NH
+ 
+ Si llegaste hasta acá y realizaste los módulos 1, 2 y 3 siguiendo todos los consejos y practicaste mucho, estás más que capacitada/o para realizar el curso de **IBM Cognitive Class de visualización con R** sin mayores problemas.
+ 
+-:point_right: [**Ir al curso**](https://cognitiveclass.ai/courses/data-visualization-with-r) **y obtener el certificado.**
++:point_right: [**Ir al curso**](https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DV0151EN+v1) **y obtener el certificado.**
+ 
+ ### ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,81145d7ae94928add3f20bdf9ab78c3c3b7cb4f5,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-06-04T21:17:07Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-06-04T21:17:07Z,Fix script link code smells,modulo1/README.md,False,False,False,False,1,1,2,"---FILE: modulo1/README.md---
+@@ -141,7 +141,7 @@ Todos cometemos malas prácticas a la hora de programar. Lo importante es estar
+ 
+ ### :tv: [ [Video](https://youtu.be/lFhieJlIJTc) ]
+ 
+-### :closed_book: [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/taller_code_smells.R) ]
++### :closed_book: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/taller_code_smells.R) ]
+ 
+ Links:
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,b04d50d8edf5eca33592b7628dcf4cb3dec2e54d,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-06T00:33:33Z,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-06T00:33:33Z,Spelling is fixed,modulo2/README.md;modulo3/README.md;modulo4/README.md,False,False,False,False,4,4,8,"---FILE: modulo2/README.md---
+@@ -110,7 +110,7 @@ Para complementar lo visto en la sesión, te recomiendamos mucho que leas el [Ca
+ 
+ ------------------------------------------------------------------------
+ 
+-:yellow_square: Revisa la [carpera `Docs`](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo2/Docs), en la cual se irán dejando documentos, papers y presentaciones complementarias interesantes para este módulo. Revísalo con frecuencia.
++:yellow_square: Revisa la [carpeta `Docs`](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo2/Docs), en la cual se irán dejando documentos, papers y presentaciones complementarias interesantes para este módulo. Revísalo con frecuencia.
+ 
+ ------------------------------------------------------------------------
+ 
+
+---FILE: modulo3/README.md---
+@@ -64,11 +64,11 @@ También te recomendamos [ver este video](https://youtu.be/jiuDr4aYgkY) de la NH
+ 
+ ### :raised_hand_with_fingers_splayed: [ [Taller](https://youtu.be/DTAO4LD-njM) ]
+ 
+-### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo3/ggplot2_workshop.R) ] 
++### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo3/ggplot2_workshop.R) ]
+ 
+ ------------------------------------------------------------------------
+ 
+-:yellow_square: Revisa la [carpera `Docs`](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo3/Docs), en la cual se irán dejando documentos, papers y presentaciones complementarias interesantes para este módulo. Revísalo con frecuencia.
++:yellow_square: Revisa la [carpeta `Docs`](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo3/Docs), en la cual se irán dejando documentos, papers y presentaciones complementarias interesantes para este módulo. Revísalo con frecuencia.
+ 
+ ------------------------------------------------------------------------
+ 
+
+---FILE: modulo4/README.md---
+@@ -165,7 +165,7 @@ En esta sesión revisamos algunos modelos de regresión para machine learning y
+ 
+ ------------------------------------------------------------------------
+ 
+-:yellow_square: Revisa la [carpera `Docs`](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo4/Docs), en la cual se irán dejando documentos, papers y presentaciones complementarias interesantes para este módulo. Revísalo con frecuencia.
++:yellow_square: Revisa la [carpeta `Docs`](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo4/Docs), en la cual se irán dejando documentos, papers y presentaciones complementarias interesantes para este módulo. Revísalo con frecuencia.
+ 
+ ------------------------------------------------------------------------
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,b1c57d6a94fabd31734617f80a6fc8d17abdd0c1,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-05T02:42:12Z,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-05T02:42:12Z,Fix text,modulo4/README.md,False,False,False,False,2,1,3,"---FILE: modulo4/README.md---
+@@ -172,7 +172,8 @@ El machine learning es una área muy extensa de estudio y siempre está avanzand
+ 1.  En este repositorio podrán encontrar un curso de Microsoft sobre ML. Es introductorio, pero es bastante interesante. Incluye los códigos en Python y en R en varios de ellos. En inglés.  
+     [microsoft/ML-For-Beginners: 12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all (github.com)](https://github.com/microsoft/ML-For-Beginners/)
+ 
+-2.  Web con breve curso interactivo con el uso de ML sobre `tidymodels` de Julia Silge, Data Scientist de RStudio y creadora de la librería. En inglés.[Supervised machine learning case studies in R! · A free interactive course (supervised-ml-course.netlify.app)](https://supervised-ml-course.netlify.app/)
++2.  Web con breve curso interactivo con el uso de ML sobre `tidymodels` de Julia Silge, Data Scientist de RStudio y creadora de la librería. En inglés.  
++    [Supervised machine learning case studies in R! · A free interactive course (supervised-ml-course.netlify.app)](https://supervised-ml-course.netlify.app/)
+ 
+ 3.  Curso super didáctico, apoyado por el Govierno de Finlandia, sobre inteligencia artificial, sin código. Se basa en explicar de forma simple distintos conceptos de ML y la importancia de comprender sus alcances y riesgos. En español.  
+     [Una introducción a la inteligencia artificial, en línea y gratis, para no expertos (elementsofai.com)](https://www.elementsofai.com/es)",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,61b9b88f8f316b38f3b423bef7eeb85c87c4525e,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-02T02:53:13Z,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-02T02:53:13Z,Fix some bugs,README.md,False,False,False,False,3,1,4,"---FILE: README.md---
+@@ -214,7 +214,9 @@ En colaboración con Patricio Araneda.
+ 
+ ## Curso GIT (control de versiones + GitHub)
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS-PhIwzPtn0NgonvH9dAYSQ) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/curso_git)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS-PhIwzPtn0NgonvH9dAYSQ) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/curso_git)  
++
++##   
+ 
+ ## :hugs: Agradecimientos
+ ",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,78f7f2e0d6f6fa355449cabdfe02d71d567578e8,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-02T02:50:39Z,paulovillarroel,pvillarroeltapia@gmail.com,2022-04-02T02:50:39Z,Fix links,README.md,False,False,False,False,14,14,28,"---FILE: README.md---
+@@ -134,9 +134,9 @@ Nota: A lo largo del Bootcamp se agregarán más contenidos, talleres y temas. V
+ 
+ #### [Antes de partir, revisa esta información](https://github.com/opensaludlab/ciencia_datos/tree/main/inicio)  
+ 
+-## [MODULO 1: Nivelación y fundamentos](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo1)
++## MODULO 1: Nivelación y fundamentos
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS-lf6e9Pejehcgif-xK7qg_)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS-lf6e9Pejehcgif-xK7qg_) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo1)
+ 
+ -   Aspectos generales curso
+ 
+@@ -148,9 +148,9 @@ Nota: A lo largo del Bootcamp se agregarán más contenidos, talleres y temas. V
+ 
+ -   Análisis prefactibilidad y valor público
+ 
+-## [MODULO 2: Data wrangling y análisis exploratorio de datos](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo2)
++## MODULO 2: Data wrangling y análisis exploratorio de datos
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS8TilR2kI1PD-5EQxX6eYst)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS8TilR2kI1PD-5EQxX6eYst) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo2)
+ 
+ En colaboración con R-Ladies Concepción
+ 
+@@ -162,19 +162,19 @@ En colaboración con R-Ladies Concepción
+ 
+ -   Análisis exploratorio de datos
+ 
+-## [MODULO 3 : Visualización](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo3)
++## MODULO 3 : Visualización
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS8TWKuOJNFLi3-L375DC2zu)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS8TWKuOJNFLi3-L375DC2zu)  / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo3)
+ 
+ En colaboración con R-Ladies Concepción
+ 
+ -   Visualización de datos (parte 1)
+ 
+ -   Visualización de datos (parte 2)
+ 
+-## [MODULO 4: Modelos y estadística inferencial](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo4)
++## MODULO 4: Modelos y estadística inferencial
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS9CMRapX6u0qvp7SvXrPw3h)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS9CMRapX6u0qvp7SvXrPw3h) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo4)
+ 
+ En colaboración con Data UC
+ 
+@@ -188,17 +188,17 @@ En colaboración con Data UC
+ 
+ -   Modelos de regresión
+ 
+-## [MODULO 5: Gestión de procesos](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo5)
++## MODULO 5: Gestión de procesos
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS9irAVhobUQROyDEUbu6_G8)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS9irAVhobUQROyDEUbu6_G8) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo5)
+ 
+ -   Conceptos generales de los procesos
+ 
+ -   Modelamiento BPMN
+ 
+-## [MODULO 6: Comunicación y replicabilidad](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo6)
++## MODULO 6: Comunicación y replicabilidad
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS_RMENAcQdlXgXkO61DFOTQ)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS_RMENAcQdlXgXkO61DFOTQ) / :orange_book: [T](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo5)[odo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo6)
+ 
+ En colaboración con Patricio Araneda.
+ 
+@@ -212,9 +212,9 @@ En colaboración con Patricio Araneda.
+ 
+ -   Reportes replicables
+ 
+-## [Curso GIT](https://github.com/opensaludlab/ciencia_datos/tree/main/curso_git) (control de versiones + GitHub)
++## Curso GIT (control de versiones + GitHub)
+ 
+-### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS-PhIwzPtn0NgonvH9dAYSQ)
++### :white_check_mark: [Playlist](https://youtube.com/playlist?list=PLsv7dA-wqwS-PhIwzPtn0NgonvH9dAYSQ) / :orange_book: [Todo el material](https://github.com/opensaludlab/ciencia_datos/tree/main/curso_git)
+ 
+ ## :hugs: Agradecimientos
+ ",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,ed1f99457f1eaf522da2b18210021a509024c69a,paulovillarroel,pvillarroeltapia@gmail.com,2022-03-20T01:15:46Z,paulovillarroel,pvillarroeltapia@gmail.com,2022-03-20T01:15:46Z,Fix comments,desafios-programacion/00-palindrome.R,False,True,True,False,5,10,15,"---FILE: desafios-programacion/00-palindrome.R---
+@@ -1,7 +1,7 @@
+-## palindrome
++## Desafío de programación 00 Palindrome
+ 
+ # Crea un programa que permita identificar si una palabra es un palíndromo.
+-# Un palíndormo es una palabra que se lee igual de izquierda a derecha que de derecha a izquierda.
++# Un palíndromo es una palabra que se lee igual de izquierda a derecha que de derecha a izquierda.
+ 
+ 
+ library(tidyverse)
+@@ -24,16 +24,11 @@ palindrome <- function(x) {
+   }
+ }
+ 
++
++# Ejemplos de uso
++
+ palindrome(""paulo"")
+ palindrome(""radar "")
+ palindrome(""ana"")
+ palindrome(""auto"")
+ palindrome(44444)
+-
+-
+-
+-
+-
+-
+-
+-",True,False,Dependency / Package,3
+opensaludlab,ciencia_datos,6d09ca40e22143bdc40445fcdf717aea2b8d82bf,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-02-04T03:38:21Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-02-04T03:38:21Z,Some fixes,modulo1/README.md,False,False,False,False,2,2,4,"---FILE: modulo1/README.md---
+@@ -2,9 +2,9 @@
+ 
+ ## Hola a todos y todas!! :wave:
+ 
+-**Bienvenidos a la primera sesión de nuestro programa de formación en Ciencia de Datos!  
++**Bienvenidos a la primera sesión de nuestro programa de formación en Ciencia de Datos!**
+   
+-**Te recomiendamos ver los videos al menos 2 ó 3 veces, pausarlo e ir lentamente estudiando los temas tratados. Además, baja el código (script), ejecútalo y analízalo con calma. Revisa la lectura complementaria en la medida que avanzas en el código.  
++Te recomiendamos ver los videos al menos 2 ó 3 veces, pausarlo e ir lentamente estudiando los temas tratados. Además, baja el código (script), ejecútalo y analízalo con calma. Revisa la lectura complementaria en la medida que avanzas en el código.  
+   
+ No te estreses. Ya habrá tiempo para profundizar en todo a lo largo del curso :blush:
+ ",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,1d11cf8e75b1badf7a44dad6e22cee544bccab9f,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-02-04T03:17:15Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2022-02-04T03:17:15Z,Fix some links,modulo4/README.md,False,False,False,False,6,7,13,"---FILE: modulo4/README.md---
+@@ -4,16 +4,15 @@ Antes de inciar este módulo, si es que no tienes mucho acercamiento a temas de
+ 
+ <https://www.coursera.org/learn/estadistica-aplicada-negocios>
+ 
+-  
+-Para acceder a todas las clases sobre estadística inferencial y modelos de machine learning, tienes que haber visto el módulo 1 y módulo 2, pues es relevante que ya tengas conocimientos sobre programación basada en objetos, tipos de datos, sepas importar, manipular y transformar datos de forma relativamente fluída, así como usar las librerías del `tidyverse`.   
++Para acceder a todas las clases sobre estadística inferencial y modelos de machine learning, tienes que haber visto el módulo 1 y módulo 2, pues es relevante que ya tengas conocimientos sobre programación basada en objetos, tipos de datos, sepas importar, manipular y transformar datos de forma relativamente fluída, así como usar las librerías del `tidyverse`.
++
++Para asegurarnos de ello, tendrás acceso al resto de las clases de este módulo si realizas la certificación gratuita de IBM Cognitive Class mencionada [al final del módulo 2](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo2#white_check_mark-certificado).
+ 
+-Para asegurarnos de ello, tendrás acceso al resto de las clases de este módulo si realizas la certificación gratuita de IBM Cognitive Class mencionada [al final del módulo 2](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo2#white_check_mark-certificado).   
+-  
+ [Regístrate en el Discord](https://github.com/opensaludlab/ciencia_datos#point_right-ingresa-ac%C3%A1-para-unirte-a-la-comunidad-online-del-bootcamp-y-comienza-este-viaje-ahora) de nuestro Bootcamp y comenta en el canal del curso dedicado a este tema.
+ 
+ ------------------------------------------------------------------------
+ 
+-# :one: Gestión ética de datos 
++# :one: Gestión ética de datos
+ 
+ En esta sesión abordamos unos de los temas más relevantes del curso: la gestión responsable y ética de datos.  
+ Un *must have* en todo proyecto de ciencia de datos.
+@@ -26,8 +25,8 @@ Un *must have* en todo proyecto de ciencia de datos.
+ 
+ El libro que estuvimos comentando en la clase es ""La gestión ética de los datos"" del BID que puedes encontrar [en este enlace.](https://publications.iadb.org/es/la-gestion-etica-de-los-datos)
+ 
+-Siempre es necesario conocer el marco normativo, acá te dejo la [Ley 19.628](https://www.bcn.cl/leychile/navegar?idNorma=141599) sobre protección de la vida privada y la [Ley 20.584](https://www.bcn.cl/leychile/navegar?idNorma=1039348) que regula los derechos y deberes que tienen las personas en relación con acciones vinculadas a su atención en salud (Chile).  
+-  
++Siempre es necesario conocer el marco normativo, acá te dejo la [Ley 19.628](https://www.bcn.cl/leychile/navegar?idNorma=141599) sobre protección de la vida privada y la [Ley 20.584](https://www.bcn.cl/leychile/navegar?idNorma=1039348) que regula los derechos y deberes que tienen las personas en relación con acciones vinculadas a su atención en salud (Chile).
++
+ Acá puede revisar la [política chilena sobre inteligencia artificial.](https://minciencia.gob.cl/areas-de-trabajo/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/)
+ 
+ Para complementar lo visto en la sesión puedes revisar los links que están en la presentación.  ",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,a0488fb8ed288b7ddb50f72de6dd953b7645d53c,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-11-07T02:20:43Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-11-07T02:20:43Z,Fixed the link of session 5,modulo1/README.md,False,False,False,False,1,1,2,"---FILE: modulo1/README.md---
+@@ -121,7 +121,7 @@ En esta sesión revisamos los aspectos más destacadas a la hora de analizar la
+ 
+ ### Lectura recomendada
+ 
+-1.  [Una mirada a la cultura de datos en Chile](https://www.minciencia.gob.cl/sites/default/files/whitepaper_datos_covid19.pdf). Ministerio de Ciencias y Tecnología. Chile
++1.  [Una mirada a la cultura de datos en Chile](https://www.minciencia.gob.cl/legacy-files/whitepaper_datos_covid19.pdf). Ministerio de Ciencias y Tecnología. Chile
+ 
+ 2.  [Sistemas complejos y gestión pública](http://www.dii.uchile.cl/~ceges/publicaciones/99%20ceges%20MW.pdf). Mario Waissbluth. Universidad de Chile
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,53ffe695bb1a077cf2aa16725f50302197092274,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-10-28T01:39:51Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-10-28T01:39:51Z,The data import session script link is fixed,modulo1/README.md,False,False,False,False,2,2,4,"---FILE: modulo1/README.md---
+@@ -75,7 +75,7 @@ En esta sesión conversamos sobre los tipos de datos en que se puede trabaja en
+ 
+ ### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/02_tipos_datos.R) ]
+ 
+-### :raised_hand_with_fingers_splayed: [ [Taller](https://youtu.be/Ym_RkjkZd3k)  / [Script taller](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/taller_estructura_datos.R) ]
++### :raised_hand_with_fingers_splayed: [ [Taller](https://youtu.be/Ym_RkjkZd3k) / [Script taller](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/taller_estructura_datos.R) ]
+ 
+ ### Lectura recomendada
+ 
+@@ -99,7 +99,7 @@ En esta sesión hablamos sobre cómo importar distintos tipos de datos a nuestro
+ 
+ ### :closed_book: [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_4.pdf)]
+ 
+-### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/03_importar_datos.R) ]
++### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/03_importacion.R) ]
+ 
+ ### Lectura recomendada
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,466c2b0dd2abb260b6756dca67b247be2531d76e,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-09-06T13:06:08Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-09-06T13:06:08Z,Fix links module 1 in README,modulo1/README.md;modulo1/Sesion_2-1.pdf,False,False,False,False,12,10,22,"---FILE: modulo1/README.md---
+@@ -16,9 +16,9 @@ Vamos!!
+ 
+ En esta sesión abordamos los aspectos generales del programa, los objetivos y la motivación de lanzarnos con este proyecto. Además, revisamos el calendario, las temáticas a tratar, la metodología y los distintos tipos de actividades.
+ 
+-### :tv:[ [Video](https://youtu.be/YZgY0n7YKbI) ]
++### :tv: [ [Video](https://youtu.be/YZgY0n7YKbI) ]
+ 
+-### :closed_book: [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_1.pdf) ]
++### :closed_book:  [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_1.pdf) ]
+ 
+ *Nota: Esta sesión no tiene script.*
+ 
+@@ -29,12 +29,14 @@ En esta sesión abordamos los aspectos generales del programa, los objetivos y l
+ En esta sesión conversamos de la historia de R, sus ventajas y desventajas. Además, revisamos varias de las funcionalidades que tiene RStudio y de la importancia de las librerías (*packages*).  
+ Revisamos, también, algunas recomendaciones y buenas prácticas al escribir código.
+ 
+-### :tv:[ [Video 1](https://youtu.be/Iy-qOxy6ep8) ]  - :closed_book: [ [Slides 1](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_2.pdf) ]
++### :tv: [ [Video](https://youtu.be/Iy-qOxy6ep8) ] 
+ 
+-### :tv:[ [Video 2](https://youtu.be/tSBLZjOmYA4) ] - :closed_book: [ [Slides 2](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_2-1.pdf) ]
++### :closed_book:  [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_2.pdf) ]
+ 
+ ### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/01_conceptos_basicos.R) ]
+ 
++### :tv: [ [Taller](https://youtu.be/tSBLZjOmYA4) ] 
++
+ ### Lectura recomendada
+ 
+ Puedes leer los siguientes capítulos del libro \_R for Data Science\_ para complementar esta sesión:
+@@ -67,9 +69,9 @@ Estos son algunos de los tips mencionados en el video n°2:
+ 
+ En esta sesión conversamos sobre los tipos de datos en que se puede trabaja en R y las estructuras de los mismos. Hablamos, también, de la importancia de comprender qué tipos de datos se tienen y de como coercionarlos de forma de que se adapten a lo que uno necesita. Revisamos el tidy data y su relevancia en el código.
+ 
+-### :tv:[ [Video](https://youtu.be/iyYUPmQi_Xs) ]
++### :tv: [ [Video](https://youtu.be/iyYUPmQi_Xs) ]
+ 
+-### :closed_book: [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_3.pdf) ]
++### :closed_book:  [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_3.pdf) ]
+ 
+ ### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/02_tipos_datos.R) ]
+ 
+@@ -91,9 +93,9 @@ Puedes leer los siguientes capítulos del libro *R para Principiantes* para comp
+ 
+ En esta sesión hablamos sobre cómo importar distintos tipos de datos a nuestro ambiente de RStudio, que es una de las tareas más importantes a la hora de analizar datos.
+ 
+-### :tv:[ [Video](https://youtu.be/4MqllJ1zoTo) ]
++### :tv: [ [Video](https://youtu.be/4MqllJ1zoTo) ]
+ 
+-### :closed_book: [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_4.pdf)]
++### :closed_book:  [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_4.pdf)]
+ 
+ ### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/03_importar_datos.R) ]
+ 
+@@ -109,9 +111,9 @@ En esta sesión hablamos sobre cómo importar distintos tipos de datos a nuestro
+ 
+ En esta sesión revisamos los aspectos más destacadas a la hora de analizar la factibilidad de llevar a cabo un proyecto de ciencia de datos.
+ 
+-### :tv:[ [Video](https://youtu.be/6IXbH_eBuXQ) ]
++### :tv: [ [Video](https://youtu.be/6IXbH_eBuXQ) ]
+ 
+-### :closed_book: [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_5.pdf) ]
++### :closed_book:  [ [Slides](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo1/Sesion_5.pdf) ]
+ 
+ *Nota: esta sesión no tiene script.*
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,b1b22cd9714ac60a850446e73314e422d4f44721,Paulo Villarroel,52899164+paulovillarroel@users.noreply.github.com,2021-08-10T23:59:34Z,GitHub,noreply@github.com,2021-08-10T23:59:34Z,Fix about in README,README.md,False,False,False,False,1,1,2,"---FILE: README.md---
+@@ -38,7 +38,7 @@ Este repo fue usado como base del programa de formación que realizamos entre Di
+ 
+ En su versión original, el curso incluyó talleres y el desarrollo de proyectos de los alumnos, los cuales no están disponibles en esta versión.
+ 
+-De todas formas, tienes disponibles **más de 70 horas de videoclases**. A eso, debes sumarle los videos complementarios, todos los ejercicios y lecturas, dando como resultado un curso bastante extenso, quizás el más grande en español actualmente.
++De todas formas, tienes disponibles 24 clases con **más de 70 horas** en total. A eso, debes sumarle los videos complementarios, todos los ejercicios y lecturas, dando como resultado un curso bastante extenso, quizás el más grande en español actualmente y gratuito.
+ 
+ Si no tienes conocimentos en programación, te sugerimos que sigas el orden de las sesiones, veas los videos 2 ó 3 veces, los vayas pausando para ir realizando las actividades por ti mism\@ y revises las lecturas complementarias con calma.
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,2df7fc7e36f341805d50281577e1cc4562df226b,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-08-03T01:41:21Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-08-03T01:41:21Z,Fix link data visualization,modulo3/README.md,False,False,False,False,1,1,2,"---FILE: modulo3/README.md---
+@@ -20,7 +20,7 @@ Hay un par de capítulos de otros libros que nos parece bueno que les eches un v
+ 
+ 1.  [Capítulo 3 - R para Ciencia de Datos](https://r4ds-en-espaniol.netlify.app/visualizaci%C3%B3n-de-datos.html)
+ 
+-2.  [Data Visualization (autor: Kieran Healy](https://socviz.co/lookatdata.html)
++2.  [Data Visualization (autor: Kieran Healy)](https://socviz.co/lookatdata.html)
+ 
+ Y por último, [en esta página](https://www.r-graph-gallery.com/index.html) se muestran muchos tipos de gráficos y cómo hacerlos con `ggplot2`. Es un recurso muy interesante, que te servirá no solo para este módulo, sino para más adelante. Muy recomendable!
+ ",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,bac6ac59d5f10631b233f7e11be9259d993c40ed,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-08-03T01:23:30Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-08-03T01:23:30Z,Fix link to module 6,README.md,False,False,False,False,1,1,2,"---FILE: README.md---
+@@ -119,7 +119,7 @@ Esperamos que con este segundo enfoque los participantes sean capaces de:
+ -   Modelamiento BPMN
+ -   Modelamiento BPMN
+ 
+-## [MODULO 6: Comunicación y replicabilidad](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo6/Sesion_1)
++## [MODULO 6: Comunicación y replicabilidad](https://github.com/opensaludlab/ciencia_datos/tree/main/modulo6)
+ 
+ -   RMarkdown (parte 1)
+ -   RMarkdown (parte 2)",False,False,Documentation / Formatting,7
+opensaludlab,ciencia_datos,7a02c42bf2c02fa5a045aa33121cedab1bc530a4,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-07-28T14:09:00Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-07-28T14:09:00Z,Fix orthography,inicio/README.md,False,False,False,False,1,1,2,"---FILE: inicio/README.md---
+@@ -32,7 +32,7 @@ Este curso aborda el lenguaje de programación R.
+ 
+ Para ello, necesitarán instalar las siguientes cosas:
+ 
+-1.  El lenguaje R desde su [sitio oficia](https://cran.r-project.org/)l.
++1.  El lenguaje R desde su [sitio oficial](https://cran.r-project.org/).
+ 
+ 2.  [Desde acá](https://www.rstudio.com/products/rstudio/) puedes descargar RStudio.
+ ",False,False,Documentation / Formatting,6
+opensaludlab,ciencia_datos,e8560be6074419f169d859b486fb83d21195b39d,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-07-28T04:56:26Z,Paulo Villarroel,pvillarroeltapia@gmail.com,2021-07-28T04:56:26Z,Fix spaces session 3,modulo2/README.md,False,False,False,False,3,1,4,"---FILE: modulo2/README.md---
+@@ -59,7 +59,9 @@ En esta sesión estuvimos revisando la librería \`tidyr\`, que es parte del meg
+ 
+ ### :tv:[ [Video](https://youtu.be/hveAdbE92G0) ]
+ 
+-### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo2/Limpieza_datos.R) ]  Lectura recomendada
++### :computer: [ [Script](https://github.com/opensaludlab/ciencia_datos/blob/main/modulo2/Limpieza_datos.R) ]
++
++### Lectura recomendada
+ 
+ 1.  [Capítulo 12 - R para Ciencia de Datos](https://r4ds-en-espaniol.netlify.app/datos-ordenados.html)
+ ",False,False,Documentation / Formatting,6
