@@ -1,0 +1,97 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+Polkas_pacs_bug_commits,Implementation / Logic,99a9b49275,2024-09-27T20:17:19Z,Maciej Nasinski,"make a fix of pac_deps_timemachine and checked_packages (#36)
+
+* make a fix for pac_deps_timemachine
+* fix checked_pack...",6,"---FILE: NEWS.md---
+@@ -1,8 +1,10 @@
+ # pacs 0.5.1.9000
+ 
++* fix `checked_packages` as there is a new DOM structure.
++* fix `pac_deps_timemachine` which not works in some cases.
++* fix a problem with app_deps on R 3.6.
+ ..."
+Polkas_pacs_bug_commits,Implementation / Logic,3359c624b1,2024-09-08T22:43:56Z,Maciej Nasinski,fix app_deps on R 3.6,6,"---FILE: NEWS.md---
+@@ -1,6 +1,7 @@
+ # pacs 0.5.1.9000
+ 
+ * update the tinyverse vignette with a new badge url.
++* fix a problem with app_deps on R 3.6.
+ 
+ # pacs 0.5.1
+ 
+
+---FILE: R/deps.R---
+@@ -254,7 +254,12 @@ app_de..."
+Polkas_pacs_bug_commits,Implementation / Logic,16f94b7fe8,2022-02-22T20:34:47Z,Maciej Nasinski,a few fixes,6,"---FILE: R/timemachine.R---
+@@ -134,6 +134,7 @@ pac_archived_raw <- function(pac) {
+     result$URL <- paste0(sprintf(""Archive/%s/"", pac), result$Package)
+     result$Package <- pac_name
+     result$Version <- pac_v
++   ..."
+Polkas_pacs_bug_commits,Documentation / Formatting,f05bf96fed,2024-09-08T22:22:01Z,Florian Kohrt,"Fix typo (#31)
+
+* Fix typo
+* Prepare 0.5.1.9000
+---------
+
+Co-authored-by: Blaubär <blaubaer@blaubar-pc.fritz.box>",7,"---FILE: vignettes/tinyverse.Rmd---
+@@ -60,7 +60,7 @@ miceFast:
+ 
+ * badges are reevaluated daily.
+ 
+-## tidyverse vs tidyverse
++## tinyverse vs tidyverse
+ 
+ The `tidyverse` is an opinionated collection of R packages des..."
+Polkas_pacs_bug_commits,Documentation / Formatting,1012ee1320,2021-09-11T10:42:43Z,Maciej Nasinski,docs and fix tests,7,"---FILE: NEWS.md---
+@@ -1,8 +1,9 @@
+ # 0.3.5
+ 
+ * Fixed `pac_timemachine` when from and to arguments are used and to is bigger than last Archived Date.
+-* `pac_timemachine` has a well ordered `rownames`.
+-* Fixed `pac_co..."
+Polkas_pacs_bug_commits,Documentation / Formatting,c93f7eb351,2021-08-13T11:35:21Z,Maciej Nasinski,"Bioconductor revolution
+
+Bioconductor BiocManager repositories
+
+NEWS and version
+
+docs
+
+fix
+
+fix",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: pacs
+ Title: Supplementary Tools for R Packages Developers
+-Version: 0.3.2
++Version: 0.3.3
+ Authors@R: 
+     person(given = ""Maciej"",
+            family = ""Nasinski"",
+@@ ..."
+Polkas_pacs_bug_commits,Environment / Configuration,556951ae71,2022-02-27T16:49:00Z,Maciej Nasinski,fix test,3,"---FILE: tests/testthat/test-validate.R---
+@@ -74,7 +74,7 @@ test_that(""offline validate"", {
+ 
+ test_that(""lock_validate skip crandb if the limit is exceeded"", {
+   expect_message(withr::with_options(list(pacs.crandb_lim..."
+Polkas_pacs_bug_commits,Dependency / Package,d2b634b1bc,2021-08-13T17:29:20Z,Maciej Nasinski,"CRAN servers might stop working, and buck up for description and namesapce functions
+
+a few fixes, bioconductor mainly
+
+...",7,"---FILE: NAMESPACE---
+@@ -14,9 +14,11 @@ export(pac_deps)
+ export(pac_deps_timemachine)
+ export(pac_description)
+ export(pac_health)
++export(pac_islast)
+ export(pac_last)
+ export(pac_lifeduration)
+ export(pac_namespace)
+..."
+Polkas_pacs_bug_commits,Dependency / Package,b596a42e11,2022-02-23T22:26:26Z,Maciej Nasinski,fix,6,"---FILE: R/description.R---
+@@ -47,9 +47,9 @@ pac_description <- function(pac,
+     version <- if (!version_null) {
+       version
+     } else if (!is.null(at)) {
+-      version <- utils::tail(pac_timemachine(pac, at = a..."

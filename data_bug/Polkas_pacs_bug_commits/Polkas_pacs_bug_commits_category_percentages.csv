@@ -1,0 +1,5 @@
+bug_category,count,percent,median_score
+Documentation / Formatting,20,54.1,6.0
+Implementation / Logic,14,37.8,6.0
+Dependency / Package,2,5.4,6.5
+Environment / Configuration,1,2.7,3.0

@@ -1,0 +1,16 @@
+path,count
+NEWS.md,15
+R/lifeduration.R,10
+tests/testthat/test-base.R,9
+README.md,9
+R/check.R,7
+R/deps.R,7
+R/valid.R,7
+DESCRIPTION,6
+R/comapre.R,6
+R/utils.R,6
+R/timemachine.R,6
+R/description.R,5
+man/pac_compare_versions.Rd,5
+NAMESPACE,5
+R/namespace.R,4
