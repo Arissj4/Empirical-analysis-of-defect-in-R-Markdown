@@ -1,0 +1,16 @@
+path,count
+R/results.R,27
+R/plot.R,12
+R/backends.R,12
+vignettes/brms.Rmd,9
+NAMESPACE,9
+R/datasets.R,9
+vignettes/small_model_workflow.Rmd,8
+R/calculate.R,7
+R/backend-bridgesampling.R,6
+tests/testthat/test-results.R,6
+vignettes/rejection_sampling.Rmd,6
+vignettes/bad_parametrization.Rmd,6
+vignettes/discrete_vars.Rmd,4
+vignettes/computational_algorithm1.Rmd,4
+vignettes/implementing_backends.Rmd,4

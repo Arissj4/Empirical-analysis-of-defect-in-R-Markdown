@@ -1,0 +1,72 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+hyunjimoon_SBC_bug_commits,Implementation / Logic,9a544671df,2025-09-17T11:15:33Z,Martin Modrák,Fixing vignettes and check_diagnostics,6,"---FILE: R/results.R---
+@@ -1352,7 +1352,7 @@ check_all_SBC_diagnostics <- function(results) {
+   msg_unknown <- dplyr::filter(msg, is.na(type))
+   purrr::walk(msg_unknown$message, function(m) { cat("" - [???] "", m, "" "") ..."
+hyunjimoon_SBC_bug_commits,Implementation / Logic,1e4263de47,2025-09-10T13:20:51Z,Martin Modrák,Fix default diagnostics aroung NAs and Infs and handling of the related var_attributes(),6,"---FILE: R/results.R---
+@@ -29,13 +29,23 @@ SBC_results <- function(stats,
+ 
+ 
+ compute_default_diagnostics <- function(stats) {
++  # Putting default values to make previously cached results valid
+   if(is.null(stats$att..."
+hyunjimoon_SBC_bug_commits,Implementation / Logic,bfc46cca3f,2025-09-09T08:57:42Z,Martin Modrák,Fixed misreporting warnings in summary of SBC_results,6,"---FILE: R/results.R---
+@@ -1261,7 +1261,7 @@ summary.SBC_results <- function(x) {
+   summ <- list(
+     n_fits = length(x$fits),
+     n_errors = sum(!purrr::map_lgl(x$errors, is.null)),
+-    n_warnings = sum(purrr::map_..."
+hyunjimoon_SBC_bug_commits,Documentation / Formatting,7d717ca718,2025-08-08T14:22:45Z,Martin Modrák,"Extend docs, fix bugs",7,"---FILE: R/backend-bridgesampling.R---
+@@ -14,7 +14,17 @@ SBC_backend_bridgesampling <- function(backend_H0, backend_H1, model_var = ""mode
+ }
+ 
+ #' Convert a fit for a given backend into a bridge sampler object.
++#'
++#' ..."
+hyunjimoon_SBC_bug_commits,Documentation / Formatting,acfd50fab2,2021-09-18T15:47:08Z,martinmodrak,"Extending basic_usage vignette, fixing problems in other vignettes",7,"---FILE: R/plot.R---
+@@ -333,6 +333,9 @@ data_for_ecdf_plots.matrix <- function(x,
+ 
+ #' Prior/posterior contraction plot.
+ #'
++#' The rationale for this plot and its interpretaion is explained in
++#' Mike Betancourt's
++..."
+hyunjimoon_SBC_bug_commits,Documentation / Formatting,a820885c70,2021-12-17T22:29:57Z,martinmodrak,"Final example for ADVI vignette, fixes to backend.",7,"---FILE: R/backends.R---
+@@ -355,14 +355,16 @@ SBC_fit_to_diagnostics.CmdStanMCMC <- function(fit, fit_output, fit_messages, fi
+ #' Backend based on variational approximation via `cmdstanr`.
+ #'
+ #' @param model an objec..."
+hyunjimoon_SBC_bug_commits,Rendering / Conversion,575263dd57,2022-01-24T17:10:57Z,martinmodrak,"Updated vignettes to match
+
+
+Fix associated bugs/issues",6,"---FILE: R/datasets.R---
+@@ -320,7 +320,7 @@ generate_datasets.SBC_generator_brms <- function(generator, n_sims, n_datasets =
+       max_rhat <- max(summ$rhat)
+       if(max_rhat > 1.01) {
+         message(""Warning: Some..."
+hyunjimoon_SBC_bug_commits,Rendering / Conversion,c16b5c124a,2021-12-31T12:21:45Z,Hyunji Moon,typo fix,6,"---FILE: vignettes/computational_algorithm1.Rmd---
+@@ -10,22 +10,22 @@ vignette: >
+   %\VignetteEngine{knitr::rmarkdown}
+   \usepackage[utf8]{inputenc}
+ ---
+-the fact that KL divergence under-penalizes approximation with..."
+hyunjimoon_SBC_bug_commits,Rendering / Conversion,e36375e078,2021-09-15T19:34:01Z,martinmodrak,"Fixes, adding caching to vignettes pt1",6,"---FILE: .gitignore---
+@@ -5,3 +5,5 @@ Meta
+ 
+ *.nb.html
+ *.exe
++
++*_SBC_cache
+
+---FILE: R/backends.R---
+@@ -101,7 +101,7 @@ SBC_fit_to_diagnostics.stanfit <- function(fit, fit_output, fit_messages, fit_wa
+ 
+ #' @export
+..."
+hyunjimoon_SBC_bug_commits,Dependency / Package,01cde91b50,2021-09-01T16:25:34Z,martinmodrak,Diagnostics and workaround for issue #29,6,"---FILE: NAMESPACE---
+@@ -31,8 +31,6 @@ S3method(print,SBC_nuts_diagnostics_summary)
+ S3method(print,SBC_results_summary)
+ S3method(summary,SBC_nuts_diagnostics)
+ S3method(summary,SBC_results)
+-export(""#'"")
+-export(""@exp..."

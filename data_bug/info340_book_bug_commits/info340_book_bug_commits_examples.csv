@@ -1,0 +1,79 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+info340_book_bug_commits,Implementation / Logic,8c976940b7,2025-02-11T23:36:04Z,Joel Ross,Additional router v7 fixes,6,"---FILE: build/client-side-routing.html---
+@@ -614,7 +614,7 @@ <h3>Routing</h3>
+ <li><p>Your app will only ever have a single <code>&lt;BrowserRouter&gt;</code> component in it–usually at the “top level” of your applicat..."
+info340_book_bug_commits,Implementation / Logic,e714432198,2024-09-10T21:56:15Z,Joel Ross,Format fixes,6,"---FILE: build/404.html---
+@@ -24,7 +24,7 @@
+ <meta name=""author"" content=""Joel Ross"" />
+ 
+ 
+-<meta name=""date"" content=""2024-09-03"" />
++<meta name=""date"" content=""2024-09-10"" />
+ 
+   <meta name=""viewport"" content=""width..."
+info340_book_bug_commits,Implementation / Logic,1220ea35e7,2023-02-09T06:01:48Z,Orson Xu,"Update css-frameworks.Rmd
+
+Fix the ambiguity of ""developer"" with better clarification.",6,"---FILE: css-frameworks.Rmd---
+@@ -76,7 +76,7 @@ In addition to being simple, CDNs also provide a distinct speed benefit: CDNs re
+ 
+ Additionally, CDNs allow a site to take advantage of **browser caching**: browsers will..."
+info340_book_bug_commits,Documentation / Formatting,a9b2fd26b6,2025-01-16T16:05:32Z,Joel Ross,Typo fixes,7,"---FILE: build/404.html---
+@@ -24,7 +24,7 @@
+ <meta name=""author"" content=""Joel Ross"" />
+ 
+ 
+-<meta name=""date"" content=""2024-09-10"" />
++<meta name=""date"" content=""2025-01-16"" />
+ 
+   <meta name=""viewport"" content=""width..."
+info340_book_bug_commits,Documentation / Formatting,2477006dd8,2022-02-13T21:02:47Z,Joel Ross,Typo fixes,7,"---FILE: build/ajax.html---
+@@ -25,7 +25,7 @@
+ <meta name=""author"" content=""Joel Ross and Mike Freeman"">
+ 
+ 
+-<meta name=""date"" content=""2021-09-28"">
++<meta name=""date"" content=""2022-02-13"">
+ 
+   <meta name=""viewport"" co..."
+info340_book_bug_commits,Documentation / Formatting,8ec997e31e,2017-08-28T15:33:45Z,Joel Ross,Add accessibility chapter; spelling fixes and cleanup,7,"---FILE: accessibility.Rmd---
+@@ -1,9 +1,263 @@
+-# Accessible HTML
++# Standards and Accessibility
+ 
+-Coming soon...
++This chapter details considerations and techniques to ensure that your web pages and applications can b..."
+info340_book_bug_commits,Rendering / Conversion,2bc9922362,2020-08-12T18:02:42Z,Preston Carman,"Updated build for new versions.
+
+Changed INFO343 to INFO340.
+Updated versions to work with Pandoc v2.0.
+Fixed case-sensi...",7,"---FILE: .gitignore---
+@@ -14,3 +14,6 @@ node_modules
+ .Rproj.user
+ packrat/lib*/
+ packrat/src/
++
++# Build files
++client-side-web-development.Rmd
+
+---FILE: index.Rmd---
+@@ -31,7 +31,7 @@ This book covers the the skills a..."
+info340_book_bug_commits,Rendering / Conversion,2bec552233,2018-10-31T02:28:15Z,mkfreeman,Fix closing tag error in html.Rmd,7,"---FILE: build/ajax.html---
+@@ -25,7 +25,7 @@
+ <meta name=""author"" content=""Joel Ross and Mike Freeman"">
+ 
+ 
+-<meta name=""date"" content=""2018-09-13"">
++<meta name=""date"" content=""2018-10-30"">
+ 
+   <meta name=""viewport"" co..."
+info340_book_bug_commits,Rendering / Conversion,381a53dd13,2017-10-09T19:44:47Z,Joel Ross,Typo fixes,6,"---FILE: _bookdown.yml---
+@@ -23,8 +23,8 @@ rmd_files:
+   ## JavaScript
+   - javascript.Rmd
+   - functional-programming.Rmd
+-  #- dom.Rmd
+-  #- jquery.RmD
++  - dom.Rmd
++  #- libraries.RmD # inc jQuery
+   #- ajax.Rmd
+   #..."
