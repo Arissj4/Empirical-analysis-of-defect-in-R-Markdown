@@ -1,0 +1,8 @@
+bug_category,count,percent
+Rendering / Conversion,38,35.8
+Visualization / Plotting,28,26.4
+Documentation / Formatting,18,17.0
+Implementation / Logic,14,13.2
+Environment / Configuration,3,2.8
+Dependency / Package,3,2.8
+Reproducibility / Versioning,2,1.9

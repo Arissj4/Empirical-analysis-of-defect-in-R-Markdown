@@ -1,0 +1,8 @@
+bug_category,touches_rmd_%
+Dependency / Package,100.0
+Environment / Configuration,100.0
+Rendering / Conversion,97.4
+Documentation / Formatting,88.9
+Visualization / Plotting,85.7
+Implementation / Logic,78.6
+Reproducibility / Versioning,50.0

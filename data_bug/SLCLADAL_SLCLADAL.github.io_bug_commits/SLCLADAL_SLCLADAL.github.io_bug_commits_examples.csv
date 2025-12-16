@@ -1,0 +1,144 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+SLCLADAL_SLCLADAL.github.io_bug_commits,Implementation / Logic,0aceaefda0,2022-08-22T05:06:25Z,Sam Hames,Fix image display in rendered,6,"---FILE: collocations_cache/html/__packages---
+@@ -1,6 +0,0 @@
+-base
+-NLP
+-tm
+-Matrix
+-slam
+-igraph
+
+---FILE: docs/license.html---
+@@ -1557,11 +1557,11 @@
+   ""predicates"":[{""function"":""_eq"",""arg0"":[""macro"",0],""arg1"":""gtm..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Implementation / Logic,f4246c4894,2022-03-26T02:41:33Z,Anton Malko,"Add packages necessary for knitting
+
+Overall, I assume that the packages listed in the installation chunk should be suff...",6,"---FILE: Intror.Rmd---
+@@ -370,7 +370,9 @@ install.packages(""readxl"")
+ install.packages(""tm"")
+ install.packages(""tokenizers"")
+ install.packages(""here"")
++install.packages(""flextable"")
+ # install klippy for copy-to-clipboa..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Implementation / Logic,cbf733508e,2021-05-05T12:42:45Z,Martin Schweinberger,eyetrack corrections,6,"---FILE: eyews.Rmd---
+@@ -42,7 +42,7 @@ We will not address issues relating to adequate sample size and power. If you ar
+ This tutorial is based on R. If you have not installed R or RStudio or if you are new to either of..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Documentation / Formatting,b8a34ef1ef,2022-11-17T09:39:55Z,Martin Schweinberger,string link correction,7,"---FILE: content/string.Rmd---
+@@ -25,8 +25,8 @@ This tutorial introduces string processing and it is aimed at beginners and inte
+ <span>
+ <p style='margin-top:1em; text-align:center'>
+ The entire R Notebook for the tuto..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Documentation / Formatting,ade386de9e,2022-11-14T06:48:31Z,Martin Schweinberger,intror re-knit (corrceted links) and kwics mybinder link correction,7,"---FILE: content/intror.Rmd---
+@@ -1,7 +1,7 @@
+ ---
+ title: ""Getting started with R""
+ author: ""Martin Schweinberger""
+-date: ""`r format(Sys.time(), '%Y-%m-%d')`""
++date: ""2022.11.15""
+ output:
+   bookdown::html_document2: d..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Documentation / Formatting,ff7008f5e9,2022-08-22T01:47:01Z,Sam Hames,"Quality of life fixes and cleanup (#18)
+
+* Add missing remotes package install to base.Rmd
+
+* Document necessary packa...",7,"---FILE: .gitignore---
+@@ -2,4 +2,7 @@
+ .Rhistory
+ .RData
+ .Ruserdata
+-.httr-oauth
+\ No newline at end of file
++.httr-oauth
++content/*html
++content/*_files
++content/data/lmm_out.rda
+\ No newline at end of file
+
+---FILE: ..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Rendering / Conversion,e3650bf3fa,2022-06-23T10:24:45Z,Martin Schweinberger,regression and webinar updates,6,"---FILE: _site.yml---
+@@ -18,6 +18,8 @@ navbar:
+         href: webinars2022.html
+       - text: ""LADAL Webinar Series 2021""
+         href: opening.html
++      - text: ""ATAP Events""
++        href: atapevents.html
+     - t..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Rendering / Conversion,9fe0ada973,2022-05-03T13:05:13Z,Martin Schweinberger,regression update,6,"---FILE: RmdNotebookCheck.R---
+@@ -0,0 +1,8 @@
++
++# check if notebooks load superfluous packages
++knitr::purl(""regression.Rmd"", documentation = 0)
++
++#install.packages('devtools')
++library(devtools)
++#install_github(""Mic..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Rendering / Conversion,f55dfb6cc2,2021-03-21T22:47:15Z,Martin Schweinberger,regex updates (using fixed() in the reg ex tables) and contribute page,6,"---FILE: contr.Rmd---
+@@ -0,0 +1,70 @@
++---
++title: ""Fixing errors and becoming a LADAL contributer""
++author: ""Martin Schweinberger""
++date: ""`r format(Sys.time(), '%Y-%m-%d')`""
++output:
++  bookdown::html_document2:  
++  ..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Environment / Configuration,bd50c471e3,2022-09-07T23:35:28Z,Sam Hames,Fix typos and tweak not self contained build to share resources across the site_libs,6,"---FILE: content/Intror.Rmd---
+@@ -26,7 +26,7 @@ This tutorial shows how to get started with R and it specifically focuses on R f
+ <div class=""warning"" style='padding:0.1em; background-color:#f2f2f2; color:#51247a'>
+ <sp..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Environment / Configuration,d72d10f9c1,2021-12-30T08:02:59Z,Martin Schweinberger,renv and regression updates,6,"---FILE: .Rprofile---
+@@ -0,0 +1 @@
++source(""renv/activate.R"")
+
+---FILE: regression.Rmd---
+@@ -202,6 +202,7 @@ install.packages(""vcd"")
+ install.packages(""vip"")
+ install.packages(""visreg"")
+ install.packages(""report"")
++ins..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Environment / Configuration,d5ba387037,2019-11-24T04:07:52Z,Martin Schweinberger,commit 20191124_1407 correcting path errors,4,"---FILE: fixedregressions.Rmd---
+@@ -35,7 +35,7 @@ The major difference between these types of models is that they take different t
+ 
+ # Preparation and session set up
+ 
+-As all caluculations and visualizations in this t..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Visualization / Plotting,2376d627e6,2019-11-25T11:56:41Z,Martin Schweinberger,commit 20191125_2156 added lambda plot and corrected errors and removed example,7,"---FILE: fixedregressions.Rmd---
+@@ -39,6 +39,14 @@ As all caluculations and visualizations in this tutorial rely on R, it is necess
+ 
+ In addition, certain *packages* need to be installed from an R *library* so that the..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Visualization / Plotting,99a99c764b,2022-01-03T08:52:58Z,Martin Schweinberger,regression updates,6,"---FILE: regression.Rmd---
+@@ -30,19 +30,17 @@ knitr::include_graphics(""https://slcladal.github.io/images/uq1.jpg"")
+ 
+ This tutorial introduces regression analyses (also called regression modeling) using R. Regression mo..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Visualization / Plotting,5bcb9b3644,2021-08-26T23:47:27Z,Martin Schweinberger,updates and correction in descriptive statz,6,"---FILE: dstats.Rmd---
+@@ -161,9 +161,11 @@ frequencies <- c(3, 40, 15, 87)
+ mean(frequencies)
+ ```
+ 
++The mean is the most common way to summarize numeric variables and it is very easy and intuitive to understand. A dis..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Reproducibility / Versioning,a15a9a904e,2021-04-17T16:33:19Z,Martin Schweinberger,regression update,4,"---FILE: regression.html---
+@@ -2410,7 +2410,7 @@ <h3>Additional Model Diagnostics</h3>
+ # Durbin-Watson test (optimal: grosser p-wert)
+ dwt(m2.mlr)</code></pre>
+ <pre><code>##  lag Autocorrelation D-W Statistic p-value
+..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Reproducibility / Versioning,83ee17f3c3,2020-09-23T11:10:31Z,Martin Schweinberger,regression update,4,"---FILE: regression.Rmd---
+@@ -1361,15 +1361,15 @@ In the following, we will go over the most relevant and frequently used types of
+ The major difference between these types of models is that they take different types of..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Dependency / Package,6058e0fad0,2021-04-15T19:30:10Z,Martin Schweinberger,regression update,4,"---FILE: regression.Rmd---
+@@ -28,7 +28,7 @@ knitr::include_graphics(""https://slcladal.github.io/images/uq1.jpg"")
+ 
+ # Introduction{-}
+ 
+-This tutorial introduces regression modeling using R. The R-markdown document for ..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Dependency / Package,fb2deca9ee,2021-04-15T19:15:48Z,Martin Schweinberger,regression update,4,"---FILE: regression.Rmd---
+@@ -56,7 +56,7 @@ In the following, we will go over the most relevant and frequently used types of
+ * robust regression
+ 
+ 
+-The major difference between these types of models is that they take..."
+SLCLADAL_SLCLADAL.github.io_bug_commits,Dependency / Package,2dce9fc512,2021-04-14T11:46:57Z,Martin Schweinberger,regression update,4,"---FILE: opening.Rmd---
+@@ -153,8 +153,32 @@ Felicity Meakins is an ARC Future Fellow in Linguistics at the University of Que
+ 
+ ## July 15: Stéphane Guillou{-}
+ 
+-**Git and GitHub/Gitlab for versioning and collaborating..."
