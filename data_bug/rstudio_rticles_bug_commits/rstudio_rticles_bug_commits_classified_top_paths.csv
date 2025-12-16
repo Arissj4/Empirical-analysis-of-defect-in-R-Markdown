@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,36
+NEWS.md,34
+README.md,19
+tests/testit/test-formats.R,14
+R/article.R,12
+NEWS,10
+man/article.Rd,9
+R/rjournal_article.R,9
+R/jss_article.R,7
+NAMESPACE,7
+README.Rmd,6
+inst/rmarkdown/templates/elsevier_article/resources/template.tex,6
+inst/rmarkdown/templates/pnas_article/resources/template.tex,6
+R/copernicus_article.R,5
+inst/rmarkdown/templates/copernicus/resources/template.tex,5

@@ -1,0 +1,158 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+rstudio_rticles_bug_commits,Documentation / Formatting,fe7347dba3,2024-12-06T16:56:23Z,Conor Anderson,"Updates AMS to V6.1 (#444)
+
+* Cherry-pick @eliocamp
+
+* Uses xelatex in the AMS skeleton
+
+* Update for v6.1
+
+* Defa...",7,"---FILE: .gitignore---
+@@ -6,3 +6,5 @@
+ reference
+ inst/doc
+ .vscode
++
++/.luarc.json
+
+---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: rticles
+ Title: Article Formats for R Markdown
+-Version: 0.27.6
++Vers..."
+rstudio_rticles_bug_commits,Documentation / Formatting,080207e644,2021-12-08T19:19:00Z,Christophe Dervieux,"Fix examples page building (#457)
+
+And deal different with the glossa / microtype conflict by uninstalling / installing ...",7,"---FILE: .github/workflows/pkgdown.yaml---
+@@ -16,6 +16,8 @@ jobs:
+       - uses: actions/checkout@v2
+ 
+       - uses: r-lib/actions/setup-pandoc@v1
++        with:
++          pandoc-version: '2.16.2'
+ 
+       - uses: r-l..."
+rstudio_rticles_bug_commits,Documentation / Formatting,76f5b2f6af,2022-08-16T17:26:53Z,Christophe Dervieux,"fix new CRAN check about HTML5 help page.
+
+R 4.2.0 switched to use HTML5 for documentation pages.  Now validation
+using ...",7,"---FILE: DESCRIPTION---
+@@ -104,6 +104,6 @@ Config/Needs/website: magick, pdftools, gifski, tidyverse/tidytemplate,
+ Config/testthat/edition: 3
+ Encoding: UTF-8
+ Roxygen: list(markdown = TRUE)
+-RoxygenNote: 7.1.2
++Roxyge..."
+rstudio_rticles_bug_commits,Rendering / Conversion,46981084fc,2021-04-27T10:17:39Z,Sebastian Kreutzer,"Copernicus template update - fixes syntax highlight problem (#391)
+
+* Update template for follow guidelines from Coperni...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: rticles
+ Type: Package
+ Title: Article Formats for R Markdown
+-Version: 0.19.2
++Version: 0.19.3
+ Authors@R: c(
+   person(""JJ"", ""Allaire"", role = ""aut"", email = ""jj@rstudi..."
+rstudio_rticles_bug_commits,Rendering / Conversion,963d0d10c9,2020-09-01T16:56:29Z,Christophe Dervieux,Fix #322: ctex_article() correctly uses the default Pandoc template now (#323),7,"---FILE: DESCRIPTION---
+@@ -49,7 +49,7 @@ Authors@R: c(
+ Description: A suite of custom R Markdown formats and templates for
+   authoring journal articles and conference submissions.
+ License: GPL-3
+-Imports: utils, rmar..."
+rstudio_rticles_bug_commits,Rendering / Conversion,d4210be0e6,2018-01-30T04:38:45Z,Carl Boettiger,"fix journal footer line in Elsevier template (#152)
+
+* fix journal line
+
+* delete unneeded .tex and .pdf files",7,"---FILE: inst/rmarkdown/templates/elsevier_article/resources/template.tex---
+@@ -1,6 +1,12 @@
+ \documentclass[$layout$]{elsarticle} %review=doublespace preprint=single 5p=2 column
+ %%% Begin My package additions %%%%%%%%..."
+rstudio_rticles_bug_commits,Dependency / Package,214dc0cc7e,2021-12-06T15:34:20Z,Christophe Dervieux,"Make the microtype package optional in amq template (#455)
+
+because of an unresolved conflict with `\abstract` environme...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: rticles
+ Type: Package
+ Title: Article Formats for R Markdown
+-Version: 0.21.6
++Version: 0.21.7
+ Authors@R: c(
+   person(""JJ"", ""Allaire"", role = ""aut"", email = ""jj@rstudi..."
+rstudio_rticles_bug_commits,Dependency / Package,8dd188afb0,2023-10-12T09:44:55Z,Christophe Dervieux,"Update skeletong to show available bibliostyle
+
+fix #545",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: rticles
+ Title: Article Formats for R Markdown
+-Version: 0.25.1
++Version: 0.25.2
+ Authors@R: c(
+     person(""JJ"", ""Allaire"", , ""jj@posit.co"", role = ""aut"")..."
+rstudio_rticles_bug_commits,Dependency / Package,8d56fc6772,2019-07-14T23:04:19Z,Zhian N. Kamvar,"this allows syntax highlighting for PeerJ (#238)
+
+* this allows syntax highlighting for PeerJ
+
+see https://github.com/...",7,"---FILE: DESCRIPTION---
+@@ -33,7 +33,8 @@ Authors@R: c(
+   person(""Daniel"", ""Nüst"", role = c(""aut"", ""cph""), email = ""daniel.nuest@uni-muenster.de"", comment = c(ORCID = ""0000-0002-0024-5046"")),
+   person(""Petter"", ""Uveste..."
+rstudio_rticles_bug_commits,Implementation / Logic,ee80f38d1b,2024-03-18T11:54:49Z,Christophe Dervieux,"Correctly pass `pandoc_args` between format function
+
+fixes #564 and fix support of joss_article() for pdf_book() in boo...",6,"---FILE: NEWS.md---
+@@ -1,5 +1,7 @@
+ # rticles (development version)
+ 
++- `joss_article()` now correctly works as `base_format` for `bookdown::pdf_book()` (thanks, @mlysy, #564).
++
+ - `oup_article()` now supports also `a..."
+rstudio_rticles_bug_commits,Implementation / Logic,0af04e4845,2023-05-02T10:49:01Z,Christophe Dervieux,"Correctly build variables for pandoc
+
+This fix also addition of 91bc2bdbf54c8a323f1f57ac38aa213465f4d4be and add tests",6,"---FILE: R/article.R---
+@@ -252,7 +252,7 @@ ims_article <- function(journal = c(""aoas"", ""aap"", ""aop"", ""aos"", ""sts""),
+   )
+ 
+   # Convert to pandoc arguments
+-  pandoc_arg_list <- vec_to_pandoc_variable_args(args)
++  pand..."
+rstudio_rticles_bug_commits,Implementation / Logic,b44dd5bf40,2022-03-30T11:37:34Z,Christophe Dervieux,Fix nested code chunk in markdown list for `jss_article()` (#480),6,"---FILE: NEWS.md---
+@@ -1,5 +1,9 @@
+ # rticles (development version)
+ 
++## BUG FIXES
++
++- Nested code chunk in list are now correctly rendered in `jss_article()` (thanks, @nbenn, #476).
++
+ ## MINOR CHANGES
+ 
+ - Update Co..."
+rstudio_rticles_bug_commits,Reproducibility / Versioning,dbadf3a957,2022-12-12T14:02:30Z,Christophe Dervieux,"Load lineno after amsmath because of a conflict in latest lineno version
+
+Can be reverted when / if upstream issue is fi...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: rticles
+ Title: Article Formats for R Markdown
+-Version: 0.24.2
++Version: 0.24.3
+ Authors@R: c(
+     person(""JJ"", ""Allaire"", , ""jj@rstudio.com"", role = ""au..."
+rstudio_rticles_bug_commits,Data / Input Handling,b58f9dc8d4,2020-11-02T13:03:50Z,Christophe Dervieux,"lock bot only checks once a week 
+
+All old issues have been processed. Reduce resources used now for upcoming checks",3,"---FILE: .github/workflows/lock.yml---
+@@ -3,7 +3,7 @@ name: 'Lock threads'
+ 
+ on:
+   schedule:
+-    - cron: '0 * * * *'
++    - cron: '0 3 * * 1'
+ 
+ jobs:
+   lock:"
+rstudio_rticles_bug_commits,Data / Input Handling,b9862494a9,2017-11-12T03:54:41Z,Oliver Keyes,Fix ACM typo,3,"---FILE: inst/rmarkdown/templates/acm_article/template.yaml---
+@@ -1,4 +1,4 @@
+-name: Association for Computing Machinary
++name: Association for Computing Machinery
+ description: >
+  Template for creating an article for ..."
