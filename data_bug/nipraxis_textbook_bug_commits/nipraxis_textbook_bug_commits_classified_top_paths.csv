@@ -1,0 +1,16 @@
+path,count
+_toc.yml,9
+_config.yml,7
+.github/workflows/book.yml,7
+glm_intro.Rmd,6
+whole_image_statistics.Rmd,5
+on_modules.Rmd,5
+pathlib.Rmd,4
+Makefile,4
+images_3d.Rmd,4
+regression_notation.Rmd,3
+on_regression.Rmd,3
+numpy_intro.Rmd,3
+bonferroni_correction.Rmd,2
+why_mse_correlation.Rmd,2
+reshape_and_3d.Rmd,2

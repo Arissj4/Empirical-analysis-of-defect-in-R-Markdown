@@ -1,0 +1,130 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+nipraxis_textbook_bug_commits,Documentation / Formatting,e52f9926e6,2022-03-01T15:12:08Z,Matthew Brett,"Small refactorings of _toc
+
+Fix link in syllabus",7,"---FILE: _config.yml---
+@@ -1,9 +1,14 @@
+ # Book settings
+ # Learn more at https://jupyterbook.org/customize/config.html
+ 
+-title: Practical Neuroimaging
++title: Practice and theory of brain imaging
+ author: The nipraxis..."
+nipraxis_textbook_bug_commits,Documentation / Formatting,6cd8908e4d,2022-03-31T15:05:36Z,Matthew Brett,Fixes,6,"---FILE: 24719.f3_beh_CHYM.csv---
+@@ -0,0 +1 @@
++data/24719.f3_beh_CHYM.csv
+\ No newline at end of file
+
+---FILE: _config.yml---
+@@ -60,19 +60,16 @@ exclude_patterns:
+   # Hemodynamic response modeling
+   - introducing_n..."
+nipraxis_textbook_bug_commits,Documentation / Formatting,af3a3bc554,2022-09-01T11:12:28Z,Matthew Brett,Fix up validating_data for current task,6,"---FILE: assert.Rmd---
+@@ -1,11 +1,17 @@
+ ---
+ jupyter:
+   jupytext:
++    notebook_metadata_filter: all,-language_info
++    split_at_heading: true
+     text_representation:
+       extension: .Rmd
+       format_name: rmar..."
+nipraxis_textbook_bug_commits,Rendering / Conversion,10b10c632c,2022-05-09T15:59:43Z,Matthew Brett,Some attempted fixes,6,"---FILE: _config.yml---
+@@ -89,6 +89,7 @@ exclude_patterns:
+   - topics.md
+   # Drop?
+   - using_pythonpath.Rmd
++  - .pytest_cache/README.md
+ 
+ # Define the name of the latex output file for PDF builds
+ latex:
+
+---FILE: ..."
+nipraxis_textbook_bug_commits,Rendering / Conversion,1e38861e1a,2023-04-24T13:57:25Z,Matthew Brett,"Fix for new Scipy, affine_transform",3,"---FILE: optimizing_space.Rmd---
+@@ -7,9 +7,9 @@ jupyter:
+       extension: .Rmd
+       format_name: rmarkdown
+       format_version: '1.2'
+-      jupytext_version: 1.10.3
++      jupytext_version: 1.14.5
+   kernelspec:
+-..."
+nipraxis_textbook_bug_commits,Rendering / Conversion,9b87d847c8,2022-09-21T03:43:56Z,Matthew Brett,Fix links to nans page again,3,"---FILE: whole_image_statistics.Rmd---
+@@ -201,7 +201,7 @@ plt.imshow(t_3d[:, :, 15], cmap='gray')
+ 
+ Notice the white areas at the edge of the image.  These are voxels where the t
+ value is `nan` – [Not a number](https:..."
+nipraxis_textbook_bug_commits,Implementation / Logic,cdb9af5477,2022-09-21T03:38:43Z,Matthew Brett,Rework slice time correction,6,"---FILE: slice_timing.Rmd---
+@@ -71,9 +71,9 @@ plt.xlabel('x axis')
+ plt.ylabel('z axis');
+ ```
+ 
+-The scanner acquired the slices in interleaved order, first acquiring slice
+-index 0, 2, 4, … 22 (where 0 is the bottom s..."
+nipraxis_textbook_bug_commits,Implementation / Logic,1da46030ef,2022-09-14T11:22:42Z,Matthew Brett,More fixes and rewrites,6,"---FILE: regression_notation.Rmd---
+@@ -122,6 +122,7 @@ b = res.slope
+ c = res.intercept
+ ```
+ 
++
+ ## Fitted values and errors
+ 
+ Remember, our predicted or *fitted* values are given by multiplying the `x`
+@@ -151,6 +152..."
+nipraxis_textbook_bug_commits,Implementation / Logic,2dcd5f34c8,2022-09-12T16:21:40Z,Matthew Brett,Regression notation,6,"---FILE: _toc.yml---
+@@ -55,6 +55,7 @@ parts:
+   - file: convolution_background
+   - file: on_regression
+   - file: regress_one_voxel
++  - file: regression_notation
+   - file: glm_intro
+   - file: mean_test_example
+   - ..."
+nipraxis_textbook_bug_commits,Data / Input Handling,f5971f70e7,2022-05-23T13:49:27Z,Matthew Brett,Adapt toc to voxel / regression stuff,6,"---FILE: _toc.yml---
+@@ -49,12 +49,13 @@ parts:
+   - file: on_convolution
+   - file: convolution_background
+   - file: on_regression
++  - file: regress_one_voxel
+   - file: glm_intro
+-  - file: model_one_voxel
+   - file:..."
+nipraxis_textbook_bug_commits,Data / Input Handling,66d022e8c8,2022-03-18T22:53:07Z,Matthew Brett,"Fix some more refs, add anterios cingulate page",6,"---FILE: _config.yml---
+@@ -58,7 +58,6 @@ exclude_patterns:
+   - pearson_functions.md
+   - validate_against_scipy.Rmd
+   # Hemodynamic response modeling
+-  - anterior_cingulate.md
+   - introducing_nipype.Rmd
+   # Code or..."
+nipraxis_textbook_bug_commits,Data / Input Handling,032bd79902,2022-08-24T21:38:26Z,Matthew Brett,Upload reports on failure,3,"---FILE: .github/workflows/book.yml---
+@@ -47,6 +47,12 @@ jobs:
+       run: |
+         make html
+ 
++    - uses: actions/upload-artifact@v3
++      if: failure()
++      with:
++        name: error_logs
++        path: ./_bui..."
+nipraxis_textbook_bug_commits,Environment / Configuration,ade5f26fe3,2022-05-30T15:46:11Z,Matthew Brett,Fix notebook remover,3,"---FILE: Makefile---
+@@ -9,7 +9,7 @@ clean:
+ 	rm -rf _build
+ 
+ rm-ipynb:
+-	rm -rf */*.ipynb
++	rm -rf *.ipynb
+ 
+ github: html
+ 	cp CNAME $(BUILD_DIR)"
+nipraxis_textbook_bug_commits,Environment / Configuration,62ba9ebcfb,2022-04-12T17:43:18Z,Matthew Brett,Error on warning for build,3,"---FILE: Makefile---
+@@ -3,7 +3,7 @@ BUILD_DIR=_build/html
+ html:
+ 	# Check for ipynb files in source (should all be .Rmd).
+ 	if compgen -G ""*.ipynb"" 2> /dev/null; then (echo ""ipynb files"" && exit 1); fi
+-	jupyter-book b..."
+nipraxis_textbook_bug_commits,Environment / Configuration,d85125fad5,2022-04-02T14:32:55Z,Matthew Brett,Fix ipynb check for top-level ipynb files,3,"---FILE: Makefile---
+@@ -2,7 +2,7 @@ BUILD_DIR=_build/html
+ 
+ html: bibliography
+ 	# Check for ipynb files in source (should all be .Rmd).
+-	if compgen -G ""*/*.ipynb"" 2> /dev/null; then (echo ""ipynb files"" && exit 1); fi..."
