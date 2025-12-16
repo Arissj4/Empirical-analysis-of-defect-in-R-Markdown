@@ -1,0 +1,16 @@
+path,count
+R/model.R,125
+R/utils.R,87
+R/install.R,80
+R/fit.R,77
+R/args.R,43
+R/run.R,43
+tests/testthat/test-model-compile.R,42
+R/read_csv.R,37
+.github/workflows/R-CMD-check.yaml,36
+.github/workflows/Test-coverage.yaml,33
+tests/testthat/test-csv.R,29
+tests/testthat/test-install.R,26
+R/csv.R,23
+R/path.R,22
+R/data.R,21

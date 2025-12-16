@@ -1,0 +1,102 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+strengejacke_sjPlot_bug_commits,Implementation / Logic,fee386216b,2025-07-04T09:41:12Z,Daniel,fix,6,"---FILE: R/sjPlotDist.R---
+@@ -483,17 +483,22 @@ dist_f <- function(
+ #' dist_t(p = 0.4, deg.f = 6)
+ #'
+ #' @export
+-dist_t <- function(t = NULL,
+-                  deg.f = NULL,
+-                  p = NULL,
+-           ..."
+strengejacke_sjPlot_bug_commits,Implementation / Logic,887684823c,2025-07-04T06:25:58Z,Daniel,fix,6,"---FILE: R/utils.R---
+@@ -123,7 +123,7 @@ estimate_axis_title <- function(fit, axis.title, type, transform = NULL, multi.r
+       fitfam$is_ordinal ~ ""Odds Ratios"",
+       fitfam$is_multinomial ~ ""Odds Ratios"",
+       fi..."
+strengejacke_sjPlot_bug_commits,Implementation / Logic,d0bf668263,2025-07-04T06:25:45Z,Daniel,Fix #964,6,"---FILE: R/utils.R---
+@@ -113,6 +113,7 @@ estimate_axis_title <- function(fit, axis.title, type, transform = NULL, multi.r
+ 
+     axis.title <- dplyr::case_when(
+       !is.null(transform) && transform == ""plogis"" ~ ""Pro..."
+strengejacke_sjPlot_bug_commits,Documentation / Formatting,af51e00a2d,2021-02-22T22:52:56Z,Mairead Shaw,"Update README.md
+
+Small typo fixes.",7,"---FILE: README.md---
+@@ -10,16 +10,16 @@ Collection of plotting and table output functions for data visualization. Result
+ 
+ ### Latest development build
+ 
+-To install the latest development snapshot (see latest changes..."
+strengejacke_sjPlot_bug_commits,Documentation / Formatting,914b51b4ae,2018-07-31T10:15:33Z,Daniel,close #389 and fix docs,7,"---FILE: R/html_print.R---
+@@ -33,7 +33,7 @@
+ #'   alternatig colors (white and light grey by default).
+ #' @param ... Currently not used.
+ #'
+-#' @inheritParams sjt.frq
++#' @inheritParams tab_model
+ #'
+ #' @return A lis..."
+strengejacke_sjPlot_bug_commits,Documentation / Formatting,43e8552cab,2018-07-04T17:01:45Z,Daniel,fix docs and CRAN check issues,7,"---FILE: DESCRIPTION---
+@@ -26,11 +26,11 @@ Depends:
+     utils
+ Imports:
+     arm,
+-    broom (>= 0.4.2),
+-    dplyr (>= 0.7.1),
++    broom (>= 0.4.5),
++    dplyr (>= 0.7.5),
+     effects,
+     forcats,
+-    ggeffects (..."
+strengejacke_sjPlot_bug_commits,Dependency / Package,78902233df,2020-10-09T09:45:17Z,Daniel,fix namespace,7,"---FILE: NAMESPACE---
+@@ -113,6 +113,7 @@ importFrom(insight,has_intercept)
+ importFrom(insight,is_multivariate)
+ importFrom(insight,model_info)
+ importFrom(insight,n_obs)
++importFrom(insight,standardize_names)
+ importFr..."
+strengejacke_sjPlot_bug_commits,Dependency / Package,8272cf5f4b,2016-01-09T08:58:09Z,Daniel Lüdecke,CRAN-Check fixes,7,"---FILE: DESCRIPTION---
+@@ -25,7 +25,6 @@ Imports:
+     car,
+     dplyr (>= 0.4.3),
+     ggplot2 (>= 2.0.0),
+-    grid,
+     MASS,
+     magrittr,
+     psych,
+
+---FILE: R/helpfunctions.R---
+@@ -1,5 +1,7 @@
+-# Help-functio..."
+strengejacke_sjPlot_bug_commits,Dependency / Package,296db8251b,2016-01-25T23:11:35Z,Daniel Lüdecke,fixed last issues from CRAN check,7,"---FILE: NAMESPACE---
+@@ -116,6 +116,7 @@ importFrom(stats,loess)
+ importFrom(stats,logLik)
+ importFrom(stats,model.matrix)
+ importFrom(stats,na.omit)
++importFrom(stats,na.pass)
+ importFrom(stats,nobs)
+ importFrom(stats,..."
+strengejacke_sjPlot_bug_commits,Rendering / Conversion,c198146053,2018-07-09T16:56:03Z,Daniel,"fix minor issues, revise vignettes",6,"---FILE: DESCRIPTION---
+@@ -2,8 +2,8 @@ Package: sjPlot
+ Type: Package
+ Encoding: UTF-8
+ Title: Data Visualization for Statistics in Social Science
+-Version: 2.4.1.9000
+-Date: 2018-07-06
++Version: 2.4.5
++Date: 2018-07-09..."
+strengejacke_sjPlot_bug_commits,Rendering / Conversion,4416801acf,2025-07-02T05:47:42Z,Daniel,fix,3,"---FILE: vignettes/custplot.Rmd---
+@@ -122,7 +122,7 @@ plot_grpfrq(efc$e42dep, efc$e16sex, expand.grid = TRUE)
+ 
+ ## Theme options
+ 
+-You can use any pre-defined theme from ggplot, like `theme_bw()`, `theme_classic()` or..."
+strengejacke_sjPlot_bug_commits,Rendering / Conversion,437ef241b8,2019-09-25T10:27:29Z,Daniel Lüdecke,fix check issues,3,"---FILE: vignettes/tab_model_estimates.Rmd---
+@@ -109,8 +109,8 @@ Other models, like hurdle- or zero-inflated models, also work with `tab_model()`
+ ```{r}
+ library(pscl)
+ data(""bioChemists"")
++m5 <- zeroinfl(art ~ fem + m..."
+strengejacke_sjPlot_bug_commits,Visualization / Plotting,9df3be41cb,2025-07-01T10:14:10Z,Daniel,fix,3,"---FILE: R/plot_grpfrq.R---
+@@ -627,7 +627,7 @@ plot_grpfrq <- function(var.cnt,
+     # position_dodge displays dots in a dodged position so we avoid overlay here. This may lead
+     # to a more difficult distinction of ..."

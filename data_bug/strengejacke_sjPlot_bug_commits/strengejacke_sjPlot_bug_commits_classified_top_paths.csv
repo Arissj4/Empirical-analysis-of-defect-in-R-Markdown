@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,85
+NEWS,72
+NEWS.md,58
+README.md,50
+R/sjPlotGLME.R,45
+NAMESPACE,43
+R/tab_model.R,39
+R/helpfunctions.R,36
+R/sjPlotInteractions.R,36
+R/sjTabLinReg.R,34
+man/sjPlot-package.Rd,33
+R/sjPlotLinreg.R,32
+R/sjPlotFrequencies.R,30
+R/plot_model.R,28
+R/sjTabOdds.R,27

@@ -1,0 +1,189 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+stan-dev_cmdstanr_bug_commits,Implementation / Logic,fc170ab8f8,2019-10-03T05:00:37Z,Jonah Gabry,Fix typo in doc,6,"---FILE: R/model.R---
+@@ -142,7 +142,7 @@ compile_stan_program <- function(stan_file) {
+   cmdstan_ext(exe_file)
+ }
+ 
+-#' Either return Write data to a temporary `.data.R` file
++#' Write data to a temporary `.data.R` fil..."
+stan-dev_cmdstanr_bug_commits,Implementation / Logic,0fb8cb4853,2025-11-10T09:38:13Z,Aki Vehtari,fix optimize doc Jacobian description,6,"---FILE: R/model.R---
+@@ -1447,14 +1447,18 @@ CmdStanModel$set(""public"", name = ""sample_mpi"", value = sample_mpi)
+ #' @family CmdStanModel methods
+ #'
+ #' @description The `$optimize()` method of a [`CmdStanModel`] objec..."
+stan-dev_cmdstanr_bug_commits,Implementation / Logic,dde1164dd2,2025-05-02T09:02:03Z,Brock,fix test/code mismatch and add docs,6,"---FILE: R/cpp_opts.R---
+@@ -2,6 +2,7 @@
+ 
+ # running and parsing exe info --------------------------------
+ # run <model> info command
++#' @example `.cmdstan/bin`
+ run_info_cli <- function(exe_file) {
+   withr::with_pat..."
+stan-dev_cmdstanr_bug_commits,Data / Input Handling,799981a559,2019-11-29T18:05:43Z,rok-cesnovar,"only use arguments from sampleArgs, fix use with thin",6,"---FILE: R/read_csv.R---
+@@ -7,26 +7,15 @@
+ #' @param b the second sampling info to check
+ #'
+ check_sampling_csv_info_matches <- function(a, b) {
+-  if(a$stan_version_major != b$stan_version_major ||
+-     a$stan_versio..."
+stan-dev_cmdstanr_bug_commits,Data / Input Handling,b5a33bfb58,2023-07-27T18:25:25Z,jgabry,"Store return codes instead of always querying exit status
+
+fixes #780",6,"---FILE: R/fit.R---
+@@ -14,6 +14,8 @@ CmdStanFit <- R6::R6Class(
+       checkmate::assert_r6(runset, classes = ""CmdStanRun"")
+       self$runset <- runset
+ 
++      private$return_codes_ <- self$runset$procs$return_codes()..."
+stan-dev_cmdstanr_bug_commits,Data / Input Handling,85a20401d0,2019-11-30T08:37:59Z,rok-cesnovar,fix the diff params test,6,"---FILE: R/read_csv.R---
+@@ -7,13 +7,13 @@
+ #' @param b the second sampling info to check
+ #'
+ check_sampling_csv_info_matches <- function(a, b) {
+-  if(a$model_name != b$model_name) {
++  if (a$model_name != b$model_name..."
+stan-dev_cmdstanr_bug_commits,Dependency / Package,75bc1c71ef,2025-02-12T19:29:42Z,jgabry,fix R cmd check warning,7,"---FILE: DESCRIPTION---
+@@ -32,7 +32,7 @@ URL: https://mc-stan.org/cmdstanr/, https://discourse.mc-stan.org
+ BugReports: https://github.com/stan-dev/cmdstanr/issues
+ Encoding: UTF-8
+ LazyData: true
+-RoxygenNote: 7.3.1
++R..."
+stan-dev_cmdstanr_bug_commits,Dependency / Package,827385faae,2024-05-22T16:02:46Z,Andrew Johnson,"Fix linking error when exposing SUNDIALS/KINSOL functions or model methods (#977)
+
+* Fix linking error with SUNDIALS
+
+...",7,"---FILE: .gitignore---
+@@ -7,3 +7,4 @@
+ inst/doc
+ dev-helpers.R
+ release-prep.R
++*.DS_Store
+
+---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: cmdstanr
+ Title: R Interface to 'CmdStan'
+-Version: 0.8.0
++Version: 0.8.0.900..."
+stan-dev_cmdstanr_bug_commits,Dependency / Package,0bf73d32a9,2019-11-25T20:34:59Z,Ben,Add rstan as import (Issue #96),7,"---FILE: DESCRIPTION---
+@@ -24,12 +24,12 @@ Imports:
+     checkmate,
+     posterior (>= 0.0.1),
+     processx,
++    rstan,
+     R6
+ Suggests: 
+     jsonlite (>= 1.2.0),
+     knitr,
+     rmarkdown,
+-    rstan,
+     testth..."
+stan-dev_cmdstanr_bug_commits,Rendering / Conversion,ce45343c92,2020-08-19T13:06:08Z,Rok Cesnovar,add to vignete and fix comments,6,"---FILE: R/model.R---
+@@ -508,33 +508,36 @@ CmdStanModel$set(""public"", name = ""compile"", value = compile_method)
+ 
+ #' Check syntax of a Stan program
+ #'
+-#' @name model-method-syntax_check
+-#' @aliases syntax_check
++#' ..."
+stan-dev_cmdstanr_bug_commits,Rendering / Conversion,2b5dea08ec,2020-07-03T06:10:48Z,rok-cesnovar,fix vignette chunk name,6,"---FILE: vignettes/cmdstanr-internals.Rmd---
+@@ -107,7 +107,7 @@ By default, the executable is created in the same directory as the file
+ containing the Stan program. You can also specify a different location with the 
+ ..."
+stan-dev_cmdstanr_bug_commits,Rendering / Conversion,3642adef64,2019-10-15T20:23:41Z,jgabry,Fix link in vignette,6,"---FILE: docs/articles/cmdstanr.html---
+@@ -160,7 +160,7 @@ <h3 class=""hasAnchor"">
+ <div class=""sourceCode"" id=""cb5""><pre class=""sourceCode r""><code class=""sourceCode r""><a class=""sourceLine"" id=""cb5-1"" data-line-number=..."
+stan-dev_cmdstanr_bug_commits,Documentation / Formatting,4e056be9ba,2025-02-14T17:39:20Z,jgabry,"Fix Unit Tests badge in README
+
+[ci skip]",7,"---FILE: README.md---
+@@ -2,7 +2,7 @@
+ 
+ <!-- badges: start -->
+ [![CRAN status](https://www.r-pkg.org/badges/version/cmdstanr)](https://CRAN.R-project.org/package=cmdstanr)
+-[![Unit tests](https://github.com/stan-dev/cm..."
+stan-dev_cmdstanr_bug_commits,Documentation / Formatting,3103deb5f7,2023-11-08T20:07:12Z,jgabry,temporary fix for pkgdown rendering issue in posterior.Rmd vignette,7,"---FILE: docs/articles/posterior.html---
+@@ -147,44 +147,53 @@ <h2 id=""summary-statistics"">Summary statistics<a class=""anchor"" aria-label=""anch
+ <code>$summary()</code> and <code>$print()</code>.</p>
+ <div class=""sourceC..."
+stan-dev_cmdstanr_bug_commits,Documentation / Formatting,63a29c5159,2024-01-25T20:48:52Z,jgabry,fix typo in readme,7,"---FILE: README.md---
+@@ -37,7 +37,7 @@ analysis.
+ You can install the latest beta release of the **cmdstanr** R package with
+ 
+ ```r
+-# we recommend running this is a fresh R session or restarting your current session
++..."
+stan-dev_cmdstanr_bug_commits,Environment / Configuration,12fe0f8fd3,2024-05-18T13:22:31Z,Andrew Johnson,"Prepare v0.8.0 release (#974)
+
+* Prepare for v0.8.0 release
+
+* Cherry-pick fix for Onedrive path issues",7,"---FILE: .Rbuildignore---
+@@ -12,3 +12,4 @@
+ ^\.github$
+ ^vignettes/articles-online-only$
+ ^release-prep\.R$
++^\.vscode$
+
+---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: cmdstanr
+ Title: R Interface to 'CmdStan'
+-Versi..."
+stan-dev_cmdstanr_bug_commits,Environment / Configuration,d3e77c7cb2,2019-10-07T22:19:15Z,jgabry,add informative messages/warnings/errors when setting paths,6,"---FILE: .Rbuildignore---
+@@ -2,4 +2,3 @@
+ ^\.Rproj\.user$
+ design-questions
+ ^\.travis\.yml$
+-^install_cmdstan\.py$
+
+---FILE: R/model.R---
+@@ -174,7 +174,11 @@ CmdStanModel <- R6::R6Class(
+                         init_..."
+stan-dev_cmdstanr_bug_commits,Environment / Configuration,4927783c2e,2024-06-06T18:40:43Z,Andrew Johnson,Fix short path portability,4,"---FILE: R/install.R---
+@@ -454,7 +454,7 @@ build_cmdstan <- function(dir,
+     run_cmd <- make_cmd()
+   }
+   withr::with_envvar(
+-    c(""HOME"" = utils::shortPathName(Sys.getenv(""HOME""))),
++    c(""HOME"" = short_path(Sys...."
+stan-dev_cmdstanr_bug_commits,Reproducibility / Versioning,6bbe421dc6,2020-08-17T15:42:56Z,jgabry,"bump version to 0.1.2
+
+because we deprecated write_stan_tempfile(). see https://github.com/paul-buerkner/brms/issues/981",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: cmdstanr
+ Title: R Interface to 'CmdStan'
+-Version: 0.1.1
+-Date: 2020-08-03
++Version: 0.1.2
++Date: 2020-08-17
+ Authors@R: 
+     c(person(given = ""Jonah"", family = ""Gabry""..."
+stan-dev_cmdstanr_bug_commits,Reproducibility / Versioning,b271b7ba8e,2024-05-18T07:47:21Z,Andrew Johnson,"Make exported RNG functions respect changes to R's seed (#973)
+
+* Make exported RNG functions respect changes to R's see...",4,"---FILE: R/utils.R---
+@@ -887,12 +887,16 @@ prep_fun_cpp <- function(fun_start, fun_end, model_lines) {
+   }
+   fun_body <- gsub(""// [[stan::function]]"", ""// [[Rcpp::export]] "", fun_body, fixed = TRUE)
+   fun_body <- gsu..."
+stan-dev_cmdstanr_bug_commits,Reproducibility / Versioning,b3ae8c6208,2024-04-29T11:38:21Z,Andrew Johnson,Fix rtools44 version alignment,4,"---FILE: R/install.R---
+@@ -855,7 +855,7 @@ rtools4x_version <- function() {
+     rtools_ver <- ""40""
+   } else if (R.version$minor < ""3.0"") {
+     rtools_ver <- ""42""
+-  } else if (R.version$minor < ""5.0"") {
++  } else if ..."
+stan-dev_cmdstanr_bug_commits,File I/O and Export,7070020b1d,2023-09-25T19:33:05Z,Steve Bronder,Fix argument names to line up with cmdstanpy args,6,"---FILE: R/args.R---
+@@ -514,31 +514,33 @@ PathfinderArgs <- R6::R6Class(
+                             tol_rel_grad = NULL,
+                             tol_param = NULL,
+                             history_size = NULL,..."
+stan-dev_cmdstanr_bug_commits,File I/O and Export,f5b89db461,2022-08-25T02:35:25Z,Andrew Johnson,Fix file validation,6,"---FILE: R/args.R---
+@@ -524,20 +524,7 @@ DiagnoseArgs <- R6::R6Class(
+ #' @return `TRUE` invisibly unless an error is thrown.
+ validate_cmdstan_args <- function(self) {
+   validate_exe_file(self$exe_file)
+-
+-  if (os_is..."
+stan-dev_cmdstanr_bug_commits,File I/O and Export,f60a498979,2022-01-31T13:30:51Z,Rok Češnovar,fix expect output,4,"---FILE: tests/testthat/test-utils.R---
+@@ -72,7 +72,7 @@ test_that(""cmdstan_summary works if bin/stansummary deleted file"", {
+     file.remove(file.path(cmdstan_path(), ""bin"", cmdstan_ext(""stansummary"")))
+     fit_mcmc$..."
