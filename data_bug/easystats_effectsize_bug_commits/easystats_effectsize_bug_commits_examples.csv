@@ -1,0 +1,169 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+easystats_effectsize_bug_commits,Documentation / Formatting,3974554643,2025-07-25T19:20:52Z,Mattan S. Ben-Shachar,"Convert change in probability to probability / odds (#676)
+
+* #660
+
+* deprecate df methods
+
+* deprecate df methods 2
+
+* ...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: effectsize
+ Title: Indices of Effect Size
+-Version: 1.0.1.1
++Version: 1.0.1.2
+ Authors@R:
+     c(person(given = ""Mattan S."",
+              family = ""Ben-Sh..."
+easystats_effectsize_bug_commits,Documentation / Formatting,9b66251660,2023-11-07T08:05:57Z,Mattan S. Ben-Shachar,quick typo fix,7,"---FILE: R/repeated_measures_d.R---
+@@ -49,7 +49,7 @@
+ #' standardizing by the variance in the of the control (or pre) condition,
+ #' Cumming suggests standardizing by the average variance of the two paired
+ #' condition..."
+easystats_effectsize_bug_commits,Documentation / Formatting,250a9d2c0c,2023-12-12T19:40:25Z,Philip Waggoner,"Adding power vignette plus a few other changes (#605)
+
+* adding power vignette
+
+# Description
+
+Adding a vignette on ...",7,"---FILE: DESCRIPTION---
+@@ -53,7 +53,12 @@ Authors@R:
+              family = ""Karreth"",
+              role = ""rev"",
+              email = ""jkarreth@ursinus.edu"",
+-             comment = c(ORCID = ""0000-0003-4586-7153"")))..."
+easystats_effectsize_bug_commits,Implementation / Logic,2ed0e4b082,2025-05-21T12:05:15Z,Daniel,fix,6,"---FILE: R/eta_squared-main.R---
+@@ -875,11 +875,17 @@ cohens_f_squared <- function(model,
+   # TODO this should be in .anova_es.anvoa
+   # TODO the aoc method should convert to an anova table, then pass to anova
+   ## T..."
+easystats_effectsize_bug_commits,Implementation / Logic,ead083c823,2025-05-21T09:03:33Z,Daniel,fix,6,"---FILE: R/eta_squared-main.R---
+@@ -833,7 +833,16 @@ cohens_f_squared <- function(model,
+     )
+ 
+   ## TODO: add back `effects = ""fixed""` once the deprecation warning in parameters is removed
+-  attr(out, ""anova_type"")..."
+easystats_effectsize_bug_commits,Implementation / Logic,e251f18059,2024-06-13T05:54:30Z,Mattan S. Ben-Shachar,fix #645,6,"---FILE: R/cohens_d.R---
+@@ -214,16 +214,17 @@ glass_delta <- function(x, y = NULL, data = NULL,
+     )
+   }
+ 
++  is_paired_or_onesample <- paired
+   if (is.null(y)) {
+     if (type == ""delta"") {
+       insight::format_e..."
+easystats_effectsize_bug_commits,Dependency / Package,4573b2d733,2025-05-21T08:48:42Z,Daniel,"Reverse dependency issues with parameters-update
+Fixes #668",7,"---FILE: DESCRIPTION---
+@@ -1,8 +1,8 @@
+ Type: Package
+ Package: effectsize
+ Title: Indices of Effect Size
+-Version: 1.0.0.1
+-Authors@R: 
++Version: 1.0.0.2
++Authors@R:
+     c(person(given = ""Mattan S."",
+              fam..."
+easystats_effectsize_bug_commits,Dependency / Package,5adb6815c2,2024-07-03T08:36:26Z,Mattan S. Ben-Shachar,"CRAN 0.8.9
+
+deal with #648
+
+* remove effects arg where not needed
+
+* Update interpret_ess_rhat.R
+
+* deal with http...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: effectsize
+ Title: Indices of Effect Size
+-Version: 0.8.8.2
++Version: 0.8.9
+ Authors@R: 
+     c(person(given = ""Mattan S."",
+              family = ""Ben-Sha..."
+easystats_effectsize_bug_commits,Dependency / Package,eaaeb90580,2023-04-24T02:48:16Z,Mattan S. Ben-Shachar,"Clean chisq (#590)
+
+* init
+
+* Update DESCRIPTION
+
+* fix CI errors",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: effectsize
+ Title: Indices of Effect Size
+-Version: 0.8.3.10
++Version: 0.8.3.11
+ Authors@R: 
+     c(person(given = ""Mattan S."",
+              family = ""Ben..."
+easystats_effectsize_bug_commits,Environment / Configuration,59d7d8acc9,2023-03-19T08:27:21Z,Indrajeet Patil,"Add check styling workflow (#579)
+
+* Create check-styling.yaml
+
+https://github.com/easystats/easystats/issues/357
+
+*...",4,"---FILE: .github/workflows/check-styling.yaml---
+@@ -0,0 +1,11 @@
++on:
++  push:
++    branches: [main, master]
++  pull_request:
++    branches: [main, master]
++
++name: check-styling
++
++jobs:
++  check-styling:
++    uses: ea..."
+easystats_effectsize_bug_commits,Environment / Configuration,8bb2b3fedb,2022-08-24T15:14:26Z,Mattan S. Ben-Shachar,"Update R-check.yaml
+
+https://github.com/easystats/easystats/issues/269",4,"---FILE: .github/workflows/R-check.yaml---
+@@ -32,9 +32,9 @@ jobs:
+           - {os: windows-latest, r: 'devel'}
+           - {os: windows-latest, r: 'release'}
+ 
+-          - {os: ubuntu-18.04,   r: 'devel', http-user-a..."
+easystats_effectsize_bug_commits,Environment / Configuration,861e99cfeb,2022-08-24T15:13:47Z,Mattan S. Ben-Shachar,"Update R-check.yaml
+
+https://github.com/easystats/easystats/issues/268",4,"---FILE: .github/workflows/R-check.yaml---
+@@ -60,4 +60,6 @@ jobs:
+             lme4=?ignore-before-r=3.6.0
+           needs: check
+ 
+-      - uses: r-lib/actions/check-r-package@v2
+\ No newline at end of file
++      - u..."
+easystats_effectsize_bug_commits,Reproducibility / Versioning,a174d2b496,2022-12-21T07:17:58Z,Mattan S. Ben-Shachar,"Fix 543 (#545)
+
+* fix error in Cohen's w
+
+* Add interpret for Tschuprows_t
+
+* version bump",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: effectsize
+ Title: Indices of Effect Size
+-Version: 0.8.2.00004
++Version: 0.8.2.00005
+ Authors@R: 
+     c(person(given = ""Mattan S."",
+              family ..."
+easystats_effectsize_bug_commits,Rendering / Conversion,18985b339f,2019-10-22T09:54:58Z,Daniel Lüdecke,fix URLs in vignettes,6,"---FILE: docs/404.html---
+@@ -15,11 +15,13 @@
+ <link rel=""apple-touch-icon"" type=""image/png"" sizes=""120x120"" href=""apple-touch-icon-120x120.png"" />
+ <link rel=""apple-touch-icon"" type=""image/png"" sizes=""76x76"" href=""apple..."
+easystats_effectsize_bug_commits,Rendering / Conversion,5660c59ac2,2020-10-25T08:06:57Z,mattansb,fix url,3,"---FILE: vignettes/standardize_parameters.Rmd---
+@@ -298,7 +298,7 @@ standardize_parameters(mod_b, method = ""refit"", two_sd = TRUE, exponentiate = TR
+ 
+ # Cohen's *f*
+ 
+-Cohen's $f$ (of [ANOVA fame](https://easystats.git..."
+easystats_effectsize_bug_commits,Rendering / Conversion,23f6b81d11,2020-09-28T14:58:58Z,DominiqueMakowski,I might have the fix @mattansb,3,"---FILE: vignettes/standardize_parameters.Rmd---
+@@ -74,6 +74,9 @@ model_parameters(r)
+ 
+ How does it work in the case of differences, when **factors** are entered and differences between a given level and a reference le..."

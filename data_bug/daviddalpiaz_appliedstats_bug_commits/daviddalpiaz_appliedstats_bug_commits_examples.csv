@@ -1,0 +1,78 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+daviddalpiaz_appliedstats_bug_commits,Implementation / Logic,77498cf0dc,2024-11-18T15:04:51Z,David Dalpiaz,fix broken link,6,"---FILE: logistic.Rmd---
+@@ -1113,7 +1113,7 @@ get_spec(conf_mat_90)
+ 
+ While this is far fewer false positives, is it acceptable though? Still probably not. Also, don't forget, this would actually be a terrible spam det..."
+daviddalpiaz_appliedstats_bug_commits,Implementation / Logic,db49f87653,2022-06-12T04:59:42Z,chadyuu,fix typo chapter18,6,"---FILE: beyond.Rmd---
+@@ -14,11 +14,11 @@ So you've completed STAT 420, where do you go from here? Now that you understand
+ 
+ ## RStudio
+ 
+-RStudio has recently released version 1.0! This is exciting for a number of rea..."
+daviddalpiaz_appliedstats_bug_commits,Implementation / Logic,57a4c7a30b,2022-06-12T04:51:38Z,chadyuu,fix typo chapter17,6,"---FILE: logistic.Rmd---
+@@ -101,9 +101,9 @@ $$
+ \log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{p - 1} x_{p - 1}
+ $$
+ 
+-Immediately we notice some similarities to ordinary l..."
+daviddalpiaz_appliedstats_bug_commits,Rendering / Conversion,ab236931a5,2016-06-04T21:06:28Z,David Dalpiaz,remove $\LateX$ to fix failing build?,7,"---FILE: index.Rmd---
+@@ -37,7 +37,7 @@ This book is under active development. When possible, it would be best to always
+ 
+ Since this book is under active development you may encounter errors ranging from typos to broke..."
+daviddalpiaz_appliedstats_bug_commits,Rendering / Conversion,b5e0dcce51,2016-06-07T22:03:28Z,David Dalpiaz,Title fix. Content updates.,6,"---FILE: 01-r-intro.Rmd---
+@@ -36,7 +36,7 @@ RStudio has a large number of useful keyboard shortcuts. A list of these can be
+ 
+ The RStudio team has developed a number of ""cheatsheets"" for working with both `R` and RStud..."
+daviddalpiaz_appliedstats_bug_commits,Rendering / Conversion,1c54b66877,2018-05-24T17:05:23Z,daviddalpiaz,KM already identifying issues!,6,"---FILE: _bookdown.yml---
+@@ -1,5 +1,6 @@
+ book_filename: ""applied_statistics""
+ chapter_name: ""Chapter ""
++new_session: yes
+ 
+ rmd_files: [
+   ""index.Rmd"",
+
+---FILE: data-and-programming.Rmd---
+@@ -599,7 +599,7 @@ Alterna..."
+daviddalpiaz_appliedstats_bug_commits,Documentation / Formatting,262ce77eb3,2020-05-20T02:41:41Z,daviddalpiaz,fix typo,7,"---FILE: index.Rmd---
+@@ -86,6 +86,7 @@ Your name could be here! Suggest an edit! Correct a typo! If you submit a correc
+ - [Tony Ma](https://www.linkedin.com/in/tony-ma-b978143a/){target=""_blank""}
+ - [Radu Manolescu](ht..."
+daviddalpiaz_appliedstats_bug_commits,Documentation / Formatting,77fc10dd65,2018-05-31T18:01:41Z,daviddalpiaz,fix typo,7,"---FILE: index.Rmd---
+@@ -88,6 +88,7 @@ Your name could be here! Suggest an edit! Correct a typo! If you submit a correc
+ - [Jeff Gerlach](https://github.com/jeffgerlach){target=""_blank""}
+ - [Brandon Ching](https://githu..."
+daviddalpiaz_appliedstats_bug_commits,Documentation / Formatting,63089a513e,2018-05-24T06:33:26Z,Ray Fix,"Fixes #12 Add {target=""_blank""} to external links.
+
+Transformation done using:
+perl -0777 -pi -e 's/\[([^\]]*)\]\((http[...",6,"---FILE: anova.Rmd---
+@@ -35,7 +35,7 @@ The biggest difference between an observational study and an experiment is *how*
+ 
+ In an experiment, the predictors, which are controlled by the experimenter, are called **factors..."
+daviddalpiaz_appliedstats_bug_commits,Data / Input Handling,11c37e07ec,2016-06-06T20:40:25Z,David Dalpiaz,Contet. (Mostly plotting.) Fixes. Data.,6,"---FILE: 01-r-intro.Rmd---
+@@ -29,13 +29,17 @@
+ 
+ RStudio has a large number of useful keyboard shortcuts. A list of these can be found using a keyboard shortcut, the keyboard shortcut to rule them all:
+ 
+-- On Windows: ..."
+daviddalpiaz_appliedstats_bug_commits,Data / Input Handling,ab6fac78e0,2018-05-23T13:45:12Z,Ray Fix,Fixes #43 Build leaving behind example-data.csv,4,"---FILE: data/example-data.csv---
+@@ -0,0 +1,11 @@
++""x"",""y"",""z""
++1,""Hello"",TRUE
++3,""Hello"",FALSE
++5,""Hello"",TRUE
++7,""Hello"",FALSE
++9,""Hello"",TRUE
++1,""Hello"",FALSE
++3,""Hello"",TRUE
++5,""Hello"",FALSE
++7,""Hello"",TRUE
++9,""Good..."
+daviddalpiaz_appliedstats_bug_commits,Dependency / Package,f1d766faa5,2018-05-18T15:29:08Z,daviddalpiaz,fix pandoc issue?,6,"---FILE: DESCRIPTION---
+@@ -1,5 +1,5 @@
+ Package: appliedstats
+-Title: Applied Statistics
++Title: Applied Statistics with `R`
+ Version: 0.0.1
+ Authors@R: c(
+   person(""David"", ""Dalpiaz"" , ""dalpiaz2@illinois.edu"", c(""aut""..."

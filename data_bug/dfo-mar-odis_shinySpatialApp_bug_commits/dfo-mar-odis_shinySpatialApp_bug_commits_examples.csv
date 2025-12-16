@@ -1,0 +1,127 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+dfo-mar-odis_shinySpatialApp_bug_commits,Documentation / Formatting,b920ca287f,2021-10-26T14:53:34Z,Stoyel,"add documentation, fix bugs to rr generation process",7,"---FILE: app/R/textHelpers.R---
+@@ -1,26 +1,27 @@
+ write_meta <- function(rr, lang) {
++  metadata <- rr$metadata
+   outText <- """"
+   if (lang == ""EN""){
+     outText <- c(
+-      paste(""Contact:"", rr$contact),
+-      ifel..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Documentation / Formatting,8ab8b6f88f,2021-09-03T14:19:41Z,Stoyel,fix readme typo,7,"---FILE: README.md---
+@@ -33,7 +33,7 @@ After adding a new package, commit the updated renv.lock file to source control.
+ After making sure that you have the necessary permissions to access the data, run:
+ 
+ ``` r
+-sourc..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Documentation / Formatting,5a993eb19e,2022-12-07T14:26:44Z,Stoyel,"fix plyr rename bug, #142",6,"---FILE: reports/R/tableFunctions.R---
+@@ -200,7 +200,7 @@ create_table_MARFIS <- function(data_sf, speciesTable, sarTable) {
+     dplyr::summarise_all(max)%>%
+     base::subset(select = -c(NAFO))
+   
+-  cleanDf <- renam..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Implementation / Logic,cd1b8edf4c,2022-12-13T12:08:14Z,Stoyel,fix chunk label bug in french too,6,"---FILE: reports/sections/oecm/oecm_fr.Rmd---
+@@ -39,7 +39,7 @@ writeLines(noquote(oecm_rr$text$fr))
+ OECMoutput <- master_intersect(oecm_rr$data_sf, mapDataList, getRegion=TRUE)
+ ```
+  
+-```{r EBSA-check, echo=FALSE, re..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Implementation / Logic,ad04ed04c3,2022-12-13T12:07:06Z,Stoyel,minor formaatting + fix chunk label bug,6,"---FILE: reports/sections/oecm/oecm_en.Rmd---
+@@ -54,7 +54,7 @@ writeLines(Query_output_OECM)
+ 
+ ```
+ 
+-```{r EBSA-table,  echo=FALSE, results='asis'}
++```{r OECM-table,  echo=FALSE, results='asis'}
+ OECMTable <- OECM_re..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Implementation / Logic,6611c3b799,2022-12-08T19:22:09Z,Stoyel,fix typos,6,"---FILE: reports/sections/nitroLoad/nitroLoad_preprocessing.R---
+@@ -36,5 +36,3 @@ deltaNitroLoad_rr$metadata <-  read_google_metadata(""nitroLoad_rr"", isOpenData =
+ 
+ save(totalNitroLoad_rr, deltaNitroLoad_rr,
+      file..."
+dfo-mar-odis_shinySpatialApp_bug_commits,File I/O and Export,2f15fb4273,2022-12-07T18:09:15Z,PJCoates,removing error in save,4,"---FILE: reports/sections/oecm/oecm_preprocessing.R---
+@@ -26,4 +26,4 @@ oecm_rr$metadata <- read_google_metadata(""oecm_rr"", isOpenData = TRUE)
+ 
+ save(oecm_rr, file = file.path(get_file_save_path(globalControlEnv$saveTo..."
+dfo-mar-odis_shinySpatialApp_bug_commits,File I/O and Export,c7faaec511,2022-11-30T12:18:08Z,Stoyel,fix leftover remote save path,4,"---FILE: reports/sections/offshore_scallop/offshore_scallop_preprocessing.R---
+@@ -69,5 +69,5 @@ offshoreScallop_rr <- list(
+                     
+                     )
+   )
+-save(offshoreScallop_rr, bankLabels, file = ..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Environment / Configuration,99a09c90e7,2022-12-07T14:43:15Z,PJCoates,Fixed merge conflicts,3,"---FILE: reports/sections/waste/waste_preprocessing.R---
+@@ -1,16 +1,6 @@
+-<<<<<<< HEAD
+-# contains functions for downloading open data records
+-source(here::here(""reports/dataprocessing/openDataHelpers.R""))
+-
+-#contains..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Environment / Configuration,8dbe7e5523,2022-12-02T17:56:35Z,Stoyel,fix global env gotcha!,3,"---FILE: config.R---
+@@ -34,7 +34,9 @@ rr_openDataList <- data.frame(""rrStr"" = c(""ebsa_rr"",
+ configMetadataSheetUrl <- ""1lEhBikDNAec-X88q1C02Aw6lOP8gKOkUlDurMznOAOI""
+ githubRepo <- ""https://github.com/dfo-mar-odis/shinyS..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Environment / Configuration,7608f60dde,2022-11-25T19:44:44Z,Stoyel,fix typos,3,"---FILE: reports/sections/obis/obis_preprocessing.R---
+@@ -76,10 +76,10 @@ obis_rr <- list(""title"" = ""Ocean Biodiversity Information System (OBIS)"",
+                 ""attribute"" = ""NONE"",
+                 ""metadata"" = li..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Dependency / Package,31b8027dc0,2022-05-19T10:50:17Z,Stoyel,fix sardist library import and whelk contacts,7,"---FILE: DESCRIPTION---
+@@ -32,5 +32,6 @@ Imports:
+     whisker,
+     bookdown,
+     pagedown,
+-    lwgeom
++    lwgeom,
++    gridExtra
+ RoxygenNote: 7.1.1
+
+---FILE: reports/sections/whelk/whelk_en.rmd---
+@@ -15,7 +15,7 @..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Dependency / Package,ac0457f822,2022-05-11T16:23:50Z,Stoyel,fix lat long switcharoo,6,"---FILE: DESCRIPTION---
+@@ -31,5 +31,9 @@ Imports:
+     tidyverse,
+     whisker,
+     bookdown,
+-    pagedown
++    pagedown,
++    readxl,
++    plyr,
++    tibble,
++    stringr
+ RoxygenNote: 7.1.1
+
+---FILE: reports/section..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Dependency / Package,5eb76557ac,2021-07-23T13:25:03Z,Gomez,Quentin set up Renvironment to avoid issues with different versions of packages!,6,"---FILE: .Rprofile---
+@@ -0,0 +1 @@
++source(""renv/activate.R"")
+
+---FILE: renv.lock---
+@@ -0,0 +1,1414 @@
++{
++  ""R"": {
++    ""Version"": ""4.0.2"",
++    ""Repositories"": [
++      {
++        ""Name"": ""CRAN"",
++        ""URL"": ""htt..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Rendering / Conversion,9e8e6f09e2,2022-03-30T18:39:20Z,stfinnis,Fixed a few typos and included correct data source for each Table,6,"---FILE: reports/sections/threats/ThreatMitigation.Rmd---
+@@ -9,13 +9,11 @@ bibliography: '`r here::here(""app/data/mybiblio.bib"")`'
+ ```{r threats-load-common, child = here::here(""reports/sections/commonSections/commonIn..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Rendering / Conversion,13f6528fcb,2022-03-24T12:42:31Z,Stoyel,fix reports paths,6,"---FILE: app/templates/EN/human_threats/cumulative.Rmd---
+@@ -1,24 +1,24 @@
+ ## Cumulative impact mapping 
+ 
+-```{r child = here::here(""sections/nitroLoad/nitroLoad_en.rmd"")}
++```{r child = here::here(""reports/sections/n..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Rendering / Conversion,4a93c5745a,2022-03-24T17:18:29Z,Stoyel,fix raster voodoo in master intersect,6,"---FILE: app/ui.R---
+@@ -72,6 +72,17 @@ ui <- fluidPage(
+               # Three selections panels
+               tabsetPanel(
+ 
++                tabPanel(
++                  ""Draw from map"",
++                  myhelptxt(..."
+dfo-mar-odis_shinySpatialApp_bug_commits,Data / Input Handling,0b3dafd22d,2022-05-03T19:41:35Z,stfinnis,fix preprocessing steps,3,"---FILE: reports/sections/permits/permits_preprocessing.R---
+@@ -1,12 +1,59 @@
+ source(here::here(""reports/dataprocessing/openDataHelpers.R""))
+ source(here::here(""reports/R/dataFunctions.R""))
+ source(here::here(""config.R..."

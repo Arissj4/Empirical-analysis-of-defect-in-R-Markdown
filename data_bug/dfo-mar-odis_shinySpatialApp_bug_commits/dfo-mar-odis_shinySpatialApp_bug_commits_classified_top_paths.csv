@@ -1,0 +1,16 @@
+path,count
+app/Rmd/report_cetaceans_EN.Rmd,10
+app/Rmd/report_fish_EN.Rmd,10
+app/Rmd/intro_EN.Rmd,9
+app/R/tableFunctions.R,8
+app/Rmd/report_planning_EN.Rmd,8
+reports/sections/permits/permits_en.Rmd,7
+app/Rmd/report_fish_FR.Rmd,7
+app/R/renderReport.R,6
+app/Rmd/report_SARA_EN.Rmd,6
+app/Rmd/report_planning_FR.Rmd,6
+reports/R/tableFunctions.R,5
+app/server.R,5
+app/Rmd/report_cetaceans_FR.Rmd,5
+dataprocessing/saveOpenData.R,5
+app/R/fn_intersect_operations.R,5

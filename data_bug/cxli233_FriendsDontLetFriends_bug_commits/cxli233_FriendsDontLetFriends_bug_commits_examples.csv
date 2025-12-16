@@ -1,0 +1,28 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+cxli233_FriendsDontLetFriends_bug_commits,Documentation / Formatting,799bd66a04,2023-11-17T19:44:21Z,C. Li,"Update README.md
+
+Fix typo",7,"---FILE: README.md---
+@@ -240,7 +240,7 @@ And by ""optimize"" I mean the grouping and ordering of samples.
+ 
+ Here we have an example data with 100 samples and 8 classes of member. 
+ Due to the number of samples and classe..."
+cxli233_FriendsDontLetFriends_bug_commits,Documentation / Formatting,daea99a5a2,2023-01-16T23:24:41Z,C. Li,"Update README.md
+
+Updated toc, fixed typo",7,"---FILE: README.md---
+@@ -32,7 +32,8 @@ It requires R, RStudio, and the rmarkdown package.
+ 8. [Friends Don't Let Friends Make Network Graphs without Trying Different Layouts](https://github.com/cxli233/FriendsDontLetFri..."
+cxli233_FriendsDontLetFriends_bug_commits,Documentation / Formatting,839a5ec12f,2022-07-29T01:39:15Z,C. Li,"Update README.md
+
+Fixed typo",7,"---FILE: README.md---
+@@ -178,7 +178,7 @@ In this example, we have 3 groups, each of which contains two sub-categories (Ty
+ In concentric donuts, you might be tempted to say the data is represented by the arc length, whi..."
+cxli233_FriendsDontLetFriends_bug_commits,Dependency / Package,2dc8821f74,2023-11-16T23:37:20Z,C. Li,"Update Heatmap_tutorial.md
+
+Fixed typos",4,"---FILE: Heatmap_tutorial.md---
+@@ -7,27 +7,27 @@ See [this figure](https://github.com/cxli233/FriendsDontLetFriends#5-friends-don
+ 
+ # Required Packages 
+ ```{r}
+-library(tidyverse)
+-library(patchwork)
++library(tidyvers..."

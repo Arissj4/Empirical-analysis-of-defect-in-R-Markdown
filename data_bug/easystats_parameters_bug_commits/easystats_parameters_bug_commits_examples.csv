@@ -1,0 +1,212 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+easystats_parameters_bug_commits,Implementation / Logic,11221c5a58,2019-08-05T15:36:34Z,Daniel Lüdecke,fix issue with car::Anova,6,"---FILE: R/model_parameters.aov.R---
+@@ -95,6 +95,7 @@ model_parameters.aovlist <- model_parameters.aov
+     } else if (length(attributes(model)$heading) > 2) {
+       parameters$Parameter <- attributes(model)$heading[-1..."
+easystats_parameters_bug_commits,Implementation / Logic,5cd9be587b,2019-08-05T16:04:43Z,Daniel Lüdecke,"fix ci-column names, #22",6,"---FILE: R/ci.R---
+@@ -47,20 +47,19 @@ ci.partial_eta_squared <- function(x, ci = 0.95, ...) {
+         )
+ 
+         data.frame(
+-          conf.low = ci$LL,
+-          conf.high = ci$UL
++          CI_low = ci$LL,
++     ..."
+easystats_parameters_bug_commits,Implementation / Logic,a02ac3d8eb,2019-08-07T08:11:06Z,Daniel Lüdecke,fix bug in principal_components(),6,"---FILE: R/n_factors.R---
+@@ -7,7 +7,7 @@
+ #' @param rotation Only used for VSS (Very Simple Structure criterion, see \code{\link[psych]{VSS}}. The rotation to apply. Can be \code{""none""}, \code{""varimax""}, \code{""quarti..."
+easystats_parameters_bug_commits,Documentation / Formatting,c2763042f4,2019-06-25T03:42:45Z,Dominique Makowski,streamline bootstrap vignette - fix loading sorting,7,"---FILE: .Rbuildignore---
+@@ -6,8 +6,10 @@
+ ^LICENSE
+ ^data/.
+ ^docs/.
+-^vignettes/.
+ ^logo.png
+ ^README.Rmd
+ ^logo.png
+-^pkgdown/.
+\ No newline at end of file
++^pkgdown/.
++^paper.*$
++^man/figures/.
++^vignettes/.
+
+---FIL..."
+easystats_parameters_bug_commits,Documentation / Formatting,7c633c70a5,2025-06-27T20:59:07Z,Daniel,"Running EFA from a correlation matrix (#1119)
+
+* Running EFA from a correlation matrix
+Fixes #1118
+
+* default oblimin
+
+*...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: parameters
+ Title: Processing of Model Parameters
+-Version: 0.26.0.8
++Version: 0.26.0.9
+ Authors@R:
+     c(person(given = ""Daniel"",
+              family = ..."
+easystats_parameters_bug_commits,Documentation / Formatting,7cc6eb3a99,2019-07-11T15:03:17Z,Dominique Makowski,"documentation fixes and format_ funs transfered from report
+
+#54",7,"---FILE: NAMESPACE---
+@@ -120,6 +120,14 @@ export(describe_distribution)
+ export(dof_kenward)
+ export(efa_to_cfa)
+ export(equivalence_test)
++export(format_bf)
++export(format_ci)
++export(format_p)
++export(format_pd)
++expo..."
+easystats_parameters_bug_commits,Dependency / Package,9c4bc232dd,2025-09-11T08:48:43Z,Daniel,"Prepare CRAN release (#1167)
+
+* Prepare CRAN release
+
+* fix
+
+* skip tets on CRAN",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: parameters
+ Title: Processing of Model Parameters
+-Version: 0.28.1.2
++Version: 0.28.2
+ Authors@R:
+     c(person(given = ""Daniel"",
+              family = ""L..."
+easystats_parameters_bug_commits,Dependency / Package,1553b4f749,2025-08-30T11:54:25Z,Daniel,"Prepare CRAN submission (#1164)
+
+* Prepare CRAN submission
+
+* fix typoe
+
+* styler
+
+* styler
+
+* Remove bayestestR issue r...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: parameters
+ Title: Processing of Model Parameters
+-Version: 0.28.0.16
++Version: 0.28.1
+ Authors@R:
+     c(person(given = ""Daniel"",
+              family = ""..."
+easystats_parameters_bug_commits,Dependency / Package,ffa2d3caa0,2025-06-18T17:03:46Z,Daniel,"Show factor correlations for oblique rotations (#1114)
+
+* Show factor correlations for oblique rotations
+
+* extract fact...",7,"---FILE: NAMESPACE---
+@@ -149,6 +149,8 @@ S3method(equivalence_test,rma)
+ S3method(equivalence_test,wbm)
+ S3method(equivalence_test,zeroinfl)
+ S3method(factor_analysis,data.frame)
++S3method(factor_scores,fa)
++S3method(fa..."
+easystats_parameters_bug_commits,Environment / Configuration,9038b7db8d,2023-03-17T17:01:02Z,Indrajeet Patil,"Create check-styling.yaml
+
+https://github.com/easystats/easystats/issues/357",4,"---FILE: .github/workflows/check-styling.yaml---
+@@ -0,0 +1,11 @@
++on:
++  push:
++    branches: [main, master]
++  pull_request:
++    branches: [main, master]
++
++name: check-styling
++
++jobs:
++  check-styling:
++    uses: ea..."
+easystats_parameters_bug_commits,Environment / Configuration,1c9ab9f26e,2024-09-29T12:35:22Z,Daniel,fix test,3,"---FILE: tests/testthat/test-model_parameters.mclogit.R---
+@@ -31,6 +31,8 @@ withr::with_options(
+       params <- model_parameters(m2)
+       expect_snapshot(params)
+     })
++
++    skip_on_os(c(""mac"", ""linux""))
+     tes..."
+easystats_parameters_bug_commits,Environment / Configuration,1bd2884341,2024-02-07T17:20:05Z,Daniel,"Misleading names using `pretty_names` in combination with `cut()` (#945)
+
+* Misleading names using `pretty_names` in com...",3,"---FILE: R/format_parameters.R---
+@@ -319,11 +319,11 @@ format_parameters.parameters_model <- function(model, ...) {
+   if (all(grepl(pattern_cut_right, level))) {
+     lower_bounds <- gsub(pattern_cut_right, ""\\1"", leve..."
+easystats_parameters_bug_commits,Reproducibility / Versioning,f012e180eb,2024-06-04T12:09:03Z,Daniel,"`effects=""all""` drops columns (#976)
+
+* `effects=""all""` drops columns
+Fixes #975
+
+* version
+
+* lintr
+
+* lintr",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: parameters
+ Title: Processing of Model Parameters
+-Version: 0.21.7.2
++Version: 0.21.7.3
+ Authors@R:
+     c(person(given = ""Daniel"",
+              family = ..."
+easystats_parameters_bug_commits,Reproducibility / Versioning,d4c4b5a744,2023-09-09T14:51:22Z,Daniel,"Wrong DFs in `model_parameters.fixest` (#899)
+
+* Wrong DFs in `model_parameters.fixest`
+Fixes #892
+
+* desc, version
+...",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Type: Package
+ Package: parameters
+ Title: Processing of Model Parameters
+-Version: 0.21.1.2
++Version: 0.21.1.3
+ Authors@R:
+     c(person(given = ""Daniel"",
+              family = ..."
+easystats_parameters_bug_commits,Reproducibility / Versioning,634e925f96,2019-04-14T14:34:38Z,Dominique Makowski,"Removed bayestestR version cap, possibly related to installation error",7,"---FILE: DESCRIPTION---
+@@ -20,7 +20,7 @@ Depends:
+ 	R (>= 2.10)
+ Imports:
+ 	insight,
+-	bayestestR (>= 0.1.1),
++	bayestestR,
+ 	boot
+ Suggests:
+ 	knitr,"
+easystats_parameters_bug_commits,Data / Input Handling,e527ab4241,2024-05-23T17:09:00Z,Daniel,"Build website favicons locally (#972)
+
+https://github.com/easystats/easystats/issues/407",3,
+easystats_parameters_bug_commits,Data / Input Handling,6b8c2b9b3c,2022-05-25T18:31:50Z,Indrajeet Patil,fix?,3,"---FILE: .github/workflows/test-coverage.yaml---
+@@ -23,7 +23,7 @@ jobs:
+ 
+       - uses: r-lib/actions/setup-r-dependencies@v2
+         with:
+-          extra-packages: any::covr
++          extra-packages: any::covr, an..."
+easystats_parameters_bug_commits,Rendering / Conversion,4f07b0218e,2022-03-09T13:58:55Z,Daniel,fix URL,6,"---FILE: README.Rmd---
+@@ -189,4 +189,4 @@ citation(""parameters"")
+ 
+ ## Code of Conduct
+   
+-Please note that the parameters project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/versi..."
+easystats_parameters_bug_commits,Rendering / Conversion,57e172c625,2023-03-30T17:47:46Z,Daniel,fix scoping issue,3,"---FILE: vignettes/model_parameters.Rmd---
+@@ -319,7 +319,7 @@ model_parameters(model)
+ ```{r eval=successfully_loaded[""metafor""]}
+ library(metafor)
+ 
+-mydat <- data.frame(
++mydat <<- data.frame(
+   effectsize = c(-0.393..."
+easystats_parameters_bug_commits,Rendering / Conversion,919783ff86,2023-02-26T20:35:34Z,Daniel,fix,3,"---FILE: vignettes/model_parameters.Rmd---
+@@ -236,7 +236,7 @@ Additionally, it also works for models from the **brms** package.
+ For more complex models, specific model components can be printed using the
+ arguments `ef..."

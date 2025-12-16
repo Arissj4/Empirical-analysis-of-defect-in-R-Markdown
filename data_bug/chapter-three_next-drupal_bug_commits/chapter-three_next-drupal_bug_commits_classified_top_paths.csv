@@ -1,0 +1,16 @@
+path,count
+yarn.lock,40
+packages/next-drupal/src/client.ts,31
+package.json,16
+packages/next-drupal/package.json,14
+www/pages/index.tsx,12
+packages/next-drupal/tests/client.test.ts,10
+www/components/layout.tsx,10
+packages/next-drupal/src/types.ts,9
+.github/workflows/next.yml,9
+packages/next-drupal/src/get-resource.ts,9
+www/pages/_app.tsx,9
+starters/basic-starter/package.json,8
+www/package.json,8
+.github/workflows/next-drupal.yml,7
+modules/next/src/Entity/NextSite.php,7

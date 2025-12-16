@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,202
+NEWS.md,143
+NAMESPACE,79
+R/extract_parameters.R,62
+R/format.R,58
+R/utils_format.R,48
+R/print.parameters_model.R,44
+R/methods_aov.R,38
+R/extract_random_variances.R,36
+R/utils_model_parameters.R,35
+inst/WORDLIST,34
+R/1_model_parameters.R,33
+R/equivalence_test.R,32
+tests/testthat/test-glmmTMB.R,32
+tests/testthat/test-model_parameters.BFBayesFactor.R,32

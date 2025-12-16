@@ -1,0 +1,16 @@
+path,count
+NEWS.md,68
+DESCRIPTION,59
+R/cohens_d.R,41
+NAMESPACE,35
+R/eta_squared.R,29
+tests/testthat/test-effectsize.R,24
+R/standardize_parameters.R,23
+man/cohens_d.Rd,22
+R/effectsize.R,21
+R/rank_effectsizes.R,21
+R/effectsize.htest.R,20
+tests/testthat/test-xtab.R,18
+R/print.effectsize_table.R,18
+tests/testthat/test-standardized_differences.R,18
+tests/testthat/test-standardize_parameters.R,18

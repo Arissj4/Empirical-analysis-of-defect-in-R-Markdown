@@ -1,0 +1,103 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+compsocialscience_summer-institute_bug_commits,Data / Input Handling,b3777f64da,2023-05-05T06:09:04Z,Vlad Simon,fix missing data,4,"---FILE: _data/2023/roma-tor-vergata/participants.yml---
+@@ -31,10 +31,10 @@
+   image: /assets/images/roma-tv/2023/veronesi.jpg
+ 
+ - name: Ümit Seven
+-  bio: ""PhD Candidate, Middle East Technical University, Ankara, Türk..."
+compsocialscience_summer-institute_bug_commits,Data / Input Handling,51aea2c5f8,2022-01-03T15:01:35Z,sicssjias,"Update faculty.yml
+
+I removed the colon (:) from the bio of Jedrzej Wydra since it caused a build error on CircleCI. The...",4,"---FILE: _data/2022/amu/faculty.yml---
+@@ -11,4 +11,4 @@
+   bio: Wojciech Biernacki is an extramural PhD researcher and cooperator at the European Law Chair at the Faculty of Law and Administration at the Adam Mickiewicz..."
+compsocialscience_summer-institute_bug_commits,Data / Input Handling,534c305e0d,2018-05-31T12:25:16Z,Matti Nelimarkka,Fix markup,3,"---FILE: _data/2018/helsinki/schedule.yml---
+@@ -5,7 +5,7 @@
+     - name: 12:30-13:00 Logistics
+     - name: 13:00-13:45 Introductions
+     - name: 14:00-15:00 Ethics, an European perspective
+-    - name: 15:00-16:00 Pan..."
+compsocialscience_summer-institute_bug_commits,Rendering / Conversion,c3ad3db12b,2019-06-16T11:16:45Z,camnas,fix links and re-knit md/pdf,7,"---FILE: 2019/materials/day4-surveys/activity/SICSS_survey_activity_2019.Rmd---
+@@ -1,11 +1,10 @@
+ ---
+ title: 'Non-probability-based Surveys in Practice'
+ author: ""Matthew Salganik & Cambria Naslund ^[based on the activ..."
+compsocialscience_summer-institute_bug_commits,Rendering / Conversion,e32435ec78,2021-06-15T13:18:15Z,Chris Bail,fixing typos group exercise,6,"---FILE: 2021/materials/day2-digital-trace-data/Group_Exercise_Day_2.Rmd---
+@@ -3,9 +3,9 @@ title: ""SICSS Group Exercise Day 2""
+ output: html_document
+ ---
+ 
+-The videos associated with Day 2 of SICSS 2021 covered a broa..."
+compsocialscience_summer-institute_bug_commits,Rendering / Conversion,06e0dd64e1,2020-06-12T18:58:02Z,Chris Bail,Fixing markdown day 2,6,"---FILE: 2020/materials/day2-digital-trace-data/apis/rmarkdown/Application_Programming_interfaces.Rmd---
+@@ -8,48 +8,45 @@ output:
+     toc: yes
+     toc_depth: '5'
+ ---
+-
+ <br>
+ **Chris Bail, PhD**  
+ **Duke University*..."
+compsocialscience_summer-institute_bug_commits,Documentation / Formatting,8c5bcf01d6,2024-05-20T19:05:33Z,Matti Nelimarkka,"Iceland goes alive. (#4174)
+
+* Adding Matti Nelimarkka to faculty
+
+* Update time for SICSS Iceland.
+
+* Update Matti ...",7,"---FILE: 2024/iceland/apply.md---
+@@ -1,32 +1,29 @@
+ ---
+ layout: location_detail
+-partner_site: tbd
++partner_site: iceand
+ ---
+ 
+ # Apply
+ 
+ ## Eligibility
+ 
+-Participation is restricted to \_\_\_\_\_. However, there ar..."
+compsocialscience_summer-institute_bug_commits,Documentation / Formatting,08c5539a7b,2018-06-13T23:23:01Z,becker-likes-networks,fix rayid link,7,"---FILE: 2018/live-stream.md---
+@@ -8,7 +8,7 @@ title: Live Stream
+ For those unable to attend one of the Summer Institutes in person, we will be live-streaming all lectures via separate YouTube links for each of the top..."
+compsocialscience_summer-institute_bug_commits,Documentation / Formatting,62fd5be6e9,2018-09-21T19:42:25Z,Matthew Salganik,fix typo,7,"---FILE: 2019/apply.md---
+@@ -3,21 +3,20 @@ layout: default
+ title: Apply
+ ---
+ 
+-# Apply 
++# Apply
+ 
+ ### Eligibility
+ 
+ Participation is restricted to Ph.D. students, postdoctoral researchers, and untenured faculty wit..."
+compsocialscience_summer-institute_bug_commits,Dependency / Package,90cbea12eb,2021-05-17T19:03:59Z,ShironaLee,"update location.yml
+
+fix dates",4,"---FILE: _data/2021/howard-mathematica/location.yml---
+@@ -1,6 +1,6 @@
+ image: /assets/images/howard.jpg
+ title: Howard/Mathematica 
+ subtitle: Virtual event
+-description: ""June 14 to June 25, 2021""
++description: ""June 1..."
+compsocialscience_summer-institute_bug_commits,Dependency / Package,56d808c4d9,2021-04-20T03:40:24Z,Jeffrey Villamin,Fix line spacing,3,"---FILE: _layouts/locations.html---
+@@ -89,7 +89,7 @@ <h3>{{year.year}}</h3>
+                           </div>
+                           <div class=""card-body"">
+                             <h5 class=""card-title"">{{loca..."
+compsocialscience_summer-institute_bug_commits,Dependency / Package,5a17a0dbc2,2020-06-22T13:48:18Z,Emily Maloney,fixing speed dating,3,"---FILE: 2020/materials/research-speed-dating/Speed_Dating.html---
+@@ -773,7 +773,7 @@
+    
+   
+ 
+-<style>.reveal section p {  color: black;  font-size: .7em;  font-family: 'Helvetica'; #this is the font/color of text in..."
+compsocialscience_summer-institute_bug_commits,Implementation / Logic,37b835694b,2020-06-16T02:58:10Z,Chris Bail,fix missing eval,6,"---FILE: 2020/materials/day2-digital-trace-data/apis/rmarkdown/Application_Programming_interfaces.Rmd---
+@@ -180,7 +180,7 @@ token <- create_token(
+ 
+ Now, we can take full advantage of all of the many useful functions w..."
+compsocialscience_summer-institute_bug_commits,Implementation / Logic,4d94cf8f16,2020-06-22T13:34:07Z,Chris Bail,fix speed dating,6,"---FILE: 2020/materials/research-speed-dating/Speed_Dating.Rpres---
+@@ -212,7 +212,7 @@ dat <- clean_names(dat)
+ dat <- dat %>% replace(is.na(.), 0)
+ dat <- dat %>% filter(name != ""SAMPLE NAME."")
+ #select variables neede..."
+compsocialscience_summer-institute_bug_commits,Implementation / Logic,3eb04b252c,2020-06-14T01:07:22Z,Chris Bail,small fix textnets,6,"---FILE: 2020/materials/day3-text-analysis/text-networks/rmarkdown/Text_Networks.Rmd---
+@@ -127,7 +127,7 @@ sotu_text_network <- CreateTextnet(prepped_sotu)
+ The textnets package includes two functions to visualize text ..."

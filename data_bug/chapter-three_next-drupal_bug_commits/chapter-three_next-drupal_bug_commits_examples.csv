@@ -1,0 +1,195 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+chapter-three_next-drupal_bug_commits,Implementation / Logic,7a62a3921c,2024-01-25T15:26:00Z,JohnAlbin,"feat(next-drupal): add draft mode for app router pages
+
+Issue #502",6,"---FILE: modules/next/next.post_update.php---
+@@ -0,0 +1,15 @@
++<?php
++
++/**
++ * @file
++ * Post update functions for Next.
++ *
++ * All empty post-update hooks ensure the cache is cleared.
++ * @see https://www.drupal.org/..."
+chapter-three_next-drupal_bug_commits,Implementation / Logic,951933647b,2022-01-06T08:07:49Z,shadcn,fix(drupal): update config,6,"---FILE: drupal/config/admin_toolbar_tools.settings.yml---
+@@ -1,4 +1,4 @@
+-max_bundle_number: 20
+ _core:
+   default_config_hash: RxwZoWRF61FrREs7iffK1ziY2IuKkEci1uWvcznnXwA
++max_bundle_number: 20
+ hoverintent_functional..."
+chapter-three_next-drupal_bug_commits,Implementation / Logic,9a1ef908c5,2021-02-01T19:00:40Z,arshad,fix: update config,6,"---FILE: examples/drupal-site/config/core.entity_form_display.node.article.default.yml---
+@@ -6,6 +6,7 @@ dependencies:
+     - field.field.node.article.body
+     - field.field.node.article.comment
+     - field.field.node..."
+chapter-three_next-drupal_bug_commits,Dependency / Package,35a8c7e8c7,2021-06-14T16:59:52Z,arshad,fix: update drupal site,7,"---FILE: .gitignore---
+@@ -87,3 +87,4 @@ cypress/screenshots
+ *__clone*
+ dist
+ examples/certificates/*
++examples/drupal-site/web/sites/default/settings.local.php
+
+---FILE: examples/drupal-site/.gitignore---
+@@ -26,4 +26,..."
+chapter-three_next-drupal_bug_commits,Dependency / Package,11e108a10b,2024-01-17T15:36:40Z,JohnAlbin,"feat(next): update Next.js settings to add draft mode
+
+Issue #502",4,"---FILE: modules/next/composer.json---
+@@ -1,6 +1,6 @@
+ {
+   ""name"": ""drupal/next"",
+-  ""description"": ""Next.js + Drupal for Incremental Static Regeneration and Preview mode."",
++  ""description"": ""Next.js + Drupal for Incr..."
+chapter-three_next-drupal_bug_commits,Dependency / Package,b0a7fd39c4,2023-10-17T18:27:35Z,John Albin Wilkins,"chore: update GitHub issue templates' package chooser
+
+Issue #554",4,"---FILE: .github/ISSUE_TEMPLATE/bug_report.yml---
+@@ -13,6 +13,7 @@ body:
+       label: Package containing the bug
+       description: What package in this monorepo has the bug?
+       options:
++        - Not package-spe..."
+chapter-three_next-drupal_bug_commits,Rendering / Conversion,056d8ffeaf,2023-12-14T18:12:47Z,John Albin Wilkins,"ci(next): add Drupal 10.2 to CI test matrix
+
+Fixes #542
+
+Co-authored-by: Matt Glaman <matt.glaman@acquia.com>",3,"---FILE: .github/workflows/next.yml---
+@@ -13,13 +13,19 @@ jobs:
+     strategy:
+       matrix:
+         # Supported PHP versions: https://www.drupal.org/docs/getting-started/system-requirements/php-requirements
+-        ..."
+chapter-three_next-drupal_bug_commits,Rendering / Conversion,c5c8d63e4c,2024-02-21T09:17:47Z,JohnAlbin,"test(next-drupal): reorganize Jest tests
+
+Fixes #608",3,"---FILE: .editorconfig---
+@@ -8,3 +8,6 @@ indent_size = 2
+ indent_style = space
+ insert_final_newline = true
+ trim_trailing_whitespace = true
++
++[{*.diff,*.patch}]
++trim_trailing_whitespace = false
+
+---FILE: packages/nex..."
+chapter-three_next-drupal_bug_commits,Rendering / Conversion,bb9becc72a,2023-10-13T03:03:34Z,John Albin Wilkins,"ci(next): update CI test matrix (#548)
+
+* ci(next): remove Drupal 9.4 from CI test matrix
+* ci(next): add PHP 8.2 to CI...",3,"---FILE: .github/workflows/next-drupal-query.yml---
+@@ -8,7 +8,7 @@ jobs:
+   build:
+     runs-on: ubuntu-latest
+     steps:
+-      - uses: actions/checkout@v2
++      - uses: actions/checkout@v4
+       - name: Install mod..."
+chapter-three_next-drupal_bug_commits,Environment / Configuration,13dac2515a,2023-11-29T09:13:22Z,JohnAlbin,"feat: upgrade basic-starter to Next.js v14
+
+Issue #601",6,"---FILE: starters/.gitignore---
+@@ -0,0 +1,4 @@
++# Starters should never have a lock file.
++package-lock.json
++pnpm-lock.yaml
++yarn.lock
+
+---FILE: starters/basic-starter/.env.example---
+@@ -1,6 +1,15 @@
+ # See https://ne..."
+chapter-three_next-drupal_bug_commits,Environment / Configuration,5ed427e721,2024-04-20T02:07:09Z,John Albin Wilkins,"fix(next-drupal): throw non-404 errors from /router/translate-path responses
+
+Co-authored-by: Marc Orcau <marc.orcau@dig...",4,"---FILE: packages/next-drupal/src/next-drupal.ts---
+@@ -372,23 +372,33 @@ export class NextDrupal extends NextDrupalBase {
+       withAuth: options.withAuth,
+     })
+ 
++    const errorMessagePrefix = ""Error while fetchin..."
+chapter-three_next-drupal_bug_commits,Environment / Configuration,7c8ce9543d,2025-01-27T22:40:16Z,Brian Perry,fix: ignore local environment (#831),4,"---FILE: .gitignore---
+@@ -42,3 +42,4 @@ yarn-error.log*
+ /drupal/web/phpunit.xml
+ /drupal/web/sites/default/settings.local.php
+ /drupal-*
++/local-next-drupal"
+chapter-three_next-drupal_bug_commits,Data / Input Handling,6fb7718b70,2023-10-19T08:04:22Z,John Albin Wilkins,"refactor(next): fix Drupal coding standards
+
+* refactor(next): lint warnings in Drupal PHP coding standards
+* build(nex...",6,"---FILE: .github/workflows/next.yml---
+@@ -68,15 +68,13 @@ jobs:
+           cd ~/drupal
+           COMPOSER_MEMORY_LIMIT=-1 composer require --dev phpspec/prophecy-phpunit:^2 -W
+         if: ${{ startsWith(matrix.drupal,..."
+chapter-three_next-drupal_bug_commits,Data / Input Handling,d851246be6,2024-10-11T14:55:33Z,Brian Perry,fix: resolve docs build failures on app router branch (#803),3,"---FILE: turbo.json---
+@@ -1,6 +1,5 @@
+ {
+   ""$schema"": ""https://turborepo.org/schema.json"",
+-  ""baseBranch"": ""origin/main"",
+   ""pipeline"": {
+     ""build"": {
+       ""dependsOn"": [""^build""],
+
+---FILE: www/components/video..."
+chapter-three_next-drupal_bug_commits,Data / Input Handling,d69ca0de04,2024-02-29T04:07:57Z,Rajeshreeputra,"feat(next): allow 1.x and 2.x of cweagans/composer-patches
+
+Fixes #704",3,"---FILE: modules/next/composer.json---
+@@ -11,7 +11,6 @@
+     }
+   ],
+   ""require"": {
+-    ""cweagans/composer-patches"": ""~1.0"",
+     ""drupal/decoupled_router"": ""^2.0"",
+     ""drupal/pathauto"": ""^1.11"",
+     ""drupal/simple..."
+chapter-three_next-drupal_bug_commits,Documentation / Formatting,d32ab937cf,2021-02-02T13:11:41Z,arshad,docs: fix README,7,"---FILE: README.md---
+@@ -129,7 +129,7 @@ Add a new user at */admin/people/create* and assign it the role created above.
+ 
+ _Note: When the Next.js is authenticated, it will be authenticated as this user._
+ 
+-**Configure..."
+chapter-three_next-drupal_bug_commits,Documentation / Formatting,578a11ba96,2022-07-27T08:54:29Z,shadcn,docs(www): add known issues page,7,"---FILE: www/config/docs.ts---
+@@ -27,6 +27,10 @@ export const docsConfig: DocsConfig = {
+           href: ""https://github.com/chapter-three/next-drupal/blob/main/CHANGELOG.md"",
+           external: true,
+         },
++  ..."
+chapter-three_next-drupal_bug_commits,Documentation / Formatting,d974577243,2021-02-02T13:38:28Z,arshad,fix: update README for certificates,7,"---FILE: README.md---
+@@ -49,17 +49,28 @@ cp examples/example-blog/.env.example examples/example-blog/.env.local
+ cp examples/example-marketing/.env.example examples/example-marketing/.env.local
+ ```
+ 
+-4. Then run `yarn..."
+chapter-three_next-drupal_bug_commits,File I/O and Export,f2f398de57,2023-11-17T13:42:03Z,JohnAlbin,"fix(next-drupal): fix broken build by using named Jsona export
+
+Prevents ""TypeError: Jsona is not a constructor"" error",1,"---FILE: packages/next-drupal/src/client.ts---
+@@ -1,4 +1,4 @@
+-import Jsona from ""jsona""
++import { Jsona } from ""jsona""
+ import { stringify } from ""qs""
+ import { JsonApiErrors } from ""./jsonapi-errors""
+ import { logger ..."
+chapter-three_next-drupal_bug_commits,Visualization / Plotting,54549d8c47,2021-04-07T05:25:17Z,arshad,fix(www): update core theme,4,"---FILE: www/core/config/theme.ts---
+@@ -276,6 +276,7 @@ const theme: Theme = {
+       },
+       a: {
+         color: ""link"",
++        wordWrap: ""break-word"",
+         textDecoration: ""inherit"",
+         ""&:hover"": {
+   ..."
+chapter-three_next-drupal_bug_commits,Visualization / Plotting,a74b3181aa,2021-12-06T06:51:21Z,shadcn,fix(www): update meta tags,3,"---FILE: www/config/site.ts---
+@@ -22,5 +22,6 @@ export const site: SiteConfig = {
+   ],
+   social: {
+     github: ""chapter-three/next-drupal"",
++    twitter: ""shadcn"",
+   },
+ }
+
+---FILE: www/pages/_app.tsx---
+@@ -14,7 +1..."
+chapter-three_next-drupal_bug_commits,Visualization / Plotting,3ef818b596,2022-10-14T08:38:10Z,shadcn,fix(www): update version,3,"---FILE: www/config/site.ts---
+@@ -39,7 +39,7 @@ export const site: SiteConfig = {
+   },
+   versions: [
+     {
+-      version: ""v1.4.0"",
++      version: ""v1.5.0"",
+       active: true,
+     },
+     {"
