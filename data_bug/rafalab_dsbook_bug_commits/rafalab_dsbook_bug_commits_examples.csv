@@ -1,0 +1,81 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+rafalab_dsbook_bug_commits,Documentation / Formatting,e1d75a777a,2017-11-23T14:31:50Z,Alexandra Nones,Minor edits and typo corrections.,7,"---FILE: inference/association-tests.Rmd---
+@@ -9,7 +9,7 @@ substantial portion of data types. Specifically, we have not discussed inference
+ very specific example, consider the following case study.
+ 
+ 
+-A [2014 PNAS pa..."
+rafalab_dsbook_bug_commits,Documentation / Formatting,58566ec5de,2017-11-09T18:18:51Z,Alexandra Nones,Minor grammar and typo corrections.,7,"---FILE: dataviz/data-types.Rmd---
+@@ -2,11 +2,11 @@
+ 
+ We will be working with two types of variables: categorical and numeric. Each can be divided into two other groups: categorical can be ordinal or not, whereas numer..."
+rafalab_dsbook_bug_commits,Documentation / Formatting,271ea1e66d,2019-01-30T18:20:34Z,Rafael A. Irizarry,fixing minor grammar errors in role of academia in DS post,7,"---FILE: ml/dimension-reduction.Rmd---
+@@ -9,7 +9,7 @@ Here we describe a powerful techniques useful for exploratory data analysis, amo
+ We consider an example with twin heights. Some pairs are adults the others are chil..."
+rafalab_dsbook_bug_commits,Rendering / Conversion,7c02c7b1f9,2024-05-16T14:17:59Z,Rafael A Irizarry,fixing links,6,"---FILE: docs/index.html---
+@@ -1074,8 +1074,8 @@ <h2 class=""subtitle""><em>Data Analysis and Prediction Algorithms with R</em></h2
+ <h1>New edition available<a href=""index.html#new-edition-available"" class=""anchor-sectio..."
+rafalab_dsbook_bug_commits,Rendering / Conversion,3f781d1274,2022-10-23T19:01:44Z,Rafael A. Irizarry,some fixes,6,"---FILE: docs/404.html---
+@@ -751,7 +751,8 @@
+ <li class=""chapter"" data-level=""24.5.6"" data-path=""string-processing.html""><a href=""string-processing.html#white-space-s""><i class=""fa fa-check""></i><b>24.5.6</b> White spac..."
+rafalab_dsbook_bug_commits,Rendering / Conversion,cbc4fa3705,2021-02-06T18:01:04Z,Rafael A. Irizarry,fixing description of two figures.,6,"---FILE: docs/accessing-the-terminal-and-installing-git.html---
+@@ -24,7 +24,7 @@
+ <meta name=""author"" content=""Rafael A. Irizarry"" />
+ 
+ 
+-<meta name=""date"" content=""2021-01-11"" />
++<meta name=""date"" content=""2021-02-06..."
+rafalab_dsbook_bug_commits,Implementation / Logic,c180519327,2022-11-10T03:31:38Z,Rafael A. Irizarry,fixing latex,6,"---FILE: chapter_to_slides.R---
+@@ -99,11 +99,18 @@ chapter_to_slides <- function(input,
+   ## The following code is only needed for files
+   ## that check for knitr format to make tables
+   ## this is very specific to f..."
+rafalab_dsbook_bug_commits,Implementation / Logic,45585fce4b,2021-04-06T00:31:01Z,Rafael A. Irizarry,some fixes,6,"---FILE: docs/accessing-the-terminal-and-installing-git.html---
+@@ -771,7 +771,7 @@
+ <li class=""chapter"" data-level=""33.5.1"" data-path=""large-datasets.html""><a href=""large-datasets.html#preserving-distance""><i class=""fa ..."
+rafalab_dsbook_bug_commits,Implementation / Logic,61e660fb7a,2021-04-05T22:04:03Z,Rafael A. Irizarry,fixing an exercise,6,"---FILE: docs/accessing-the-terminal-and-installing-git.html---
+@@ -24,7 +24,7 @@
+ <meta name=""author"" content=""Rafael A. Irizarry"" />
+ 
+ 
+-<meta name=""date"" content=""2021-03-28"" />
++<meta name=""date"" content=""2021-04-05..."
+rafalab_dsbook_bug_commits,Visualization / Plotting,815ff8cb78,2021-02-12T14:59:05Z,Rafael A. Irizarry,Fixing error in code showing histogram of user effects,6,"---FILE: docs/accessing-the-terminal-and-installing-git.html---
+@@ -24,7 +24,7 @@
+ <meta name=""author"" content=""Rafael A. Irizarry"" />
+ 
+ 
+-<meta name=""date"" content=""2021-02-09"" />
++<meta name=""date"" content=""2021-02-12..."
+rafalab_dsbook_bug_commits,Visualization / Plotting,494efa143c,2020-01-30T22:34:27Z,Rafael A. Irizarry,adding the text file with errors in the printed book,3,"---FILE: errors.txt---
+@@ -0,0 +1,152 @@
++
++Preface, Page xxvii 
++
++Zofia Gajdos instead of Zzofia Gajdos
++
++
++Introduction, Page xxx 
++
++In the intro ""scrapping"" should be ""scraping""
++
++
++Page 132, 160 in pdf
++
++10\. No..."
+rafalab_dsbook_bug_commits,Data / Input Handling,9f58d9b6b1,2018-06-04T21:02:05Z,Rafael A. Irizarry,Fixing several typos,6,"---FILE: docs/association-tests.html---
+@@ -7,7 +7,7 @@
+   <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+   <title>Introduction to Data Science</title>
+   <meta name=""description"" content=""This book introduces co..."
+rafalab_dsbook_bug_commits,Data / Input Handling,004823d8d0,2020-03-02T18:36:12Z,Rafael A. Irizarry,fixing errors in the html,3,"---FILE: docs/ggplot2.html---
+@@ -1209,8 +1209,8 @@ <h2><span class=""header-section-number"">7.15</span> Exercises</h2>
+ <li>The <code>geom_label</code> geometry does not require x-axis and y-axis values.</li>
+ <li><code>..."
+rafalab_dsbook_bug_commits,Data / Input Handling,39793eb881,2020-01-30T17:30:19Z,Rafael A. Irizarry,updating html after last error fix,3,"---FILE: docs/accessing-the-terminal-and-installing-git.html---
+@@ -24,7 +24,7 @@
+ <meta name=""author"" content=""Rafael A. Irizarry"" />
+ 
+ 
+-<meta name=""date"" content=""2020-01-29"" />
++<meta name=""date"" content=""2020-01-30..."
