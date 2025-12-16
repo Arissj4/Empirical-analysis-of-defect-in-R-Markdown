@@ -1,7 +1,0 @@
-bug_category,count,percent,median_score
-Documentation / Formatting,34,33.3,6.0
-Implementation / Logic,34,33.3,6.0
-Dependency / Package,20,19.6,6.0
-Rendering / Conversion,10,9.8,6.0
-Environment / Configuration,2,2.0,3.0
-Reproducibility / Versioning,2,2.0,7.0
