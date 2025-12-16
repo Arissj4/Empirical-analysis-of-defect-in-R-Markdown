@@ -1,0 +1,16 @@
+path,count
+R/bb_plotSignal.R.REMOVED.git-id,60
+R/bb_readHic.R.REMOVED.git-id,44
+R/bb_plotHicSquare.R.REMOVED.git-id,42
+R/bb_plotHicTriangle.R.REMOVED.git-id,36
+R/bb_plotgenes.R.REMOVED.git-id,36
+DESCRIPTION,34
+R/bb_plotIdeogram.R.REMOVED.git-id,30
+R/bb_plotManhattan.R.REMOVED.git-id,30
+R/bb_plotTranscripts.R.REMOVED.git-id,30
+R/bb_pageCreate.R.REMOVED.git-id,24
+R/bb_plotBedpe.R.REMOVED.git-id,24
+R/universal_functions.R.REMOVED.git-id,24
+NEWS.md,23
+R/bb_annoHeatmapLegend.R.REMOVED.git-id,22
+R/bb_plotPairs.R.REMOVED.git-id,22

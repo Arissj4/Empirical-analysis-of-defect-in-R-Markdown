@@ -1,0 +1,129 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+PhanstielLab_plotgardener_bug_commits,Implementation / Logic,813c90c3ff,2025-04-09T22:41:56Z,EricSDavis,Potential fix for Windows build error.,6,"---FILE: R/readCool.R---
+@@ -498,7 +498,7 @@ readCoolChroms <- function(file, resolution = NULL){
+ #' ## .cool file
+ #' coolFile <- file.path(tempdir(), ""Rao2014-IMR90-MboI-allreps-filtered.1000kb.cool"")
+ #' download.fil..."
+PhanstielLab_plotgardener_bug_commits,Implementation / Logic,35ab80cf92,2024-06-13T17:40:48Z,Nicole Kramer,fix file ext checking,6,"---FILE: R/hicFunctions.R---
+@@ -4,7 +4,7 @@
+ adjust_resolution <- function(hic, hicPlot) {
+     if (!(""data.frame"" %in% class(hic))) {
+         if (!is.null(hicPlot$chromstart) & !is.null(hicPlot$chromend)) {
+-         ..."
+PhanstielLab_plotgardener_bug_commits,Implementation / Logic,53ffc0920a,2024-06-10T19:26:43Z,Nicole Kramer,plotTranscripts bug fix issue #122,6,"---FILE: R/plotTranscripts.R---
+@@ -183,10 +183,11 @@ plotTranscripts <- function(chrom, chromstart = NULL, chromend = NULL,
+         regionErrors(chromstart = transcriptPlot$chromstart,
+                     chromend = t..."
+PhanstielLab_plotgardener_bug_commits,Data / Input Handling,87b372dabd,2025-03-26T22:16:55Z,mikelove,check fix actions,3,"---FILE: .github/workflows/check-bioc-devel.yml---
+@@ -56,9 +56,9 @@ jobs:
+       fail-fast: false
+       matrix:
+         config:
+-          - { os: ubuntu-latest, r: 'devel', bioc: '3.21', cont: ""bioconductor/bioconduc..."
+PhanstielLab_plotgardener_bug_commits,Data / Input Handling,d387d6fae6,2025-03-26T19:35:26Z,Mike Love,fix actions?,3,"---FILE: .github/workflows/check-bioc-devel.yml---
+@@ -56,9 +56,9 @@ jobs:
+       fail-fast: false
+       matrix:
+         config:
+-          - { os: ubuntu-latest, r: 'devel', bioc: '3.19', cont: ""bioconductor/bioconduc..."
+PhanstielLab_plotgardener_bug_commits,Data / Input Handling,43f952fb6d,2023-06-05T15:41:13Z,Nicole Kramer,attempt temporary fix for ubuntu bioc check,3,"---FILE: .github/workflows/check-bioc-devel.yml---
+@@ -23,7 +23,7 @@
+ on:
+   push:
+     branches:
+-      - master
++      - devel
+   pull_request:
+ 
+ name: R-CMD-check-bioc-devel
+
+---FILE: .github/workflows/check-bioc.yml..."
+PhanstielLab_plotgardener_bug_commits,Documentation / Formatting,75e610c298,2024-06-10T20:08:07Z,Nicole Kramer,version bump and news update for devel bug fixes,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: plotgardener
+ Title: Coordinate-Based Genomic Visualization Package for R
+-Version: 1.11.0
+-Date: 2024-04-12
++Version: 1.11.1
++Date: 2024-06-10
+ Authors@R: c(person(""Nico..."
+PhanstielLab_plotgardener_bug_commits,Documentation / Formatting,4b78a76f78,2023-09-07T15:11:13Z,Nicole Kramer,Version bump and NEWS update for issue #98 bug fix,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: plotgardener
+ Title: Coordinate-Based Genomic Visualization Package for R
+-Version: 1.7.7
+-Date: 2023-08-04
++Version: 1.7.8
++Date: 2023-09-07
+ Authors@R: c(person(""Nicole..."
+PhanstielLab_plotgardener_bug_commits,Documentation / Formatting,7e49f2616e,2023-12-07T16:09:43Z,Nicole Kramer,version bump and NEWS update for geneHighlights bug,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: plotgardener
+ Title: Coordinate-Based Genomic Visualization Package for R
+-Version: 1.8.1
+-Date: 2023-11-14
++Version: 1.8.2
++Date: 2023-12-07
+ Authors@R: c(person(""Nicole..."
+PhanstielLab_plotgardener_bug_commits,Dependency / Package,edd26aded5,2023-11-14T21:49:36Z,Nicole Kramer,version update for Bioc release 3.18 and plotmanhattan bug fix,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: plotgardener
+ Title: Coordinate-Based Genomic Visualization Package for R
+-Version: 1.9.0
+-Date: 2023-09-07
++Version: 1.8.0
++Date: 2023-11-14
+ Authors@R: c(person(""Nicole..."
+PhanstielLab_plotgardener_bug_commits,Dependency / Package,9981f067d8,2020-07-31T00:34:46Z,Nicole Kramer,"*hopefully* fix to rtracklayer import.bw issue
+
+
+
+Former-commit-id: 815f2c151a0e2844d96be2203ac22946e5284e96 [formerly 8...",7,"---FILE: DESCRIPTION.REMOVED.git-id---
+@@ -1 +1 @@
+-b5effaf698d31e7da2659a337635f80a97abba96
+\ No newline at end of file
++b94c9719d3b52f8f56c2417b690838a2d754625f
+\ No newline at end of file
+
+---FILE: R/bb_readBigwig.R.R..."
+PhanstielLab_plotgardener_bug_commits,Dependency / Package,3b8f7ea1be,2020-07-31T00:34:46Z,Nicole Kramer,"*hopefully* fix to rtracklayer import.bw issue
+
+
+
+Former-commit-id: 815f2c151a0e2844d96be2203ac22946e5284e96 [formerly 8...",7,"---FILE: DESCRIPTION---
+@@ -9,7 +9,7 @@ Encoding: UTF-8
+ LazyData: true
+ RoxygenNote: 7.1.1
+ Imports: 
+-       rtracklayer,
++    rtracklayer,
+     strawr,
+     BSgenome,
+     BSgenome.Hsapiens.UCSC.hg19,
+
+---FILE: R/bb_r..."
+PhanstielLab_plotgardener_bug_commits,Rendering / Conversion,0a4edba7f1,2021-08-19T14:54:33Z,Nicole Kramer,bb prefix error removal,3,"---FILE: R/annoGenomeLabel.R---
+@@ -192,7 +192,7 @@ annoGenomeLabel <- function(plot, fontsize = 10, fontcolor = ""black"",
+     # CALL PLOTGENOMELABEL
+     # ===============================================================..."
+PhanstielLab_plotgardener_bug_commits,Rendering / Conversion,6b87602ebf,2021-02-17T20:57:07Z,Eric Davis,"Fix parameter change in bb_pageCreate showGuides for our_philosophy
+
+
+
+Former-commit-id: b9789cb956d8bd83e6d5e0eae22c8f5...",3,"---FILE: vignettes/our_philosophy.Rmd.REMOVED.git-id---
+@@ -0,0 +1 @@
++9fea203e5a563b37555f42fad2536c2c51a70f65
+\ No newline at end of file
+
+---FILE: vignettes/our_philosophy.Rmd.REMOVED.git-id.REMOVED.git-id---
+@@ -1 +0..."
+PhanstielLab_plotgardener_bug_commits,Rendering / Conversion,ccf2e3c2e2,2021-02-17T20:57:07Z,Eric Davis,"Fix parameter change in bb_pageCreate showGuides for our_philosophy
+
+
+
+Former-commit-id: 746164bb37079c9d6ead18f79d14374...",3,"---FILE: vignettes/our_philosophy.Rmd.REMOVED.git-id---
+@@ -1 +1 @@
+-95714939636701545744a3542826ad13c2d21b2d
+\ No newline at end of file
++9fea203e5a563b37555f42fad2536c2c51a70f65
+\ No newline at end of file"
