@@ -1,0 +1,217 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+IndrajeetPatil_ggstatsplot_bug_commits,Documentation / Formatting,6532bdb94a,2025-07-28T19:07:44Z,Indrajeet Patil,"docs
+
+cf. https://github.com/IndrajeetPatil/ggstatsplot/issues/1004",7,"---FILE: R/ggbetweenstats.R---
+@@ -132,7 +132,7 @@
+ #'   am,
+ #'   wt,
+ #'   # to remove violin plot
+-#'   violin.args = list(width = 0, linewidth = 0),
++#'   violin.args = list(width = 0, linewidth = 0, colour = NA),
+ #..."
+IndrajeetPatil_ggstatsplot_bug_commits,Documentation / Formatting,c3ef52ecf9,2025-09-11T19:15:31Z,Copilot,"Add whisker customization documentation for ggbetweenstats (#1010)
+
+This PR addresses the user request to modify the whi...",7,"---FILE: R/ggbetweenstats.R---
+@@ -63,7 +63,11 @@
+ #' @param point.args A list of additional aesthetic arguments to be passed to
+ #'   the [`ggplot2::geom_point()`].
+ #' @param boxplot.args A list of additional aesthetic..."
+IndrajeetPatil_ggstatsplot_bug_commits,Documentation / Formatting,b7350e92b4,2024-11-10T21:08:19Z,Indrajeet Patil,"Bump minimum needed R version (#969)
+
+* Check on older R versions
+
+* bump min to R 4.3
+
+* Update R-CMD-check.yaml
+...",7,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -25,25 +25,16 @@ jobs:
+           #- {os: macOS-latest, r: 'devel'}
+           - { os: macOS-latest, r: ""release"" }
+           - { os: macOS-latest, r: ""oldrel"" }
+-      ..."
+IndrajeetPatil_ggstatsplot_bug_commits,Environment / Configuration,969099b7f4,2025-09-11T19:13:39Z,dependabot[bot],"Bump actions/setup-python from 5.6.0 to 6.0.0 (#1014)
+
+Bumps [actions/setup-python](https://github.com/actions/setup-pyt...",4,"---FILE: .github/workflows/pre-commit.yaml---
+@@ -14,7 +14,7 @@ jobs:
+     steps:
+       - uses: actions/checkout@v5
+ 
+-      - uses: actions/setup-python@v5.6.0
++      - uses: actions/setup-python@v6.0.0
+         with:
+..."
+IndrajeetPatil_ggstatsplot_bug_commits,Environment / Configuration,df5721d14e,2024-07-16T15:29:38Z,dependabot[bot],"Bump actions/setup-python from 5.1.0 to 5.1.1 (#949)
+
+Bumps [actions/setup-python](https://github.com/actions/setup-pyth...",4,"---FILE: .github/workflows/pre-commit.yaml---
+@@ -22,7 +22,7 @@ jobs:
+       - uses: actions/checkout@v4
+ 
+       - name: Set up Python
+-        uses: actions/setup-python@v5.1.0
++        uses: actions/setup-python@v5.1...."
+IndrajeetPatil_ggstatsplot_bug_commits,Dependency / Package,8e67a75173,2025-07-13T05:54:55Z,Indrajeet Patil,fix import warning,7,"---FILE: DESCRIPTION---
+@@ -41,6 +41,7 @@ Imports:
+     ggsignif (>= 0.6.4),
+     glue (>= 1.8.0),
+     insight (>= 1.3.1),
++    magrittr (>= 2.0.3),
+     paletteer (>= 1.6.0),
+     parameters (>= 0.27.0),
+     patchwork..."
+IndrajeetPatil_ggstatsplot_bug_commits,Dependency / Package,5862391180,2024-11-01T08:00:35Z,Indrajeet Patil,"RC: CRAN 0.12.5 (#968)
+
+* bump statsExpressions
+
+* Update .pre-commit-config.yaml
+
+* Update DESCRIPTION
+
+* Update ...",7,"---FILE: .github/workflows/pkgdown.yaml---
+@@ -48,7 +48,7 @@ jobs:
+ 
+       - name: Deploy to GitHub pages 🚀
+         if: github.event_name != 'pull_request'
+-        uses: JamesIves/github-pages-deploy-action@v4.6.4
++  ..."
+IndrajeetPatil_ggstatsplot_bug_commits,Dependency / Package,1efe3c67cc,2022-10-16T12:13:04Z,Indrajeet Patil,"CRAN 0.9.5
+
+* Get ready for CRAN
+
+* Use tidy_model_parameters in ggcoefstats; clean up reexports
+
+* Fix build failur...",7,"---FILE: .github/workflows/check-full.yaml---
+@@ -39,6 +39,8 @@ jobs:
+       - uses: actions/checkout@v2
+ 
+       - uses: r-lib/actions/setup-pandoc@v2
++        with:
++          pandoc-version: '2.19.2'
+ 
+       - uses: ..."
+IndrajeetPatil_ggstatsplot_bug_commits,Visualization / Plotting,5f6b2cb1ac,2025-04-23T20:37:10Z,Indrajeet Patil,"Follow-up on CI for dot plot (#998)
+
+* Follow-up on CI for dot plot
+
+* fix lints
+
+* use devel easystats
+
+* add bayestest...",7,"---FILE: DESCRIPTION---
+@@ -40,7 +40,7 @@ Imports:
+     ggside (>= 0.3.1),
+     ggsignif (>= 0.6.4),
+     glue (>= 1.8.0),
+-    insight (>= 1.1.0),
++    insight (>= 1.2.0),
+     paletteer (>= 1.6.0),
+     parameters (>= ..."
+IndrajeetPatil_ggstatsplot_bug_commits,Visualization / Plotting,74052d238e,2018-10-07T04:31:06Z,Indrajeet Patil,resolved cname issue with the website,3,"---FILE: docs/CNAME---
+@@ -1 +1 @@
+-indrajeetpatil.github.io/ggstatsplot/
++indrajeetpatil.github.io
+
+---FILE: docs/articles/combine_plots.html---
+@@ -122,7 +122,7 @@
+       <h1>combine_plots</h1>
+                        ..."
+IndrajeetPatil_ggstatsplot_bug_commits,Rendering / Conversion,d312b9f1d4,2024-12-03T07:59:41Z,Indrajeet Patil,"Fix failing tests from easystats updates (#974)
+
+* Style with latest styler
+
+* consolidate warning-as-errors into one ...",6,"---FILE: .github/workflows/check-all-examples.yaml---
+@@ -1,49 +0,0 @@
+-# Make sure all examples run successfully, even the ones that are not supposed
+-# to be run or tested on CRAN machines by default.
+-#
+-# The example..."
+IndrajeetPatil_ggstatsplot_bug_commits,Rendering / Conversion,6dfdf639b1,2021-05-24T20:55:58Z,Indrajeet Patil,fix JOSS compilation problems,6,"---FILE: paper/apa.csl---
+@@ -1,443 +1,1916 @@
+ <?xml version=""1.0"" encoding=""utf-8""?>
+-<style xmlns=""http://purl.org/net/xbiblio/csl"" class=""in-text"" version=""1.0"" demote-non-dropping-particle=""never"">
++<style xmlns=""ht..."
+IndrajeetPatil_ggstatsplot_bug_commits,Rendering / Conversion,f84d7284d7,2021-05-21T10:16:59Z,Indrajeet Patil,closes #597; solution for grid error in faq,6,"---FILE: docs/articles/web_only/faq_files/header-attrs-2.8.1/header-attrs.js---
+@@ -0,0 +1,12 @@
++// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
++// be compatible with the behavior of Pand..."
+IndrajeetPatil_ggstatsplot_bug_commits,Implementation / Logic,ff5457b7e8,2024-07-26T18:58:54Z,Indrajeet Patil,"Use lintr config file also in GHA (#954)
+
+* Use lintr config file also in GHA
+
+* fix lints",6,"---FILE: .github/workflows/lint-changed-files.yaml---
+@@ -21,15 +21,13 @@ jobs:
+       - uses: r-lib/actions/setup-r-dependencies@v2
+         with:
+           pak-version: devel
+-          upgrade: ""TRUE""
++          upgr..."
+IndrajeetPatil_ggstatsplot_bug_commits,Implementation / Logic,8cd68750a1,2023-09-22T08:24:40Z,Indrajeet Patil,"Fix more lints (#884)
+
+* Avoid unnecessary conditionals
+
+* Update ggbarstats.R
+
+* change linter config
+
+* Update g...",6,"---FILE: .github/workflows/lint-changed-files.yaml---
+@@ -41,6 +41,7 @@ jobs:
+             commented_code_linter = NULL,
+             cyclocomp_linter(25L),
+             extraction_operator_linter = NULL,
++            if..."
+IndrajeetPatil_ggstatsplot_bug_commits,Implementation / Logic,f37fb66476,2021-07-10T07:10:47Z,Indrajeet Patil,more about issue 625,6,"---FILE: R/ggbetweenstats.R---
+@@ -239,53 +239,42 @@ ggbetweenstats <- function(data,
+ 
+   # statistical analysis ------------------------------------------
+ 
+-  # figure out which test to run based on the no. of levels ..."
+IndrajeetPatil_ggstatsplot_bug_commits,Reproducibility / Versioning,de5dff951a,2024-07-06T16:32:50Z,Indrajeet Patil,"RC 0.12.4: Fix warnings from latest easystats (#946)
+
+* Bump to latest easystats
+
+* bump version",7,"---FILE: CITATION.cff---
+@@ -8,7 +8,7 @@ message: 'To cite package ""ggstatsplot"" in publications use:'
+ type: software
+ license: GPL-3.0-only
+ title: 'ggstatsplot: ''ggplot2'' Based Plots with Statistical Details'
+-versi..."
+IndrajeetPatil_ggstatsplot_bug_commits,Reproducibility / Versioning,88d1050555,2018-12-21T17:16:31Z,Indrajeet Patil,closes #111; sample size bug in paired version of subtitle_t_parametric fixed,7,"---FILE: DESCRIPTION---
+@@ -38,7 +38,7 @@ Imports:
+     cowplot (>= 0.9.3),
+     crayon (>= 1.3.4),
+     dplyr (>= 0.7.8),
+-    effsize (>= 0.7.1),
++    effsize (>= 0.7.4),
+     exact2x2 (>= 1.6.3),
+     ggcorrplot (>= 0..."
+IndrajeetPatil_ggstatsplot_bug_commits,Reproducibility / Versioning,82fd32f6ce,2024-05-18T09:13:28Z,Indrajeet Patil,fix tests,3,"---FILE: tests/testthat/_snaps/ggcoefstats/meta-analysis-works.svg---
+@@ -21,127 +21,52 @@
+ <rect x='0.00' y='0.00' width='720.00' height='576.00' style='stroke-width: 0.97; stroke: #FFFFFF; fill: #FFFFFF;' />
+ </g>
+ <de..."
+IndrajeetPatil_ggstatsplot_bug_commits,Data / Input Handling,d55f86a7f3,2024-05-26T17:31:33Z,Indrajeet Patil,Fix test warnings workflow (#941),3,"---FILE: .github/workflows/check-test-warnings.yaml---
+@@ -27,11 +27,16 @@ jobs:
+           upgrade: 'TRUE'
+           extra-packages: |
+             local::.
+-            any::devtools
+           needs: check
+ 
+       -..."
+IndrajeetPatil_ggstatsplot_bug_commits,Data / Input Handling,475cbe793c,2024-01-29T21:41:37Z,dependabot[bot],"Bump styfle/cancel-workflow-action from 0.12.0 to 0.12.1 (#911)
+
+Bumps [styfle/cancel-workflow-action](https://github.co...",3,"---FILE: .github/workflows/pre-commit.yaml---
+@@ -15,7 +15,7 @@ jobs:
+       )
+     steps:
+       - name: Cancel Previous Runs
+-        uses: styfle/cancel-workflow-action@0.12.0
++        uses: styfle/cancel-workflow-act..."
+IndrajeetPatil_ggstatsplot_bug_commits,Data / Input Handling,b0a9f0e680,2023-09-29T14:40:43Z,Indrajeet Patil,fix,3,"---FILE: .github/workflows/test-coverage.yaml---
+@@ -26,7 +26,7 @@ jobs:
+           pak-version: devel
+           extra-packages: |
+             any::covr
+-          needs: check
++          needs: coverage
+ 
+       - nam..."

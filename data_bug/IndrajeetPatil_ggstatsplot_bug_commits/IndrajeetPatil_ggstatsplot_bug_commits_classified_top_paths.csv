@@ -1,0 +1,16 @@
+path,count
+DESCRIPTION,54
+README.md,49
+codemeta.json,42
+README.Rmd,42
+R/ggbetweenstats.R,39
+docs/index.html,37
+NEWS.md,36
+R/ggcoefstats.R,30
+man/figures/README-ggbetweenstats2-1.png,28
+R/ggscatterstats.R,26
+man/figures/README-ggbetweenstats1-1.png,26
+man/figures/README-ggscatterstats1-1.png,25
+man/figures/README-ggscatterstats2-1.png,25
+docs/news/index.html,25
+R/ggwithinstats.R,23
