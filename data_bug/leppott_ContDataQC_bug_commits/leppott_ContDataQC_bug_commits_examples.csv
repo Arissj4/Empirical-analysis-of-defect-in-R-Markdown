@@ -1,0 +1,200 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+leppott_ContDataQC_bug_commits,Documentation / Formatting,e969bc3c54,2025-10-02T21:12:48Z,Erik Leppo,"v2.1.0.9002
+
+* fix: Manual merge changes from GitHub and local.  Out of sync.
+    + NEWS.rmd
+    + DESCRIPTION
+    + fun...",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9049
++Version: 2.1.0.9002
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Documentation / Formatting,5d9dc7bd33,2024-12-27T19:07:35Z,Erik Leppo,"v2.0.7.9048
+
+* refactor: Fix typo in Report_QC.rmd, Issue #167
+    + inst/rmd
+    + inst/shiny-examples/ContDataQC/rmd",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9047
++Version: 2.0.7.9048
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Documentation / Formatting,45a81e6bd7,2024-12-26T17:35:23Z,Erik Leppo,"v2.0.7.9045
+
+- fix: Update link to Shinay 3c3_QCThresh_Eval",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9044
++Version: 2.0.7.9045
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Dependency / Package,638f5f58c6,2024-12-27T13:22:57Z,Erik Leppo,"v2.0.7.9047
+
+- fix: Update shinyalalert for HOBO reformat, Issue \#164
+  - Shiny removes empty directories, add ‘remove....",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9046
++Version: 2.0.7.9047
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Dependency / Package,529015d40d,2024-12-26T18:40:11Z,Erik Leppo,"v2.0.7.9046
+
+- fix: Update shinyalert for HOBO reformat for multiple files",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9045
++Version: 2.0.7.9046
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Dependency / Package,4971c7d95e,2024-12-02T15:27:18Z,Erik Leppo,"v2.0.7.9037
+
+- fix: Update Shiny file upload parameter check to use names from
+  config, Issue \#166",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9036
++Version: 2.0.7.9037
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Reproducibility / Versioning,8dc679ed07,2024-01-31T19:17:07Z,Erik Leppo,"v2.0.7.9026
+
+- refactor: Move version number from title to about, Issue \#161
+- refactor: Add file identifiers to downlo...",7,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.7.9025
++Version: 2.0.7.9026
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Reproducibility / Versioning,e933ffc07f,2018-11-27T21:43:04Z,leppott,"v2.0.2.9013
+
+Fix ""file"" version function error.  Issue #68",7,"---FILE: .Rhistory---
+@@ -1,170 +1,3 @@
+-## Air Pressure
+-col_AirBP <- names(df_hobo)[grepl(paste0(find_Barom,"".*"",find_Pres,""|"",find_Pres,"".*"",find_Barom)
+-, tolower(names(df_hobo)))]
+-## Water Pressure
+-# find Pres and..."
+leppott_ContDataQC_bug_commits,Rendering / Conversion,cae9ee50e5,2017-08-23T15:41:33Z,leppott,"v2.0.1.9030
+
+More DOCX to HTML reference fixes.  Missed loading v2.0.1.9029.",7,"---FILE: .Rhistory---
+@@ -1,177 +1,3 @@
+-#
+-}##FOR.j.END
+-#
+-#     # leave as a loop so get RAW and Comment together
+-#     j <- myNames.DataFields2Mod
+-#     # A. Add comment field and leave blank
+-#     data.import[,pa..."
+leppott_ContDataQC_bug_commits,Rendering / Conversion,9d2d66c52a,2022-12-22T20:08:23Z,Erik Leppo,"v2.0.7.9007
+
+* fix: Shiny custom edit thresholds
+    + Change default config to version without env statement",6,"---FILE: NEWS---
+@@ -3,13 +3,20 @@ NEWS-ContDataQC
+ 
+ <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
+ 
+-    #> Last Update: 2022-12-22 13:07:40
++    #> Last Update: 2022-12-22 15:02:31
+ 
+ # Version Hi..."
+leppott_ContDataQC_bug_commits,Rendering / Conversion,c0ae4c2697,2022-05-25T16:33:34Z,Erik Leppo,"v2.0.6.9021
+
+* feature: Add miniDOT concatenate function, Issue #141
+    + Modified compile_do_folder.R from mnsentinell...",6,"---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality Control (QC) of Continous Monitoring Data
+-Version: 2.0.6.9020
++Version: 2.0.6.9021
+ Authors@R: c(
+ 	person(""Erik W"", ""Leppo"", email=""Erik.Lepp..."
+leppott_ContDataQC_bug_commits,Data / Input Handling,70fdf406ac,2021-12-21T21:14:54Z,Blocktt,"v2.0.6.9009
+
+Fixed issue with dependencies in QC threshold tab. Everything works well now. Also, updated Config.R in /ww...",6,"---FILE: inst/shiny-examples/ContDataQC/server.R---
+@@ -1010,8 +1010,43 @@ shinyServer(function(input, output, session) {
+   # QC Threshold Edits ####
+ 
+   # Source the config.R environment
+-  source(""./www/Config.R"")
++ ..."
+leppott_ContDataQC_bug_commits,File I/O and Export,6fb2a2b404,2021-12-20T21:25:43Z,Blocktt,"v2.0.6.9008
+
+Updated tab_3QCThresh.R and server.R to include a tab that allows the edit of QC threshold values. Currentl...",7,"---FILE: inst/shiny-examples/ContDataQC/external/tab_3QCThresh.R---
+@@ -31,6 +31,131 @@ function() {
+                          ) ## mainPanel ~ END
+                        )# sidebarLayout~ END
+             )## tabPanel ..."
+leppott_ContDataQC_bug_commits,File I/O and Export,71c46876b0,2019-02-13T19:49:00Z,leppott,"vv2.0.5.9010
+
+Export.rLakeAnalyzer, Issue #82",7,"---FILE: .Rhistory---
+@@ -1,147 +1,114 @@
+-myDir.BASE <- getwd()
+-# Function Inputs
+-fn1 <- ""Ellis1.0m_Water_20180524_20180918.csv""
+-fn2 <- ""Ellis3.0m_Water_20180524_20180918.csv""
+-myFiles <- c(fn1, fn2)
+-myDir.import <-..."
+leppott_ContDataQC_bug_commits,File I/O and Export,a2d8f23e55,2017-11-29T23:31:58Z,leppott,"v2.0.1.9053
+
+Fixed example code in Export.StreamThermal; Issue #46 .",7,"---FILE: .Rhistory---
+@@ -1,368 +1,120 @@
+-#   myMsg <- ""Function can only handle 1 Data Type.""
+-#   stop(myMsg)
+-# }
+-#
+-# Convert Data Type to proper case
+-# fun.myData.Type <- paste(toupper(substring(fun.myData.Type,1..."
+leppott_ContDataQC_bug_commits,Environment / Configuration,6d2a8f6db7,2021-01-13T14:01:31Z,Erik Leppo,"v2.0.5.9063
+
+* fix: Correct download of www/Config.zip
+* fix: Replace uneeded concatenation without arguments
+    + Aqua...",7,"---FILE: .gitignore---
+@@ -47,3 +47,4 @@ Report_Config_20181221_094339.html
+ _test/
+ rLA_TestLake_Water_20180702_20181012.csv
+ docs
++debug.log
+
+---FILE: DESCRIPTION---
+@@ -1,6 +1,6 @@
+ Package: ContDataQC
+ Title: Quality..."
+leppott_ContDataQC_bug_commits,Environment / Configuration,fcfb18e0a8,2017-05-04T20:27:27Z,leppott,"v2.0.1.0002
+
+1. Fixed Julian day (0vs1 for start), 2. Added 5 parameters (DO, Cond,
+pH, turbidity, and Chlorophyl a), 3....",7,"---FILE: .Rhistory---
+@@ -1,15 +1,512 @@
+-myLibNam <- ""ContDataQC""
++#
++# Create Month and Day Fields
++# month
++#     myField   <- ""month""
++#     data.import[,myField] <- data.import[,myName.Date]
++#     myFormat  <- ""%m""..."
+leppott_ContDataQC_bug_commits,Environment / Configuration,207e79555c,2017-03-08T13:18:36Z,leppott,"v2.0.1.0001 Continue updates for name Environment
+
+Bug fixes for UserDefinedValues moved to ContData.env.  Missed some.
+...",7,"---FILE: .gitignore---
+@@ -45,3 +45,4 @@ $RECYCLE.BIN/
+ Network Trash Folder
+ Temporary Items
+ .apdisk
++NEWS.rmd
+
+---FILE: NEWS.md---
+@@ -2,10 +2,28 @@ NEWS-ContDataQC
+ ================
+ 
+ <!-- NEWS.md is generated from ..."

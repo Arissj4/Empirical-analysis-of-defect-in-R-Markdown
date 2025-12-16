@@ -1,0 +1,16 @@
+path,count
+NEWS.rmd,124
+DESCRIPTION,119
+NEWS,91
+NEWS.md,82
+.Rhistory,61
+inst/shiny-examples/ContDataQC/ui.R,37
+R/config.R,28
+inst/shiny-examples/ContDataQC/server.R,26
+R/fun.QC.R,25
+inst/rmd/Report_QC.rmd,22
+inst/shiny-examples/ContDataQC/global.R,21
+R/zfun.ContDataQC.R,18
+inst/extdata/ContDataQC_LibraryCreation.nb.html,17
+inst/rmd/Report_Aggregate.rmd,17
+R/fun.QC.File.R,16

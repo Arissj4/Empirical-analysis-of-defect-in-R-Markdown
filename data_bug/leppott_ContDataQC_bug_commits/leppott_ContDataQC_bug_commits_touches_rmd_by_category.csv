@@ -1,0 +1,8 @@
+bug_category,touches_rmd_%
+Documentation / Formatting,100.0
+Rendering / Conversion,100.0
+Environment / Configuration,100.0
+Reproducibility / Versioning,100.0
+Dependency / Package,97.1
+File I/O and Export,66.7
+Data / Input Handling,0.0
