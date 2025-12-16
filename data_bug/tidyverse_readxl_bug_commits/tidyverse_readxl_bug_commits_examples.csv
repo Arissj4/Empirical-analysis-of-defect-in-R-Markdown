@@ -1,0 +1,210 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+tidyverse_readxl_bug_commits,Implementation / Logic,e090951f2b,2025-09-19T16:17:04Z,Matthew Adams,Fixes Tidyverse ReadXl#642 (#780),6,"---FILE: vignettes/articles/readxl-workflows.Rmd---
+@@ -56,7 +56,7 @@ mtcars_xl <- readxl_example(""datasets.xlsx"") |>
+ delete_on_exit <- c(delete_on_exit, ""mtcars-raw.csv"")
+ ```
+ 
+-Why does this work? `readr::write_csv()..."
+tidyverse_readxl_bug_commits,Implementation / Logic,866eff6e1a,2023-10-07T00:06:36Z,Gleb Ebert,Fix link to tidyverse design principles (#738),6,"---FILE: vignettes/articles/column-names.Rmd---
+@@ -33,7 +33,7 @@ But users have long wanted a way to specify a name repair *strategy*, as opposed
+ As of v1.2.0, readxl provides the `.name_repair` argument, which affords..."
+tidyverse_readxl_bug_commits,Implementation / Logic,9104e69b37,2023-02-07T16:43:41Z,Jennifer (Jenny) Bryan,"Begin the structured tracking and application of patches to vendored code (#720)
+
+* Move existing libxls-ingesting-and-p...",6,"---FILE: .Rbuildignore---
+@@ -34,3 +34,4 @@
+ ^\.vscode$
+ ^debug$
+ ^CRAN-SUBMISSION$
++^maintenance$
+
+---FILE: maintenance/02_apply-our-libxls-patches.txt---
+@@ -0,0 +1,36 @@
++# https://stackoverflow.com/questions/6336440/..."
+tidyverse_readxl_bug_commits,Data / Input Handling,9e20981965,2025-03-07T00:10:34Z,Jennifer (Jenny) Bryan,"Fix sanitizer warning (#771)
+
+* Let's try this
+
+* Fix out-of-bounds access in MULRK struct handling
+
+* Take 2
+
+In respon...",4,"---FILE: .github/workflows/rhub.yaml---
+@@ -27,7 +27,7 @@ on:
+       config:
+         description: 'A comma separated list of R-hub platforms to use. These default choices have been customized for readxl.'
+         type:..."
+tidyverse_readxl_bug_commits,Data / Input Handling,522d64134f,2019-10-10T14:23:55Z,Mara Averick,"Add lock bot. (#587)
+
+* Add lock bot.
+* Fixes #585.
+
+* Change daysUntilLock to 365 for initial round.",3,"---FILE: .github/lock.yml---
+@@ -0,0 +1,34 @@
++# Configuration for lock-threads - https://github.com/dessant/lock-threads
++
++# Number of days of inactivity before a closed issue or pull request is locked
++daysUntilLock: ..."
+tidyverse_readxl_bug_commits,Data / Input Handling,685dc708d5,2017-10-20T22:05:37Z,Jenny Bryan,Extend test sheet to make it useful for coming fix re: column typing,3,
+tidyverse_readxl_bug_commits,Rendering / Conversion,c7d1b6c5d6,2020-02-01T00:38:36Z,Sam Albers,"Add actions (#602)
+
+* add bare github actions template
+
+* add tidy template
+
+* render Rmd
+
+* add step to check on ...",7,"---FILE: .Rbuildignore---
+@@ -30,3 +30,5 @@
+ ^investigations$
+ ^src/patch-to-libxls-upstream\.R$
+ ^LICENSE\.md$
++^\.github/workflows/R-CMD-check\.yaml$
++^\.github/workflows/pkgdown\.yaml$
+
+---FILE: .github/workflows/R-CM..."
+tidyverse_readxl_bug_commits,Rendering / Conversion,f3eb9e5c53,2024-08-15T18:06:44Z,Anatoliy Sokolov,"Updating use of superseded `map_df()` to `map() %>% list_rbind()` (#753)
+
+Fixes #746",3,"---FILE: vignettes/articles/readxl-workflows.Rmd---
+@@ -134,17 +134,18 @@ What if the datasets found on different sheets have the same variables? Then you
+ 
+ readxl ships with an example sheet `deaths.xlsx`, containing d..."
+tidyverse_readxl_bug_commits,Rendering / Conversion,22ded0b23b,2024-08-15T22:32:49Z,Anatoliy Sokolov,"Fix map superseded (#754)
+
+* Updating superceded map_df() to map() %>% list_rbind(). Fixes #746.
+
+* Update readxl-work...",3,"---FILE: vignettes/articles/readxl-workflows.Rmd---
+@@ -175,10 +175,9 @@ ranges <- list(""A5:F15"", cell_rows(5:15))
+ deaths <- map2(
+   sheets,
+   ranges,
+-  ~ read_excel(path, sheet = .x, range = .y),
+-  .id = ""sheet""
++ ..."
+tidyverse_readxl_bug_commits,Dependency / Package,81f63c6565,2025-02-12T04:31:43Z,Jennifer (Jenny) Bryan,"Update libxls to 1.6.3 (#764)
+
+* Naive vendoring of libxls 1.6.3
+
+* Re-apply our usual tweaks
+
+* Start to update con...",7,"---FILE: DESCRIPTION---
+@@ -48,6 +48,6 @@ VignetteBuilder:
+ Config/Needs/website: tidyverse/tidytemplate, tidyverse
+ Config/testthat/edition: 3
+ Encoding: UTF-8
+-Note: libxls v1.6.2 (patched) 45abe77
++Note: libxls v1.6.3..."
+tidyverse_readxl_bug_commits,Dependency / Package,e98cfcd424,2023-02-07T20:20:44Z,Jennifer (Jenny) Bryan,"Update libxls (#721)
+
+* Update to dev version of libxls
+
+* git apply maintenance/patches/filepaths.patch
+
+* git appl...",7,"---FILE: DESCRIPTION---
+@@ -48,7 +48,7 @@ VignetteBuilder:
+ Config/Needs/website: tidyverse/tidytemplate, tidyverse
+ Config/testthat/edition: 3
+ Encoding: UTF-8
+-Note: libxls v1.6.2 4482400
++Note: libxls v1.6.2 (patched)..."
+tidyverse_readxl_bug_commits,Dependency / Package,2c20f5cfad,2021-07-29T20:21:44Z,Jennifer (Jenny) Bryan,"Update to libxls 1.6.2 (#658)
+
+* Ingest libxls v1.6.2 4482400
+
+Straight up copying files
+
+* Tweak paths; remake unix...",7,"---FILE: DESCRIPTION---
+@@ -63,6 +63,6 @@ Config/testthat/edition: 3
+ Config/Needs/website: tidyverse/tidytemplate, tidyverse, devtools
+ Encoding: UTF-8
+ LazyData: true
+-Note: libxls-SHA cef1393
++Note: libxls v1.6.2 4482..."
+tidyverse_readxl_bug_commits,Documentation / Formatting,c7c6850469,2025-02-11T20:29:46Z,olivroy,"fix link (#763)
+
+* Add full url
+
+* fix anchored link for R-devel",7,"---FILE: R/cell-specification.R---
+@@ -7,7 +7,7 @@
+ #' using helper functions. You can find more examples at the
+ #'  [sheet geometry](https://readxl.tidyverse.org/articles/sheet-geometry.html#range)
+ #'  vignette. In al..."
+tidyverse_readxl_bug_commits,Documentation / Formatting,a31c83c998,2022-03-23T23:40:42Z,Duncan Garmonsway,"Don't misinterpret colors as dates (#559)
+
+* Don't misinterpret colors as dates (fixes #388)
+
+* Incorporate some updat...",7,"---FILE: NEWS.md---
+@@ -1,5 +1,10 @@
+ # readxl (development version)
+ 
++* ""Date or Not Date"": The classification of number formats as being datetime-ish
++  is more sophisticated and should no longer be so easily fooled b..."
+tidyverse_readxl_bug_commits,Documentation / Formatting,b850cd872b,2018-04-17T00:06:35Z,Jenny Bryan,"Refactor file format guessing
+
+Fixes #449, fixes #411",7,"---FILE: NAMESPACE---
+@@ -6,6 +6,8 @@ export(cell_limits)
+ export(cell_rows)
+ export(excel_format)
+ export(excel_sheets)
++export(format_from_ext)
++export(format_from_signature)
+ export(read_excel)
+ export(read_xls)
+ expo..."
+tidyverse_readxl_bug_commits,Environment / Configuration,fd3b3efb55,2021-07-27T15:08:23Z,Jim Hester,"Put dependencies into their own subdirectories (#653)
+
+* Put dependencies into their own subdirectories
+
+This should h...",6,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -51,8 +51,8 @@ jobs:
+         uses: actions/cache@v1
+         with:
+           path: ${{ env.R_LIBS_USER }}
+-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ ..."
+tidyverse_readxl_bug_commits,Environment / Configuration,1ed5c4e61b,2017-01-26T16:52:51Z,Jim Hester,"Do not use variadic macros (#238)
+
+They are a C99 extension which then requires =c++11 / c++0x causing
+other issues (#1...",3,"---FILE: src/Makevars---
+@@ -1,2 +1 @@
+ PKG_CPPFLAGS=-Iunix -I.
+-PKG_CXXFLAGS=$(CXX1XSTD)
+
+---FILE: src/cran.h---
+@@ -4,7 +4,12 @@
+ /* Mask printf for CMD check */
+ #include <Rinternals.h>
+ #define printf Rprintf
+-#defin..."
+tidyverse_readxl_bug_commits,Environment / Configuration,33df6519b3,2015-03-17T18:09:45Z,Jeroen Ooms,Fix for windows,3,"---FILE: src/Makevars---
+@@ -1 +1 @@
+-PKG_CPPFLAGS=-I.
++PKG_CPPFLAGS=-Iunix -I.
+
+---FILE: src/Makevars.win---
+@@ -1,2 +1,2 @@
+-PKG_CPPFLAGS=-I.
++PKG_CPPFLAGS=-Iwindows -I.
+ PKG_LIBS=-lRiconv
+
+---FILE: src/windows/config...."
+tidyverse_readxl_bug_commits,Reproducibility / Versioning,387161d725,2017-02-06T16:12:46Z,Jennifer (Jenny) Bryan,"Use tibble::repair_names() to eliminate empty, NA, duplicated column names (#247)
+
+* Remove leading unnamed empty column...",7,"---FILE: DESCRIPTION---
+@@ -21,7 +21,7 @@ LazyData: true
+ LinkingTo: Rcpp
+ Imports:
+     Rcpp (>= 0.11.6),
+-    tibble
++    tibble (>= 1.1)
+ Suggests:
+     covr,
+     rprojroot (>= 1.1),
+
+---FILE: NAMESPACE---
+@@ -7,5 +7..."
+tidyverse_readxl_bug_commits,File I/O and Export,15b71dc4aa,2017-01-24T23:25:30Z,Jirka Lewandowski,"Also test for error reading extension-free xls with read_xlsx()
+
+as suggested by https://github.com/hadley/readxl/pull/1...",3,"---FILE: tests/testthat/test-read-excel.R---
+@@ -24,6 +24,7 @@ test_that(""can read file without ending"", {
+   file.copy(""iris-excel.xls"", ""iris-xls-no-ending"")
+   on.exit(file.remove(""iris-xls-no-ending""))
+   x <- read_x..."

@@ -1,0 +1,128 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+thaum-xyz_ankhmorpork_bug_commits,Data / Input Handling,b0db63d07a,2022-01-27T10:41:04Z,Paweł Krupa (paulfantom),apps/snmp: fix incorrect regex parse for volumeStatus,4,"---FILE: apps/snmp/generator.yml---
+@@ -64,12 +64,12 @@ modules:
+           '':
+             - regex: '0x476F6F64.*'  # Good
+               value: 0
++            - regex: '0x5265616479.*' # Ready
++              value: 0
+..."
+thaum-xyz_ankhmorpork_bug_commits,Data / Input Handling,0d339d274e,2025-11-21T14:11:03Z,paulfantom,karakeep: fix ES version,3,"---FILE: apps/karakeep/manifests/secrets.yaml---
+@@ -1,4 +1,4 @@
+-apiVersion: external-secrets.io/v1beta1
++apiVersion: external-secrets.io/v1
+ kind: ExternalSecret
+ metadata:
+   name: karakeep-secrets"
+thaum-xyz_ankhmorpork_bug_commits,Data / Input Handling,ebe8fe7ed3,2025-11-21T14:04:17Z,paulfantom,flux-apps: fix versity deployment,3,"---FILE: base/flux-apps/versity-test.yaml---
+@@ -5,7 +5,7 @@ metadata:
+   namespace: flux-apps
+ spec:
+   interval: 15m0s
+-  path: ./apps/verstity-test
++  path: ./apps/versity-test
+   prune: true
+   sourceRef:
+     kind: ..."
+thaum-xyz_ankhmorpork_bug_commits,Dependency / Package,f5b2703742,2024-12-01T14:16:01Z,paulfantom,monitoring: fix cluster latency SLO data,6,"---FILE: apps/monitoring/manifests/pyrra/slo-apiserver-read-cluster-latency.yaml---
+@@ -11,7 +11,7 @@ spec:
+   indicator:
+     latency:
+       success:
+-        metric: apiserver_request_duration_seconds_bucket{component..."
+thaum-xyz_ankhmorpork_bug_commits,Dependency / Package,0e949d1d79,2025-11-21T14:11:34Z,paulfantom,versity: fix namespace setting,4,"---FILE: apps/versity-test/pvc.yaml---
+@@ -19,6 +19,7 @@ apiVersion: v1
+ kind: PersistentVolumeClaim
+ metadata:
+   name: metadata
++  namespace: versity-test
+   labels:
+     app.kubernetes.io/name: versitygw
+     app.kube..."
+thaum-xyz_ankhmorpork_bug_commits,Dependency / Package,c531c3dfdf,2024-11-16T16:19:20Z,paulfantom,datalake-metrics: fix namespace,4,"---FILE: apps/datalake-metrics/kustomization.yaml---
+@@ -1,6 +1,6 @@
+ apiVersion: kustomize.config.k8s.io/v1beta1
+ kind: Kustomization
+-namespace: minio
++namespace: datalake-metrics
+ resources:
+   - repository.yaml
+   - ..."
+thaum-xyz_ankhmorpork_bug_commits,Documentation / Formatting,e16f525960,2023-06-20T07:50:09Z,paulfantom,*: fix typo,7,"---FILE: README.md---
+@@ -71,7 +71,7 @@ Cluster is [k3s](https://k3s.io/) provisioned on bare-metal Ubuntu 20.04 using a
+   </tr>
+   <tr>
+     <td><img width=""32"" src=""https://github.com/longhorn/website/raw/master/stati..."
+thaum-xyz_ankhmorpork_bug_commits,Documentation / Formatting,d3fb60d3a5,2023-01-06T09:49:04Z,Paweł Krupa (paulfantom),fix readme,7,"---FILE: README.md---
+@@ -55,7 +55,7 @@ Cluster is [k3s](https://k3s.io/) provisioned on bare-metal Ubuntu 20.04 using a
+     <td>Container-orchestration system, the backbone of this project</td>
+   </tr>
+   <tr>
+-    <t..."
+thaum-xyz_ankhmorpork_bug_commits,Documentation / Formatting,8b3dc5b743,2022-06-03T08:59:39Z,Paweł Krupa (paulfantom),*: fix parca logo,6,"---FILE: README.md---
+@@ -105,7 +105,7 @@ Cluster is [k3s](https://k3s.io/) provisioned on bare-metal Ubuntu 20.04 using a
+     <td>Operational dashboards</td>
+   </tr>
+   <tr>
+-    <td><img width=""32"" src=""https://www.p..."
+thaum-xyz_ankhmorpork_bug_commits,Environment / Configuration,2937fdecdd,2023-03-02T12:08:13Z,Paweł Krupa (paulfantom),*: fix auto-updater,6,"---FILE: .github/workflows/versions.yaml---
+@@ -27,13 +27,13 @@ jobs:
+       run: go install github.com/devopyio/yamlfmt@latest
+     - name: Upgrade
+       run: |
+-        export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+..."
+thaum-xyz_ankhmorpork_bug_commits,Environment / Configuration,233ef49633,2023-07-23T11:53:35Z,paulfantom,fix version upgrades,6,"---FILE: Makefile---
+@@ -10,7 +10,6 @@ DIRS=\
+ 	apps/homeassistant \
+ 	apps/homer \
+ 	apps/monitoring \
+-	apps/portal \
+ 	apps/unifi
+ 
+ MAKEFILES=$(shell find . -name ""Makefile"" -not -path ""*/vendor/*"" -not -path ""./Make..."
+thaum-xyz_ankhmorpork_bug_commits,Environment / Configuration,532fa0796c,2021-06-04T13:59:33Z,paulfantom,base/flux-system: fix downloading podmonitor definition,6,"---FILE: base/flux-system/Makefile---
+@@ -5,5 +5,5 @@ update: version-update
+ 
+ .PHONY: version-update
+ version-update:
+-	wget https://github.com/fluxcd/flux2/blob/main/manifests/monitoring/monitoring-config/podmonitor.y..."
+thaum-xyz_ankhmorpork_bug_commits,Rendering / Conversion,f81179b34a,2020-07-12T17:05:29Z,paulfantom,ansible: fixes after cluster recreation,6,"---FILE: .gitignore---
+@@ -7,6 +7,7 @@ roles/*
+ !roles/fans/*
+ !roles/fans
+ *.retry
++ansible/kubeconfig
+ .kube
+ bin/
+ templates/
+
+---FILE: ansible/00_site.yml---
+@@ -1,8 +1,6 @@
+ ---
+ - import_playbook: 01_system.yml
+ 
+-..."
+thaum-xyz_ankhmorpork_bug_commits,Rendering / Conversion,a88dda378b,2022-07-15T15:28:59Z,Paweł Krupa (paulfantom),*: fix image compat tests,0,"---FILE: .ignoredimages---
+@@ -18,3 +18,4 @@ lscr.io/linuxserver/sonarr
+ lscr.io/linuxserver/radarr
+ ghcr.io/pyrra-dev/pyrra
+ grafana/mimir
++infinityworks/github-exporter"
+thaum-xyz_ankhmorpork_bug_commits,Rendering / Conversion,2f749a37e2,2025-02-01T15:20:03Z,paulfantom,hack: fix perms,0,
+thaum-xyz_ankhmorpork_bug_commits,Visualization / Plotting,f9ba3ad417,2024-11-29T17:17:20Z,paulfantom,homeassistant: fix passing payload to awtrix,3,"---FILE: apps/homeassistant/config/configuration.yaml---
+@@ -295,12 +295,12 @@ rest_command:
+   awtrix_notify:
+     url: ""http://192.168.2.219/api/notify""
+     method: ""post""
+-    payload: ""{{ states('input_text.awtrix_c..."
+thaum-xyz_ankhmorpork_bug_commits,Visualization / Plotting,8cd74bc02c,2024-04-11T19:21:14Z,paulfantom,apps/homeassistant: fix tandoor template,3,"---FILE: apps/homeassistant/config/configuration.yaml---
+@@ -192,22 +192,22 @@ rest:
+         unique_id: ""meal_today_breakfast""
+         value_template: >
+           {% set data = value_json | selectattr('meal_type.order..."
+thaum-xyz_ankhmorpork_bug_commits,Visualization / Plotting,87ac526ef8,2024-02-19T20:23:01Z,paulfantom,apps/homeassistant: fix parsing data from tandoor,3,"---FILE: apps/homeassistant/config/configuration.yaml---
+@@ -193,22 +193,22 @@ rest:
+         unique_id: ""meal_today_breakfast""
+         value_template: >
+           {% set data = value_json | selectattr('meal_type.order..."

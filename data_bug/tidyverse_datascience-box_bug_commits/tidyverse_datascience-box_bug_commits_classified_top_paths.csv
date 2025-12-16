@@ -1,0 +1,16 @@
+path,count
+02-exploring-data.qmd,5
+02-making-rigorous-conclusions.qmd,5
+02-hello-world.Rmd,5
+02-exploring-data.Rmd,5
+.github/workflows/render-rmd.yaml,5
+02-ethics.qmd,4
+02-hello-world.qmd,4
+02-looking-further.qmd,4
+02-making-rigorous-conclusions.Rmd,4
+index.Rmd,4
+course-materials/hw-instructions/hw-01/hw-01-pet-names.Rmd,3
+course-materials/hw-instructions/hw-02/hw-02-airbnb-edi.Rmd,3
+course-materials/hw-instructions/hw-06/hw-06-money-in-politics.Rmd,3
+course-materials/lab-instructions/lab-04/lab-04-viz-sp-data.Rmd,3
+course-materials/lab-instructions/lab-06/lab-06-sad-plots.Rmd,3

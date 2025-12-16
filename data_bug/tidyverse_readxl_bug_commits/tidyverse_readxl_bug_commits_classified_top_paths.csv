@@ -1,0 +1,16 @@
+path,count
+NEWS.md,35
+R/read_excel.R,18
+src/XlsxWorkSheet.h,18
+src/XlsWorkSheet.h,17
+DESCRIPTION,16
+src/xls.c,15
+src/XlsCell.h,14
+src/xlstool.c,13
+src/XlsxCell.h,13
+src/XlsxWorkSheet.cpp,11
+README.md,10
+src/XlsxWorkBook.h,10
+tests/testthat/test-missing-values.R,10
+tests/testthat/test-col-types.R,10
+src/unix/config.h,9

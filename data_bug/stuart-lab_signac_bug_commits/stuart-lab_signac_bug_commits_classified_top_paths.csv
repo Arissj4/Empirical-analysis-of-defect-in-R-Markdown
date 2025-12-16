@@ -1,0 +1,16 @@
+path,count
+R/utilities.R,51
+R/visualization.R,43
+R/objects.R,22
+R/preprocessing.R,18
+NEWS.md,17
+DESCRIPTION,13
+R/fragments.R,10
+R/links.R,9
+R/motifs.R,9
+vignettes/pbmc_vignette.Rmd,8
+R/peaks.R,7
+R/mito.R,7
+NAMESPACE,6
+azure-pipelines.yml,6
+R/iranges-methods.R,5

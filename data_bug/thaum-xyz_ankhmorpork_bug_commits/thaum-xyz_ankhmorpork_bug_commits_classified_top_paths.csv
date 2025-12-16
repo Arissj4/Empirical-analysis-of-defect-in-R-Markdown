@@ -1,0 +1,16 @@
+path,count
+apps/homeassistant/manifests/homeassistant/statefulSet.yaml,27
+apps/homeassistant/manifests/homeassistant/configs.yaml,26
+apps/homeassistant/config/configuration.yaml,24
+apps/monitoring/jsonnet/main.jsonnet,23
+apps/monitoring/config.jsonnet,12
+hack/checkimages.sh,9
+apps/homer/manifests/configmap.yaml,6
+apps/homer/manifests/deployment.yaml,6
+apps/monitoring/manifests/blackboxExporter/ingressProbe.yaml,5
+apps/monitoring/manifests/alertmanager/configTemplate.yaml,5
+apps/monitoring/raw/alertmanager-config.yaml.gtpl,5
+apps/minio/values.yaml,5
+apps/datalake-metrics/jsonnet/main.jsonnet,5
+apps/homeassistant/jsonnet/main.jsonnet,5
+apps/paperless/jsonnet/main.jsonnet,4

@@ -1,0 +1,130 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+tidyverse_datascience-box_bug_commits,Data / Input Handling,58ad92a7bb,2024-08-15T21:37:28Z,Mine Çetinkaya-Rundel,Fix filename,3,
+tidyverse_datascience-box_bug_commits,Data / Input Handling,a53863d1f1,2022-06-17T01:52:06Z,Mine Çetinkaya-Rundel,Fix indentation,3,"---FILE: .github/workflows/build-page.yaml---
+@@ -1,10 +1,12 @@
+ on:
+   push:
+     branches: main
++    paths-ignore: 
++      - '_course-materials/**'
+   pull_request:
+     branches: main
+-  paths-ignore: 
+-    - '_course..."
+tidyverse_datascience-box_bug_commits,Data / Input Handling,044faeffd9,2020-12-18T10:03:34Z,Mine Çetinkaya-Rundel,Fix,3,"---FILE: .github/workflows/render-rmd.yaml---
+@@ -23,7 +23,7 @@ jobs:
+     
+       - name: Install packages
+         run: |
+-          R -e 'install.packages(c(""rmarkdown"", ""tidyverse"", ""renv"", ""remotes"")'
++          R -..."
+tidyverse_datascience-box_bug_commits,Documentation / Formatting,038b9c3fc3,2020-12-23T22:59:46Z,Mine Cetinkaya-Rundel,"Version 2 - post Fall 2020 update (#105)
+
+* Update topic flow for 4 units
+
+* Split topic flow into 5 units and update ...",7,"---FILE: .gitignore---
+@@ -5,3 +5,5 @@ _book
+ _bookdown_files
+ *.rds
+ *.key
++*.docx
++.Rapp.history
+
+---FILE: .renvignore---
+@@ -1 +1,5 @@
+-course-materials/**.R
+\ No newline at end of file
++course-materials/**.R
++course-..."
+tidyverse_datascience-box_bug_commits,Documentation / Formatting,1edfac57b7,2021-09-09T12:33:48Z,Debbie Yuster,"Fix minor typos in HW 01 Pet names (#124)
+
+* Fix typo
+
+* Fix typos",7,"---FILE: course-materials/hw-instructions/hw-01/hw-01-pet-names.Rmd---
+@@ -1,6 +1,6 @@
+ ---
+ title: ""HW 01 - Pet names""
+-subtitle: ""Mett the toolkit""
++subtitle: ""Meet the toolkit""
+ output: 
+   tufte::tufte_html:
+     css..."
+tidyverse_datascience-box_bug_commits,Documentation / Formatting,07904103b5,2018-08-04T12:50:05Z,davidkane9,typo fix,7,"---FILE: README.md---
+@@ -11,7 +11,7 @@ This repository serves as a ""data science course in a box"" containing all materi
+ ## Contents
+ 
+ - `slides`: 26 `xaringan` slide decks, each to be covered roughly in a 75 minute cl..."
+tidyverse_datascience-box_bug_commits,Rendering / Conversion,f796a52642,2022-06-17T01:45:48Z,Mine Cetinkaya-Rundel,"Convert bookdown to Quarto webpage (#136)
+
+* Visual editor
+
+* YAML style chunk options
+
+* Convert to Quarto
+
+* Don...",7,"---FILE: .Rbuildignore---
+@@ -1,3 +0,0 @@
+-^renv$
+-^renv\.lock$
+-^\.github$
+
+---FILE: .github/workflows/build-book.yaml---
+@@ -1,67 +0,0 @@
+-on:
+-  push:
+-    branches:
+-      - main
+-    paths-ignore: 
+-    - 'course-ma..."
+tidyverse_datascience-box_bug_commits,Rendering / Conversion,709242f5aa,2020-12-24T13:38:22Z,Mine Çetinkaya-Rundel,Fix action,6,"---FILE: .github/workflows/build-book.yaml---
+@@ -48,8 +48,6 @@ jobs:
+          bookdown::render_book(""index.Rmd"", quiet = TRUE)
+         shell: Rscript {0}
+         
+-        run: Rscript -e ''
+-
+       - name: Install ..."
+tidyverse_datascience-box_bug_commits,Rendering / Conversion,f07a8df4d4,2020-09-03T15:39:03Z,Mine Çetinkaya-Rundel,Fix setup,6,"---FILE: course-materials/slides/setup.Rmd---
+@@ -1,26 +1,34 @@
+ ```{r setup, include=FALSE}
+ # R options
+ options(
+-  htmltools.dir.version = FALSE, # for blogdown
+-  show.signif.stars = FALSE,     # for regression outp..."
+tidyverse_datascience-box_bug_commits,Implementation / Logic,41c98cd528,2023-02-21T15:43:13Z,mine-cetinkaya-rundel,Moar syntax error stuff,6,"---FILE: course-materials/_slides/u2-d12-data-import/u2-d12-data-import.Rmd---
+@@ -138,10 +138,12 @@ names(edibnb_badnames)
+ 
+ ... but R doesn't allow spaces in variable names
+ 
+-```{r error=TRUE}
++````r
+ ggplot(edibnb_b..."
+tidyverse_datascience-box_bug_commits,Implementation / Logic,b521112689,2023-02-21T15:30:39Z,mine-cetinkaya-rundel,Comment stuff out for syntax errors,6,"---FILE: course-materials/_slides/u2-d01-data-viz/u2-d01-data-viz.Rmd---
+@@ -223,12 +223,12 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+ - Plots are constructed in layers
+ - Structure of the code fo..."
+tidyverse_datascience-box_bug_commits,Implementation / Logic,c7b90cd76c,2022-06-14T03:41:49Z,Tyler George,"HW6 Fixes (#135)
+
+* HW6 Fixes
+
+* reformat
+
+* k
+
+Co-authored-by: Mine Çetinkaya-Rundel <cetinkaya.mine@gmail.com>",6,"---FILE: course-materials/hw-instructions/hw-06/hw-06-money-in-politics.Rmd---
+@@ -29,7 +29,7 @@ They are also of interest to citizens who want to stay informed of how much mone
+ In the United States, *""only American cit..."
+tidyverse_datascience-box_bug_commits,Visualization / Plotting,dcbddb4f7c,2020-09-09T00:03:38Z,Mine Çetinkaya-Rundel,"Fix figure and text sizing, closes #77 and #79",7,"---FILE: course-materials/slides/u1_d02-meet-the-toolkit/u1_d02-meet-the-toolkit.Rmd---
+@@ -298,7 +298,7 @@ knitr::include_graphics(""img/lego-steps-commit-messages.png"")
+ 
+ ## Why do we need version control?
+ 
+-```{r ech..."
+tidyverse_datascience-box_bug_commits,Visualization / Plotting,dd3dbfb1d0,2020-09-04T20:43:44Z,Mine Çetinkaya-Rundel,Fix up data types lecture!,6,"---FILE: course-materials/slides/u1_d08-data-types/u1_d08-data-types.Rmd---
+@@ -17,9 +17,7 @@ output:
+ 
+ ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+ library(tidyverse)
+-library(knitr)
+ library(DT)
+-library..."
