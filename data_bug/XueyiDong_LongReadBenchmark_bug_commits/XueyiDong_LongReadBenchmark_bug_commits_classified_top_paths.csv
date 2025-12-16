@@ -1,0 +1,9 @@
+path,count
+longvsshort/qc.R,2
+longvsshort/overdisp.R,2
+README.md,1
+longvsshort/DTUmixres.R,1
+longvsshort/DTUmixrestx.R,1
+ONT/DE_mix.Rmd,1
+illumina/DE_mix.Rmd,1
+longvsshort/sequinCPMvsAbundance.R,1

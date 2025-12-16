@@ -1,0 +1,75 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+z3tt_TidyTuesday_bug_commits,Documentation / Formatting,253a111273,2022-02-18T12:26:04Z,Cédric Scherer,fix typo,7,"---FILE: README.md---
+@@ -5,7 +5,7 @@
+ <div align=""center"">
+ 
+ &nbsp;&nbsp;&nbsp;
+-<a href=""https://www-cedricscherer.com""><img border=""0"" alt=""Blog"" src=""https://assets.dryicons.com/uploads/icon/svg/4926/home.svg"" width..."
+z3tt_TidyTuesday_bug_commits,Documentation / Formatting,7e4b503c8a,2022-12-15T10:33:55Z,z3tt,fix link readme,7,"---FILE: README.md---
+@@ -456,7 +456,7 @@ My contributions to the [#TidyTuesday challenge](https://github.com/rfordatascie
+ 
+ ### [Week 2019/28](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2019_28)️ ⚽ FIFA Women'..."
+z3tt_TidyTuesday_bug_commits,Documentation / Formatting,1461f1a070,2021-07-16T07:41:56Z,Cedric Scherer,:lipstick: fix image link,7,"---FILE: plots/2021_19/README.md---
+@@ -5,6 +5,6 @@
+ **Individual Maps:**
+ 
+ ![./plots/2021_19/basic/Zambia_basic.png](https://raw.githubusercontent.com/Z3tt/TidyTuesday/master/plots/2021_19/basic/Zambia_basic.png)<br><b..."
+z3tt_TidyTuesday_bug_commits,Visualization / Plotting,2f963dc724,2020-08-18T21:33:27Z,Cédric Scherer,:art: fix overlap legend,7,"---FILE: R/2020_34_ExtinctPlants.Rmd---
+@@ -250,7 +250,7 @@ leg_a <-
+                 levels = levels(df_iucn_long$year_last_seen))
+   ) %>% 
+   mutate(hjust = if_else(as.numeric(id) %% 2 == 0, 1, 0), 
+-         xlab = i..."
+z3tt_TidyTuesday_bug_commits,Visualization / Plotting,2034a902e6,2019-04-25T09:16:32Z,Z3tt,"update 2019/14 and 2019/17
+
+fix subtitle seasonal bike plot + order labels anime movies",7,"---FILE: 2019_17_animes.Rmd---
+@@ -53,13 +53,13 @@ ghibli_genres <- df_ghibli %>%
+          subtitle = """") +
+     annotation_custom(a, xmin = 0.4, xmax = 6.75, ymin = 12, ymax = 23) +
+     theme(axis.text.x = element_t..."
+z3tt_TidyTuesday_bug_commits,Visualization / Plotting,c8dd467932,2020-08-18T20:32:12Z,Cédric Scherer,:art: fix legend + color order,7,"---FILE: R/2020_34_ExtinctPlants.Rmd---
+@@ -57,7 +57,10 @@ df_iucn_threat <-
+     values_to = ""threathened""
+   ) %>% 
+   replace_na(list(threathened = 0)) %>% 
+-  mutate(id = as.numeric(factor(threat)) / 2 + 7) %>%
++  mu..."
+z3tt_TidyTuesday_bug_commits,Rendering / Conversion,5fe78491b5,2019-11-04T09:42:52Z,Z3tt,:bug: fix date,6,"---FILE: R/2018_03_GlobalMortality.Rmd---
+@@ -1,7 +1,7 @@
+ ---
+ title: ""TidyTuesday 2018/03 - Gobal Mortality by OurWorldInData.org""
+ author: ""Cedric Scherer""
+-date: ""30th of October 2019""
++date: ""3rd of November 2019""
+ ..."
+z3tt_TidyTuesday_bug_commits,Rendering / Conversion,1740040b81,2019-04-26T12:25:14Z,Z3tt,2019/16 Data Viz Mistakes by The Economist,6,"---FILE: 2019_16_DataVizMistakes.Rmd---
+@@ -0,0 +1,156 @@
++---
++title: ""TidyTuesday 2019/16 - Data Viz Mistakes	by The Economist""
++author: ""Cedric Scherer""
++date: ""26th of April 2019""
++output:
++  html_document:
++    them..."
+z3tt_TidyTuesday_bug_commits,Rendering / Conversion,120baf1de4,2019-05-19T21:00:43Z,Z3tt,fix seplling,6,"---FILE: 2019_14_SeattleBikes.Rmd---
+@@ -103,10 +103,10 @@ bikes_month <- df_bikes_month %>%
+                        limits = c(-1, 2.5),
+                        breaks = seq(-1, 2.5, by = 0.5), 
+                        ..."
+z3tt_TidyTuesday_bug_commits,Implementation / Logic,ddff35873c,2021-05-11T13:30:54Z,Cedric Scherer,:lipstick: fix ggfx titles,6,"---FILE: R/2021_19_WaterAccessPoints.Rmd---
+@@ -17,12 +17,17 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.showtext = T, fig.retina
+ ```{r prep, message=FALSE, warning=FALSE}
+ ## packages
+ library(tidyverse)..."
+z3tt_TidyTuesday_bug_commits,Implementation / Logic,fe26d30b35,2020-07-10T18:20:46Z,Cédric Scherer,:lipstick: fix code,6,"---FILE: R/2020_28_CoffeeRatings.Rmd---
+@@ -44,7 +44,7 @@ df_coffee_p <-
+   df_coffee %>% 
+   filter(total_cup_points != 0) %>% 
+   group_by(species, owner, country_of_origin, farm_name, mill, ico_number, harvest_year, g..."
+z3tt_TidyTuesday_bug_commits,Implementation / Logic,9a5e20cb67,2020-01-25T14:22:01Z,Z3tt,:pencil2: fix grammar,6,"---FILE: R/2020_04_SpotifySongs.Rmd---
+@@ -267,7 +267,7 @@ words_pop <-
+                 fill = NA,
+                 alpha = .5,
+                 stroke = .1) +
+-    geom_smooth(method = ""lm"", se = F, 
++    geom_smooth(m..."

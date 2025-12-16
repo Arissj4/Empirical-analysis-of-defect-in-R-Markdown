@@ -1,0 +1,73 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+yuryzablotski_yuzaR-Blog_bug_commits,Documentation / Formatting,8ce454b76b,2022-12-02T11:23:50Z,yuryzablotski,robust regression blog fix. the video link did not work,7,"---FILE: _posts/2022-09-02-robustregression/robustregression.html---
+@@ -94,8 +94,8 @@
+ 
+ 
+   <!--  https://schema.org/Article -->
+-  <meta property=""article:published"" itemprop=""datePublished"" content=""2022-09-28""/>
+-  ..."
+yuryzablotski_yuzaR-Blog_bug_commits,Documentation / Formatting,6ca6c6ea57,2022-09-12T20:50:15Z,yuryzablotski,added video link for robust regression,7,"---FILE: _posts/2022-09-02-robustregression/robustregression.Rmd---
+@@ -38,7 +38,7 @@ theme_set(theme_bw())
+ I recommend to watch a video first, because I highlight things I talk about. It's less then 5 minutes long.
+ 
+ ..."
+yuryzablotski_yuzaR-Blog_bug_commits,Documentation / Formatting,fd15e625d8,2022-12-02T11:37:54Z,yuryzablotski,fixing video link of glmulti post,7,"---FILE: _posts/2022-05-31-glmulti/glmulti_files/anchor-4.2.2/anchor.min 2.js---
+@@ -1,9 +0,0 @@
+-// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+-//
+-// AnchorJS - v4.2.2 - 20..."
+yuryzablotski_yuzaR-Blog_bug_commits,Visualization / Plotting,597afa043a,2023-07-07T14:10:54Z,yuryzablotski,small change in quantile regression,6,"---FILE: _posts/2022-12-01-quantileregression/quantileregression.html---
+@@ -94,8 +94,8 @@
+ 
+ 
+   <!--  https://schema.org/Article -->
+-  <meta property=""article:published"" itemprop=""datePublished"" content=""2023-01-19""/>..."
+yuryzablotski_yuzaR-Blog_bug_commits,Visualization / Plotting,c800c2f93d,2022-12-26T15:22:01Z,yuryzablotski,new peace of brms with median regression,6,"---FILE: _posts/2022-11-29-emmeans/emmeans.Rmd---
+@@ -28,403 +28,538 @@ draft: true
+ 
+ 
+ ```{r setup, include=FALSE}
+-knitr::opts_chunk$set(echo = FALSE)
++knitr::opts_chunk$set(echo = T)
+ ```
+ 
++```{r}
++library(tidyverse..."
+yuryzablotski_yuzaR-Blog_bug_commits,Visualization / Plotting,83bfd566cd,2022-04-13T08:03:10Z,yuryzablotski,"trying to fix this issue:
+
+Error in base::file(file, encoding = ""UTF-8"") :
+  invalid 'description' argument
+Calls: <Anon...",6,"---FILE: _posts/2022-04-03-anova/anova.Rmd---
+@@ -22,7 +22,7 @@ bibliography: /Users/zablotski/Documents/library.bib
+ biblio-style: apalike
+ link-citations: yes
+ linkcolor: blue
+-draft: true
++#draft: true
+ ---
+ 
+ 
+@@ -16..."
+yuryzablotski_yuzaR-Blog_bug_commits,Rendering / Conversion,11cc460905,2023-04-22T22:54:34Z,yuryzablotski,corrected mistake in dplyr 2,6,"---FILE: _posts/2023-02-07-datawrangling2/datawrangling2.Rmd---
+@@ -87,15 +87,15 @@ mtcars %>%
+   glimpse()
+ ```
+ 
+-Selecting columns by simply writing their names into brackets seems like a great idea, but not when you'..."
+yuryzablotski_yuzaR-Blog_bug_commits,Rendering / Conversion,198a158b2a,2023-01-08T15:57:08Z,yuryzablotski,fixed one link on a QR book which was removed,6,"---FILE: _posts/2022-12-01-quantileregression/quantileregression.Rmd---
+@@ -473,7 +473,11 @@ plot(o, legend=TRUE, conf.level = .95, shade=TRUE, lty = 1, lwd = 3, col = -1, r
+ 
+ # References and further readings
+ 
+-- The ..."
+yuryzablotski_yuzaR-Blog_bug_commits,Rendering / Conversion,c373146081,2023-01-05T17:48:40Z,yuryzablotski,small mistake fixed emmeans post,6,"---FILE: _posts/2022-11-29-emmeans/emmeans.Rmd---
+@@ -70,7 +70,7 @@ Have you ever wondered, why a ""summary"" function of an omnibus test like ANOVA,
+ 
+ ![](type_1_errors.png)
+ 
+-Summary function doesn't plot the results o..."
+yuryzablotski_yuzaR-Blog_bug_commits,Implementation / Logic,2eedbacab3,2022-12-14T14:22:10Z,yuryzablotski,added video link to quantile regression post,6,"---FILE: _posts/2022-12-01-quantileregression/quantileregression.Rmd---
+@@ -38,7 +38,7 @@ theme_set(theme_bw())
+ I recommend to watch a video first, because I highlight things I talk about. It's only 14 minutes long.
+ 
+ ..."

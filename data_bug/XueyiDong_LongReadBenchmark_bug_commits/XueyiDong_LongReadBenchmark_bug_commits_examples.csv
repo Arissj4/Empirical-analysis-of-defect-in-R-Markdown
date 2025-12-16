@@ -1,0 +1,45 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+XueyiDong_LongReadBenchmark_bug_commits,Implementation / Logic,67c7e8b77e,2023-03-03T05:14:11Z,Xueyi Dong,correlation heatmap fix colour palette,6,"---FILE: longvsshort/qc.R---
+@@ -253,9 +253,11 @@ cpm <- cpm(dge.all[, 1:6])
+ tpm <- tpm3(dge.all$counts[, 7:12], dge.short$genes$Length[match(rownames(dge.all), rownames(dge.short))])
+ quant.all <- cbind(cpm, tpm)
+ corm..."
+XueyiDong_LongReadBenchmark_bug_commits,Implementation / Logic,c790a38b0a,2022-03-29T07:29:32Z,Xueyi Dong,manually fix colour in DTU gene sequin upset plot,3,"---FILE: longvsshort/DTUmixres.R---
+@@ -105,7 +105,7 @@ pdf(""plots/DTUgenesequinUpset.pdf"", height = 5, width = 11)
+ upset(fromList(append(DTU.gene.sequin.illumina.100vs000, DTU.gene.sequin.ONT.100vs000)), 
+       nsets=..."
+XueyiDong_LongReadBenchmark_bug_commits,Implementation / Logic,cb4706c97e,2022-03-29T07:27:32Z,Xueyi Dong,manually fix colour in DTU tx sequin upset plot,3,"---FILE: longvsshort/DTUmixrestx.R---
+@@ -104,8 +104,7 @@ pdf(""plots/DTUtxsequinUpset.pdf"", height = 5, width = 8)
+ upset(fromList(append(DTU.tx.sequin.illumina.100vs000, DTU.tx.sequin.ONT.100vs000)), 
+       nsets=10, n..."
+XueyiDong_LongReadBenchmark_bug_commits,Data / Input Handling,8345c2311b,2023-03-02T05:23:08Z,Xueyi Dong,fix script for read coverage plots,4,"---FILE: longvsshort/qc.R---
+@@ -10,9 +10,9 @@ library(viridis)
+ DIR=""/stornext/General/data/user_managed/grpu_mritchie_1/XueyiDong/long_read_benchmark""
+ # load DGE lists
+ # s <- catchSalmon(file.path(DIR, ""ONT/salmon_bs..."
+XueyiDong_LongReadBenchmark_bug_commits,Dependency / Package,9ff3738ee4,2023-03-01T06:23:02Z,Xueyi Dong,fix QC plots: use raw counts instead of overdispersion inflated counts,3,"---FILE: longvsshort/overdisp.R---
+@@ -5,10 +5,10 @@ library(viridis)
+ DIR=""/stornext/General/data/user_managed/grpu_mritchie_1/XueyiDong/long_read_benchmark""
+ 
+ s <- catchSalmon(file.path(DIR, ""ONT/salmon_bs"", list.file..."
+XueyiDong_LongReadBenchmark_bug_commits,Documentation / Formatting,012b0d5c42,2022-07-26T04:39:36Z,Xueyi Dong,fix typo in README,7,"---FILE: README.md---
+@@ -1,6 +1,10 @@
+ # Benchmarking long-read RNA-sequencing analysis tools using in *in silico* mixtures
+ 
+-This repository contains the code used to perform the analysis and generate the figures in [..."
+XueyiDong_LongReadBenchmark_bug_commits,Documentation / Formatting,b2a10fb0f9,2022-01-19T07:11:54Z,Xueyi Dong,fix typo in overdisp,4,"---FILE: longvsshort/overdisp.R---
+@@ -2,10 +2,12 @@ library(edgeR)
+ library(ggplot2)
+ library(viridis)
+ 
+-s <- catchSalmon(file.path(""../ONT/salmon_bs"", list.files(""../ONT/salmon_bs"")))
++DIR=""/stornext/General/data/user..."
+XueyiDong_LongReadBenchmark_bug_commits,Visualization / Plotting,a3b6969e62,2022-03-22T07:04:32Z,Xueyi Dong,fix MDS plot legend,4,"---FILE: ONT/DE_mix.Rmd---
+@@ -85,9 +85,7 @@ col <- brewer.pal(5, ""Set1"")
+ 
+ x <- calcNormFactors(x)
+ cpm <- cpm(x, log=TRUE)
+-plotMDS(cpm, labels = x$samples$group, 
+-        col = rep(col, rep(3, 5)))
+-
++plotMDS(cpm, l..."

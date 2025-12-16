@@ -1,0 +1,94 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+wkumler_RaMS_bug_commits,Documentation / Formatting,7a0af2e5aa,2020-12-08T19:52:10Z,wkumler,Fixed vignette path to reflect new location,7,"---FILE: README.md---
+@@ -22,14 +22,14 @@ other [tidy data packages](https://www.tidyverse.org/).
+ Until `RaMS` is on CRAN, the easiest way to install is via `devtools`:
+ 
+ ``` r
+-devtools::install_github(""wkumler/RaMS"",..."
+wkumler_RaMS_bug_commits,Documentation / Formatting,e68429c755,2024-02-27T17:34:34Z,wkumler,Fixing broken example,6,"---FILE: R/grabMSdataCode.R---
+@@ -314,8 +314,8 @@ checkOutputQuality <- function(output_data, grab_what){
+ #' \dontshow{data.table::setDTthreads(2)}
+ #' sample_dir <- system.file(""extdata"", package = ""RaMS"")
+ #' sample_..."
+wkumler_RaMS_bug_commits,Documentation / Formatting,d9bd93d0a3,2024-10-09T00:12:39Z,wkumler,Fixes from spell_check(),6,"---FILE: R/grabMzmlFunctions.R---
+@@ -756,7 +756,7 @@ grabSpectraPremz <- function(xml_nodes){
+ }
+ 
+ 
+-#' Extract the collison energies from the spectra of an mzML nodeset
++#' Extract the collision energies from the spec..."
+wkumler_RaMS_bug_commits,Dependency / Package,9c1aa281da,2024-10-08T23:51:21Z,wkumler,"Fixed failing tests on CRAN
+
+Now using packages listed in Suggests conditionally instead of universally",7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: RaMS
+ Type: Package
+ Title: R Access to Mass-Spec Data
+-Version: 1.4.2
++Version: 1.4.3
+ Authors@R: c(
+   person(given = ""William"", family = ""Kumler"", email = ""wkumler@uw...."
+wkumler_RaMS_bug_commits,Dependency / Package,52f91c1a6b,2022-12-13T19:08:38Z,wkumler,Adding base64encoding to the package officially. Not sure why/how this wasn't necessary before but it's fixed now!,7,"---FILE: NAMESPACE---
+@@ -17,3 +17,4 @@ import(data.table)
+ import(utils)
+ import(xml2)
+ importFrom(base64enc,base64decode)
++importFrom(base64enc,base64encode)
+
+---FILE: R/grabMSdataCode.R---
+@@ -460,7 +460,7 @@ timeRepo..."
+wkumler_RaMS_bug_commits,Dependency / Package,1f183c8757,2020-10-29T20:52:45Z,wkumler,Fixing R CMD check warnings,7,"---FILE: DESCRIPTION---
+@@ -8,4 +8,4 @@ Description: R-based access to mass-spectrometry (MS) data
+ License: MIT + file LICENSE
+ Encoding: UTF-8
+ LazyData: true
+-Imports: data.table
++Imports: data.table, mzR, xml2
+
+---FI..."
+wkumler_RaMS_bug_commits,Implementation / Logic,c83c69410d,2024-09-18T18:51:06Z,wkumler,Adding MS3 info and fixing bugs,6,"---FILE: vignettes/Intro-to-RaMS.Rmd---
+@@ -126,7 +126,8 @@ to your chromatograms as well, so customize away!
+ ```{r ggplotdemo, dpi=144}
+ ggplot(msdata$BPC) + 
+   geom_polygon(aes(x=rt, y=int, color=filename), lwd=1, fi..."
+wkumler_RaMS_bug_commits,Implementation / Logic,ae64a954e7,2024-09-17T20:04:24Z,Ethan Bass,fix: wrong time zones returned by `strptime`,6,"---FILE: R/grabMzmlFunctions.R---
+@@ -283,7 +283,8 @@ grabMzmlMetadata <- function(xml_data){
+   time_node <- xml2::xml_find_first(xml_data, xpath = ""//d1:run"")
+   time_val <- xml2::xml_attr(time_node, ""startTimeStamp"")
+..."
+wkumler_RaMS_bug_commits,Implementation / Logic,416d0245e2,2024-03-06T23:03:04Z,wkumler,Hotfix for multi-encoding mzXML files,6,"---FILE: R/grabMzxmlFunctions.R---
+@@ -638,17 +638,22 @@ grabMzxmlSpectraVoltage <- function(xml_nodes){
+ 
+ grabMzxmlSpectraMzInt <- function(xml_nodes, file_metadata){
+   all_peak_nodes <- xml2::xml_text(xml2::xml_find_..."
+wkumler_RaMS_bug_commits,Rendering / Conversion,26dbfca88a,2022-11-14T19:59:10Z,wkumler,Fixing broken URLs after CRAN feedback,6,"---FILE: README.md---
+@@ -7,7 +7,7 @@ R-based access to Mass-Spec data (RaMS)
+ [![R build
+ status](https://github.com/wkumler/RaMS/workflows/R-CMD-check/badge.svg)](https://github.com/wkumler/RaMS/actions/)
+ [![Codecov t..."
+wkumler_RaMS_bug_commits,Rendering / Conversion,e650f278e3,2022-11-05T00:02:30Z,wkumler,Fixing documentation w new chroms request syntax,6,"---FILE: doc/Intro-to-RaMS.Rmd---
+@@ -290,16 +290,16 @@ a similar neutral loss: one with a mass of 104.0710.
+ 
+ mzMLs can also contain precompiled chromatograms. Version 1.3 of RaMS enabled
+ the extraction of these chrom..."
+wkumler_RaMS_bug_commits,Rendering / Conversion,8187f35927,2021-03-16T16:26:13Z,wkumler,Updating .yml to fix CRAN warnings and unable to find python errors,6,"---FILE: .github/workflows/r-check-cran.yml---
+@@ -39,6 +39,16 @@ jobs:
+ 
+       - uses: r-lib/actions/setup-pandoc@v1
+ 
++      - name: Set up Python ${{ matrix.python-version }}
++        uses: actions/setup-python@v2
++ ..."
+wkumler_RaMS_bug_commits,Data / Input Handling,4a18e13ac5,2023-11-30T03:23:16Z,wkumler,Installing mzR directly because Linux errors,3,"---FILE: .github/workflows/r-check-cran.yml---
+@@ -71,6 +71,7 @@ jobs:
+       - name: Install dependencies
+         run: |
+           install.packages(""stringi"")
++          BiocManager::install(""mzR"")
+           remotes:..."
+wkumler_RaMS_bug_commits,Data / Input Handling,8040c782c8,2021-03-18T01:11:34Z,wkumler,Removing incorrect whitespace?,3,"---FILE: .github/workflows/r-check-cran.yml---
+@@ -64,7 +64,7 @@ jobs:
+           done < <(Rscript -e 'writeLines(remotes::system_requirements(""ubuntu"", ""20.04""))')
+       - name: Install dependencies
+         run: |
+-	 ..."

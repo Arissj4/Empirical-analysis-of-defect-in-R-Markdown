@@ -1,0 +1,272 @@
+repo_owner,repo_name,commit_hash,author,author_email,date,committer_name,committer_email,committer_date,message,filenames,touches_rmd,touches_r,touches_r_or_rmd,is_merge,added,deleted,changed,diff,_touch_r,_touch_rmd,bug_category,category_score
+XueyiDong,LongReadBenchmark,67c7e8b77e3c7d894bcb533dd6abfc168c4359ba,Xueyi Dong,dong.x@wehi.edu.au,2023-03-03T05:14:11Z,Xueyi Dong,dong.x@wehi.edu.au,2023-03-03T05:14:11Z,correlation heatmap fix colour palette,longvsshort/qc.R,False,True,True,False,15,8,23,"---FILE: longvsshort/qc.R---
+@@ -253,9 +253,11 @@ cpm <- cpm(dge.all[, 1:6])
+ tpm <- tpm3(dge.all$counts[, 7:12], dge.short$genes$Length[match(rownames(dge.all), rownames(dge.short))])
+ quant.all <- cbind(cpm, tpm)
+ cormat2 <- cor(quant.all, method = ""spearman"")
++breaksList <- seq(0, 1, by = 0.01)
+ pdf(""plots/corHeatmap.pdf"", height = 8, width = 9)
+ pheatmap(cormat2,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_cols = FALSE,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,
+@@ -281,7 +283,8 @@ quant.all.sel <- cbind(cpm.sel[match(rownames(tpm.sel), rownames(cpm.sel)), ], t
+ cormat3 <- cor(quant.all.sel, method = ""spearman"")
+ pdf(""plots/corHeatmapCoding.pdf"", height = 7, width = 8)
+ pheatmap(cormat3,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_cols = FALSE,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,
+@@ -307,7 +310,8 @@ quant.all.sel <- cbind(cpm.sel[match(rownames(tpm.sel), rownames(cpm.sel)), ], t
+ cormat3 <- cor(quant.all.sel, method = ""spearman"")
+ pdf(""plots/corHeatmapOther.pdf"", height = 8, width = 9)
+ pheatmap(cormat3,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_cols = FALSE,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,
+@@ -327,7 +331,8 @@ dev.off()
+ cormat4 <- cor(quant.all[grepl(""^R"", rownames(quant.all)),], method = ""spearman"")
+ pdf(""plots/corHeatmapSequin.pdf"", height = 8, width = 9)
+ pheatmap(cormat4,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_cols = FALSE,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,
+@@ -348,7 +353,8 @@ dev.off()
+ cormat.tx1 <- cor(quant.all[dge.all$genes$nTranscript==1,], method = ""spearman"")
+ pdf(""plots/corHeatmaptx1.pdf"", height = 8, width = 9)
+ pheatmap(cormat.tx1,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_cols = FALSE,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,
+@@ -368,8 +374,8 @@ dev.off()
+ cormat.tx2_5 <- cor(quant.all[dge.all$genes$nTranscript>=2 & dge.all$genes$nTranscript <= 5,], method = ""spearman"")
+ pdf(""plots/corHeatmaptx2_5.pdf"", height = 8, width = 9)
+ pheatmap(cormat.tx2_5,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
+-         cluster_cols = FALSE,
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,
+          show_rownames = FALSE,
+@@ -388,7 +394,8 @@ dev.off()
+ cormat.tx5 <- cor(quant.all[dge.all$genes$nTranscript > 5,], method = ""spearman"")
+ pdf(""plots/corHeatmaptx5.pdf"", height = 8, width = 9)
+ pheatmap(cormat.tx5,
+-         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(100),
++         color = colorRampPalette(brewer.pal(n = 7, name = ""PuBuGn""))(length(breaksList)),
++         breaks = breaksList,
+          cluster_cols = FALSE,
+          cluster_rows = FALSE,
+          show_colnames = FALSE,",True,False,Implementation / Logic,6
+XueyiDong,LongReadBenchmark,8345c2311bf392d25ce5f4da80c4e33162e5e5f2,Xueyi Dong,dong.x@wehi.edu.au,2023-03-02T05:23:08Z,Xueyi Dong,dong.x@wehi.edu.au,2023-03-02T05:23:08Z,fix script for read coverage plots,longvsshort/qc.R,False,True,True,False,4,4,8,"---FILE: longvsshort/qc.R---
+@@ -10,9 +10,9 @@ library(viridis)
+ DIR=""/stornext/General/data/user_managed/grpu_mritchie_1/XueyiDong/long_read_benchmark""
+ # load DGE lists
+ # s <- catchSalmon(file.path(DIR, ""ONT/salmon_bs"", list.files(file.path(DIR, ""/ONT/salmon_bs""))))
+-# dge <- DGEList(counts=s$counts/s$annotation$Overdispersion, genes=s$annotation)
++# dge <- DGEList(counts=s$counts, genes=s$annotation)
+ # s.short <- catchSalmon(file.path(DIR, ""illumina/salmon_bs"", list.files(file.path(DIR, ""illumina/salmon_bs""))))
+-# dge.short <- DGEList(counts = s.short$counts/s.short$annotation$Overdispersion, genes = s.short$annotation)
++# dge.short <- DGEList(counts = s.short$counts, genes = s.short$annotation)
+ 
+ dge <- readRDS(""dge.rds"")
+ dge.short <- readRDS(""dge.short.rds"")
+@@ -26,7 +26,7 @@ read.stat <- data.frame(
+                31073747, 34059318, 27974052, 31329213, 134000622, 30331521),
+   mapped_reads = c(41054341, 35939259, 36437436, 46878103, 40629774, 36962945,
+                    28999906, 31495290, 26126733, 29046678, 125097661, 26408681),
+-  read_counts = c(dge$samples$lib.size[1:6], dge.short$samples$lib.size[1:6]),
++  # read_counts = c(dge$samples$lib.size[1:6], dge.short$samples$lib.size[1:6]),
+   dataset = rep(c(""ONT"", ""Illumina""), c(6,6))
+ )
+ 
+@@ -36,7 +36,7 @@ pdf(""plots/readNum.pdf"", height = 6, width = 6)
+ ggplot(read.stat, aes(x=variable, y=value, fill=sample, label = value))+
+   geom_bar(stat=""identity"") +
+   facet_grid(cols=vars(dataset)) +
+-  geom_text(aes(label = label_number_si()(value)), size = 4, colour = ""white"", position = position_stack(vjust = 0.5)) +
++  geom_text(aes(label = label_number_si()(value)), size = 3, colour = ""white"", position = position_stack(vjust = 0.5)) +
+   ylab(""Number"") +
+   xlab(""Category"") +
+   theme_bw() +",True,False,Data / Input Handling,4
+XueyiDong,LongReadBenchmark,9ff3738ee418ade9e379cae3906ddd00ad1cd056,Xueyi Dong,dong.x@wehi.edu.au,2023-03-01T06:23:02Z,Xueyi Dong,dong.x@wehi.edu.au,2023-03-01T06:23:02Z,fix QC plots: use raw counts instead of overdispersion inflated counts,longvsshort/overdisp.R,False,True,True,False,2,2,4,"---FILE: longvsshort/overdisp.R---
+@@ -5,10 +5,10 @@ library(viridis)
+ DIR=""/stornext/General/data/user_managed/grpu_mritchie_1/XueyiDong/long_read_benchmark""
+ 
+ s <- catchSalmon(file.path(DIR, ""ONT/salmon_bs"", list.files(file.path(DIR, ""/ONT/salmon_bs""))))
+-dge <- DGEList(counts=s$counts/s$annotation$Overdispersion, genes=s$annotation)
++dge <- DGEList(counts=s$counts, genes=s$annotation)
+ 
+ s.short <- catchSalmon(file.path(DIR, ""illumina/salmon_bs"", list.files(file.path(DIR, ""illumina/salmon_bs""))))
+-dge.short <- DGEList(counts = s.short$counts/s.short$annotation$Overdispersion, genes = s.short$annotation)
++dge.short <- DGEList(counts = s.short$counts, genes = s.short$annotation)
+ 
+ # long vs short scatter plot ----
+ m <- match(rownames(dge.short), rownames(dge))",True,False,Dependency / Package,3
+XueyiDong,LongReadBenchmark,012b0d5c426c06a3957a6d3ffbf6ea29e99c7d3b,Xueyi Dong,dong.x@wehi.edu.au,2022-07-26T04:39:36Z,Xueyi Dong,dong.x@wehi.edu.au,2022-07-26T04:39:36Z,fix typo in README,README.md,False,False,False,False,9,5,14,"---FILE: README.md---
+@@ -1,6 +1,10 @@
+ # Benchmarking long-read RNA-sequencing analysis tools using in *in silico* mixtures
+ 
+-This repository contains the code used to perform the analysis and generate the figures in [this preprint](https://www.biorxiv.org/content/10.1101/2022.07.22.501076v1).
++This repository contains the code used to perform the analysis and generate the figures in this preprint:
++
++Benchmarking long-read RNA-sequencing analysis tools using in silico mixtures
++Xueyi Dong, Mei R. M. Du, Quentin Gouil, Luyi Tian, Pedro L. Baldoni, Gordon K. Smyth, Shanika L. Amarasinghe, Charity W. Law, Matthew E. Ritchie
++bioRxiv 2022.07.22.501076; doi: [https://doi.org/10.1101/2022.07.22.501076](https://doi.org/10.1101/2022.07.22.501076)
+ 
+ ## Index
+ 
+@@ -18,19 +22,19 @@ Illumina: [illumina/mix_prepare](illumina/mix_prepare)
+ 
+ ONT: [ONT/preprocess](ONT/preprocess)
+ 
+-Illumina: [Illumina/salmon_map.sh](Illumina/salmon_map.sh)
++Illumina: [illumina/salmon_map.sh](illumina/salmon_map.sh)
+ 
+ ### Quality control
+ 
+ ONT-specific: [ONT/QC](ONT/QC)
+ 
+-general: [longvsshort/overdisp.R](longvsshort/overdisp.R), [longvsshort/qc.R](longvsshort/qc.R) and [longvsshort/sequinCPMvsAbundance.R]
++general: [longvsshort/overdisp.R](longvsshort/overdisp.R), [longvsshort/qc.R](longvsshort/qc.R) and [longvsshort/sequinCPMvsAbundance.R](longvsshort/sequinCPMvsAbundance.R)
+ 
+ ### Isoform detection
+ 
+ Scripts to run softwares: [ONT/isoform_detection/methods](ONT/isoform_detection/methods)
+ 
+-Results comparison: [ONT/isoform_detecion/analysis](ONT/isoform_detecion/analysis)
++Results comparison: [ONT/isoform_detection/analysis](ONT/isoform_detection/analysis)
+ 
+ ### Differential transcript expression
+ 
+@@ -50,4 +54,4 @@ Results comparison: [longvsshort/DTUmixres.R](longvsshort/DTUmixres.R) and [long
+ 
+ ## Data Availability
+ 
+-Our RNA-seq data are available from Gene Expression Omnibus (GEO) under accession number GSE172421.
++Our RNA-seq data are available from Gene Expression Omnibus (GEO) under accession number [GSE172421](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE172421).",False,False,Documentation / Formatting,7
+XueyiDong,LongReadBenchmark,c790a38b0a43d85f748a7f68fd155bf2b6b876ea,Xueyi Dong,dong.x@wehi.edu.au,2022-03-29T07:29:32Z,Xueyi Dong,dong.x@wehi.edu.au,2022-03-29T07:29:32Z,manually fix colour in DTU gene sequin upset plot,longvsshort/DTUmixres.R,False,True,True,False,1,1,2,"---FILE: longvsshort/DTUmixres.R---
+@@ -105,7 +105,7 @@ pdf(""plots/DTUgenesequinUpset.pdf"", height = 5, width = 11)
+ upset(fromList(append(DTU.gene.sequin.illumina.100vs000, DTU.gene.sequin.ONT.100vs000)), 
+       nsets=10, nintersects = 25, order.by = ""freq"",
+       text.scale = c(1.5, 1.5, 1.5, 1.2, 1.2, 1.5),
+-      sets.bar.color = c(""#ECD98B"", ""#AAAAC2"",  ""#03875C"", ""#9A4C43"", ""#4E3227"")[c(2, 1, 5, 4, 3, 2, 5, 1, 4, 3)])
++      sets.bar.color = c(""#ECD98B"", ""#AAAAC2"",  ""#03875C"", ""#9A4C43"", ""#4E3227"")[c(2, 1, 2, 5, 4, 3, 4, 1, 5, 3)])
+ dev.off()
+ 
+ # human and sequin",True,False,Implementation / Logic,3
+XueyiDong,LongReadBenchmark,cb4706c97e35fa9345106bba7284f928019fc061,Xueyi Dong,dong.x@wehi.edu.au,2022-03-29T07:27:32Z,Xueyi Dong,dong.x@wehi.edu.au,2022-03-29T07:27:32Z,manually fix colour in DTU tx sequin upset plot,longvsshort/DTUmixrestx.R,False,True,True,False,1,2,3,"---FILE: longvsshort/DTUmixrestx.R---
+@@ -104,8 +104,7 @@ pdf(""plots/DTUtxsequinUpset.pdf"", height = 5, width = 8)
+ upset(fromList(append(DTU.tx.sequin.illumina.100vs000, DTU.tx.sequin.ONT.100vs000)), 
+       nsets=10, nintersects = 25, order.by = ""freq"",
+       text.scale = c(1.5, 1.5, 1.5, 1.2, 1.2, 1.5),
+-      sets.bar.color = c(""#ECD98B"", ""#AAAAC2"",  ""#03875C"", ""#9A4C43"", ""#4E3227"")[c(2, 4, 1, 5, 5, 2, 3, 1, 4, 3)]
+-      )
++      sets.bar.color = c(""#ECD98B"", ""#AAAAC2"",  ""#03875C"", ""#9A4C43"", ""#4E3227"")[c(2, 2, 4, 1, 1, 5, 3, 5, 4, 3)])
+ dev.off()
+ 
+ # human and sequin",True,False,Implementation / Logic,3
+XueyiDong,LongReadBenchmark,a3b6969e6246ebb05824eed823047d3ba01680b7,Xueyi Dong,dong.x@wehi.edu.au,2022-03-22T07:04:32Z,Xueyi Dong,dong.x@wehi.edu.au,2022-03-22T07:04:32Z,fix MDS plot legend,ONT/DE_mix.Rmd;illumina/DE_mix.Rmd;longvsshort/sequinCPMvsAbundance.R,True,False,True,False,11,10,21,"---FILE: ONT/DE_mix.Rmd---
+@@ -85,9 +85,7 @@ col <- brewer.pal(5, ""Set1"")
+ 
+ x <- calcNormFactors(x)
+ cpm <- cpm(x, log=TRUE)
+-plotMDS(cpm, labels = x$samples$group, 
+-        col = rep(col, rep(3, 5)))
+-
++plotMDS(cpm, labels = x$samples$group)
+ x$samples
+ 
+ human.gene <- grep(""^ENST"", rownames(x))
+@@ -96,11 +94,14 @@ cpm.human <- cpm(x[human.gene, ], log=TRUE)
+ cpm.sequin <- cpm(x[sequin.gene, ], log=TRUE)
+ # par(mfrow=c(1,2))
+ pdf(file.path(OUT, ""mds_human.pdf""), height = 4, width = 8)
++par(mar=c(6.1, 4.1, 4.1, 8.1), xpd=TRUE)
+ plotMDS(cpm.human, pch = rep(c(1, 2), c(6, 9)),
+         col = rep(col, rep(3, 5)), main=""ONT human"",
+         cex.main = 1.5, cex.lab = 1.5, cex.axis = 1.5, cex = 1.5)
+-legend(""topleft"", c(""0:100"", ""25:75"", ""50:50"", ""75:25"", ""100:0""), 
+-        text.col = col[c(1, 3, 4, 5, 2)], cex = 1.25, bty = ""n"")
++legend(""topright"", inset=c(-0.25,0), c(""100:000"", ""075:025"", ""050:050"", ""025:075"", ""000:100""), 
++       pch = c(1, 2, 2, 2, 1),
++       col = col[c(1, 5, 4, 3, 2)],
++       text.col = col[c(1, 5, 4, 3, 2)], cex = 1.25)
+ dev.off()
+ pdf(file.path(OUT, ""mds_sequin.pdf""), height = 4, width = 8)
+ plotMDS(cpm.sequin, pch = rep(c(1, 2), c(6, 9)),
+
+---FILE: illumina/DE_mix.Rmd---
+@@ -103,14 +103,14 @@ tpm.sequin <- log(tpm.sequin + 2)
+ # par(mfrow=c(1,2))
+ pdf(file.path(OUT, ""mds_human.pdf""), height = 5, width = 8)
+ plotMDS(cpm.human, pch = rep(c(1, 2), c(6, 9)),
+-        col = rep(col, rep(3, 5)), main=""MDS plot for human genes"",
++        col = rep(col, rep(3, 5)), main=""Illumina human"",
+         cex.main = 1.5, cex.lab = 1.5, cex.axis = 1.5, cex = 1.5)
+-legend(""topleft"", c(""0:100"", ""25:75"", ""50:50"", ""75:25"", ""100:0""), 
+-        text.col = col[c(1, 3, 4, 5, 2)], cex = 1.25, bty = ""n"")
++legend(""topleft"", c(""100:0"", ""75:25"", ""50:50"", ""25:75"", ""0:100""), 
++        text.col = col[c(1, 5, 4, 3, 2)], cex = 1.25, bty = ""n"")
+ dev.off()
+ pdf(file.path(OUT, ""mds_sequin.pdf""), height = 5, width = 8)
+ plotMDS(cpm.sequin, pch = rep(c(1, 2), c(6, 9)),
+-        col = rep(col, rep(3, 5)), main = ""MDS plot for sequin genes"",
++        col = rep(col, rep(3, 5)), main = ""Illumina sequin"",
+         cex.main = 1.5, cex.lab = 1.5, cex.axis = 1.5, cex = 1.5)
+ dev.off()
+ ```
+
+---FILE: longvsshort/sequinCPMvsAbundance.R---
+@@ -8,7 +8,7 @@ p.long <- p.long + theme(legend.position = ""none"") +
+   ggtitle(""ONT sequins"") 
+ p.short <- p.short + theme(legend.position = ""none"") +
+   ggtitle(""Illumina sequins"") 
+-pdf(""plots/sequinCPMvsAbundance.pdf"", height = 8, width = 8)
++pdf(""plots/sequinCPMvsAbundance.pdf"", height = 8, width = 7)
+ plot_grid(p.long,
+           p.short,
+           leg,",True,True,Visualization / Plotting,4
+XueyiDong,LongReadBenchmark,b2a10fb0f97ecea58450e7c7511e9b0f5a8913c4,Xueyi Dong,dong.x@wehi.edu.au,2022-01-19T07:11:54Z,Xueyi Dong,dong.x@wehi.edu.au,2022-01-19T07:11:54Z,fix typo in overdisp,longvsshort/overdisp.R,False,True,True,False,6,4,10,"---FILE: longvsshort/overdisp.R---
+@@ -2,10 +2,12 @@ library(edgeR)
+ library(ggplot2)
+ library(viridis)
+ 
+-s <- catchSalmon(file.path(""../ONT/salmon_bs"", list.files(""../ONT/salmon_bs"")))
++DIR=""/stornext/General/data/user_managed/grpu_mritchie_1/XueyiDong/long_read_benchmark""
++
++s <- catchSalmon(file.path(DIR, ""ONT/salmon_bs"", list.files(file.path(DIR, ""/ONT/salmon_bs""))))
+ dge <- DGEList(counts=s$counts/s$annotation$Overdispersion, genes=s$annotation)
+ 
+-s.short <- catchSalmon(file.path(""../illumina/salmon_bs"", list.files(""../illumina/salmon_bs"")))
++s.short <- catchSalmon(file.path(DIR, ""illumina/salmon_bs"", list.files(file.path(DIR, ""illumina/salmon_bs""))))
+ dge.short <- DGEList(counts = s.short$counts/s.short$annotation$Overdispersion, genes = s.short$annotation)
+ 
+ # long vs short scatter plot
+@@ -102,8 +104,8 @@ dev.off()
+ # explore ONT or Illumina only findings
+ DE.human.illumina.100vs000 <- readRDS(""DE.human.illumina.100vs000.RDS"")
+ DE.human.ONT.100vs000 <- readRDS( ""DE.human.ONT.100vs000.RDS"")
+-DE.sequin.illumina.100vs000 <- readRDS(""DE.human.illumina.100vs000.RDS"")
+-DE.sequin.ONT.100vs000 <- readRDS( ""DE.human.ONT.100vs000.RDS"")
++DE.sequin.illumina.100vs000 <- readRDS(""DE.sequin.illumina.100vs000.RDS"")
++DE.sequin.ONT.100vs000 <- readRDS( ""DE.sequin.ONT.100vs000.RDS"")
+ 
+ # intersect.human.ONT <- Reduce(intersect, DE.human.ONT.100vs000)
+ # intersect.human.Illumina <- Reduce(intersect, DE.human.illumina.100vs000)",True,False,Documentation / Formatting,4
