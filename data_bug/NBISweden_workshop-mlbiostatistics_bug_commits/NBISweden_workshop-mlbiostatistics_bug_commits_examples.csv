@@ -1,0 +1,90 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+NBISweden_workshop-mlbiostatistics_bug_commits,Visualization / Plotting,0cedf69a94,2025-04-07T09:26:02Z,evaf,Fix Poisson,6,"---FILE: session-probability/docs/index.html---
+@@ -2,7 +2,7 @@
+ <html xmlns=""http://www.w3.org/1999/xhtml"" lang=""en"" xml:lang=""en""><head>
+ 
+ <meta charset=""utf-8"">
+-<meta name=""generator"" content=""quarto-1.3.450"">
++<met..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Visualization / Plotting,18942b9e2b,2025-06-12T08:39:20Z,Olga Hrydziuszko,"Fix typos, add plot",4,"---FILE: session-survival-presentation/presentation.html---
+@@ -253,7 +253,7 @@ <h2>Kaplan-Meier estimator</h2>
+ <p>where:</p>
+ <ul>
+ <li><span class=""math inline"">\(d_j\)</span>: number of failures at time <span class=""..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Rendering / Conversion,af49d38dd5,2024-04-24T17:53:43Z,olgadet,Fix typo,6,"---FILE: session-lm/.quarto/_freeze/lm-coeff/execute-results/html.json---
+@@ -1,7 +1,7 @@
+ {
+-  ""hash"": ""d37aedc9c7f6dc6496a3e05931b657d2"",
++  ""hash"": ""cb19d3d8313ccf769cff4456f54fc54f"",
+   ""result"": {
+-    ""markdown"": ""..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Rendering / Conversion,8b4f11b03b,2022-09-14T21:58:14Z,Mun-Gwan Hong,fix the name of the author,6,"---FILE: session-pca/exercises-solutions.Rmd---
+@@ -1,6 +1,6 @@
+ ---
+ title: ""Exercises and solutions: PCA""
+-author: ""Eva Freyhult, Mun-Gwan Hong""
++author: ""Mun-Gwan Hong""
+ date: ""2022-09-15""
+ output:
+   html_document:"
+NBISweden_workshop-mlbiostatistics_bug_commits,Rendering / Conversion,e1ebe46ae5,2024-04-29T15:22:34Z,olgadet,Fix typos and notations,6,"---FILE: session-lm-presentation/.quarto/xref/1eca1403---
+@@ -1 +1 @@
+-{""headings"":[""we-will-learn"",""why-linear-models"",""statistical-vs.-deterministic-relationship"",""statistical-vs.-deterministic-relationship-1"",""statist..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Documentation / Formatting,53a20c930a,2022-09-10T10:13:36Z,olgadet,Fix name and link,7,"---FILE: schedule.md---
+@@ -55,7 +55,7 @@ title:  'Schedule'
+ 
+ **15.00 - 15.30** [Multiple testing correction](session-inference/infe-multiple.html)
+ 
+-**15.30 - 16.30** [Non parametric tests](session-rank-tests/docs/in..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Documentation / Formatting,eeba5fe575,2019-03-14T12:35:35Z,olgadet,Fix ul link,7,"---FILE: travel.md---
+@@ -18,5 +18,5 @@ title: 'Travel'
+ 
+ 
+ 
+-[ul]: [https://www.ul.se/en]
++[ul]: https://www.ul.se/en
+ [mazemap]: https://use.mazemap.com/#v=1&zlevel=1&left=17.5570095&right=17.7032085&top=59.8806680&bo..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Documentation / Formatting,95ab216e63,2022-09-02T13:13:05Z,Julie Lorent,fix typo logitsic and code Yanny as 1,7,"---FILE: session-glm/304-linear-GLM.Rmd---
+@@ -9,7 +9,6 @@ editor_options:
+ **Aims**
+ 
+ - to briefly introduce GLMs via examples of modeling binary and count response
+-- to test if repo works
+ 
+ **Learning outcomes**
+ 
+@..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Reproducibility / Versioning,bb3459fb39,2022-09-14T21:37:02Z,Mun-Gwan Hong,Fix adjust_html_for_canvas.sh for session-pca,1,"---FILE: session-pca/html/adjust_html_for_canvas.sh---
+@@ -1,5 +1,5 @@
+ #!/bin/zsh
+-COURSE_GITHUB_IO=""https://nbisweden.github.io/workshop-mlbiostatistics/session-clustering/html""
++COURSE_GITHUB_IO=""https://nbisweden.git..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Data / Input Handling,fa7fcf98dd,2022-09-13T14:40:47Z,Olga,"Ignore session-pca from rendering 
+
+Caused Jekyll error",3,"---FILE: _config.yml---
+@@ -7,7 +7,7 @@ includes_dir: ./workshop-common/includes
+ sass:
+   sass_dir: ./workshop-common/sass
+ 
+-exclude: [""session-probability/*.Rmd"",""session-probability/lectures/""]
++exclude: [""session-pr..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Implementation / Logic,a518d9a00a,2021-10-06T13:32:04Z,bsennblad,Fix typos,6,"---FILE: session-regularization/01RegularizationLecture.Rmd---
+@@ -56,7 +56,7 @@ In practice, the proportionality is ignored and we set
+ $$L[\theta|Y,X] = Pr[Y|X, \theta]$$
+ 
+ <details>
+-<summary> <span style=""color:gray..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Implementation / Logic,30cf8c3114,2021-08-30T11:36:39Z,bsennblad,Fix premature norm reference. Fix LRT error,6,"---FILE: session-regularization/01RegularizationLecture.Rmd---
+@@ -2,7 +2,7 @@
+ # Learning outcomes
+ 
+ * ML pipeline
+-    + preprocessing (scalin,l nrmalization/standardization);
++    + preprocessing (scaling, normalizat..."
+NBISweden_workshop-mlbiostatistics_bug_commits,Implementation / Logic,f757808218,2021-08-30T07:06:00Z,Eva Freyhult,Fix typos,6,"---FILE: session-regularization/01RegularizationLecture.Rmd---
+@@ -2,7 +2,7 @@
+ # Learning outcomes
+ 
+ * ML pipeline
+-    + preprocessing (scalin,l nrmalization/standardization);
++    + preprocessing (scaling, normalizat..."
