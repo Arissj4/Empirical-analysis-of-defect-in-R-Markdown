@@ -1,0 +1,154 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+neurogenomics_orthogene_bug_commits,Documentation / Formatting,b2fa2e8cab,2025-09-27T16:20:53Z,bschilder,Fix roxygen notes. Fix ggplot2 facet deprecation,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: orthogene
+ Type: Package
+ Title: Interspecies gene mapping 
+-Version: 1.13.01
++Version: 1.14.01
+ Authors@R:
+     c( 
+      person(given = ""Brian"",
+@@ -63,7 +63,7 @@ Sugge..."
+neurogenomics_orthogene_bug_commits,Documentation / Formatting,af3492ee84,2023-04-17T16:47:38Z,bschilder,Fix roxygen note mismatch,7,"---FILE: man/earthworm2human_map.Rd---
+@@ -5,7 +5,7 @@
+ \title{Earthworm to human map}
+ \usage{
+ earthworm2human_map(
+-  evalue_threshold = 1e-10,
++  evalue_threshold = NULL,
+   save_dir = tools::R_user_dir(""orthogene"", ..."
+neurogenomics_orthogene_bug_commits,Documentation / Formatting,cf3b74b059,2023-04-09T10:50:15Z,bschilder,fix readme links [skip ci],7,"---FILE: R/ggtree_plot.R---
+@@ -79,6 +79,7 @@ ggtree_plot <- function(tr,
+              geom = ""label"",
+              offset = .3*x,
+              vjust = -.5, 
++             hjust = .5,
+              color=""grey20"",
+   ..."
+neurogenomics_orthogene_bug_commits,Implementation / Logic,2e5081fcd3,2023-10-27T16:43:57Z,Al-Murphy,Bug fix: handle cases where no genes found in species,6,"---FILE: NEWS.md---
+@@ -2,7 +2,8 @@
+ 
+ ## Bug fixes
+ 
+-* Catch case where no genes are found in the species in `map_genes()`
++* Catch case where no genes are found in the species in `map_genes()` & test 
++  case added.
+ ..."
+neurogenomics_orthogene_bug_commits,Implementation / Logic,6bad8b2d8c,2023-07-13T21:38:17Z,bschilder,make same fixes as RELEASE_3_17,6,"---FILE: NEWS.md---
+@@ -1,7 +1,25 @@
+ # orthogene  1.7.1
+ 
++## New features
++
++* `remove_all_nas`
++    - Can handle multiple cols.
++
+ ## Bug fixes
+ 
++* `add_columns`
++    - Handle both vectors and columns.
++* `sort_rows_..."
+neurogenomics_orthogene_bug_commits,Implementation / Logic,8d4ca21558,2023-05-02T21:12:11Z,bschilder,Fix drop_non121,6,"---FILE: NEWS.md---
+@@ -16,6 +16,8 @@
+     - When `syn_map` is `NULL`, will use the `gene_map` instead.
+ * `map_orthologs_custom`
+     - Remove `if(input_species==output_species) return(NULL)`
++* `drop_non121`
++    - Don..."
+neurogenomics_orthogene_bug_commits,Dependency / Package,8e681a5b52,2021-07-28T15:49:58Z,bschilder,"Pass all CRAN checks. fixed most Biochecks
+
+
+Former-commit-id: 4c0fb4a68e78b62a4721b5c832c28bc5f96a7335",7,"---FILE: .Rbuildignore---
+@@ -1,2 +1,13 @@
+ ^.*\.Rproj$
+ ^\.Rproj\.user$
++^LICENSE\.md$
++^orthogene\.Rproj$
++^\.Rproj\.user$
++^README.Rmd
++^\.github$
++^doc$
++^Meta$
++^codecov\.yml$
++^_pkgdown\.yml$
++^docs$
++^pkgdown$ 
+
+-..."
+neurogenomics_orthogene_bug_commits,Dependency / Package,6165398cb6,2021-10-27T22:09:53Z,bschilder,Fix install -> installed typo,4,"---FILE: .github/workflows/check-bioc-docker.yml---
+@@ -276,8 +276,8 @@ jobs:
+         env:
+           DISPLAY: 99.0
+         run: |
+-          if(!""BiocManager"" %in% rownames(install.packages())) install.packages(""BiocM..."
+neurogenomics_orthogene_bug_commits,Dependency / Package,c25d142bd6,2021-11-02T16:31:12Z,bschilder,Fix DockerFile,3,"---FILE: Dockerfile---
+@@ -52,7 +52,7 @@ RUN Rscript -e 'options(download.file.method= ""libcurl""); \
+                 if(!""BiocManager"" %in% rownames(utils::installed.packages)) {install.packages(""BiocManager"")}; \
+     ..."
+neurogenomics_orthogene_bug_commits,Data / Input Handling,247faaa394,2021-10-25T21:30:21Z,bschilder,Fix yaml syntax 2,6,"---FILE: .github/workflows/dockerhub.yml---
+@@ -50,19 +50,18 @@ jobs:
+       - name: Create Dockerfile 
+         env:
+           DISPLAY: 99.0
+-        if: 'true' == 'false'
+         run: |
+-          #### Install packag..."
+neurogenomics_orthogene_bug_commits,Data / Input Handling,8901fe53e8,2021-11-02T16:26:57Z,bschilder,Set anvil repos. remove bioccheck until  fixed. Login to Docker at beginning,3,"---FILE: .github/workflows/dockerhub.yml---
+@@ -36,6 +36,13 @@ jobs:
+           echo version
+         shell: bash {0}   
+       
++      # Run this before anything else to make s
++      - name: Login to DockerHub
++       ..."
+neurogenomics_orthogene_bug_commits,Data / Input Handling,8e1b47f455,2021-10-25T21:29:37Z,bschilder,Fix yaml syntax,3,"---FILE: .github/workflows/dockerhub.yml---
+@@ -48,6 +48,8 @@ jobs:
+         shell: bash {0}  
+       
+       - name: Create Dockerfile 
++        env:
++          DISPLAY: 99.0
+         if: 'true' == 'false'
+         run:..."
+neurogenomics_orthogene_bug_commits,Reproducibility / Versioning,d78ff0d431,2021-10-27T16:04:41Z,bschilder,Fix release version,7,"---FILE: DESCRIPTION---
+@@ -1,7 +1,7 @@
+ Package: orthogene
+ Type: Package
+ Title: Interspecies gene mapping 
+-Version: 1.1.0
++Version: 1.0.0
+ Authors@R:
+     c( 
+      person(given = ""Brian"",
+
+---FILE: README.Rmd---
+@@ ..."
+neurogenomics_orthogene_bug_commits,Environment / Configuration,57e919df85,2021-07-31T18:39:45Z,bschilder,Fixed  R-CMD-check.yaml syntax but linux checks fail at pulling the docker container,4,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -37,29 +37,29 @@ jobs:
+         run: |
+           Rscript -e 'remotes::install_github(""r-lib/covr@gh-actions"")'
+           Rscript -e 'covr::codecov(token = ""${{secrets.C..."
+neurogenomics_orthogene_bug_commits,Environment / Configuration,6c9e6e776a,2021-07-31T18:37:53Z,bschilder,Fix R-CMD-check.yaml,4,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -43,7 +43,7 @@ jobs:
+       matrix:
+         r: ['release']
+     container: rstudio/r-base:${{ matrix.r }}-xenial
+-      env:
++    env:
+       CRAN: 'https://demo.rstudio..."
+neurogenomics_orthogene_bug_commits,Environment / Configuration,807672ea5a,2021-10-27T00:30:03Z,bschilder,Fix Dockerfile,3,"---FILE: Dockerfile---
+@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-
+ RUN echo ""options(repos = c(BioCsoft = 'https://bioconductor.org/packages/devel/bioc',\
+           ..."
+neurogenomics_orthogene_bug_commits,Rendering / Conversion,10bf3ef9d4,2021-07-31T18:36:14Z,bschilder,Fix R-CMD-check.yaml,6,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -37,29 +37,29 @@ jobs:
+         run: |
+           Rscript -e 'remotes::install_github(""r-lib/covr@gh-actions"")'
+           Rscript -e 'covr::codecov(token = ""${{secrets.C..."
+neurogenomics_orthogene_bug_commits,Rendering / Conversion,7f41bd4106,2021-10-16T04:52:07Z,Brian M. Schilder,Fix xml2 error,3,"---FILE: .github/workflows/R-CMD-check.yaml---
+@@ -29,6 +29,8 @@ jobs:
+           r-version: ${{ matrix.r }}
+       - uses: r-lib/actions/setup-pandoc@master
+       - uses: r-lib/actions/setup-tinytex@master
++      - nam..."

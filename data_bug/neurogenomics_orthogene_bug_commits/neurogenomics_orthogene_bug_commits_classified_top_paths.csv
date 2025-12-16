@@ -1,0 +1,16 @@
+path,count
+NEWS.md,19
+DESCRIPTION,12
+README.Rmd,9
+R/convert_orthologs.R,6
+README.md,6
+Dockerfile,6
+.github/workflows/R-CMD-check.yaml,6
+R/map_orthologs.R,5
+NAMESPACE,5
+tests/testthat/test-map_orthologs_babelgene.R,5
+R/plot_orthotree.R,4
+man/convert_orthologs.Rd,4
+tests/testthat/test-convert_orthologs.R,4
+.github/workflows/check-bioc-docker.yml,4
+man/plot_orthotree.Rd,3
