@@ -1,0 +1,16 @@
+path,count
+NEWS.md,193
+DESCRIPTION,47
+R/markdown.R,40
+NAMESPACE,37
+R/parse.R,34
+vignettes/rd.Rmd,33
+R/roclet-rd.R,33
+R/utils.R,31
+R/namespace.R,26
+R/roxygenize.R,25
+R/rd-inherit.R,24
+R/rd.R,24
+NEWS,24
+tests/testthat/test-namespace.R,22
+tests/testthat/test-rd-inherit.R,19

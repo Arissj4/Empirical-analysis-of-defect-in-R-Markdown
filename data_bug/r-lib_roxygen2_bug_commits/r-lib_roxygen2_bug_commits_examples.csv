@@ -1,0 +1,178 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+r-lib_roxygen2_bug_commits,Implementation / Logic,864ed25502,2025-09-03T19:12:55Z,Hadley Wickham,"Update snapshots (#1722)
+
+* Update snapshots
+
+Since knitr now generates srcref locations in a different format
+
+* Fix sn...",6,"---FILE: tests/testthat/_snaps/markdown-code.md---
+@@ -15,7 +15,7 @@
+       
+     Message
+       
+-      Quitting from lines 1-1
++      Quitting from :1-1
+       x <text>:4: @description failed to evaluate inline markdow..."
+r-lib_roxygen2_bug_commits,Implementation / Logic,335448d8fc,2023-11-16T16:26:48Z,Henning Lorenzen,"Escape ""%"" etc. in URLs (#1416)
+
+Fixes #1415",6,"---FILE: NEWS.md---
+@@ -1,5 +1,8 @@
+ # roxygen2 (development version)
+ 
++* `URL` and `BugReports` fields in `DESCRIPTION` may now contain 
++  percent-encoded URLs (@HenningLorenzen-ext-bayer, #1415).
++
+ * `@inherit` can ..."
+r-lib_roxygen2_bug_commits,Implementation / Logic,968b5b8f7d,2023-11-15T21:41:54Z,Hadley Wickham,"Check that object has a name
+
+Fixes #1490",6,"---FILE: NEWS.md---
+@@ -1,5 +1,8 @@
+ # roxygen2 (development version)
+ 
++* `@describeIn()` gives a more informative warning if you use it with an
++  unsupported type (#1490).
++
+ * A friendlier error is thrown when attemp..."
+r-lib_roxygen2_bug_commits,Documentation / Formatting,ea46525e44,2008-08-25T11:40:59Z,pcd,"fix callgraph terminating }s; VignetteIndexEntry
+
+
+git-svn-id: svn+ssh://svn.r-forge.r-project.org/svnroot/roxygen@183 e...",7,"---FILE: pkg/R/callgraph.R---
+@@ -19,10 +19,11 @@ register.preref.parsers(parse.toggle,
+ #' \enumerate{
+ #' \item{\code{@@callGraph}}{Create a call graph of the default
+ #'   depth (currently 2), excluding primitive func..."
+r-lib_roxygen2_bug_commits,Documentation / Formatting,ace81d34c5,2025-04-22T17:09:54Z,Maëlle Salmon,"feat: add support for ROR in package documentation (#1699)
+
+* feat: add support for ROR in package documentation
+
+* fix:...",7,"---FILE: DESCRIPTION---
+@@ -7,7 +7,8 @@ Authors@R: c(
+     person(""Peter"", ""Danenberg"", , ""pcd@roxygen.org"", role = c(""aut"", ""cph"")),
+     person(""Gábor"", ""Csárdi"", , ""csardi.gabor@gmail.com"", role = ""aut""),
+     person(..."
+r-lib_roxygen2_bug_commits,Documentation / Formatting,662b3c67c1,2011-07-26T00:36:07Z,hadley,Fix typo reported by Yihui,7,"---FILE: R/roxygenize.R---
+@@ -8,7 +8,7 @@
+ #'
+ #' @param package.dir the package's top directory
+ #' @param roxygen.dir where to create roxygen output; defaults to
+-#'   \file{package.roxygen}.
++#'   \file{package.dir}...."
+r-lib_roxygen2_bug_commits,Dependency / Package,7ae215c69d,2024-07-09T14:40:48Z,Ari Lamstein,"Update namespace.Rmd (#1597)
+
+Fix typo.",7,"---FILE: vignettes/namespace.Rmd---
+@@ -20,7 +20,7 @@ This is a little frustrating at first, but soon becomes second-nature.
+ ## Exports
+ 
+ In order for your users to use a function[^1] in your package, you must **export..."
+r-lib_roxygen2_bug_commits,Dependency / Package,4b042dda6c,2023-11-22T13:15:07Z,Hadley Wickham,"Don't add package name alias if used elsewhere (#1549)
+
+Fixes #1160",7,"---FILE: NAMESPACE---
+@@ -36,6 +36,7 @@ S3method(format,rd_section_keyword)
+ S3method(format,rd_section_minidesc)
+ S3method(format,rd_section_name)
+ S3method(format,rd_section_note)
++S3method(format,rd_section_package)
+ ..."
+r-lib_roxygen2_bug_commits,Dependency / Package,a510ddd20f,2023-11-02T12:51:50Z,Hadley Wickham,"Upkeep 2023-11 (#1524)
+
+* Update snapshots
+* Drop C++ specification
+* Re-document
+* Update logo + favicons
+* Always ...",7,"---FILE: .github/workflows/pkgdown.yaml---
+@@ -19,6 +19,8 @@ jobs:
+       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
+     env:
+       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
++    permissio..."
+r-lib_roxygen2_bug_commits,Rendering / Conversion,066c3a504e,2023-11-02T16:39:51Z,musvaage,Fix typos (#1486),6,"---FILE: .github/SUPPORT.md---
+@@ -42,7 +42,7 @@ roxygen2 issues can be tricky to create a minimal reprex for. There are two gene
+     problem goes away. Once you've done that, sometimes you'll be able to 
+     reduce th..."
+r-lib_roxygen2_bug_commits,Rendering / Conversion,c0b8e1fb84,2022-07-10T20:50:00Z,Hadley Wickham,"Improve `@param` style in vignettes
+
+Fixes #1379",6,"---FILE: vignettes/rd-formatting.Rmd---
+@@ -38,7 +38,7 @@ Here is an example roxygen chunk that uses Markdown.
+ #' that package to learn how to use roxygen.
+ #'
+ #' @param pkg package description, can be path or package ..."
+r-lib_roxygen2_bug_commits,Rendering / Conversion,5613b8e1a7,2022-07-07T00:38:05Z,Hadley Wickham,"Document `@noRd`
+
+Fixes #1367",6,"---FILE: vignettes/rd.Rmd---
+@@ -681,6 +681,11 @@ This warning originates in Pandoc, and it is harmless.
+ 
+ ## Other tags
+ 
++### Suppress documentation
++
++It's sometimes useful to include roxygen2 documentation tags with..."
+r-lib_roxygen2_bug_commits,Reproducibility / Versioning,5f8ee8aeaa,2017-01-31T16:51:12Z,hadley,Bump version and fix news,7,"---FILE: DESCRIPTION---
+@@ -4,7 +4,7 @@ Description: Generate your Rd documentation, 'NAMESPACE' file, and collation
+     field using specially formatted comments. Writing documentation in-line
+     with code makes it ea..."
+r-lib_roxygen2_bug_commits,Reproducibility / Versioning,c6e5cfbdae,2008-08-03T01:30:53Z,Peter Danenberg,abstract substr.regexpr; fix description.dependencies to deal with version; keep toFile-formals until 19.2 becomes mains...,7,"---FILE: DESCRIPTION---
+@@ -7,4 +7,4 @@ Author: Peter Danenberg <pcd@roxygen.org>,
+         Manuel Eugster <Manuel.Eugster@stat.uni-muenchen.de>
+ Maintainer: Peter Danenberg <pcd@roxygen.org>
+ URL: http://roxygen.org
+-Su..."
+r-lib_roxygen2_bug_commits,Reproducibility / Versioning,be33f0e0dc,2008-08-03T01:30:53Z,pcd,abstract substr.regexpr; fix description.dependencies to deal with version; keep toFile-formals until 19.2 becomes mains...,7,"---FILE: DESCRIPTION---
+@@ -7,4 +7,4 @@ Author: Peter Danenberg <pcd@roxygen.org>,
+         Manuel Eugster <Manuel.Eugster@stat.uni-muenchen.de>
+ Maintainer: Peter Danenberg <pcd@roxygen.org>
+ URL: http://roxygen.org
+-Su..."
+r-lib_roxygen2_bug_commits,Environment / Configuration,c1a1e2520d,2017-01-25T17:44:30Z,Kirill Müller,"Fix Windows problems (#565)
+
+* fix Windows tests
+
+* use \r  only on Windows
+
+* avoid using devtools::document()
+
+*...",6,"---FILE: .Rbuildignore---
+@@ -8,3 +8,4 @@
+ ^roxygen.pro.user$
+ ^revdep$
+ ^codecov\.yml$
++^appveyor\.yml$
+
+---FILE: R/enc.R---
+@@ -0,0 +1,8 @@
++read_lines_enc <- function(path, file_encoding = ""UTF-8"", n = -1L, ok = TRUE,..."
+r-lib_roxygen2_bug_commits,Environment / Configuration,d3dccc77d6,2017-01-06T16:26:38Z,hadley,"Strip windows slashes too
+
+Fixes #556",3,"---FILE: R/utils.R---
+@@ -107,9 +107,9 @@ ignore_files <- function(rfiles, path) {
+   if (!file.exists(rbuildignore))
+     return(rfiles)
+ 
+-  # Strip leading directory and /
++  # Strip leading directory and slashes
+   r..."
+r-lib_roxygen2_bug_commits,Environment / Configuration,844363ffec,2013-12-04T17:22:35Z,hadley,Fix typo in .Rbuildignore,3,"---FILE: .Rbuildignore---
+@@ -4,4 +4,4 @@
+ ^.*\.Rproj$
+ ^\.Rproj\.user$
+ ^\.travis\.yml$
+-^\.NEWS\.md$
++^\NEWS\.md$"
+r-lib_roxygen2_bug_commits,Data / Input Handling,64d52d4af3,2014-02-05T21:02:07Z,hadley,Fix yaml problem,3,"---FILE: .travis.yml---
+@@ -10,8 +10,8 @@ script: ./travis-tool.sh run_tests
+ env:
+   - global:
+     - WARNINGS_ARE_ERRORS=1
+-    -R_BUILD_ARGS=""--no-manual""
+-    -R_CHECK_ARGS=""--no-manual --as-cran""
++    - R_BUILD_ARGS..."
+r-lib_roxygen2_bug_commits,Data / Input Handling,2dc0c5da92,2013-11-13T09:09:25Z,Kirill Müller,warning are errors,3,"---FILE: .travis.yml---
+@@ -6,6 +6,11 @@ language: c
+ # To build on OSX, switch the previous line to
+ # language: objective-c
+ script: ./travis-tool.sh run_tests
++
++env:
++  - global:
++    - WARNINGS_ARE_ERRORS=1
++
+ befor..."
