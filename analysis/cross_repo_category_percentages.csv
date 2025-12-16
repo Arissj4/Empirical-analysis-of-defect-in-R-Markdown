@@ -1,0 +1,300 @@
+repo,bug_category,percent
+tidyverse_readxl_bug_commits_classified,Implementation / Logic,37.9
+tidyverse_readxl_bug_commits_classified,Documentation / Formatting,28.8
+tidyverse_readxl_bug_commits_classified,Dependency / Package,12.9
+tidyverse_readxl_bug_commits_classified,Rendering / Conversion,12.9
+tidyverse_readxl_bug_commits_classified,Data / Input Handling,3.8
+tidyverse_readxl_bug_commits_classified,Environment / Configuration,2.3
+tidyverse_readxl_bug_commits_classified,Reproducibility / Versioning,0.8
+tidyverse_readxl_bug_commits_classified,File I/O and Export,0.8
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,Implementation / Logic,69.7
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,Rendering / Conversion,11.8
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,Data / Input Handling,7.2
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,Documentation / Formatting,3.9
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,Dependency / Package,3.9
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,File I/O and Export,2.6
+Triangle-Modeling-and-Analytics_TRMG2_bug_commits_classified,Visualization / Plotting,0.7
+Economic-and-Financial-Data-Discovery_imfdatapy_bug_commits_classified,Data / Input Handling,61.5
+Economic-and-Financial-Data-Discovery_imfdatapy_bug_commits_classified,Documentation / Formatting,19.2
+Economic-and-Financial-Data-Discovery_imfdatapy_bug_commits_classified,Rendering / Conversion,11.5
+Economic-and-Financial-Data-Discovery_imfdatapy_bug_commits_classified,Environment / Configuration,3.8
+Economic-and-Financial-Data-Discovery_imfdatapy_bug_commits_classified,Implementation / Logic,3.8
+rstudio_bslib_bug_commits_classified,Documentation / Formatting,41.3
+rstudio_bslib_bug_commits_classified,Implementation / Logic,34.7
+rstudio_bslib_bug_commits_classified,Dependency / Package,9.5
+rstudio_bslib_bug_commits_classified,Rendering / Conversion,7
+rstudio_bslib_bug_commits_classified,Data / Input Handling,5
+rstudio_bslib_bug_commits_classified,Environment / Configuration,1.2
+rstudio_bslib_bug_commits_classified,Visualization / Plotting,1.2
+biol607_biol607.github.io_bug_commits_classified,Rendering / Conversion,39.8
+biol607_biol607.github.io_bug_commits_classified,Documentation / Formatting,35.4
+biol607_biol607.github.io_bug_commits_classified,Implementation / Logic,11.5
+biol607_biol607.github.io_bug_commits_classified,Visualization / Plotting,11.5
+biol607_biol607.github.io_bug_commits_classified,Dependency / Package,0.9
+biol607_biol607.github.io_bug_commits_classified,Data / Input Handling,0.9
+tidyverse_tidyverse.org_bug_commits_classified,Documentation / Formatting,53.2
+tidyverse_tidyverse.org_bug_commits_classified,Implementation / Logic,31
+tidyverse_tidyverse.org_bug_commits_classified,Rendering / Conversion,9.9
+tidyverse_tidyverse.org_bug_commits_classified,Dependency / Package,3
+tidyverse_tidyverse.org_bug_commits_classified,Visualization / Plotting,1.5
+tidyverse_tidyverse.org_bug_commits_classified,Environment / Configuration,0.5
+tidyverse_tidyverse.org_bug_commits_classified,Data / Input Handling,0.5
+tidyverse_tidyverse.org_bug_commits_classified,Reproducibility / Versioning,0.5
+rstudio_rticles_bug_commits_classified,Documentation / Formatting,40
+rstudio_rticles_bug_commits_classified,Rendering / Conversion,37
+rstudio_rticles_bug_commits_classified,Dependency / Package,11.9
+rstudio_rticles_bug_commits_classified,Implementation / Logic,8.9
+rstudio_rticles_bug_commits_classified,Data / Input Handling,1.5
+rstudio_rticles_bug_commits_classified,Reproducibility / Versioning,0.7
+nipraxis_textbook_bug_commits_classified,Rendering / Conversion,51.3
+nipraxis_textbook_bug_commits_classified,Documentation / Formatting,19.2
+nipraxis_textbook_bug_commits_classified,Data / Input Handling,16.7
+nipraxis_textbook_bug_commits_classified,Implementation / Logic,9
+nipraxis_textbook_bug_commits_classified,Environment / Configuration,3.8
+andrewmarx_samc_bug_commits_classified,Implementation / Logic,75.6
+andrewmarx_samc_bug_commits_classified,Documentation / Formatting,15.4
+andrewmarx_samc_bug_commits_classified,Rendering / Conversion,5.7
+andrewmarx_samc_bug_commits_classified,Dependency / Package,3.3
+compsocialscience_summer-institute_bug_commits_classified,Data / Input Handling,45.7
+compsocialscience_summer-institute_bug_commits_classified,Documentation / Formatting,44.5
+compsocialscience_summer-institute_bug_commits_classified,Rendering / Conversion,7
+compsocialscience_summer-institute_bug_commits_classified,Implementation / Logic,1.9
+compsocialscience_summer-institute_bug_commits_classified,Dependency / Package,0.9
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Rendering / Conversion,48.5
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Documentation / Formatting,30.3
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Implementation / Logic,13.6
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Environment / Configuration,3
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Data / Input Handling,1.5
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Dependency / Package,1.5
+emptyfield-ds_teaching_warehouse_bug_commits_classified,Visualization / Plotting,1.5
+gaynorr_AlphaSimR_bug_commits_classified,Documentation / Formatting,33.3
+gaynorr_AlphaSimR_bug_commits_classified,Implementation / Logic,33.3
+gaynorr_AlphaSimR_bug_commits_classified,Dependency / Package,19.6
+gaynorr_AlphaSimR_bug_commits_classified,Rendering / Conversion,9.8
+gaynorr_AlphaSimR_bug_commits_classified,Reproducibility / Versioning,2
+gaynorr_AlphaSimR_bug_commits_classified,Environment / Configuration,2
+rafalab_dsbook_bug_commits_classified,Rendering / Conversion,37.7
+rafalab_dsbook_bug_commits_classified,Documentation / Formatting,29
+rafalab_dsbook_bug_commits_classified,Implementation / Logic,29
+rafalab_dsbook_bug_commits_classified,Data / Input Handling,2.9
+rafalab_dsbook_bug_commits_classified,Visualization / Plotting,1.4
+wkumler_RaMS_bug_commits_classified,Implementation / Logic,55.1
+wkumler_RaMS_bug_commits_classified,Documentation / Formatting,15.9
+wkumler_RaMS_bug_commits_classified,Rendering / Conversion,14.5
+wkumler_RaMS_bug_commits_classified,Dependency / Package,11.6
+wkumler_RaMS_bug_commits_classified,Data / Input Handling,2.9
+NBISweden_workshop-mlbiostatistics_bug_commits_classified,Documentation / Formatting,47.1
+NBISweden_workshop-mlbiostatistics_bug_commits_classified,Rendering / Conversion,40
+NBISweden_workshop-mlbiostatistics_bug_commits_classified,Implementation / Logic,7.1
+NBISweden_workshop-mlbiostatistics_bug_commits_classified,Visualization / Plotting,2.9
+NBISweden_workshop-mlbiostatistics_bug_commits_classified,Reproducibility / Versioning,1.4
+NBISweden_workshop-mlbiostatistics_bug_commits_classified,Data / Input Handling,1.4
+ecmerkle_blavaan_bug_commits_classified,Dependency / Package,45.4
+ecmerkle_blavaan_bug_commits_classified,Implementation / Logic,40.6
+ecmerkle_blavaan_bug_commits_classified,Documentation / Formatting,9.4
+ecmerkle_blavaan_bug_commits_classified,Rendering / Conversion,1.9
+ecmerkle_blavaan_bug_commits_classified,Data / Input Handling,1.9
+ecmerkle_blavaan_bug_commits_classified,Reproducibility / Versioning,0.8
+thaum-xyz_ankhmorpork_bug_commits_classified,Data / Input Handling,77.1
+thaum-xyz_ankhmorpork_bug_commits_classified,Documentation / Formatting,7.4
+thaum-xyz_ankhmorpork_bug_commits_classified,Environment / Configuration,6.4
+thaum-xyz_ankhmorpork_bug_commits_classified,Visualization / Plotting,5.6
+thaum-xyz_ankhmorpork_bug_commits_classified,Rendering / Conversion,1.9
+thaum-xyz_ankhmorpork_bug_commits_classified,Dependency / Package,1.6
+SISBID_Data-Wrangling_bug_commits_classified,Rendering / Conversion,53.4
+SISBID_Data-Wrangling_bug_commits_classified,Documentation / Formatting,27.4
+SISBID_Data-Wrangling_bug_commits_classified,Implementation / Logic,19.2
+stuart-lab_signac_bug_commits_classified,Implementation / Logic,56.8
+stuart-lab_signac_bug_commits_classified,Documentation / Formatting,30.5
+stuart-lab_signac_bug_commits_classified,Data / Input Handling,4.7
+stuart-lab_signac_bug_commits_classified,Rendering / Conversion,4.7
+stuart-lab_signac_bug_commits_classified,Dependency / Package,1.7
+stuart-lab_signac_bug_commits_classified,Environment / Configuration,0.8
+stuart-lab_signac_bug_commits_classified,Visualization / Plotting,0.4
+stuart-lab_signac_bug_commits_classified,Reproducibility / Versioning,0.4
+tidyverse_datascience-box_bug_commits_classified,Rendering / Conversion,43.2
+tidyverse_datascience-box_bug_commits_classified,Documentation / Formatting,34.6
+tidyverse_datascience-box_bug_commits_classified,Implementation / Logic,16
+tidyverse_datascience-box_bug_commits_classified,Data / Input Handling,3.7
+tidyverse_datascience-box_bug_commits_classified,Visualization / Plotting,2.5
+bcgov_CCISS_ShinyApp_bug_commits_classified,Implementation / Logic,62.2
+bcgov_CCISS_ShinyApp_bug_commits_classified,Documentation / Formatting,14.3
+bcgov_CCISS_ShinyApp_bug_commits_classified,Rendering / Conversion,12.2
+bcgov_CCISS_ShinyApp_bug_commits_classified,Data / Input Handling,4.1
+bcgov_CCISS_ShinyApp_bug_commits_classified,Visualization / Plotting,2
+bcgov_CCISS_ShinyApp_bug_commits_classified,Dependency / Package,2
+bcgov_CCISS_ShinyApp_bug_commits_classified,File I/O and Export,2
+bcgov_CCISS_ShinyApp_bug_commits_classified,Environment / Configuration,1
+SBOHVM_RPiR_bug_commits_classified,Documentation / Formatting,44.4
+SBOHVM_RPiR_bug_commits_classified,Rendering / Conversion,28.3
+SBOHVM_RPiR_bug_commits_classified,Dependency / Package,15.2
+SBOHVM_RPiR_bug_commits_classified,Implementation / Logic,8.1
+SBOHVM_RPiR_bug_commits_classified,Data / Input Handling,4
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Rendering / Conversion,35.8
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Visualization / Plotting,26.4
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Documentation / Formatting,17
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Implementation / Logic,13.2
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Environment / Configuration,2.8
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Dependency / Package,2.8
+SLCLADAL_SLCLADAL.github.io_bug_commits_classified,Reproducibility / Versioning,1.9
+PhanstielLab_plotgardener_bug_commits_classified,Implementation / Logic,61.6
+PhanstielLab_plotgardener_bug_commits_classified,Documentation / Formatting,28
+PhanstielLab_plotgardener_bug_commits_classified,Dependency / Package,7.2
+PhanstielLab_plotgardener_bug_commits_classified,Rendering / Conversion,2.2
+PhanstielLab_plotgardener_bug_commits_classified,Data / Input Handling,0.9
+satijalab_seurat_bug_commits_classified,Implementation / Logic,66.2
+satijalab_seurat_bug_commits_classified,Documentation / Formatting,22.5
+satijalab_seurat_bug_commits_classified,Dependency / Package,6.7
+satijalab_seurat_bug_commits_classified,Rendering / Conversion,2.1
+satijalab_seurat_bug_commits_classified,Visualization / Plotting,0.8
+satijalab_seurat_bug_commits_classified,Data / Input Handling,0.8
+satijalab_seurat_bug_commits_classified,Reproducibility / Versioning,0.7
+satijalab_seurat_bug_commits_classified,Environment / Configuration,0.2
+satijalab_seurat_bug_commits_classified,File I/O and Export,0.1
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Documentation / Formatting,52.8
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Implementation / Logic,26
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Dependency / Package,6.5
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Rendering / Conversion,6.1
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Data / Input Handling,4.8
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Reproducibility / Versioning,2.2
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Visualization / Plotting,0.9
+IndrajeetPatil_ggstatsplot_bug_commits_classified,Environment / Configuration,0.9
+r-lib_roxygen2_bug_commits_classified,Documentation / Formatting,53.8
+r-lib_roxygen2_bug_commits_classified,Implementation / Logic,27
+r-lib_roxygen2_bug_commits_classified,Dependency / Package,13.9
+r-lib_roxygen2_bug_commits_classified,Rendering / Conversion,3.5
+r-lib_roxygen2_bug_commits_classified,Reproducibility / Versioning,0.8
+r-lib_roxygen2_bug_commits_classified,Environment / Configuration,0.6
+r-lib_roxygen2_bug_commits_classified,Data / Input Handling,0.4
+easystats_parameters_bug_commits_classified,Implementation / Logic,45.4
+easystats_parameters_bug_commits_classified,Documentation / Formatting,37.3
+easystats_parameters_bug_commits_classified,Dependency / Package,14.3
+easystats_parameters_bug_commits_classified,Rendering / Conversion,1.3
+easystats_parameters_bug_commits_classified,Environment / Configuration,0.8
+easystats_parameters_bug_commits_classified,Reproducibility / Versioning,0.8
+easystats_parameters_bug_commits_classified,Data / Input Handling,0.2
+ArgoCanada_argoFloats_bug_commits_classified,Implementation / Logic,54.2
+ArgoCanada_argoFloats_bug_commits_classified,Documentation / Formatting,34.3
+ArgoCanada_argoFloats_bug_commits_classified,Dependency / Package,5.3
+ArgoCanada_argoFloats_bug_commits_classified,Rendering / Conversion,2.8
+ArgoCanada_argoFloats_bug_commits_classified,Data / Input Handling,2.2
+ArgoCanada_argoFloats_bug_commits_classified,Environment / Configuration,1.2
+Bioconductor_pkgrevdocs_bug_commits_classified,Documentation / Formatting,51.6
+Bioconductor_pkgrevdocs_bug_commits_classified,Dependency / Package,22.6
+Bioconductor_pkgrevdocs_bug_commits_classified,Rendering / Conversion,12.9
+Bioconductor_pkgrevdocs_bug_commits_classified,Implementation / Logic,12.9
+Polkas_pacs_bug_commits_classified,Documentation / Formatting,54.1
+Polkas_pacs_bug_commits_classified,Implementation / Logic,37.8
+Polkas_pacs_bug_commits_classified,Dependency / Package,5.4
+Polkas_pacs_bug_commits_classified,Environment / Configuration,2.7
+RConsortium_S7_bug_commits_classified,Documentation / Formatting,69
+RConsortium_S7_bug_commits_classified,Implementation / Logic,25.2
+RConsortium_S7_bug_commits_classified,Dependency / Package,5.8
+XueyiDong_LongReadBenchmark_bug_commits_classified,Implementation / Logic,37.5
+XueyiDong_LongReadBenchmark_bug_commits_classified,Documentation / Formatting,25
+XueyiDong_LongReadBenchmark_bug_commits_classified,Data / Input Handling,12.5
+XueyiDong_LongReadBenchmark_bug_commits_classified,Dependency / Package,12.5
+XueyiDong_LongReadBenchmark_bug_commits_classified,Visualization / Plotting,12.5
+ajrgodfrey_BrailleR_bug_commits_classified,Documentation / Formatting,40.5
+ajrgodfrey_BrailleR_bug_commits_classified,Implementation / Logic,35.7
+ajrgodfrey_BrailleR_bug_commits_classified,Dependency / Package,17.9
+ajrgodfrey_BrailleR_bug_commits_classified,Rendering / Conversion,4.8
+ajrgodfrey_BrailleR_bug_commits_classified,Environment / Configuration,1.2
+andreamazzella_IntRo_bug_commits_classified,Documentation / Formatting,50
+andreamazzella_IntRo_bug_commits_classified,Rendering / Conversion,37.5
+andreamazzella_IntRo_bug_commits_classified,Implementation / Logic,12.5
+cxli233_FriendsDontLetFriends_bug_commits_classified,Documentation / Formatting,90.9
+cxli233_FriendsDontLetFriends_bug_commits_classified,Dependency / Package,9.1
+daviddalpiaz_appliedstats_bug_commits_classified,Implementation / Logic,35.8
+daviddalpiaz_appliedstats_bug_commits_classified,Documentation / Formatting,35
+daviddalpiaz_appliedstats_bug_commits_classified,Rendering / Conversion,26.8
+daviddalpiaz_appliedstats_bug_commits_classified,Data / Input Handling,1.6
+daviddalpiaz_appliedstats_bug_commits_classified,Dependency / Package,0.8
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,Implementation / Logic,48.3
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,Documentation / Formatting,24.6
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,Rendering / Conversion,16.1
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,Dependency / Package,5.1
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,Environment / Configuration,3.4
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,File I/O and Export,1.7
+dfo-mar-odis_shinySpatialApp_bug_commits_classified,Data / Input Handling,0.8
+easystats_effectsize_bug_commits_classified,Documentation / Formatting,48.9
+easystats_effectsize_bug_commits_classified,Implementation / Logic,31.8
+easystats_effectsize_bug_commits_classified,Dependency / Package,17
+easystats_effectsize_bug_commits_classified,Environment / Configuration,1.1
+easystats_effectsize_bug_commits_classified,Rendering / Conversion,0.9
+easystats_effectsize_bug_commits_classified,Reproducibility / Versioning,0.3
+hyunjimoon_SBC_bug_commits_classified,Implementation / Logic,60
+hyunjimoon_SBC_bug_commits_classified,Documentation / Formatting,30.8
+hyunjimoon_SBC_bug_commits_classified,Rendering / Conversion,7.7
+hyunjimoon_SBC_bug_commits_classified,Dependency / Package,1.5
+info340_book_bug_commits_classified,Implementation / Logic,50
+info340_book_bug_commits_classified,Documentation / Formatting,26.3
+info340_book_bug_commits_classified,Rendering / Conversion,23.7
+leppott_ContDataQC_bug_commits_classified,Documentation / Formatting,38.8
+leppott_ContDataQC_bug_commits_classified,Rendering / Conversion,27.9
+leppott_ContDataQC_bug_commits_classified,Dependency / Package,26.4
+leppott_ContDataQC_bug_commits_classified,Environment / Configuration,2.3
+leppott_ContDataQC_bug_commits_classified,File I/O and Export,2.3
+leppott_ContDataQC_bug_commits_classified,Reproducibility / Versioning,1.6
+leppott_ContDataQC_bug_commits_classified,Data / Input Handling,0.8
+neurogenomics_orthogene_bug_commits_classified,Documentation / Formatting,52.2
+neurogenomics_orthogene_bug_commits_classified,Implementation / Logic,17.4
+neurogenomics_orthogene_bug_commits_classified,Dependency / Package,10.9
+neurogenomics_orthogene_bug_commits_classified,Data / Input Handling,6.5
+neurogenomics_orthogene_bug_commits_classified,Environment / Configuration,6.5
+neurogenomics_orthogene_bug_commits_classified,Rendering / Conversion,4.3
+neurogenomics_orthogene_bug_commits_classified,Reproducibility / Versioning,2.2
+oliviergimenez_banana-book_bug_commits_classified,Rendering / Conversion,57.9
+oliviergimenez_banana-book_bug_commits_classified,Implementation / Logic,21.1
+oliviergimenez_banana-book_bug_commits_classified,Documentation / Formatting,10.5
+oliviergimenez_banana-book_bug_commits_classified,Visualization / Plotting,5.3
+oliviergimenez_banana-book_bug_commits_classified,Environment / Configuration,5.3
+opensaludlab_ciencia_datos_bug_commits_classified,Documentation / Formatting,95.5
+opensaludlab_ciencia_datos_bug_commits_classified,Dependency / Package,4.5
+r-tmap_tmap_bug_commits_classified,Implementation / Logic,69.6
+r-tmap_tmap_bug_commits_classified,Documentation / Formatting,24
+r-tmap_tmap_bug_commits_classified,Dependency / Package,4
+r-tmap_tmap_bug_commits_classified,Rendering / Conversion,1.1
+r-tmap_tmap_bug_commits_classified,Environment / Configuration,0.6
+r-tmap_tmap_bug_commits_classified,Data / Input Handling,0.3
+r-tmap_tmap_bug_commits_classified,Visualization / Plotting,0.2
+r-tmap_tmap_bug_commits_classified,File I/O and Export,0.2
+ropensci_bold_bug_commits_classified,Documentation / Formatting,41
+ropensci_bold_bug_commits_classified,Implementation / Logic,35.9
+ropensci_bold_bug_commits_classified,Dependency / Package,12.8
+ropensci_bold_bug_commits_classified,Reproducibility / Versioning,6.8
+ropensci_bold_bug_commits_classified,Data / Input Handling,3.4
+rstudio_tensorflow.rstudio.com_bug_commits_classified,Rendering / Conversion,52.4
+rstudio_tensorflow.rstudio.com_bug_commits_classified,Data / Input Handling,28.6
+rstudio_tensorflow.rstudio.com_bug_commits_classified,Documentation / Formatting,9.5
+rstudio_tensorflow.rstudio.com_bug_commits_classified,Implementation / Logic,9.5
+stan-dev_cmdstanr_bug_commits_classified,Implementation / Logic,61.9
+stan-dev_cmdstanr_bug_commits_classified,Documentation / Formatting,16.5
+stan-dev_cmdstanr_bug_commits_classified,Rendering / Conversion,8.5
+stan-dev_cmdstanr_bug_commits_classified,Data / Input Handling,5.4
+stan-dev_cmdstanr_bug_commits_classified,Environment / Configuration,3
+stan-dev_cmdstanr_bug_commits_classified,Dependency / Package,2.8
+stan-dev_cmdstanr_bug_commits_classified,File I/O and Export,1.1
+stan-dev_cmdstanr_bug_commits_classified,Reproducibility / Versioning,0.8
+strengejacke_sjPlot_bug_commits_classified,Documentation / Formatting,48.4
+strengejacke_sjPlot_bug_commits_classified,Implementation / Logic,37.7
+strengejacke_sjPlot_bug_commits_classified,Dependency / Package,12.8
+strengejacke_sjPlot_bug_commits_classified,Rendering / Conversion,0.9
+strengejacke_sjPlot_bug_commits_classified,Visualization / Plotting,0.3
+tsahota_NMproject_bug_commits_classified,Implementation / Logic,57.8
+tsahota_NMproject_bug_commits_classified,Documentation / Formatting,27.7
+tsahota_NMproject_bug_commits_classified,Dependency / Package,7.2
+tsahota_NMproject_bug_commits_classified,Rendering / Conversion,2.8
+tsahota_NMproject_bug_commits_classified,Data / Input Handling,1.6
+tsahota_NMproject_bug_commits_classified,File I/O and Export,1.2
+tsahota_NMproject_bug_commits_classified,Environment / Configuration,0.8
+tsahota_NMproject_bug_commits_classified,Reproducibility / Versioning,0.4
+tsahota_NMproject_bug_commits_classified,Visualization / Plotting,0.4
+yuryzablotski_yuzaR-Blog_bug_commits_classified,Documentation / Formatting,40.9
+yuryzablotski_yuzaR-Blog_bug_commits_classified,Rendering / Conversion,40.9
+yuryzablotski_yuzaR-Blog_bug_commits_classified,Visualization / Plotting,13.6
+yuryzablotski_yuzaR-Blog_bug_commits_classified,Implementation / Logic,4.5
+z3tt_TidyTuesday_bug_commits_classified,Visualization / Plotting,37.1
+z3tt_TidyTuesday_bug_commits_classified,Documentation / Formatting,36
+z3tt_TidyTuesday_bug_commits_classified,Rendering / Conversion,21.3
+z3tt_TidyTuesday_bug_commits_classified,Implementation / Logic,5.6
