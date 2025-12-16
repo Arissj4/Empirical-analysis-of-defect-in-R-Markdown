@@ -1,0 +1,89 @@
+repo,bug_category,commit_hash,date,author,message,score,diff_snippet
+rstudio_tensorflow.rstudio.com_bug_commits,Rendering / Conversion,8a0556a442,2023-02-13T01:21:47Z,Tomasz Kalinowski,render + error fixes + style tweaks,7,"---FILE: .gitignore---
+@@ -18,3 +18,9 @@ guides/keras/logs/
+ examples/creditcardfraud.zip
+ examples/fraud_model_at*
+ examples/creditcard.csv
++examples/aclImdb_v1.tar.gz
++examples/aclImdb/*
++examples/PetImages
++examples/k..."
+rstudio_tensorflow.rstudio.com_bug_commits,Rendering / Conversion,0663286fbb,2022-06-06T16:37:01Z,Tomasz Kalinowski,fix render issues,7,"---FILE: .Rprofile---
+@@ -32,7 +32,15 @@ options(
+ setHook(""plot.new"", function() par(las = 1))
+ 
+ setHook(packageEvent(""reticulate"", ""onLoad""),
+-        function(...)
++        function(...) {
+           try(reticulate::..."
+rstudio_tensorflow.rstudio.com_bug_commits,Rendering / Conversion,b7a14ed927,2022-09-21T00:10:49Z,Tomasz Kalinowski,render basic regression tutorial,7,"---FILE: _freeze/tutorials/keras/regression/execute-results/html.json---
+@@ -1,7 +1,7 @@
+ {
+-  ""hash"": ""e5ebbb0990d86477362b0f13eb0f41ed"",
++  ""hash"": ""03312b5c7c508c46f11ebfc9a9aa3e1e"",
+   ""result"": {
+-    ""markdown"": ""-..."
+rstudio_tensorflow.rstudio.com_bug_commits,Data / Input Handling,5416480f16,2022-11-21T17:39:45Z,Yuan Tang,"Fix Quarto metadata and index
+
+Signed-off-by: Yuan Tang <terrytangyuan@gmail.com>",6,"---FILE: _freeze/examples/deep_dream/execute-results/html.json---
+@@ -1,10 +1,8 @@
+ {
+   ""hash"": ""45184354e80bdea8cc680942ef65e7e5"",
+   ""result"": {
+-    ""markdown"": ""--- title: Deep Dream authors:    - \""[fchollet](https..."
+rstudio_tensorflow.rstudio.com_bug_commits,Data / Input Handling,f72b3e76ae,2022-08-02T14:48:40Z,Tomasz Kalinowski,fix publish.yml,3,"---FILE: .github/workflows/publish.yml---
+@@ -2,9 +2,9 @@ on:
+   workflow_dispatch:
+   push:
+     branches: main
+-  paths:
+-    - '**.qmd'
+-    - '_freeze'
++    paths:
++      - '**.qmd'
++      - '_freeze'
+ 
+ name: Quarto..."
+rstudio_tensorflow.rstudio.com_bug_commits,Data / Input Handling,b0ad2d7ee4,2022-07-15T20:17:26Z,Daniel Falbel,fix toggling and added a small footer.,3,"---FILE: _quarto.yml---
+@@ -27,10 +27,17 @@ website:
+   page-navigation: true
+   reader-mode: true
+   favicon: ""images/favicon/icon.png""
++  page-footer:
++    left: |
++      Proudly supported by
++      [![](https://www.rs..."
+rstudio_tensorflow.rstudio.com_bug_commits,Documentation / Formatting,ed40664b5d,2022-07-15T12:24:57Z,Tomasz Kalinowski,fix reference links,6,"---FILE: _quarto.yml---
+@@ -33,22 +33,17 @@ website:
+     background: ""#E83E18""
+     file: index.qmd
+     left:
+-      - { text: Install    ,href: install/ }
++      - { text: Install    ,href: install/   }
+       - { tex..."
+rstudio_tensorflow.rstudio.com_bug_commits,Documentation / Formatting,3c3848211a,2022-09-20T12:47:16Z,Alex Linneman,Fix network typo,4,"---FILE: tutorials/keras/regression.qmd---
+@@ -1,6 +1,6 @@
+ ---
+ title: Basic Regression
+-description: Train a neural netowrk to predict a continous value.
++description: Train a neural network to predict a continous valu..."
+rstudio_tensorflow.rstudio.com_bug_commits,Implementation / Logic,079fdeefa2,2022-07-15T09:16:41Z,Tomasz Kalinowski,fix reference builds,6,"---FILE: _quarto.yml---
+@@ -6,7 +6,7 @@ project:
+     - ""!v1/**""
+     - ""examples/**""
+     - ""!examples/_check/**""
+-    - ""packages/**/**.md""
++    - ""reference/**/**.md""
+ 
+   # pre-render: spin-examples.R
+   preview:
+@@ ..."
+rstudio_tensorflow.rstudio.com_bug_commits,Implementation / Logic,b10321bc71,2022-07-14T14:58:28Z,Tomasz Kalinowski,fix render,6,"---FILE: _quarto.yml---
+@@ -60,11 +60,12 @@ website:
+       style: ""docked""
+       contents:
+         - install/index.qmd
++        - install/custom.qmd
+         - section: GPU
++          href: install/gpu/index.qmd
+     ..."
